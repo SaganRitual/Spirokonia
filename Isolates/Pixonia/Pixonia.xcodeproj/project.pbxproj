@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D44BF4052777D91200E2FCE1 /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4032777D91200E2FCE1 /* PixoniaScene.swift */; };
+		D44BF4062777D91200E2FCE1 /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4032777D91200E2FCE1 /* PixoniaScene.swift */; };
+		D44BF4072777D91200E2FCE1 /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4042777D91200E2FCE1 /* PixoniaView.swift */; };
+		D44BF4082777D91200E2FCE1 /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4042777D91200E2FCE1 /* PixoniaView.swift */; };
+		D44BF4682777DAFE00E2FCE1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4672777DAFE00E2FCE1 /* AppState.swift */; };
+		D44BF4692777DAFE00E2FCE1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4672777DAFE00E2FCE1 /* AppState.swift */; };
+		D44BF5602777E20A00E2FCE1 /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF55E2777E20A00E2FCE1 /* SpritePool.swift */; };
+		D44BF5612777E20A00E2FCE1 /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF55E2777E20A00E2FCE1 /* SpritePool.swift */; };
+		D44BF5622777E20A00E2FCE1 /* SpritePool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44BF55F2777E20A00E2FCE1 /* SpritePool.xcassets */; };
+		D44BF5632777E20A00E2FCE1 /* SpritePool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44BF55F2777E20A00E2FCE1 /* SpritePool.xcassets */; };
+		D44BF5652777E21D00E2FCE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5642777E21D00E2FCE1 /* Extensions.swift */; };
+		D44BF5662777E21D00E2FCE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5642777E21D00E2FCE1 /* Extensions.swift */; };
+		D44BF5682777E22400E2FCE1 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5672777E22400E2FCE1 /* YAColor.swift */; };
+		D44BF5692777E22400E2FCE1 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5672777E22400E2FCE1 /* YAColor.swift */; };
+		D44BF56B2777E23200E2FCE1 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF56A2777E23200E2FCE1 /* Overload2D.swift */; };
+		D44BF56C2777E23200E2FCE1 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF56A2777E23200E2FCE1 /* Overload2D.swift */; };
+		D4BFF54C2777D16500A7C66C /* PixoniaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFF53C2777D16300A7C66C /* PixoniaApp.swift */; };
+		D4BFF54D2777D16500A7C66C /* PixoniaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFF53C2777D16300A7C66C /* PixoniaApp.swift */; };
+		D4BFF5502777D16500A7C66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BFF53E2777D16500A7C66C /* Assets.xcassets */; };
+		D4BFF5512777D16500A7C66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BFF53E2777D16500A7C66C /* Assets.xcassets */; };
+		D4BFF55B2777D19000A7C66C /* PixoniaAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFF55A2777D19000A7C66C /* PixoniaAppView.swift */; };
+		D4BFF55C2777D19000A7C66C /* PixoniaAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFF55A2777D19000A7C66C /* PixoniaAppView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D44BF4032777D91200E2FCE1 /* PixoniaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixoniaScene.swift; path = ../../../Spirokon/Shared/PixoniaScene.swift; sourceTree = "<group>"; };
+		D44BF4042777D91200E2FCE1 /* PixoniaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixoniaView.swift; path = ../../../Spirokon/Shared/PixoniaView.swift; sourceTree = "<group>"; };
+		D44BF4672777DAFE00E2FCE1 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppState.swift; path = ../../../Spirokon/Shared/AppState.swift; sourceTree = "<group>"; };
+		D44BF55E2777E20A00E2FCE1 /* SpritePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpritePool.swift; path = ../../../Spirokon/Shared/SpriteKit/SpritePool.swift; sourceTree = "<group>"; };
+		D44BF55F2777E20A00E2FCE1 /* SpritePool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = SpritePool.xcassets; path = ../../../Spirokon/Shared/SpriteKit/SpritePool.xcassets; sourceTree = "<group>"; };
+		D44BF5642777E21D00E2FCE1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../Spirokon/Shared/Primitives/Extensions.swift; sourceTree = "<group>"; };
+		D44BF5672777E22400E2FCE1 /* YAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YAColor.swift; path = ../../../Spirokon/Shared/Primitives/YAColor.swift; sourceTree = "<group>"; };
+		D44BF56A2777E23200E2FCE1 /* Overload2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Overload2D.swift; path = ../../../Spirokon/Shared/Primitives/Overload2D.swift; sourceTree = "<group>"; };
+		D4BFF53C2777D16300A7C66C /* PixoniaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixoniaApp.swift; sourceTree = "<group>"; };
+		D4BFF53E2777D16500A7C66C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4BFF5432777D16500A7C66C /* Pixonia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixonia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BFF5492777D16500A7C66C /* Pixonia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixonia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BFF54B2777D16500A7C66C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D4BFF55A2777D19000A7C66C /* PixoniaAppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixoniaAppView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4BFF5402777D16500A7C66C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4BFF5462777D16500A7C66C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4BFF5362777D16300A7C66C = {
+			isa = PBXGroup;
+			children = (
+				D4BFF53B2777D16300A7C66C /* Shared */,
+				D4BFF54A2777D16500A7C66C /* macOS */,
+				D4BFF5442777D16500A7C66C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4BFF53B2777D16300A7C66C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D4BFF53C2777D16300A7C66C /* PixoniaApp.swift */,
+				D44BF4672777DAFE00E2FCE1 /* AppState.swift */,
+				D44BF5642777E21D00E2FCE1 /* Extensions.swift */,
+				D44BF56A2777E23200E2FCE1 /* Overload2D.swift */,
+				D4BFF55A2777D19000A7C66C /* PixoniaAppView.swift */,
+				D44BF4032777D91200E2FCE1 /* PixoniaScene.swift */,
+				D44BF4042777D91200E2FCE1 /* PixoniaView.swift */,
+				D44BF55F2777E20A00E2FCE1 /* SpritePool.xcassets */,
+				D44BF55E2777E20A00E2FCE1 /* SpritePool.swift */,
+				D44BF5672777E22400E2FCE1 /* YAColor.swift */,
+				D4BFF53E2777D16500A7C66C /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D4BFF5442777D16500A7C66C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4BFF5432777D16500A7C66C /* Pixonia.app */,
+				D4BFF5492777D16500A7C66C /* Pixonia.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4BFF54A2777D16500A7C66C /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D4BFF54B2777D16500A7C66C /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4BFF5422777D16500A7C66C /* Pixonia (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4BFF5542777D16500A7C66C /* Build configuration list for PBXNativeTarget "Pixonia (iOS)" */;
+			buildPhases = (
+				D4BFF53F2777D16500A7C66C /* Sources */,
+				D4BFF5402777D16500A7C66C /* Frameworks */,
+				D4BFF5412777D16500A7C66C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pixonia (iOS)";
+			productName = "Pixonia (iOS)";
+			productReference = D4BFF5432777D16500A7C66C /* Pixonia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4BFF5482777D16500A7C66C /* Pixonia (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4BFF5572777D16500A7C66C /* Build configuration list for PBXNativeTarget "Pixonia (macOS)" */;
+			buildPhases = (
+				D4BFF5452777D16500A7C66C /* Sources */,
+				D4BFF5462777D16500A7C66C /* Frameworks */,
+				D4BFF5472777D16500A7C66C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pixonia (macOS)";
+			productName = "Pixonia (macOS)";
+			productReference = D4BFF5492777D16500A7C66C /* Pixonia.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4BFF5372777D16300A7C66C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					D4BFF5422777D16500A7C66C = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D4BFF5482777D16500A7C66C = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = D4BFF53A2777D16300A7C66C /* Build configuration list for PBXProject "Pixonia" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4BFF5362777D16300A7C66C;
+			productRefGroup = D4BFF5442777D16500A7C66C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4BFF5422777D16500A7C66C /* Pixonia (iOS) */,
+				D4BFF5482777D16500A7C66C /* Pixonia (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4BFF5412777D16500A7C66C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44BF5622777E20A00E2FCE1 /* SpritePool.xcassets in Resources */,
+				D4BFF5502777D16500A7C66C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4BFF5472777D16500A7C66C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44BF5632777E20A00E2FCE1 /* SpritePool.xcassets in Resources */,
+				D4BFF5512777D16500A7C66C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4BFF53F2777D16500A7C66C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4BFF55B2777D19000A7C66C /* PixoniaAppView.swift in Sources */,
+				D44BF5682777E22400E2FCE1 /* YAColor.swift in Sources */,
+				D44BF4682777DAFE00E2FCE1 /* AppState.swift in Sources */,
+				D44BF5602777E20A00E2FCE1 /* SpritePool.swift in Sources */,
+				D44BF4072777D91200E2FCE1 /* PixoniaView.swift in Sources */,
+				D4BFF54C2777D16500A7C66C /* PixoniaApp.swift in Sources */,
+				D44BF4052777D91200E2FCE1 /* PixoniaScene.swift in Sources */,
+				D44BF56B2777E23200E2FCE1 /* Overload2D.swift in Sources */,
+				D44BF5652777E21D00E2FCE1 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4BFF5452777D16500A7C66C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4BFF55C2777D19000A7C66C /* PixoniaAppView.swift in Sources */,
+				D44BF5692777E22400E2FCE1 /* YAColor.swift in Sources */,
+				D44BF4692777DAFE00E2FCE1 /* AppState.swift in Sources */,
+				D44BF5612777E20A00E2FCE1 /* SpritePool.swift in Sources */,
+				D44BF4082777D91200E2FCE1 /* PixoniaView.swift in Sources */,
+				D4BFF54D2777D16500A7C66C /* PixoniaApp.swift in Sources */,
+				D44BF4062777D91200E2FCE1 /* PixoniaScene.swift in Sources */,
+				D44BF56C2777E23200E2FCE1 /* Overload2D.swift in Sources */,
+				D44BF5662777E21D00E2FCE1 /* Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D4BFF5522777D16500A7C66C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D4BFF5532777D16500A7C66C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D4BFF5552777D16500A7C66C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Pixonia;
+				PRODUCT_NAME = Pixonia;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4BFF5562777D16500A7C66C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Pixonia;
+				PRODUCT_NAME = Pixonia;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4BFF5582777D16500A7C66C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Pixonia;
+				PRODUCT_NAME = Pixonia;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D4BFF5592777D16500A7C66C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Pixonia;
+				PRODUCT_NAME = Pixonia;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4BFF53A2777D16300A7C66C /* Build configuration list for PBXProject "Pixonia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4BFF5522777D16500A7C66C /* Debug */,
+				D4BFF5532777D16500A7C66C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4BFF5542777D16500A7C66C /* Build configuration list for PBXNativeTarget "Pixonia (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4BFF5552777D16500A7C66C /* Debug */,
+				D4BFF5562777D16500A7C66C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4BFF5572777D16500A7C66C /* Build configuration list for PBXNativeTarget "Pixonia (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4BFF5582777D16500A7C66C /* Debug */,
+				D4BFF5592777D16500A7C66C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4BFF5372777D16300A7C66C /* Project object */;
+}

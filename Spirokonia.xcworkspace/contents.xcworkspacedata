@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Spirokon/Spirokon.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Isolates/Pixonia/Pixonia.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Isolates/RollModeView/RollModeView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Isolates/TogglesView/TogglesView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Isolates/TumblerSelectorView/TumblerSelectorView.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Isolates/TumblerSettingsSlider/TumblerSettingsSlider.xcodeproj">
+   </FileRef>
+</Workspace>

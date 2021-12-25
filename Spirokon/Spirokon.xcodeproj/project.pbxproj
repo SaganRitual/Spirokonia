@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D44BF3EC2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */; };
+		D44BF3ED2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */; };
+		D44BF3EE2777D8D900E2FCE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */; };
+		D44BF3EF2777D8D900E2FCE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */; };
+		D44BF3F02777D8D900E2FCE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */; };
+		D44BF3F12777D8D900E2FCE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */; };
+		D44BF3FB2777D8E100E2FCE1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FA2777D8E100E2FCE1 /* AppState.swift */; };
+		D44BF3FC2777D8E100E2FCE1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FA2777D8E100E2FCE1 /* AppState.swift */; };
+		D44BF3FF2777D90400E2FCE1 /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */; };
+		D44BF4002777D90400E2FCE1 /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */; };
+		D44BF4012777D90400E2FCE1 /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */; };
+		D44BF4022777D90400E2FCE1 /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */; };
+		D44BF4492777D95000E2FCE1 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4422777D95000E2FCE1 /* YAColor.swift */; };
+		D44BF44A2777D95000E2FCE1 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4422777D95000E2FCE1 /* YAColor.swift */; };
+		D44BF44B2777D95000E2FCE1 /* Easer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4432777D95000E2FCE1 /* Easer.swift */; };
+		D44BF44C2777D95000E2FCE1 /* Easer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4432777D95000E2FCE1 /* Easer.swift */; };
+		D44BF44D2777D95000E2FCE1 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4442777D95000E2FCE1 /* GridPoint.swift */; };
+		D44BF44E2777D95000E2FCE1 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4442777D95000E2FCE1 /* GridPoint.swift */; };
+		D44BF44F2777D95000E2FCE1 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4452777D95000E2FCE1 /* Overload2D.swift */; };
+		D44BF4502777D95000E2FCE1 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4452777D95000E2FCE1 /* Overload2D.swift */; };
+		D44BF4512777D95000E2FCE1 /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4462777D95000E2FCE1 /* UnitCircle.swift */; };
+		D44BF4522777D95000E2FCE1 /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4462777D95000E2FCE1 /* UnitCircle.swift */; };
+		D44BF4532777D95000E2FCE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4472777D95000E2FCE1 /* Extensions.swift */; };
+		D44BF4542777D95000E2FCE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4472777D95000E2FCE1 /* Extensions.swift */; };
+		D44BF4552777D95000E2FCE1 /* Cbuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4482777D95000E2FCE1 /* Cbuffer.swift */; };
+		D44BF4562777D95000E2FCE1 /* Cbuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4482777D95000E2FCE1 /* Cbuffer.swift */; };
+		D44BF45A2777D97000E2FCE1 /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4582777D97000E2FCE1 /* SpritePool.swift */; };
+		D44BF45B2777D97000E2FCE1 /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4582777D97000E2FCE1 /* SpritePool.swift */; };
+		D44BF45C2777D97000E2FCE1 /* SpritePool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44BF4592777D97000E2FCE1 /* SpritePool.xcassets */; };
+		D44BF45D2777D97000E2FCE1 /* SpritePool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44BF4592777D97000E2FCE1 /* SpritePool.xcassets */; };
+		D44BF45F2777D9B500E2FCE1 /* RollModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */; };
+		D44BF4602777D9B500E2FCE1 /* RollModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */; };
+		D44BF4FF2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */; };
+		D44BF5002777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */; };
+		D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */; };
+		D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */; };
+		D44BF5922777E32700E2FCE1 /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5912777E32700E2FCE1 /* TogglesView.swift */; };
+		D44BF5932777E32700E2FCE1 /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5912777E32700E2FCE1 /* TogglesView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirokonApp.swift; sourceTree = "<group>"; };
+		D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D44BF3E32777D8D900E2FCE1 /* Spirokon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spirokon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44BF3E92777D8D900E2FCE1 /* Spirokon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spirokon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44BF3EB2777D8D900E2FCE1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D44BF3FA2777D8E100E2FCE1 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixoniaScene.swift; sourceTree = "<group>"; };
+		D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixoniaView.swift; sourceTree = "<group>"; };
+		D44BF4422777D95000E2FCE1 /* YAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAColor.swift; sourceTree = "<group>"; };
+		D44BF4432777D95000E2FCE1 /* Easer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easer.swift; sourceTree = "<group>"; };
+		D44BF4442777D95000E2FCE1 /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
+		D44BF4452777D95000E2FCE1 /* Overload2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overload2D.swift; sourceTree = "<group>"; };
+		D44BF4462777D95000E2FCE1 /* UnitCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCircle.swift; sourceTree = "<group>"; };
+		D44BF4472777D95000E2FCE1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D44BF4482777D95000E2FCE1 /* Cbuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cbuffer.swift; sourceTree = "<group>"; };
+		D44BF4582777D97000E2FCE1 /* SpritePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpritePool.swift; sourceTree = "<group>"; };
+		D44BF4592777D97000E2FCE1 /* SpritePool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpritePool.xcassets; sourceTree = "<group>"; };
+		D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollModePicker.swift; sourceTree = "<group>"; };
+		D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsSlider.swift; sourceTree = "<group>"; };
+		D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSelectorView.swift; sourceTree = "<group>"; };
+		D44BF5912777E32700E2FCE1 /* TogglesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TogglesView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D44BF3E02777D8D900E2FCE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44BF3E62777D8D900E2FCE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D44BF3D62777D8D800E2FCE1 = {
+			isa = PBXGroup;
+			children = (
+				D44BF3DB2777D8D800E2FCE1 /* Shared */,
+				D44BF3EA2777D8D900E2FCE1 /* macOS */,
+				D44BF3E42777D8D900E2FCE1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D44BF3DB2777D8D800E2FCE1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
+				D44BF3FA2777D8E100E2FCE1 /* AppState.swift */,
+				D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */,
+				D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */,
+				D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */,
+				D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */,
+				D44BF5912777E32700E2FCE1 /* TogglesView.swift */,
+				D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */,
+				D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */,
+				D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */,
+				D44BF4412777D94000E2FCE1 /* Primitives */,
+				D44BF4572777D96200E2FCE1 /* SpriteKit */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D44BF3E42777D8D900E2FCE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D44BF3E32777D8D900E2FCE1 /* Spirokon.app */,
+				D44BF3E92777D8D900E2FCE1 /* Spirokon.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D44BF3EA2777D8D900E2FCE1 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D44BF3EB2777D8D900E2FCE1 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		D44BF4412777D94000E2FCE1 /* Primitives */ = {
+			isa = PBXGroup;
+			children = (
+				D44BF4482777D95000E2FCE1 /* Cbuffer.swift */,
+				D44BF4432777D95000E2FCE1 /* Easer.swift */,
+				D44BF4472777D95000E2FCE1 /* Extensions.swift */,
+				D44BF4442777D95000E2FCE1 /* GridPoint.swift */,
+				D44BF4452777D95000E2FCE1 /* Overload2D.swift */,
+				D44BF4462777D95000E2FCE1 /* UnitCircle.swift */,
+				D44BF4422777D95000E2FCE1 /* YAColor.swift */,
+			);
+			path = Primitives;
+			sourceTree = "<group>";
+		};
+		D44BF4572777D96200E2FCE1 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				D44BF4592777D97000E2FCE1 /* SpritePool.xcassets */,
+				D44BF4582777D97000E2FCE1 /* SpritePool.swift */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D44BF3E22777D8D900E2FCE1 /* Spirokon (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44BF3F42777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "Spirokon (iOS)" */;
+			buildPhases = (
+				D44BF3DF2777D8D900E2FCE1 /* Sources */,
+				D44BF3E02777D8D900E2FCE1 /* Frameworks */,
+				D44BF3E12777D8D900E2FCE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Spirokon (iOS)";
+			productName = "Spirokon (iOS)";
+			productReference = D44BF3E32777D8D900E2FCE1 /* Spirokon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D44BF3E82777D8D900E2FCE1 /* Spirokon (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44BF3F72777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "Spirokon (macOS)" */;
+			buildPhases = (
+				D44BF3E52777D8D900E2FCE1 /* Sources */,
+				D44BF3E62777D8D900E2FCE1 /* Frameworks */,
+				D44BF3E72777D8D900E2FCE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Spirokon (macOS)";
+			productName = "Spirokon (macOS)";
+			productReference = D44BF3E92777D8D900E2FCE1 /* Spirokon.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D44BF3D72777D8D800E2FCE1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					D44BF3E22777D8D900E2FCE1 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D44BF3E82777D8D900E2FCE1 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = D44BF3DA2777D8D800E2FCE1 /* Build configuration list for PBXProject "Spirokon" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D44BF3D62777D8D800E2FCE1;
+			productRefGroup = D44BF3E42777D8D900E2FCE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D44BF3E22777D8D900E2FCE1 /* Spirokon (iOS) */,
+				D44BF3E82777D8D900E2FCE1 /* Spirokon (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D44BF3E12777D8D900E2FCE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44BF45C2777D97000E2FCE1 /* SpritePool.xcassets in Resources */,
+				D44BF3F02777D8D900E2FCE1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44BF3E72777D8D900E2FCE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44BF45D2777D97000E2FCE1 /* SpritePool.xcassets in Resources */,
+				D44BF3F12777D8D900E2FCE1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D44BF3DF2777D8D900E2FCE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44BF3FB2777D8E100E2FCE1 /* AppState.swift in Sources */,
+				D44BF4552777D95000E2FCE1 /* Cbuffer.swift in Sources */,
+				D44BF4512777D95000E2FCE1 /* UnitCircle.swift in Sources */,
+				D44BF45F2777D9B500E2FCE1 /* RollModePicker.swift in Sources */,
+				D44BF4492777D95000E2FCE1 /* YAColor.swift in Sources */,
+				D44BF44D2777D95000E2FCE1 /* GridPoint.swift in Sources */,
+				D44BF3EE2777D8D900E2FCE1 /* ContentView.swift in Sources */,
+				D44BF3EC2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
+				D44BF3FF2777D90400E2FCE1 /* PixoniaScene.swift in Sources */,
+				D44BF44B2777D95000E2FCE1 /* Easer.swift in Sources */,
+				D44BF44F2777D95000E2FCE1 /* Overload2D.swift in Sources */,
+				D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
+				D44BF4532777D95000E2FCE1 /* Extensions.swift in Sources */,
+				D44BF5922777E32700E2FCE1 /* TogglesView.swift in Sources */,
+				D44BF4012777D90400E2FCE1 /* PixoniaView.swift in Sources */,
+				D44BF45A2777D97000E2FCE1 /* SpritePool.swift in Sources */,
+				D44BF4FF2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44BF3E52777D8D900E2FCE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44BF3FC2777D8E100E2FCE1 /* AppState.swift in Sources */,
+				D44BF4562777D95000E2FCE1 /* Cbuffer.swift in Sources */,
+				D44BF4522777D95000E2FCE1 /* UnitCircle.swift in Sources */,
+				D44BF4602777D9B500E2FCE1 /* RollModePicker.swift in Sources */,
+				D44BF44A2777D95000E2FCE1 /* YAColor.swift in Sources */,
+				D44BF44E2777D95000E2FCE1 /* GridPoint.swift in Sources */,
+				D44BF3EF2777D8D900E2FCE1 /* ContentView.swift in Sources */,
+				D44BF3ED2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
+				D44BF4002777D90400E2FCE1 /* PixoniaScene.swift in Sources */,
+				D44BF44C2777D95000E2FCE1 /* Easer.swift in Sources */,
+				D44BF4502777D95000E2FCE1 /* Overload2D.swift in Sources */,
+				D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
+				D44BF4542777D95000E2FCE1 /* Extensions.swift in Sources */,
+				D44BF5932777E32700E2FCE1 /* TogglesView.swift in Sources */,
+				D44BF4022777D90400E2FCE1 /* PixoniaView.swift in Sources */,
+				D44BF45B2777D97000E2FCE1 /* SpritePool.swift in Sources */,
+				D44BF5002777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D44BF3F22777D8D900E2FCE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D44BF3F32777D8D900E2FCE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D44BF3F52777D8D900E2FCE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Spirokon;
+				PRODUCT_NAME = Spirokon;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D44BF3F62777D8D900E2FCE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Spirokon;
+				PRODUCT_NAME = Spirokon;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D44BF3F82777D8D900E2FCE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Spirokon;
+				PRODUCT_NAME = Spirokon;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D44BF3F92777D8D900E2FCE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Spirokon;
+				PRODUCT_NAME = Spirokon;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D44BF3DA2777D8D800E2FCE1 /* Build configuration list for PBXProject "Spirokon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44BF3F22777D8D900E2FCE1 /* Debug */,
+				D44BF3F32777D8D900E2FCE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44BF3F42777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "Spirokon (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44BF3F52777D8D900E2FCE1 /* Debug */,
+				D44BF3F62777D8D900E2FCE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44BF3F72777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "Spirokon (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44BF3F82777D8D900E2FCE1 /* Debug */,
+				D44BF3F92777D8D900E2FCE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D44BF3D72777D8D800E2FCE1 /* Project object */;
+}
