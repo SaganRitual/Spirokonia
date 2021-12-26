@@ -5,7 +5,8 @@ class SpritePool {
     static let lines = SpritePool("Markers", "line-1024-10")
     static let plainRings = SpritePool("Markers", "ring-1024-4")
     static let spokeRingsLarge = SpritePool("Markers", "spoke-ring-1024-4")
-    static let spokeRingsSmall = SpritePool("Markers", "spoke-ring-512-8")
+    static let spokeRingsMedium = SpritePool("Markers", "spoke-ring-512-8")
+    static let spokeRingsSmall = SpritePool("Markers", "spoke-ring-512-16")
 
     let atlas: SKTextureAtlas
     var parkedDrones: [SKSpriteNode]
