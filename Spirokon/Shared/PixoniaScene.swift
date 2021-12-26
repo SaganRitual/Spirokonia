@@ -80,7 +80,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     override func update(_ currentTime: TimeInterval) {
         let duration: TimeInterval = 30.0
         defer { previousTime = currentTime }
-        guard let previousTime = previousTime else { return }
+//        guard let previousTime = previousTime else { return }
 
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 5, height: 5)

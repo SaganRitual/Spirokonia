@@ -45,6 +45,12 @@
 		D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */; };
 		D44BF5922777E32700E2FCE1 /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5912777E32700E2FCE1 /* TogglesView.swift */; };
 		D44BF5932777E32700E2FCE1 /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5912777E32700E2FCE1 /* TogglesView.swift */; };
+		D44BF5A22777E65F00E2FCE1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D44BF59C2777E65F00E2FCE1 /* README.md */; };
+		D44BF5A32777E65F00E2FCE1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D44BF59D2777E65F00E2FCE1 /* .gitignore */; };
+		D44BF5A42777E65F00E2FCE1 /* .overcommit.yml in Resources */ = {isa = PBXBuildFile; fileRef = D44BF59E2777E65F00E2FCE1 /* .overcommit.yml */; };
+		D44BF5A52777E65F00E2FCE1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D44BF59F2777E65F00E2FCE1 /* LICENSE */; };
+		D44BF5AA2777E8FF00E2FCE1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */; };
+		D44BF5AB2777E8FF00E2FCE1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +76,12 @@
 		D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsSlider.swift; sourceTree = "<group>"; };
 		D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSelectorView.swift; sourceTree = "<group>"; };
 		D44BF5912777E32700E2FCE1 /* TogglesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TogglesView.swift; sourceTree = "<group>"; };
+		D44BF59C2777E65F00E2FCE1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		D44BF59D2777E65F00E2FCE1 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+		D44BF59E2777E65F00E2FCE1 /* .overcommit.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; name = .overcommit.yml; path = ../.overcommit.yml; sourceTree = "<group>"; };
+		D44BF59F2777E65F00E2FCE1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +105,12 @@
 		D44BF3D62777D8D800E2FCE1 = {
 			isa = PBXGroup;
 			children = (
+				D44BF59D2777E65F00E2FCE1 /* .gitignore */,
+				D44BF59E2777E65F00E2FCE1 /* .overcommit.yml */,
+				D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */,
+				D44BF59F2777E65F00E2FCE1 /* LICENSE */,
+				D44BF59C2777E65F00E2FCE1 /* README.md */,
+				D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */,
 				D44BF3DB2777D8D800E2FCE1 /* Shared */,
 				D44BF3EA2777D8D900E2FCE1 /* macOS */,
 				D44BF3E42777D8D900E2FCE1 /* Products */,
@@ -102,12 +120,12 @@
 		D44BF3DB2777D8D800E2FCE1 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
 				D44BF3FA2777D8E100E2FCE1 /* AppState.swift */,
 				D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */,
 				D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */,
 				D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */,
 				D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */,
+				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
 				D44BF5912777E32700E2FCE1 /* TogglesView.swift */,
 				D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */,
 				D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */,
@@ -165,6 +183,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D44BF3F42777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "Spirokon (iOS)" */;
 			buildPhases = (
+				D44BF5A62777E73700E2FCE1 /* ShellScript */,
 				D44BF3DF2777D8D900E2FCE1 /* Sources */,
 				D44BF3E02777D8D900E2FCE1 /* Frameworks */,
 				D44BF3E12777D8D900E2FCE1 /* Resources */,
@@ -185,6 +204,7 @@
 				D44BF3E52777D8D900E2FCE1 /* Sources */,
 				D44BF3E62777D8D900E2FCE1 /* Frameworks */,
 				D44BF3E72777D8D900E2FCE1 /* Resources */,
+				D44BF5A72777E77400E2FCE1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -238,6 +258,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44BF45C2777D97000E2FCE1 /* SpritePool.xcassets in Resources */,
+				D44BF5AB2777E8FF00E2FCE1 /* swiftlint.sh in Resources */,
+				D44BF5A52777E65F00E2FCE1 /* LICENSE in Resources */,
+				D44BF5A22777E65F00E2FCE1 /* README.md in Resources */,
+				D44BF5AA2777E8FF00E2FCE1 /* .swiftlint.yml in Resources */,
+				D44BF5A32777E65F00E2FCE1 /* .gitignore in Resources */,
+				D44BF5A42777E65F00E2FCE1 /* .overcommit.yml in Resources */,
 				D44BF3F02777D8D900E2FCE1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +278,43 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D44BF5A62777E73700E2FCE1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./swiftlint.sh\n";
+		};
+		D44BF5A72777E77400E2FCE1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./swiftlint.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D44BF3DF2777D8D900E2FCE1 /* Sources */ = {
@@ -350,8 +413,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_PEDANTIC = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -361,6 +426,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 			};
 			name = Debug;
 		};
@@ -403,8 +469,10 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_PEDANTIC = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
@@ -413,6 +481,7 @@
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 			};
 			name = Release;
 		};

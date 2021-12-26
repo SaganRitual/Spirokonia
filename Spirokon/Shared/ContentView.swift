@@ -84,7 +84,10 @@ struct ContentView: View {
                 }
                 .navigationTitle("Settings")
                 .padding([.leading, .trailing])
-            }.navigationViewStyle(StackNavigationViewStyle())
+            }
+            #if os(iOS)
+            .navigationViewStyle(StackNavigationViewStyle())
+            #endif
 
             PixoniaView(appState: appState, scene: pixoniaScene)
         }
