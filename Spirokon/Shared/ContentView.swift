@@ -47,9 +47,9 @@ struct ContentView: View {
 
                     Section {
                         HStack {
-                            RollModePicker(ring: .innerRing, rollMode: $appState.innerRingRollMode)
+                            RollModePicker(ring: .innerRing(1), rollMode: $appState.innerRingRollMode)
                             TogglesView(
-                                ring: .innerRing, drawDots: $appState.drawDotsInner,
+                                ring: .innerRing(1), drawDots: $appState.drawDotsInner,
                                 showRing: $appState.showRingInner
                             )
                         }

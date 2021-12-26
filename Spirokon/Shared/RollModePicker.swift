@@ -7,7 +7,8 @@ struct RollModePicker: View {
     @Binding var rollMode: AppState.RollMode
 
     func getRollModes() -> [AppState.RollMode] {
-        ring == .outerRing ? [.fullStop, .normal] : [.fullStop, .compensate, .normal]
+        if case AppState.Ring.outerRing = ring { return [.fullStop, .normal] }
+        else                                   { return [.fullStop, .compensate, .normal] }
     }
 
     func makePickerSegment(for mode: AppState.RollMode) -> some View {

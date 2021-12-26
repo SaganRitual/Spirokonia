@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D408C33C277818CB0053B5F4 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C33B277818CB0053B5F4 /* Pixie.swift */; };
+		D408C33D277818CB0053B5F4 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C33B277818CB0053B5F4 /* Pixie.swift */; };
 		D44BF3EC2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */; };
 		D44BF3ED2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */; };
 		D44BF3EE2777D8D900E2FCE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */; };
@@ -54,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D408C33B277818CB0053B5F4 /* Pixie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixie.swift; sourceTree = "<group>"; };
 		D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirokonApp.swift; sourceTree = "<group>"; };
 		D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +125,7 @@
 			children = (
 				D44BF3FA2777D8E100E2FCE1 /* AppState.swift */,
 				D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */,
+				D408C33B277818CB0053B5F4 /* Pixie.swift */,
 				D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */,
 				D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */,
 				D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */,
@@ -328,6 +332,7 @@
 				D44BF4492777D95000E2FCE1 /* YAColor.swift in Sources */,
 				D44BF44D2777D95000E2FCE1 /* GridPoint.swift in Sources */,
 				D44BF3EE2777D8D900E2FCE1 /* ContentView.swift in Sources */,
+				D408C33C277818CB0053B5F4 /* Pixie.swift in Sources */,
 				D44BF3EC2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
 				D44BF3FF2777D90400E2FCE1 /* PixoniaScene.swift in Sources */,
 				D44BF44B2777D95000E2FCE1 /* Easer.swift in Sources */,
@@ -352,6 +357,7 @@
 				D44BF44A2777D95000E2FCE1 /* YAColor.swift in Sources */,
 				D44BF44E2777D95000E2FCE1 /* GridPoint.swift in Sources */,
 				D44BF3EF2777D8D900E2FCE1 /* ContentView.swift in Sources */,
+				D408C33D277818CB0053B5F4 /* Pixie.swift in Sources */,
 				D44BF3ED2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
 				D44BF4002777D90400E2FCE1 /* PixoniaScene.swift in Sources */,
 				D44BF44C2777D95000E2FCE1 /* Easer.swift in Sources */,

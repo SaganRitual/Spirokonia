@@ -8,7 +8,7 @@ class AppState: ObservableObject {
     }
 
     enum Ring {
-        case innerRing, outerRing
+        case innerRing(Int), outerRing
     }
 
     enum ToggleType {

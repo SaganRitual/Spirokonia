@@ -9,7 +9,8 @@ struct TogglesView: View {
     @Binding var showRing: Bool
 
     func getToggles() -> [AppState.ToggleType] {
-        ring == .outerRing ? [.showRing] : [.showRing, .drawDots]
+        if case AppState.Ring.outerRing = ring { return [.showRing] }
+        else                                   { return [.showRing, .drawDots] }
     }
 
     func makeToggle(_ toggleType: AppState.ToggleType) -> some View {
