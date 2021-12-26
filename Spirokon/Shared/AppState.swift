@@ -16,14 +16,13 @@ class AppState: ObservableObject {
     }
 
     @Published var drawDotsInner = true
-    @Published var drawDotsOuter = true
     @Published var showRingInner = true
     @Published var showRingOuter = true
 
     @Published var innerRingRollMode = RollMode.normal
     @Published var outerRingRollMode = RollMode.normal
 
-    @Published var cycleSpeed = 1.0
+    @Published var cycleSpeed = 0.1
     @Published var outerRingRadius = 1.0
 
     @Published var colorSpeed = 1.0
@@ -40,5 +39,5 @@ class AppState: ObservableObject {
     static let trailDecayRange = 0.0...60.0
     static let unitRange = 0.0...1.0
 
-    static let showTextLabels = false
+    static let showTextLabels = true
 }

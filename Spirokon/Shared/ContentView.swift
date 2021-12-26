@@ -25,7 +25,7 @@ struct ContentView: View {
                         HStack {
                             RollModePicker(ring: .outerRing, rollMode: $appState.outerRingRollMode)
                             TogglesView(
-                                ring: .outerRing, drawDots: $appState.drawDotsOuter,
+                                ring: .outerRing, drawDots: Binding(get: { false }, set: { _ in }),
                                 showRing: $appState.showRingOuter
                             )
                         }

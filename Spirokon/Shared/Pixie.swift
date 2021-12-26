@@ -1,12 +1,22 @@
 // We are a way for the cosmos to know itself. -- C. Sagan
 
+import Combine
 import SpriteKit
 import SwiftUI
 
 class Pixie {
-    var radius = 0.0
     let ring: AppState.Ring
     let sprite: SKSpriteNode
+
+    var color = SKColor.green
+    var drawDots = false
+    var radius = 0.0 { didSet { sprite.setScale(radius) } }
+    var rollMode = AppState.RollMode.normal
+    var showRing = false
+
+    var radiusObserver: AnyCancellable!
+    var rollModeObserver: AnyCancellable!
+    var showRingObserver: AnyCancellable!
 
     init(_ ring: AppState.Ring, parent: SKNode) {
         self.ring = ring
@@ -18,7 +28,10 @@ class Pixie {
         case .innerRing(1):
             sprite = SpritePool.spokeRingsLarge.makeSprite()
 
-        case .innerRing(2), .innerRing(3), .innerRing(4):
+        case .innerRing(2), .innerRing(3):
+            sprite = SpritePool.spokeRingsMedium.makeSprite()
+
+        case .innerRing(4):
             sprite = SpritePool.spokeRingsSmall.makeSprite()
 
         default: fatalError()
@@ -42,10 +55,17 @@ class Pixie {
         }
     }
 
+    func applyUIState() {
+        sprite.color = showRing ? self.color : .clear
+        sprite.setScale(self.radius)
+    }
+
     func dropDot(onto scene: SKScene) {
+        guard drawDots else { return }
+
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 5, height: 5)
-        dot.color = sprite.color
+        dot.color = self.color
         dot.position = sprite.convert(CGPoint(x: scene.size.width / 2, y: 0), to: scene)
 
         scene.addChild(dot)
