@@ -54,4 +54,36 @@ class Pixie {
             SpritePool.dots.releaseSprite(dot)
         }
     }
+
+    func postInit(appState: ObservedObject<AppState>) {
+        switch ring {
+        case .outerRing:
+            self.radius = appState.wrappedValue.outerRingRadius
+            self.rollMode = appState.wrappedValue.outerRingRollMode
+            self.showRing = appState.wrappedValue.showRingOuter
+
+            radiusObserver = appState.projectedValue.$outerRingRadius.wrappedValue.sink {
+                [weak self] in self?.radius = $0
+            }
+
+            rollModeObserver = appState.projectedValue.$outerRingRollMode.wrappedValue.sink {
+                [weak self] in self?.rollMode = $0
+            }
+
+            showRingObserver = appState.projectedValue.$showRingOuter.wrappedValue.sink {
+                [weak self] in self?.showRing = $0
+            }
+
+        default: break
+        }
+    }
+
+    func roll(_ rotation: Double) {
+        switch rollMode {
+        case .normal:      sprite.zRotation += rotation * 0.5
+        case .compensate:  sprite.zRotation += rotation
+        case .fullStop:    break
+        case .doesNotRoll: break
+        }
+    }
 }

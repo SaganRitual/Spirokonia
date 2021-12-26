@@ -22,10 +22,6 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     }
 
     override func didMove(to view: SKView) {
-        let baseTime: TimeInterval = 4.0
-        var direction = 1.0
-        var totalScale = 1.0
-
         for p in 0..<5 {
             let ring: AppState.Ring
             let parent: SKNode
@@ -39,21 +35,14 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             }
 
             let pixie = Pixie(ring, parent: parent)
-            pixie.sprite.color = SKColor([Color.red, Color.green, Color.blue, Color.yellow, Color.orange][p])
             pixie.sprite.size = self.size
             pixie.sprite.setScale(pixie.radius)
-            totalScale *= pixie.radius
 
             pixie.sprite.position = p == 0 ? .zero :
                 CGPoint(x: (pixies[0].sprite.size.width - pixie.sprite.size.width) / 2, y: 0)
 
-            let rollDuration = baseTime / (appState.cycleSpeed / totalScale)
-            let rollAction = SKAction.rotate(byAngle: direction * .tau, duration: rollDuration)
-            let rollForever = SKAction.repeatForever(rollAction)
-
-            pixie.sprite.run(rollForever, withKey: "roll-pixie-ring\(p)")
-
-            direction *= -1.0
+            pixie.postInit(appState: _appState)
+            pixie.color = SKColor([Color.red, Color.green, Color.blue, Color.yellow, Color.orange][p])
 
             pixies.append(pixie)
         }
@@ -61,9 +50,23 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
     override func update(_ currentTime: TimeInterval) {
         defer { previousTime = currentTime }
-//        guard let previousTime = previousTime else { return }
+        guard let previousTime = previousTime else { return }
+        let deltaTime_ = currentTime - previousTime
+        let deltaTime = min(deltaTime_, 1.0 / 60.0)
 
-        for pixie in pixies { pixie.dropDot(onto: self) }
+        var direction = -1.0
+        var totalScale = 1.0
+
+        for pixie in pixies {
+            pixie.applyUIState()
+
+            direction *= -1
+            totalScale *= pixie.radius
+
+            pixie.dropDot(onto: self)
+
+            pixie.roll(2.0 * .pi * direction / totalScale * deltaTime * appState.cycleSpeed)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
