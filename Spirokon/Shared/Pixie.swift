@@ -9,14 +9,15 @@ class Pixie {
     let sprite: SKSpriteNode
 
     var color = SKColor.green
+    var colorSpeed = 0.0
+    var density = 0.0
     var drawDots = false
-    var radius = 0.0 { didSet { sprite.setScale(radius) } }
+    var firstPass = true
+    var pen = 0.0
+    var radius = 0.0
     var rollMode = AppState.RollMode.normal
     var showRing = false
-
-    var radiusObserver: AnyCancellable!
-    var rollModeObserver: AnyCancellable!
-    var showRingObserver: AnyCancellable!
+    var trailDecay = 0.0
 
     init(_ ring: AppState.Ring, parent: SKNode) {
         self.ring = ring
@@ -37,12 +38,6 @@ class Pixie {
         default: fatalError()
         }
 
-        if case AppState.Ring.innerRing = ring {
-            radius = 0.5
-        } else {
-            radius = 1.0
-        }
-
         sprite.anchorPoint = .anchorAtCenter
         parent.addChild(sprite)
 
@@ -55,9 +50,21 @@ class Pixie {
         }
     }
 
-    func applyUIState() {
+    func applyPixieStateToSprite() {
         sprite.color = showRing ? self.color : .clear
         sprite.setScale(self.radius)
+    }
+
+    func applyUIStateToPixieStateIf(_ appState: AppState) {
+        switch ring {
+        case .outerRing:
+            self.radius = appState.outerRingRadius
+            self.rollMode = appState.outerRingRollMode
+            self.showRing = appState.showRingOuter
+
+        case .innerRing:
+            break
+        }
     }
 
     func dropDot(onto scene: SKScene) {
@@ -82,19 +89,9 @@ class Pixie {
             self.rollMode = appState.wrappedValue.outerRingRollMode
             self.showRing = appState.wrappedValue.showRingOuter
 
-            radiusObserver = appState.projectedValue.$outerRingRadius.wrappedValue.sink {
-                [weak self] in self?.radius = $0
-            }
-
-            rollModeObserver = appState.projectedValue.$outerRingRollMode.wrappedValue.sink {
-                [weak self] in self?.rollMode = $0
-            }
-
-            showRingObserver = appState.projectedValue.$showRingOuter.wrappedValue.sink {
-                [weak self] in self?.showRing = $0
-            }
-
-        default: break
+        default:
+            self.radius = appState.wrappedValue.radius
+            self.pen = appState.wrappedValue.pen
         }
     }
 

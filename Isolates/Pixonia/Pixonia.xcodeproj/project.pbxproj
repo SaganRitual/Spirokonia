@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D408C33F277929350053B5F4 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C33E277929350053B5F4 /* Pixie.swift */; };
+		D408C340277929350053B5F4 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C33E277929350053B5F4 /* Pixie.swift */; };
 		D44BF4052777D91200E2FCE1 /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4032777D91200E2FCE1 /* PixoniaScene.swift */; };
 		D44BF4062777D91200E2FCE1 /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4032777D91200E2FCE1 /* PixoniaScene.swift */; };
 		D44BF4072777D91200E2FCE1 /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4042777D91200E2FCE1 /* PixoniaView.swift */; };
@@ -32,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D408C33E277929350053B5F4 /* Pixie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pixie.swift; path = ../../../Spirokon/Shared/Pixie.swift; sourceTree = "<group>"; };
 		D44BF4032777D91200E2FCE1 /* PixoniaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixoniaScene.swift; path = ../../../Spirokon/Shared/PixoniaScene.swift; sourceTree = "<group>"; };
 		D44BF4042777D91200E2FCE1 /* PixoniaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PixoniaView.swift; path = ../../../Spirokon/Shared/PixoniaView.swift; sourceTree = "<group>"; };
 		D44BF4672777DAFE00E2FCE1 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppState.swift; path = ../../../Spirokon/Shared/AppState.swift; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 				D44BF4672777DAFE00E2FCE1 /* AppState.swift */,
 				D44BF5642777E21D00E2FCE1 /* Extensions.swift */,
 				D44BF56A2777E23200E2FCE1 /* Overload2D.swift */,
+				D408C33E277929350053B5F4 /* Pixie.swift */,
 				D4BFF55A2777D19000A7C66C /* PixoniaAppView.swift */,
 				D44BF4032777D91200E2FCE1 /* PixoniaScene.swift */,
 				D44BF4042777D91200E2FCE1 /* PixoniaView.swift */,
@@ -215,6 +219,7 @@
 				D44BF4682777DAFE00E2FCE1 /* AppState.swift in Sources */,
 				D44BF5602777E20A00E2FCE1 /* SpritePool.swift in Sources */,
 				D44BF4072777D91200E2FCE1 /* PixoniaView.swift in Sources */,
+				D408C33F277929350053B5F4 /* Pixie.swift in Sources */,
 				D4BFF54C2777D16500A7C66C /* PixoniaApp.swift in Sources */,
 				D44BF4052777D91200E2FCE1 /* PixoniaScene.swift in Sources */,
 				D44BF56B2777E23200E2FCE1 /* Overload2D.swift in Sources */,
@@ -231,6 +236,7 @@
 				D44BF4692777DAFE00E2FCE1 /* AppState.swift in Sources */,
 				D44BF5612777E20A00E2FCE1 /* SpritePool.swift in Sources */,
 				D44BF4082777D91200E2FCE1 /* PixoniaView.swift in Sources */,
+				D408C340277929350053B5F4 /* Pixie.swift in Sources */,
 				D4BFF54D2777D16500A7C66C /* PixoniaApp.swift in Sources */,
 				D44BF4062777D91200E2FCE1 /* PixoniaScene.swift in Sources */,
 				D44BF56C2777E23200E2FCE1 /* Overload2D.swift in Sources */,

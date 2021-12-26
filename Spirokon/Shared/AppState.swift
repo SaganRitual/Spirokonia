@@ -22,14 +22,14 @@ class AppState: ObservableObject {
     @Published var innerRingRollMode = RollMode.normal
     @Published var outerRingRollMode = RollMode.normal
 
-    @Published var cycleSpeed = 0.1
+    @Published var cycleSpeed = 0.5
     @Published var outerRingRadius = 1.0
 
     @Published var colorSpeed = 1.0
     @Published var density = 1.0
-    @Published var pen = 0.5
-    @Published var radius = 1.0
-    @Published var trailDecay = 1.0
+    @Published var pen = 1.0
+    @Published var radius = 0.5
+    @Published var trailDecay = 5.0
 
     @Published var tumblerSelectorSwitches = [Bool](repeating: true, count: 4)
 
