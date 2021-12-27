@@ -52,9 +52,6 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             pixie.sprite.size = self.size
             pixie.sprite.setScale(pixie.radius)
 
-            pixie.sprite.position = p == 0 ? .zero :
-                CGPoint(x: (pixies[0].sprite.size.width - pixie.sprite.size.width) / 2, y: 0)
-
             pixie.color = SKColor([Color.orange, Color.green, Color.blue, Color.yellow, Color.red][p])
 
             pixies.append(pixie)
@@ -146,6 +143,9 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         for pixie in pixies {
             pixie.applyUIStateToPixieStateIf(appState)
             pixie.applyPixieStateToSprite()
+
+            pixie.sprite.position = pixie.isOuterRing ? .zero :
+                CGPoint(x: (pixies[0].sprite.size.width - pixie.sprite.size.width) / 2, y: 0)
 
             direction *= -1
             totalScale *= pixie.radius

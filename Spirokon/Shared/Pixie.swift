@@ -19,6 +19,20 @@ class Pixie {
     var showRing = false
     var trailDecay = 0.0
 
+    var isOuterRing: Bool {
+        switch ring {
+        case .outerRing: return true
+        case .innerRing: return false
+        }
+    }
+
+    var isInnerRing: Bool {
+        switch ring {
+        case .outerRing: return false
+        case .innerRing: return true
+        }
+    }
+
     init(_ ring: AppState.Ring, parent: SKNode) {
         self.ring = ring
 
