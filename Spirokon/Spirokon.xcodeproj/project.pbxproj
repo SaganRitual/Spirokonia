@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D408C33C277818CB0053B5F4 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C33B277818CB0053B5F4 /* Pixie.swift */; };
 		D408C33D277818CB0053B5F4 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C33B277818CB0053B5F4 /* Pixie.swift */; };
+		D408C3FC277A573A0053B5F4 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C3FB277A573A0053B5F4 /* YAColor.swift */; };
+		D408C3FD277A573A0053B5F4 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C3FB277A573A0053B5F4 /* YAColor.swift */; };
 		D44BF3EC2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */; };
 		D44BF3ED2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */; };
 		D44BF3EE2777D8D900E2FCE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */; };
@@ -21,8 +23,6 @@
 		D44BF4002777D90400E2FCE1 /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */; };
 		D44BF4012777D90400E2FCE1 /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */; };
 		D44BF4022777D90400E2FCE1 /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */; };
-		D44BF4492777D95000E2FCE1 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4422777D95000E2FCE1 /* YAColor.swift */; };
-		D44BF44A2777D95000E2FCE1 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4422777D95000E2FCE1 /* YAColor.swift */; };
 		D44BF44B2777D95000E2FCE1 /* Easer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4432777D95000E2FCE1 /* Easer.swift */; };
 		D44BF44C2777D95000E2FCE1 /* Easer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4432777D95000E2FCE1 /* Easer.swift */; };
 		D44BF44F2777D95000E2FCE1 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4452777D95000E2FCE1 /* Overload2D.swift */; };
@@ -51,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		D408C33B277818CB0053B5F4 /* Pixie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixie.swift; sourceTree = "<group>"; };
+		D408C3FB277A573A0053B5F4 /* YAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAColor.swift; sourceTree = "<group>"; };
 		D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirokonApp.swift; sourceTree = "<group>"; };
 		D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		D44BF3FA2777D8E100E2FCE1 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixoniaScene.swift; sourceTree = "<group>"; };
 		D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixoniaView.swift; sourceTree = "<group>"; };
-		D44BF4422777D95000E2FCE1 /* YAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YAColor.swift; sourceTree = "<group>"; };
 		D44BF4432777D95000E2FCE1 /* Easer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easer.swift; sourceTree = "<group>"; };
 		D44BF4452777D95000E2FCE1 /* Overload2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overload2D.swift; sourceTree = "<group>"; };
 		D44BF4472777D95000E2FCE1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 				D44BF4432777D95000E2FCE1 /* Easer.swift */,
 				D44BF4472777D95000E2FCE1 /* Extensions.swift */,
 				D44BF4452777D95000E2FCE1 /* Overload2D.swift */,
-				D44BF4422777D95000E2FCE1 /* YAColor.swift */,
+				D408C3FB277A573A0053B5F4 /* YAColor.swift */,
 			);
 			path = Primitives;
 			sourceTree = "<group>";
@@ -315,7 +315,6 @@
 			files = (
 				D44BF3FB2777D8E100E2FCE1 /* AppState.swift in Sources */,
 				D44BF45F2777D9B500E2FCE1 /* RollModePicker.swift in Sources */,
-				D44BF4492777D95000E2FCE1 /* YAColor.swift in Sources */,
 				D44BF3EE2777D8D900E2FCE1 /* ContentView.swift in Sources */,
 				D408C33C277818CB0053B5F4 /* Pixie.swift in Sources */,
 				D44BF3EC2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
@@ -327,6 +326,7 @@
 				D44BF5922777E32700E2FCE1 /* TogglesView.swift in Sources */,
 				D44BF4012777D90400E2FCE1 /* PixoniaView.swift in Sources */,
 				D44BF45A2777D97000E2FCE1 /* SpritePool.swift in Sources */,
+				D408C3FC277A573A0053B5F4 /* YAColor.swift in Sources */,
 				D44BF4FF2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +337,6 @@
 			files = (
 				D44BF3FC2777D8E100E2FCE1 /* AppState.swift in Sources */,
 				D44BF4602777D9B500E2FCE1 /* RollModePicker.swift in Sources */,
-				D44BF44A2777D95000E2FCE1 /* YAColor.swift in Sources */,
 				D44BF3EF2777D8D900E2FCE1 /* ContentView.swift in Sources */,
 				D408C33D277818CB0053B5F4 /* Pixie.swift in Sources */,
 				D44BF3ED2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
@@ -349,6 +348,7 @@
 				D44BF5932777E32700E2FCE1 /* TogglesView.swift in Sources */,
 				D44BF4022777D90400E2FCE1 /* PixoniaView.swift in Sources */,
 				D44BF45B2777D97000E2FCE1 /* SpritePool.swift in Sources */,
+				D408C3FD277A573A0053B5F4 /* YAColor.swift in Sources */,
 				D44BF5002777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D408C3E4277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C3E3277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift */; };
+		D408C3E5277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C3E3277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift */; };
+		D408C3FF277A574C0053B5F4 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C3FE277A574C0053B5F4 /* YAColor.swift */; };
+		D408C400277A574C0053B5F4 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C3FE277A574C0053B5F4 /* YAColor.swift */; };
+		D408C402277A576E0053B5F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C401277A576E0053B5F4 /* Extensions.swift */; };
+		D408C403277A576E0053B5F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C401277A576E0053B5F4 /* Extensions.swift */; };
+		D408C405277A57890053B5F4 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C404277A57890053B5F4 /* Overload2D.swift */; };
+		D408C406277A57890053B5F4 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408C404277A57890053B5F4 /* Overload2D.swift */; };
 		D44BF5472777E01300E2FCE1 /* TumblerSelectorViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5372777E01100E2FCE1 /* TumblerSelectorViewApp.swift */; };
 		D44BF5482777E01300E2FCE1 /* TumblerSelectorViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5372777E01100E2FCE1 /* TumblerSelectorViewApp.swift */; };
 		D44BF5492777E01300E2FCE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5382777E01100E2FCE1 /* ContentView.swift */; };
@@ -20,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D408C3E3277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TumblerSelectorStateMachine.swift; path = ../../../Spirokon/Shared/TumblerSelectorStateMachine.swift; sourceTree = "<group>"; };
+		D408C3FE277A574C0053B5F4 /* YAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YAColor.swift; path = ../../../Spirokon/Shared/Primitives/YAColor.swift; sourceTree = "<group>"; };
+		D408C401277A576E0053B5F4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../Spirokon/Shared/Primitives/Extensions.swift; sourceTree = "<group>"; };
+		D408C404277A57890053B5F4 /* Overload2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Overload2D.swift; path = ../../../Spirokon/Shared/Primitives/Overload2D.swift; sourceTree = "<group>"; };
 		D44BF5372777E01100E2FCE1 /* TumblerSelectorViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSelectorViewApp.swift; sourceTree = "<group>"; };
 		D44BF5382777E01100E2FCE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D44BF5392777E01300E2FCE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +75,11 @@
 				D44BF5372777E01100E2FCE1 /* TumblerSelectorViewApp.swift */,
 				D44BF55B2777E09A00E2FCE1 /* AppState.swift */,
 				D44BF5382777E01100E2FCE1 /* ContentView.swift */,
+				D408C401277A576E0053B5F4 /* Extensions.swift */,
+				D408C404277A57890053B5F4 /* Overload2D.swift */,
+				D408C3E3277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift */,
 				D44BF5582777E05000E2FCE1 /* TumblerSelectorView.swift */,
+				D408C3FE277A574C0053B5F4 /* YAColor.swift */,
 				D44BF5392777E01300E2FCE1 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -184,10 +200,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D408C3E4277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
+				D408C3FF277A574C0053B5F4 /* YAColor.swift in Sources */,
 				D44BF5592777E05000E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D44BF5492777E01300E2FCE1 /* ContentView.swift in Sources */,
 				D44BF5472777E01300E2FCE1 /* TumblerSelectorViewApp.swift in Sources */,
+				D408C405277A57890053B5F4 /* Overload2D.swift in Sources */,
 				D44BF55C2777E09A00E2FCE1 /* AppState.swift in Sources */,
+				D408C402277A576E0053B5F4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,10 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D408C3E5277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
+				D408C400277A574C0053B5F4 /* YAColor.swift in Sources */,
 				D44BF55A2777E05000E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D44BF54A2777E01300E2FCE1 /* ContentView.swift in Sources */,
 				D44BF5482777E01300E2FCE1 /* TumblerSelectorViewApp.swift in Sources */,
+				D408C406277A57890053B5F4 /* Overload2D.swift in Sources */,
 				D44BF55D2777E09A00E2FCE1 /* AppState.swift in Sources */,
+				D408C403277A576E0053B5F4 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

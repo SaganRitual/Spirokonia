@@ -31,7 +31,11 @@ class AppState: ObservableObject {
     @Published var radius = 0.5
     @Published var trailDecay = 5.0
 
-    @Published var tumblerSelectorSwitches = [Bool](repeating: true, count: 4)
+    enum TumblerSelectorSwitchState {
+        case trueDefinite, trueIndefinite, falseDefinite, falseIndefinite
+    }
+
+    @Published var tumblerSelectorSwitches = [TumblerSelectorSwitchState](repeating: .trueDefinite, count: 4)
 
     static let colorSpeedRange = 0.0...2.0
     static let cycleSpeedRange = 0.0...1.0

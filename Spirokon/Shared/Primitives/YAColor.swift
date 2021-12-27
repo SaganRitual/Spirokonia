@@ -13,6 +13,7 @@ extension Color {
     public static let crownpurple = Color(#colorLiteral(red: 0.2029999942, green: 0.1280000061, blue: 0.5730000138, alpha: 1))
     public static let pixieborder = Color(#colorLiteral(red: 0, green: 1, blue: 0.6499999762, alpha: 1))
     public static let pixiefill = Color(#colorLiteral(red: 0, green: 0.6848070894, blue: 0.4451245918, alpha: 1))
+    public static let indefiniteButtonPress = Color(#colorLiteral(red: 0.40591746, green: 0.4063741724, blue: 0.4199178773, alpha: 1))
     public static let salmonzilla = Color(#colorLiteral(red: 1, green: 0.5799999833, blue: 0.7059999704, alpha: 1))
     public static let shizzabrick = Color(#colorLiteral(red: 0.5989899137, green: 0.2336060577, blue: 0.1078181888, alpha: 1))
     public static let tealjeans = Color(#colorLiteral(red: 0.4690000117, green: 0.8590000272, blue: 0.449000001, alpha: 1))
