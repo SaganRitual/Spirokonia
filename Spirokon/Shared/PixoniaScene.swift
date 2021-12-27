@@ -7,6 +7,8 @@ import SwiftUI
 class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     @ObservedObject var appState: AppState
 
+    var isReady = false
+
     var masterPixieForSelectorSwitches: Int?
     var previousTime: TimeInterval?
     var pixies = [Pixie]()
@@ -128,12 +130,13 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
         selectorSwitchesObserver = appState.$tumblerSelectorSwitches.sink { [weak self] in
             self?.updateSettingsTracking($0)
+            self?.isReady = true
         }
     }
 
     override func update(_ currentTime: TimeInterval) {
         defer { previousTime = currentTime }
-        guard let previousTime = previousTime else { return }
+        guard let previousTime = previousTime, isReady else { return }
         let deltaTime_ = currentTime - previousTime
         let deltaTime = min(deltaTime_, 1.0 / 60.0)
 
@@ -141,16 +144,15 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         var totalScale = 1.0
 
         for pixie in pixies {
-            pixie.applyUIStateToPixieStateIf(appState
-            )
+            pixie.applyUIStateToPixieStateIf(appState)
             pixie.applyPixieStateToSprite()
 
             direction *= -1
             totalScale *= pixie.radius
 
-            pixie.dropDot(onto: self)
-
             pixie.roll(2.0 * .pi * direction / totalScale * deltaTime * appState.cycleSpeed)
+
+            pixie.dropDot(onto: self)
         }
     }
 

@@ -24,7 +24,7 @@ class Pixie {
 
         switch ring {
         case .outerRing:
-            sprite = SpritePool.plainRings.makeSprite()
+            sprite = SpritePool.spokeRingsLarge.makeSprite()
 
         case .innerRing(1):
             sprite = SpritePool.spokeRingsLarge.makeSprite()
