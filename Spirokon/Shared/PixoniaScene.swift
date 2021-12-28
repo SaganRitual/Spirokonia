@@ -141,10 +141,13 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             pixie.applyPixieStateToSprite()
 
             pixie.sprite.position = pixie.isOuterRing ? .zero :
-                CGPoint(x: (pixies[0].sprite.size.width - pixie.sprite.size.width) / 2, y: 0)
+                CGPoint(x: (self.size.width - pixie.sprite.size.width) / 2, y: 0)
 
             direction *= -1
-            totalScale *= pixie.radius
+
+            // Don't scale the rotation for the outer ring's radius; the rotation rate
+            // is always the same no matter its size
+            if case AppState.Ring.innerRing = pixie.ring { totalScale *= pixie.radius }
 
             pixie.roll(2.0 * direction * appState.cycleSpeed * deltaTime * .tau / totalScale)
 
