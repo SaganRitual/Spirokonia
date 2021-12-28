@@ -12,7 +12,7 @@ struct ContentView: View {
                 VStack {
                     Spacer()
 
-                    Section("Speed") {
+                    Section(AppState.showTextLabels ? "Speed" : "") {
                         TumblerSettingSlider(
                             value: $appState.cycleSpeed, iconName: "speedometer", label: "Speed",
                             range: AppState.cycleSpeedRange, showTextLabel: AppState.showTextLabels
@@ -21,7 +21,7 @@ struct ContentView: View {
 
                     Spacer()
 
-                    Section("Main Ring") {
+                    Section(AppState.showTextLabels ? "Main Ring" : "") {
                         HStack {
                             RollModePicker(ring: .outerRing, rollMode: $appState.outerRingRollMode)
                             TogglesView(
