@@ -33,6 +33,18 @@ class AppState: ObservableObject {
 
     enum TumblerSelectorSwitchState {
         case trueDefinite, trueIndefinite, falseDefinite, falseIndefinite
+
+        var isTracking: Bool { if case .trueDefinite = self { return true } else { return false } }
+
+        var isDefinite: Bool {
+            switch self {
+            case .falseIndefinite: fallthrough
+            case .trueIndefinite:  return false
+
+            case .falseDefinite: fallthrough
+            case .trueDefinite:  return true
+            }
+        }
     }
 
     @Published var tumblerSelectorSwitches = [TumblerSelectorSwitchState](repeating: .trueDefinite, count: 4)

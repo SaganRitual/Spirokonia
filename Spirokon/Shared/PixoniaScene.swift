@@ -19,7 +19,6 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     var penObserver: AnyCancellable!
     var radiusObserver: AnyCancellable!
     var rollModeObserver: AnyCancellable!
-    var selectorSwitchesObserver: AnyCancellable!
     var showRingObserver: AnyCancellable!
     var trailDecayObserver: AnyCancellable!
 
@@ -64,7 +63,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         colorSpeedObserver = appState.$colorSpeed.sink { [weak self] colorSpeed in
             guard let myself = self else { return }
 
-            for (ix, isTracking) in myself.appState.tumblerSelectorSwitches.enumerated() where isTracking {
+            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].colorSpeed = colorSpeed
             }
         }
@@ -72,7 +71,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         densityObserver = appState.$density.sink { [weak self] density in
             guard let myself = self else { return }
 
-            for (ix, isTracking) in myself.appState.tumblerSelectorSwitches.enumerated() where isTracking {
+            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].density = density
             }
         }
@@ -80,7 +79,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         drawDotsObserver = appState.$drawDotsInner.sink { [weak self] drawDots in
             guard let myself = self else { return }
 
-            for (ix, isTracking) in myself.appState.tumblerSelectorSwitches.enumerated() where isTracking {
+            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].drawDots = drawDots
             }
         }
@@ -88,7 +87,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         penObserver = appState.$pen.sink { [weak self] pen in
             guard let myself = self else { return }
 
-            for (ix, isTracking) in myself.appState.tumblerSelectorSwitches.enumerated() where isTracking {
+            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].pen = pen
             }
         }
@@ -96,7 +95,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         radiusObserver = appState.$radius.sink { [weak self] radius in
             guard let myself = self else { return }
 
-            for (ix, isTracking) in myself.appState.tumblerSelectorSwitches.enumerated() where isTracking {
+            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].radius = radius
             }
         }
@@ -104,7 +103,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         rollModeObserver = appState.$innerRingRollMode.sink { [weak self] rollMode in
             guard let myself = self else { return }
 
-            for (ix, isTracking) in myself.appState.tumblerSelectorSwitches.enumerated() where isTracking {
+            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].rollMode = rollMode
             }
         }
@@ -112,7 +111,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         showRingObserver = appState.$showRingInner.sink { [weak self] showRing in
             guard let myself = self else { return }
 
-            for (ix, isTracking) in myself.appState.tumblerSelectorSwitches.enumerated() where isTracking {
+            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].showRing = showRing
             }
         }
@@ -120,14 +119,11 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         trailDecayObserver = appState.$trailDecay.sink { [weak self] trailDecay in
             guard let myself = self else { return }
 
-            for (ix, isTracking) in myself.appState.tumblerSelectorSwitches.enumerated() where isTracking {
+            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].trailDecay = trailDecay
             }
-        }
 
-        selectorSwitchesObserver = appState.$tumblerSelectorSwitches.sink { [weak self] in
-            self?.updateSettingsTracking($0)
-            self?.isReady = true
+            myself.isReady = true
         }
     }
 
@@ -154,59 +150,6 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             pixie.dropDot(onto: self)
         }
-    }
-
-    func updateSettingsTracking(_ switches: [Bool]) {
-        if let currentMaster = masterPixieForSelectorSwitches, switches[currentMaster - 1] == true {
-            print("Continue tracking \(currentMaster)")
-            return
-        }
-
-        if let ix = switches.firstIndex(of: true) {
-            let pixieIx = ix + 1    // Because the outer ring, at ix = 0, doesn't get involved
-
-            var rechargeUI = false
-
-            // Nothing was selected, now one is selected; use it to charge up the UI
-            if let currentMaster = masterPixieForSelectorSwitches {
-                if currentMaster == pixieIx {
-                    print("Continue tracking \(currentMaster)")
-                } else {
-                    rechargeUI = true
-                    print("Dropped \(currentMaster), \(pixieIx) takes over")
-                }
-            } else {
-                rechargeUI = true
-                print("Newly tracking \(pixieIx), UI charged up")
-            }
-
-            if rechargeUI {
-                masterPixieForSelectorSwitches = pixieIx
-
-                appState.innerRingRollMode = pixies[pixieIx].rollMode
-                appState.showRingInner = pixies[pixieIx].showRing
-                appState.drawDotsInner = pixies[pixieIx].drawDots
-                appState.radius = pixies[pixieIx].radius
-                appState.pen = pixies[pixieIx].pen
-                appState.density = pixies[pixieIx].density
-                appState.colorSpeed = pixies[pixieIx].colorSpeed
-                appState.trailDecay = pixies[pixieIx].trailDecay
-            }
-
-            return
-        }
-
-        print("Tracking none")
-        masterPixieForSelectorSwitches = nil
-
-        appState.innerRingRollMode = .fullStop
-        appState.showRingInner = false
-        appState.drawDotsInner = false
-        appState.radius = 0
-        appState.pen = 0
-        appState.density = 0
-        appState.colorSpeed = 0
-        appState.trailDecay = 0
     }
 
     required init?(coder aDecoder: NSCoder) {

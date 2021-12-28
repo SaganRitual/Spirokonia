@@ -6,7 +6,17 @@ struct TumblerSelectorView: View {
     let fonts: [SwiftUI.Font] = [.largeTitle, .title, .body, .caption]
 
     @ObservedObject var appState: AppState
-    @ObservedObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
+    @ObservedObject var pixoniaScene: PixoniaScene
+    @StateObject private var tumblerSelectorStateMachine: TumblerSelectorStateMachine
+
+    init(appState: ObservedObject<AppState>, pixoniaScene: ObservedObject<PixoniaScene>) {
+        _appState = ObservedObject(wrappedValue: appState.wrappedValue)
+        _pixoniaScene = ObservedObject(wrappedValue: pixoniaScene.wrappedValue)
+
+        _tumblerSelectorStateMachine = StateObject(
+            wrappedValue: TumblerSelectorStateMachine(appState: appState, pixoniaScene: pixoniaScene)
+        )
+    }
 
     struct ButtonDescriptor {
         let zStack: Bool
@@ -82,13 +92,13 @@ struct TumblerSelectorView: View {
             ForEach(appState.tumblerSelectorSwitches.indices) { ix in
                 Spacer()
                 Button(
-                    action: { tumblerSelectorStateMachine.onTap() },
+                    action: { tumblerSelectorStateMachine.endPress() },
                     label: { makeButton(.innerRing(ix + 1)) }
                 )
                 .simultaneousGesture(
                     LongPressGesture()
-                        .onEnded   { _ in tumblerSelectorStateMachine.endLongPress() }
-                        .onChanged { _ in tumblerSelectorStateMachine.changeLongPress(ix) }
+                        .onEnded   { _ in tumblerSelectorStateMachine.longPressDetected() }
+                        .onChanged { _ in tumblerSelectorStateMachine.beginPress(ix) }
                 )
                 .buttonStyle(TumblerSelectorButton(appState: appState, ix: ix))
                 Spacer()

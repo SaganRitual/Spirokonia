@@ -39,7 +39,7 @@ struct ContentView: View {
                     Spacer()
 
                     Section("Inner Rings") {
-                        TumblerSelectorView(appState: appState)
+                        TumblerSelectorView(appState: _appState, pixoniaScene: _pixoniaScene)
                             .padding(.top)
                     }
 
