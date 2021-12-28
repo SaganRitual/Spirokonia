@@ -146,9 +146,9 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             direction *= -1
             totalScale *= pixie.radius
 
-            pixie.roll(2.0 * .pi * direction / totalScale * deltaTime * appState.cycleSpeed)
+            pixie.roll(2.0 * direction * appState.cycleSpeed * deltaTime * .tau / totalScale)
 
-            pixie.dropDot(onto: self)
+            pixie.dropDot(onto: self, deltaTime: deltaTime)
         }
     }
 

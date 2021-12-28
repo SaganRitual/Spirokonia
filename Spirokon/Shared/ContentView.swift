@@ -38,7 +38,23 @@ struct ContentView: View {
 
                     Spacer()
 
-                    Section("Inner Rings") {
+                    Section(AppState.showTextLabels ? "Inner Rings" : "") {
+                        HStack {
+                            Button("Select All") {
+                                appState.tumblerSelectorSwitches.indices.forEach {
+                                    appState.tumblerSelectorSwitches[$0] = .trueDefinite
+                                }
+                            }.buttonStyle(BorderedButtonStyle())
+
+                            Spacer()
+
+                            Button("Deselect All") {
+                                appState.tumblerSelectorSwitches.indices.forEach {
+                                    appState.tumblerSelectorSwitches[$0] = .falseDefinite
+                                }
+                            }.buttonStyle(BorderedButtonStyle())
+                        }
+
                         TumblerSelectorView(appState: _appState, pixoniaScene: _pixoniaScene)
                             .padding(.top)
                     }

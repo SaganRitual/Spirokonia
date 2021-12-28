@@ -12,10 +12,17 @@ class TumblerSelectorState: GKState {
     var indexOfDrivingTumbler: Int? {
         get { sm.indexOfDrivingTumbler } set { sm.indexOfDrivingTumbler = newValue }
     }
+
+    var uiChargeState: UIChargeState? {
+        get { sm.uiChargeState } set { sm.uiChargeState = newValue }
+    }
 }
 
 class TumblerSelectorStateBeginPress: TumblerSelectorState {
     override func didEnter(from previousState: GKState?) {
+        // Remember which tumbler is in charge of the sliders, if any one is
+        uiChargeState = UIChargeState(sm)
+
         switch appState.tumblerSelectorSwitches[indexBeingTouched] {
         case .trueDefinite:
             appState.tumblerSelectorSwitches[indexBeingTouched] = .trueIndefinite
@@ -40,7 +47,7 @@ class TumblerSelectorStateLongPressDetected: TumblerSelectorState {
 
         appState.tumblerSelectorSwitches[indexBeingTouched] = .trueDefinite
         indexOfDrivingTumbler = indexBeingTouched
-        sm.chargeUI()
+        uiChargeState?.charge(sm)
     }
 
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
@@ -56,9 +63,17 @@ class TumblerSelectorStateEndPress: TumblerSelectorState {
                 appState.tumblerSelectorSwitches[indexBeingTouched] = .trueDefinite
             case .trueIndefinite:
                 appState.tumblerSelectorSwitches[indexBeingTouched] = .falseDefinite
+
+                // If we just now deselected the one that was driving the UI, get
+                // a new driver
+                if let driver = indexOfDrivingTumbler, driver == indexBeingTouched {
+                    indexOfDrivingTumbler = appState.tumblerSelectorSwitches.firstIndex { $0.isTracking }
+                }
             default:
                 fatalError()
             }
+
+            uiChargeState?.charge(sm)
         }
 
         sm.enter(TumblerSelectorStateQuiet.self)
@@ -70,8 +85,42 @@ class TumblerSelectorStateEndPress: TumblerSelectorState {
 }
 
 class TumblerSelectorStateQuiet: TumblerSelectorState {
+    override func didEnter(from previousState: GKState?) {
+        if previousState == nil {
+            indexOfDrivingTumbler = appState.tumblerSelectorSwitches.firstIndex { $0.isTracking }
+            uiChargeState = UIChargeState(sm)
+        }
+    }
+
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         stateClass.self == TumblerSelectorStateBeginPress.self
+    }
+}
+
+struct UIChargeState {
+    let driver: Int?
+    let states: [AppState.TumblerSelectorSwitchState]
+
+    init(_ stateMachine: TumblerSelectorStateMachine) {
+        self.driver = stateMachine.indexOfDrivingTumbler
+        self.states = stateMachine.appState.tumblerSelectorSwitches
+    }
+
+    func charge(_ stateMachine: TumblerSelectorStateMachine) {
+        // No driver, so clear everything
+        if stateMachine.indexOfDrivingTumbler == nil {
+            stateMachine.clearUI()
+            return
+        }
+
+        // We have a driver; if it's the same driver as before, do nothing
+        if let oldDriver = driver, let newDriver = stateMachine.indexOfDrivingTumbler,
+           oldDriver == newDriver {
+            return
+        }
+
+        // We have a driver, it's not the same as the driver before the selection
+        stateMachine.chargeUI()
     }
 }
 
@@ -81,6 +130,7 @@ class TumblerSelectorStateMachine: GKStateMachine, ObservableObject {
 
     var indexBeingTouched = 0
     var indexOfDrivingTumbler: Int?
+    var uiChargeState: UIChargeState?
 
     init(appState: ObservedObject<AppState>, pixoniaScene: ObservedObject<PixoniaScene>) {
         self._appState = appState
@@ -97,29 +147,12 @@ class TumblerSelectorStateMachine: GKStateMachine, ObservableObject {
     }
 
     func beginPress(_ index: Int) {
-        // Remember which tumbler is in charge of the sliders, if any one is
-        if indexOfDrivingTumbler == nil {
-            indexOfDrivingTumbler = appState.tumblerSelectorSwitches
-                    .firstIndex(where: { $0.isTracking })
-        }
-
         indexBeingTouched = index
         enter(TumblerSelectorStateBeginPress.self)
     }
 
     func chargeUI() {
-        if indexOfDrivingTumbler == nil {
-            guard let p = appState.tumblerSelectorSwitches
-                    .firstIndex(where: { $0.isTracking }) else { clearUI(); return }
-
-            indexOfDrivingTumbler = p
-        } else {
-            // Whether other tumblers got selected or deselected, this one was in charge
-            // already, so it's still in charge, nothing changes in the sliders.
-            if indexBeingTouched == indexOfDrivingTumbler! { return }
-        }
-
-        let pixieIx = indexOfDrivingTumbler!
+        let pixieIx = indexOfDrivingTumbler! + 1
 
         appState.innerRingRollMode = pixoniaScene.pixies[pixieIx].rollMode
         appState.showRingInner = pixoniaScene.pixies[pixieIx].showRing

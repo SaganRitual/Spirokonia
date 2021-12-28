@@ -10,6 +10,7 @@ class Pixie {
 
     var color = SKColor.green
     var colorSpeed = 0.0
+    var currentDotColor = YAColor(hue: 0.0, saturation: 1.0, brightness: 1.0, alpha: 1.0)
     var density = 0.0
     var drawDots = false
     var firstPass = true
@@ -81,12 +82,16 @@ class Pixie {
         }
     }
 
-    func dropDot(onto scene: SKScene) {
+    func dropDot(onto scene: SKScene, deltaTime: Double) {
         guard drawDots else { return }
 
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 5, height: 5)
-        dot.color = self.color
+
+        let colorRotation = 2.0 * colorSpeed * deltaTime * .tau
+        currentDotColor = currentDotColor.rotateHue(byAngle: colorRotation)
+
+        dot.color = currentDotColor
         dot.position = sprite.convert(CGPoint(x: scene.size.width / 2, y: 0), to: scene)
 
         scene.addChild(dot)
