@@ -22,9 +22,9 @@ class AppState: ObservableObject {
         case drawDots, showRing
     }
 
-    @Published var drawDotsInner = true
-    @Published var showRingInner = true
-    @Published var showRingOuter = true
+    @Published var drawDots = true
+    @Published var innerRingShow = true
+    @Published var outerRingShow = true
 
     @Published var innerRingRollMode = RollMode.normal
     @Published var outerRingRollMode = RollMode.normal

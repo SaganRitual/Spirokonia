@@ -10,8 +10,8 @@ struct TumblerSettingsViewInner: View {
             HStack {
                 RollModePicker(ring: .innerRing(1), rollMode: $appState.innerRingRollMode)
                 TogglesView(
-                    ring: .innerRing(1), drawDots: $appState.drawDotsInner,
-                    showRing: $appState.showRingInner
+                    ring: .innerRing(1), drawDots: $appState.drawDots,
+                    showRing: $appState.innerRingShow
                 )
             }
 

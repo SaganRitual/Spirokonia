@@ -11,7 +11,7 @@ struct TumblerSettingsViewOuter: View {
                 RollModePicker(ring: .outerRing, rollMode: $appState.outerRingRollMode)
                 TogglesView(
                     ring: .outerRing, drawDots: Binding(get: { false }, set: { _ in }),
-                    showRing: $appState.showRingOuter
+                    showRing: $appState.outerRingShow
                 )
             }
 
