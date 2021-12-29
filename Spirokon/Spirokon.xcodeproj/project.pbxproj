@@ -49,6 +49,8 @@
 		D44BF5A52777E65F00E2FCE1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D44BF59F2777E65F00E2FCE1 /* LICENSE */; };
 		D44BF5AA2777E8FF00E2FCE1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */; };
 		D44BF5AB2777E8FF00E2FCE1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */; };
+		D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
+		D4F4BB77277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,7 @@
 		D44BF59F2777E65F00E2FCE1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
+		D4F4BB75277C8B270049035F /* UnitCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCircle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,7 @@
 				D44BF4432777D95000E2FCE1 /* Easer.swift */,
 				D44BF4472777D95000E2FCE1 /* Extensions.swift */,
 				D44BF4452777D95000E2FCE1 /* Overload2D.swift */,
+				D4F4BB75277C8B270049035F /* UnitCircle.swift */,
 				D408C3FB277A573A0053B5F4 /* YAColor.swift */,
 			);
 			path = Primitives;
@@ -325,6 +329,7 @@
 				D44BF3FF2777D90400E2FCE1 /* PixoniaScene.swift in Sources */,
 				D44BF44B2777D95000E2FCE1 /* Easer.swift in Sources */,
 				D44BF44F2777D95000E2FCE1 /* Overload2D.swift in Sources */,
+				D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */,
 				D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D44BF4532777D95000E2FCE1 /* Extensions.swift in Sources */,
 				D408C408277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
@@ -348,6 +353,7 @@
 				D44BF4002777D90400E2FCE1 /* PixoniaScene.swift in Sources */,
 				D44BF44C2777D95000E2FCE1 /* Easer.swift in Sources */,
 				D44BF4502777D95000E2FCE1 /* Overload2D.swift in Sources */,
+				D4F4BB77277C8B270049035F /* UnitCircle.swift in Sources */,
 				D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D44BF4542777D95000E2FCE1 /* Extensions.swift in Sources */,
 				D408C409277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,

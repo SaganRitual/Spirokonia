@@ -12,6 +12,8 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     var masterPixieForSelectorSwitches: Int?
     var previousTime: TimeInterval?
     var pixies = [Pixie]()
+    var sprites = [SKSpriteNode]()
+    let ucWorld: UCWorld
 
     var colorSpeedObserver: AnyCancellable!
     var densityObserver: AnyCancellable!
@@ -22,10 +24,13 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     var showRingObserver: AnyCancellable!
     var trailDecayObserver: AnyCancellable!
 
+    let side: Double = 1024
+
     init(appState: ObservedObject<AppState>) {
         _appState = appState
 
-        super.init(size: CGSize(width: 1024, height: 1024))
+        ucWorld = UCWorld(width: side, height: side)
+        super.init(size: ucWorld.size.cgSize)
 
         self.anchorPoint = .anchorAtCenter
         self.scaleMode = .aspectFill
@@ -33,27 +38,20 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     }
 
     override func didMove(to view: SKView) {
+        var ucParent = ucWorld.theWorldSpace
+
         for p in 0..<5 {
-            let ring: AppState.Ring
-            let parent: SKNode
+            let ring: AppState.Ring = p == 0 ? .outerRing : .innerRing(p)
+            let pixie = Pixie(ring, skParent: self, ucParent: ucParent)
 
-            if p == 0 {
-                ring = .outerRing
-                parent = self
-            } else {
-                ring = .innerRing(p)
-                parent = pixies.last!.sprite
-            }
-
-            let pixie = Pixie(ring, parent: parent)
             pixie.postInit(appState: _appState)
 
-            pixie.sprite.size = self.size
-            pixie.sprite.setScale(pixie.radius)
-
+            pixie.sprite.size = ucWorld.ensize(pixie.space).cgSize
             pixie.color = SKColor([Color.orange, Color.green, Color.blue, Color.yellow, Color.red][p])
 
             pixies.append(pixie)
+
+            ucParent = pixie.space
         }
 
         setupObservers()
@@ -88,7 +86,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             guard let myself = self else { return }
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
-                myself.pixies[ix + 1].pen = pen
+                myself.pixies[ix + 1].pen.space.position.r = pen
             }
         }
 
@@ -138,10 +136,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
         for pixie in pixies {
             pixie.applyUIStateToPixieStateIf(appState)
-            pixie.applyPixieStateToSprite()
-
-            pixie.sprite.position = pixie.isOuterRing ? .zero :
-                CGPoint(x: (self.size.width - pixie.sprite.size.width) / 2, y: 0)
+            pixie.applyPixieStateToSprite(ucWorld: ucWorld)
 
             direction *= -1
 
@@ -151,7 +146,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             pixie.roll(2.0 * direction * appState.cycleSpeed * deltaTime * .tau / totalScale)
 
-            pixie.dropDot(onto: self, deltaTime: deltaTime)
+            pixie.dropDot(onto: self, ucWorld: ucWorld, deltaTime: deltaTime)
         }
     }
 

@@ -23,8 +23,6 @@
 		D44BF5662777E21D00E2FCE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5642777E21D00E2FCE1 /* Extensions.swift */; };
 		D44BF5682777E22400E2FCE1 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5672777E22400E2FCE1 /* YAColor.swift */; };
 		D44BF5692777E22400E2FCE1 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5672777E22400E2FCE1 /* YAColor.swift */; };
-		D44BF56B2777E23200E2FCE1 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF56A2777E23200E2FCE1 /* Overload2D.swift */; };
-		D44BF56C2777E23200E2FCE1 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF56A2777E23200E2FCE1 /* Overload2D.swift */; };
 		D4BFF54C2777D16500A7C66C /* PixoniaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFF53C2777D16300A7C66C /* PixoniaApp.swift */; };
 		D4BFF54D2777D16500A7C66C /* PixoniaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFF53C2777D16300A7C66C /* PixoniaApp.swift */; };
 		D4BFF5502777D16500A7C66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4BFF53E2777D16500A7C66C /* Assets.xcassets */; };
@@ -42,7 +40,6 @@
 		D44BF55F2777E20A00E2FCE1 /* SpritePool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = SpritePool.xcassets; path = ../../../Spirokon/Shared/SpriteKit/SpritePool.xcassets; sourceTree = "<group>"; };
 		D44BF5642777E21D00E2FCE1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../Spirokon/Shared/Primitives/Extensions.swift; sourceTree = "<group>"; };
 		D44BF5672777E22400E2FCE1 /* YAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YAColor.swift; path = ../../../Spirokon/Shared/Primitives/YAColor.swift; sourceTree = "<group>"; };
-		D44BF56A2777E23200E2FCE1 /* Overload2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Overload2D.swift; path = ../../../Spirokon/Shared/Primitives/Overload2D.swift; sourceTree = "<group>"; };
 		D4BFF53C2777D16300A7C66C /* PixoniaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixoniaApp.swift; sourceTree = "<group>"; };
 		D4BFF53E2777D16500A7C66C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4BFF5432777D16500A7C66C /* Pixonia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pixonia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +81,6 @@
 				D4BFF53C2777D16300A7C66C /* PixoniaApp.swift */,
 				D44BF4672777DAFE00E2FCE1 /* AppState.swift */,
 				D44BF5642777E21D00E2FCE1 /* Extensions.swift */,
-				D44BF56A2777E23200E2FCE1 /* Overload2D.swift */,
 				D408C33E277929350053B5F4 /* Pixie.swift */,
 				D4BFF55A2777D19000A7C66C /* PixoniaAppView.swift */,
 				D44BF4032777D91200E2FCE1 /* PixoniaScene.swift */,
@@ -222,7 +218,6 @@
 				D408C33F277929350053B5F4 /* Pixie.swift in Sources */,
 				D4BFF54C2777D16500A7C66C /* PixoniaApp.swift in Sources */,
 				D44BF4052777D91200E2FCE1 /* PixoniaScene.swift in Sources */,
-				D44BF56B2777E23200E2FCE1 /* Overload2D.swift in Sources */,
 				D44BF5652777E21D00E2FCE1 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +234,6 @@
 				D408C340277929350053B5F4 /* Pixie.swift in Sources */,
 				D4BFF54D2777D16500A7C66C /* PixoniaApp.swift in Sources */,
 				D44BF4062777D91200E2FCE1 /* PixoniaScene.swift in Sources */,
-				D44BF56C2777E23200E2FCE1 /* Overload2D.swift in Sources */,
 				D44BF5662777E21D00E2FCE1 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

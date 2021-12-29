@@ -26,13 +26,6 @@ extension CGSize {
     }
 }
 
-extension CGAffineTransform: CustomDebugStringConvertible {
-    public var debugDescription: String {
-        "p\((CGPoint.zero << self).compact())"
-        + " s\((CGSize(radius: 1) << self).compact())"
-    }
-}
-
 extension CGRect {
     var center: CGPoint { CGPoint(x: midX, y: midY) }
 }
