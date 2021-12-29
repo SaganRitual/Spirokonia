@@ -22,7 +22,7 @@ class Pixie {
     let ring: AppState.Ring
     let sprite: SKSpriteNode
 
-    var pen: Pen!
+    var pen: Pen?
     var space = UCSpace()
 
     var color = SKColor.green
@@ -76,46 +76,42 @@ class Pixie {
         default: fatalError()
         }
 
-        sprite.anchorPoint = .anchorAtCenter
-
         skParent.addChild(sprite)
         ucParent.addChild(space)
 
-        pen = Pen(skParent: skParent, ucParent: self.space)
+        pen = isInnerRing ? Pen(skParent: skParent, ucParent: self.space) : nil
     }
 
-    func applyPixieStateToSprite(ucWorld: UCWorld) {
-        sprite.color = showRing ? self.color : .clear
-
-        sprite.size = ucWorld.ensize(space).cgSize
-        sprite.position = ucWorld.emplace(space).cgPoint
-        sprite.zRotation = -ucWorld.emroll(space) * 1.1 / 10.0
-
-        pen.sprite.position = ucWorld.emplace(pen.space).cgPoint
-        pen.sprite.color = showRing ? .red : .clear
+    func advance(_ rotation: Double) {
+        switch rollMode {
+        case .normal:      space.rotation += rotation * 0.5
+        case .compensate:  space.rotation += rotation
+        case .fullStop:    break
+        case .doesNotRoll: break
+        }
     }
 
     func applyUIStateToPixieStateIf(_ appState: AppState) {
         switch ring {
         case .outerRing:
-            space.radius = appState.outerRingRadius
+            self.space.radius = appState.outerRingRadius
             self.rollMode = appState.outerRingRollMode
             self.showRing = appState.showRingOuter
 
         case .innerRing(1):
             space.radius = appState.radius
             space.position.r = 1.0 - space.radius
-            pen.space.position.r = appState.pen
+            pen!.space.position.r = appState.pen
 
         default:
             space.radius = 0.5
             space.position.r = 1.0 - space.radius
-            pen.space.position.r = appState.pen
+            pen!.space.position.r = appState.pen
         }
     }
 
     func dropDot(onto scene: SKScene, ucWorld: UCWorld, deltaTime: Double) {
-        guard drawDots else { return }
+        guard drawDots, isInnerRing else { return }
 
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 5, height: 5)
@@ -124,7 +120,7 @@ class Pixie {
         currentDotColor = currentDotColor.rotateHue(byAngle: colorRotation)
 
         dot.color = currentDotColor
-        dot.position = ucWorld.emplace(pen.space).cgPoint
+        dot.position = ucWorld.emplace(pen!.space).cgPoint
 
         scene.addChild(dot)
 
@@ -142,16 +138,20 @@ class Pixie {
 
         default:
             self.radius = appState.wrappedValue.radius
-            self.pen.space.position.r = appState.wrappedValue.pen
+            self.pen!.space.position.r = appState.wrappedValue.pen
         }
     }
 
-    func roll(_ rotation: Double) {
-        switch rollMode {
-        case .normal:      space.rotation += rotation * 0.5
-        case .compensate:  space.rotation += rotation
-        case .fullStop:    break
-        case .doesNotRoll: break
-        }
+    func reify(ucWorld: UCWorld) {
+        sprite.color = showRing ? self.color : .clear
+
+        sprite.size = ucWorld.ensize(space).cgSize
+        sprite.position = ucWorld.emplace(space).cgPoint
+        sprite.zRotation = ucWorld.emroll(space)
+
+        guard let pen = pen else { return }
+
+        pen.sprite.position = ucWorld.emplace(pen.space).cgPoint
+        pen.sprite.color = showRing ? .red : .clear
     }
 }

@@ -86,7 +86,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             guard let myself = self else { return }
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
-                myself.pixies[ix + 1].pen.space.position.r = pen
+                myself.pixies[ix + 1].pen!.space.position.r = pen
             }
         }
 
@@ -132,24 +132,26 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         guard isReady else { return }
         let deltaTime: Double = 1.0 / 60.0
 
-        let density = 5
+        let density = 1
         let dt = deltaTime / Double(density)
 
         for _ in 0..<density {
-            var direction = -1.0
+            var direction = 1.0
             var totalScale = 1.0
 
             for pixie in pixies {
                 pixie.applyUIStateToPixieStateIf(appState)
-                pixie.applyPixieStateToSprite(ucWorld: ucWorld)
 
                 direction *= -1
 
                 // Don't scale the rotation for the outer ring's radius; the rotation rate
                 // is always the same no matter its size
-                if case AppState.Ring.innerRing = pixie.ring { totalScale *= pixie.space.radius }
+                if !pixie.isOuterRing { totalScale *= pixie.space.radius }
 
-                pixie.roll(2.0 * direction * appState.cycleSpeed * dt * .tau / totalScale)
+                let rotation = 2.0 * direction * appState.cycleSpeed * dt * .tau / totalScale
+
+                pixie.advance(rotation)
+                pixie.reify(ucWorld: ucWorld)
                 pixie.dropDot(onto: self, ucWorld: ucWorld, deltaTime: dt)
             }
         }

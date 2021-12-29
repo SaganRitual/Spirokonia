@@ -120,13 +120,8 @@ class UCWorld {
         var sp = space
         var zr = 0.0
 
-        var firstPass = true
         while let parent = sp.parent {
-            if firstPass {
-                firstPass = false
-            } else {
-                zr += sp.rotation
-            }
+            zr += sp.rotation
             sp = parent
         }
 

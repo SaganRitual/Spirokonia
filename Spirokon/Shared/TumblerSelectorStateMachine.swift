@@ -158,7 +158,7 @@ class TumblerSelectorStateMachine: GKStateMachine, ObservableObject {
         appState.showRingInner = pixoniaScene.pixies[pixieIx].showRing
         appState.drawDotsInner = pixoniaScene.pixies[pixieIx].drawDots
         appState.radius = pixoniaScene.pixies[pixieIx].radius
-        appState.pen = pixoniaScene.pixies[pixieIx].pen.space.position.r
+        appState.pen = pixoniaScene.pixies[pixieIx].pen?.space.position.r ?? 0.0
         appState.density = pixoniaScene.pixies[pixieIx].density
         appState.colorSpeed = pixoniaScene.pixies[pixieIx].colorSpeed
         appState.trailDecay = pixoniaScene.pixies[pixieIx].trailDecay
