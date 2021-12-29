@@ -3,19 +3,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var appState = AppState()
-    @ObservedObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
-
-    init() {
-        _tumblerSelectorStateMachine = ObservedObject(
-            initialValue: TumblerSelectorStateMachine(appState: _appState)
-        )
-    }
-
-
     var body: some View {
-        TumblerSelectorView(appState: appState, tumblerSelectorStateMachine: tumblerSelectorStateMachine)
-            .padding(.top)
+        HStack {
+            MainNavigationView()
+            PixoniaView()
+        }
     }
 }
 

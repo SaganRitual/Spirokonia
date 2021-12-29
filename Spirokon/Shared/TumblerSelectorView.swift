@@ -3,20 +3,10 @@
 import SwiftUI
 
 struct TumblerSelectorView: View {
+    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
+
     let fonts: [SwiftUI.Font] = [.largeTitle, .title, .body, .caption]
-
-    @ObservedObject var appState: AppState
-    @ObservedObject var pixoniaScene: PixoniaScene
-    @StateObject private var tumblerSelectorStateMachine: TumblerSelectorStateMachine
-
-    init(appState: ObservedObject<AppState>, pixoniaScene: ObservedObject<PixoniaScene>) {
-        _appState = ObservedObject(wrappedValue: appState.wrappedValue)
-        _pixoniaScene = ObservedObject(wrappedValue: pixoniaScene.wrappedValue)
-
-        _tumblerSelectorStateMachine = StateObject(
-            wrappedValue: TumblerSelectorStateMachine(appState: appState, pixoniaScene: pixoniaScene)
-        )
-    }
 
     struct ButtonDescriptor {
         let zStack: Bool

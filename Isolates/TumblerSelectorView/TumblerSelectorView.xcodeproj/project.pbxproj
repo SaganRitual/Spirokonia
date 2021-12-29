@@ -25,6 +25,26 @@
 		D44BF55A2777E05000E2FCE1 /* TumblerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5582777E05000E2FCE1 /* TumblerSelectorView.swift */; };
 		D44BF55C2777E09A00E2FCE1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF55B2777E09A00E2FCE1 /* AppState.swift */; };
 		D44BF55D2777E09A00E2FCE1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF55B2777E09A00E2FCE1 /* AppState.swift */; };
+		D4F4BB7C277CDE790049035F /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB7B277CDE790049035F /* PixoniaScene.swift */; };
+		D4F4BB7D277CDE790049035F /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB7B277CDE790049035F /* PixoniaScene.swift */; };
+		D4F4BB7F277CDF580049035F /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB7E277CDF580049035F /* PixoniaView.swift */; };
+		D4F4BB80277CDF580049035F /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB7E277CDF580049035F /* PixoniaView.swift */; };
+		D4F4BB82277CDFE60049035F /* PixieProxies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB81277CDFE60049035F /* PixieProxies.swift */; };
+		D4F4BB83277CDFE60049035F /* PixieProxies.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB81277CDFE60049035F /* PixieProxies.swift */; };
+		D4F4BBBE277CFEEE0049035F /* TumblerSettingsViewOuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBBA277CFEEE0049035F /* TumblerSettingsViewOuter.swift */; };
+		D4F4BBBF277CFEEE0049035F /* TumblerSettingsViewOuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBBA277CFEEE0049035F /* TumblerSettingsViewOuter.swift */; };
+		D4F4BBC0277CFEEE0049035F /* TumblerSettingsViewInner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBBB277CFEEE0049035F /* TumblerSettingsViewInner.swift */; };
+		D4F4BBC1277CFEEE0049035F /* TumblerSettingsViewInner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBBB277CFEEE0049035F /* TumblerSettingsViewInner.swift */; };
+		D4F4BBC2277CFEEE0049035F /* TumblerSettingsViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBBC277CFEEE0049035F /* TumblerSettingsViewMain.swift */; };
+		D4F4BBC3277CFEEE0049035F /* TumblerSettingsViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBBC277CFEEE0049035F /* TumblerSettingsViewMain.swift */; };
+		D4F4BBC4277CFEEE0049035F /* TumblerSettingsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBBD277CFEEE0049035F /* TumblerSettingsSlider.swift */; };
+		D4F4BBC5277CFEEE0049035F /* TumblerSettingsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBBD277CFEEE0049035F /* TumblerSettingsSlider.swift */; };
+		D4F4BBC7277CFF020049035F /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBC6277CFF020049035F /* MainNavigationView.swift */; };
+		D4F4BBC8277CFF020049035F /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBC6277CFF020049035F /* MainNavigationView.swift */; };
+		D4F4BBD0277D00300049035F /* RollModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBCF277D00300049035F /* RollModePicker.swift */; };
+		D4F4BBD1277D00300049035F /* RollModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBCF277D00300049035F /* RollModePicker.swift */; };
+		D4F4BBD3277D005A0049035F /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBD2277D005A0049035F /* TogglesView.swift */; };
+		D4F4BBD4277D005A0049035F /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBD2277D005A0049035F /* TogglesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +60,16 @@
 		D44BF5462777E01300E2FCE1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		D44BF5582777E05000E2FCE1 /* TumblerSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TumblerSelectorView.swift; path = ../../../Spirokon/Shared/TumblerSelectorView.swift; sourceTree = "<group>"; };
 		D44BF55B2777E09A00E2FCE1 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppState.swift; path = ../../../Spirokon/Shared/AppState.swift; sourceTree = "<group>"; };
+		D4F4BB7B277CDE790049035F /* PixoniaScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixoniaScene.swift; sourceTree = "<group>"; };
+		D4F4BB7E277CDF580049035F /* PixoniaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixoniaView.swift; sourceTree = "<group>"; };
+		D4F4BB81277CDFE60049035F /* PixieProxies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixieProxies.swift; sourceTree = "<group>"; };
+		D4F4BBBA277CFEEE0049035F /* TumblerSettingsViewOuter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TumblerSettingsViewOuter.swift; path = ../../../Spirokon/Shared/TumblerSettingsViewOuter.swift; sourceTree = "<group>"; };
+		D4F4BBBB277CFEEE0049035F /* TumblerSettingsViewInner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TumblerSettingsViewInner.swift; path = ../../../Spirokon/Shared/TumblerSettingsViewInner.swift; sourceTree = "<group>"; };
+		D4F4BBBC277CFEEE0049035F /* TumblerSettingsViewMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TumblerSettingsViewMain.swift; path = ../../../Spirokon/Shared/TumblerSettingsViewMain.swift; sourceTree = "<group>"; };
+		D4F4BBBD277CFEEE0049035F /* TumblerSettingsSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TumblerSettingsSlider.swift; path = ../../../Spirokon/Shared/TumblerSettingsSlider.swift; sourceTree = "<group>"; };
+		D4F4BBC6277CFF020049035F /* MainNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainNavigationView.swift; path = ../../../Spirokon/Shared/MainNavigationView.swift; sourceTree = "<group>"; };
+		D4F4BBCF277D00300049035F /* RollModePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RollModePicker.swift; path = ../../../Spirokon/Shared/RollModePicker.swift; sourceTree = "<group>"; };
+		D4F4BBD2277D005A0049035F /* TogglesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TogglesView.swift; path = ../../../Spirokon/Shared/TogglesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +106,19 @@
 				D44BF55B2777E09A00E2FCE1 /* AppState.swift */,
 				D44BF5382777E01100E2FCE1 /* ContentView.swift */,
 				D408C401277A576E0053B5F4 /* Extensions.swift */,
+				D4F4BBC6277CFF020049035F /* MainNavigationView.swift */,
 				D408C404277A57890053B5F4 /* Overload2D.swift */,
+				D4F4BB81277CDFE60049035F /* PixieProxies.swift */,
+				D4F4BB7B277CDE790049035F /* PixoniaScene.swift */,
+				D4F4BB7E277CDF580049035F /* PixoniaView.swift */,
+				D4F4BBCF277D00300049035F /* RollModePicker.swift */,
+				D4F4BBD2277D005A0049035F /* TogglesView.swift */,
 				D408C3E3277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift */,
 				D44BF5582777E05000E2FCE1 /* TumblerSelectorView.swift */,
+				D4F4BBBD277CFEEE0049035F /* TumblerSettingsSlider.swift */,
+				D4F4BBBB277CFEEE0049035F /* TumblerSettingsViewInner.swift */,
+				D4F4BBBC277CFEEE0049035F /* TumblerSettingsViewMain.swift */,
+				D4F4BBBA277CFEEE0049035F /* TumblerSettingsViewOuter.swift */,
 				D408C3FE277A574C0053B5F4 /* YAColor.swift */,
 				D44BF5392777E01300E2FCE1 /* Assets.xcassets */,
 			);
@@ -203,11 +243,21 @@
 				D408C3E4277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
 				D408C3FF277A574C0053B5F4 /* YAColor.swift in Sources */,
 				D44BF5592777E05000E2FCE1 /* TumblerSelectorView.swift in Sources */,
+				D4F4BBC7277CFF020049035F /* MainNavigationView.swift in Sources */,
 				D44BF5492777E01300E2FCE1 /* ContentView.swift in Sources */,
+				D4F4BBC0277CFEEE0049035F /* TumblerSettingsViewInner.swift in Sources */,
 				D44BF5472777E01300E2FCE1 /* TumblerSelectorViewApp.swift in Sources */,
+				D4F4BB7C277CDE790049035F /* PixoniaScene.swift in Sources */,
+				D4F4BBD0277D00300049035F /* RollModePicker.swift in Sources */,
 				D408C405277A57890053B5F4 /* Overload2D.swift in Sources */,
+				D4F4BBBE277CFEEE0049035F /* TumblerSettingsViewOuter.swift in Sources */,
+				D4F4BB82277CDFE60049035F /* PixieProxies.swift in Sources */,
 				D44BF55C2777E09A00E2FCE1 /* AppState.swift in Sources */,
 				D408C402277A576E0053B5F4 /* Extensions.swift in Sources */,
+				D4F4BBC2277CFEEE0049035F /* TumblerSettingsViewMain.swift in Sources */,
+				D4F4BB7F277CDF580049035F /* PixoniaView.swift in Sources */,
+				D4F4BBD3277D005A0049035F /* TogglesView.swift in Sources */,
+				D4F4BBC4277CFEEE0049035F /* TumblerSettingsSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,11 +268,21 @@
 				D408C3E5277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
 				D408C400277A574C0053B5F4 /* YAColor.swift in Sources */,
 				D44BF55A2777E05000E2FCE1 /* TumblerSelectorView.swift in Sources */,
+				D4F4BBC8277CFF020049035F /* MainNavigationView.swift in Sources */,
 				D44BF54A2777E01300E2FCE1 /* ContentView.swift in Sources */,
+				D4F4BBC1277CFEEE0049035F /* TumblerSettingsViewInner.swift in Sources */,
 				D44BF5482777E01300E2FCE1 /* TumblerSelectorViewApp.swift in Sources */,
+				D4F4BB7D277CDE790049035F /* PixoniaScene.swift in Sources */,
+				D4F4BBD1277D00300049035F /* RollModePicker.swift in Sources */,
 				D408C406277A57890053B5F4 /* Overload2D.swift in Sources */,
+				D4F4BBBF277CFEEE0049035F /* TumblerSettingsViewOuter.swift in Sources */,
+				D4F4BB83277CDFE60049035F /* PixieProxies.swift in Sources */,
 				D44BF55D2777E09A00E2FCE1 /* AppState.swift in Sources */,
 				D408C403277A576E0053B5F4 /* Extensions.swift in Sources */,
+				D4F4BBC3277CFEEE0049035F /* TumblerSettingsViewMain.swift in Sources */,
+				D4F4BB80277CDF580049035F /* PixoniaView.swift in Sources */,
+				D4F4BBD4277D005A0049035F /* TogglesView.swift in Sources */,
+				D4F4BBC5277CFEEE0049035F /* TumblerSettingsSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

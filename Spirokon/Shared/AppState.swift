@@ -3,7 +3,7 @@
 import SwiftUI
 
 class AppState: ObservableObject {
-    enum RollMode {
+    enum RollMode: String {
         case compensate, doesNotRoll, fullStop, normal
     }
 

@@ -35,8 +35,6 @@
 		D44BF45B2777D97000E2FCE1 /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4582777D97000E2FCE1 /* SpritePool.swift */; };
 		D44BF45C2777D97000E2FCE1 /* SpritePool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44BF4592777D97000E2FCE1 /* SpritePool.xcassets */; };
 		D44BF45D2777D97000E2FCE1 /* SpritePool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44BF4592777D97000E2FCE1 /* SpritePool.xcassets */; };
-		D44BF45F2777D9B500E2FCE1 /* RollModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */; };
-		D44BF4602777D9B500E2FCE1 /* RollModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */; };
 		D44BF4FF2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */; };
 		D44BF5002777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */; };
 		D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */; };
@@ -51,6 +49,16 @@
 		D44BF5AB2777E8FF00E2FCE1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */; };
 		D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
 		D4F4BB77277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
+		D4F4BBAF277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */; };
+		D4F4BBB0277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */; };
+		D4F4BBB2277CFCEE0049035F /* TumblerSettingsViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBB1277CFCEE0049035F /* TumblerSettingsViewMain.swift */; };
+		D4F4BBB3277CFCEE0049035F /* TumblerSettingsViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBB1277CFCEE0049035F /* TumblerSettingsViewMain.swift */; };
+		D4F4BBB5277CFD5A0049035F /* TumblerSettingsViewOuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBB4277CFD5A0049035F /* TumblerSettingsViewOuter.swift */; };
+		D4F4BBB6277CFD5A0049035F /* TumblerSettingsViewOuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBB4277CFD5A0049035F /* TumblerSettingsViewOuter.swift */; };
+		D4F4BBB8277CFDEF0049035F /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBB7277CFDEF0049035F /* MainNavigationView.swift */; };
+		D4F4BBB9277CFDEF0049035F /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBB7277CFDEF0049035F /* MainNavigationView.swift */; };
+		D4F4BBCD277D001E0049035F /* RollModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBCC277D001E0049035F /* RollModePicker.swift */; };
+		D4F4BBCE277D001E0049035F /* RollModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBCC277D001E0049035F /* RollModePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +79,6 @@
 		D44BF4472777D95000E2FCE1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D44BF4582777D97000E2FCE1 /* SpritePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpritePool.swift; sourceTree = "<group>"; };
 		D44BF4592777D97000E2FCE1 /* SpritePool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpritePool.xcassets; sourceTree = "<group>"; };
-		D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollModePicker.swift; sourceTree = "<group>"; };
 		D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsSlider.swift; sourceTree = "<group>"; };
 		D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSelectorView.swift; sourceTree = "<group>"; };
 		D44BF5912777E32700E2FCE1 /* TogglesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TogglesView.swift; sourceTree = "<group>"; };
@@ -82,6 +89,11 @@
 		D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 		D4F4BB75277C8B270049035F /* UnitCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCircle.swift; sourceTree = "<group>"; };
+		D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewInner.swift; sourceTree = "<group>"; };
+		D4F4BBB1277CFCEE0049035F /* TumblerSettingsViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewMain.swift; sourceTree = "<group>"; };
+		D4F4BBB4277CFD5A0049035F /* TumblerSettingsViewOuter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewOuter.swift; sourceTree = "<group>"; };
+		D4F4BBB7277CFDEF0049035F /* MainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationView.swift; sourceTree = "<group>"; };
+		D4F4BBCC277D001E0049035F /* RollModePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollModePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,14 +134,18 @@
 			children = (
 				D44BF3FA2777D8E100E2FCE1 /* AppState.swift */,
 				D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */,
+				D4F4BBB7277CFDEF0049035F /* MainNavigationView.swift */,
 				D408C33B277818CB0053B5F4 /* Pixie.swift */,
 				D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */,
 				D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */,
-				D44BF45E2777D9B500E2FCE1 /* RollModePicker.swift */,
+				D4F4BBCC277D001E0049035F /* RollModePicker.swift */,
 				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
 				D44BF5912777E32700E2FCE1 /* TogglesView.swift */,
 				D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */,
 				D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */,
+				D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */,
+				D4F4BBB1277CFCEE0049035F /* TumblerSettingsViewMain.swift */,
+				D4F4BBB4277CFD5A0049035F /* TumblerSettingsViewOuter.swift */,
 				D408C407277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift */,
 				D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */,
 				D44BF4412777D94000E2FCE1 /* Primitives */,
@@ -322,7 +338,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44BF3FB2777D8E100E2FCE1 /* AppState.swift in Sources */,
-				D44BF45F2777D9B500E2FCE1 /* RollModePicker.swift in Sources */,
+				D4F4BBAF277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */,
+				D4F4BBB5277CFD5A0049035F /* TumblerSettingsViewOuter.swift in Sources */,
+				D4F4BBCD277D001E0049035F /* RollModePicker.swift in Sources */,
 				D44BF3EE2777D8D900E2FCE1 /* ContentView.swift in Sources */,
 				D408C33C277818CB0053B5F4 /* Pixie.swift in Sources */,
 				D44BF3EC2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
@@ -332,8 +350,10 @@
 				D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */,
 				D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D44BF4532777D95000E2FCE1 /* Extensions.swift in Sources */,
+				D4F4BBB2277CFCEE0049035F /* TumblerSettingsViewMain.swift in Sources */,
 				D408C408277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
 				D44BF5922777E32700E2FCE1 /* TogglesView.swift in Sources */,
+				D4F4BBB8277CFDEF0049035F /* MainNavigationView.swift in Sources */,
 				D44BF4012777D90400E2FCE1 /* PixoniaView.swift in Sources */,
 				D44BF45A2777D97000E2FCE1 /* SpritePool.swift in Sources */,
 				D408C3FC277A573A0053B5F4 /* YAColor.swift in Sources */,
@@ -346,7 +366,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44BF3FC2777D8E100E2FCE1 /* AppState.swift in Sources */,
-				D44BF4602777D9B500E2FCE1 /* RollModePicker.swift in Sources */,
+				D4F4BBB0277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */,
+				D4F4BBB6277CFD5A0049035F /* TumblerSettingsViewOuter.swift in Sources */,
+				D4F4BBCE277D001E0049035F /* RollModePicker.swift in Sources */,
 				D44BF3EF2777D8D900E2FCE1 /* ContentView.swift in Sources */,
 				D408C33D277818CB0053B5F4 /* Pixie.swift in Sources */,
 				D44BF3ED2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
@@ -356,8 +378,10 @@
 				D4F4BB77277C8B270049035F /* UnitCircle.swift in Sources */,
 				D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D44BF4542777D95000E2FCE1 /* Extensions.swift in Sources */,
+				D4F4BBB3277CFCEE0049035F /* TumblerSettingsViewMain.swift in Sources */,
 				D408C409277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
 				D44BF5932777E32700E2FCE1 /* TogglesView.swift in Sources */,
+				D4F4BBB9277CFDEF0049035F /* MainNavigationView.swift in Sources */,
 				D44BF4022777D90400E2FCE1 /* PixoniaView.swift in Sources */,
 				D44BF45B2777D97000E2FCE1 /* SpritePool.swift in Sources */,
 				D408C3FD277A573A0053B5F4 /* YAColor.swift in Sources */,

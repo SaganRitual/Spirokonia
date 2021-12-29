@@ -27,7 +27,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     let side: Double = 1024
 
     init(appState: ObservedObject<AppState>) {
-        _appState = appState
+        self._appState = appState
 
         ucWorld = UCWorld(width: side, height: side)
         super.init(size: ucWorld.size.cgSize)

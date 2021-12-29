@@ -3,108 +3,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var appState: AppState
-    @ObservedObject var pixoniaScene: PixoniaScene
+    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var pixoniaScene: PixoniaScene
 
     var body: some View {
         HStack {
-            NavigationView {
-                VStack {
-                    Spacer()
-
-                    Section(AppState.showTextLabels ? "Speed" : "") {
-                        TumblerSettingSlider(
-                            value: $appState.cycleSpeed, iconName: "speedometer", label: "Speed",
-                            range: AppState.cycleSpeedRange, showTextLabel: AppState.showTextLabels
-                        )
-                    }
-
-                    Spacer()
-
-                    Section(AppState.showTextLabels ? "Main Ring" : "") {
-                        HStack {
-                            RollModePicker(ring: .outerRing, rollMode: $appState.outerRingRollMode)
-                            TogglesView(
-                                ring: .outerRing, drawDots: Binding(get: { false }, set: { _ in }),
-                                showRing: $appState.showRingOuter
-                            )
-                        }
-
-                        TumblerSettingSlider(
-                            value: $appState.outerRingRadius, iconName: "circle", label: "Scale",
-                            range: AppState.unitRange, showTextLabel: AppState.showTextLabels
-                        )
-                    }
-
-                    Spacer()
-
-                    Section(AppState.showTextLabels ? "Inner Rings" : "") {
-                        HStack {
-                            Button("Select All") {
-                                appState.tumblerSelectorSwitches.indices.forEach {
-                                    appState.tumblerSelectorSwitches[$0] = .trueDefinite
-                                }
-                            }.buttonStyle(BorderedButtonStyle())
-
-                            Spacer()
-
-                            Button("Deselect All") {
-                                appState.tumblerSelectorSwitches.indices.forEach {
-                                    appState.tumblerSelectorSwitches[$0] = .falseDefinite
-                                }
-                            }.buttonStyle(BorderedButtonStyle())
-                        }
-
-                        TumblerSelectorView(appState: _appState, pixoniaScene: _pixoniaScene)
-                            .padding(.top)
-                    }
-
-                    Spacer()
-
-                    Section {
-                        HStack {
-                            RollModePicker(ring: .innerRing(1), rollMode: $appState.innerRingRollMode)
-                            TogglesView(
-                                ring: .innerRing(1), drawDots: $appState.drawDotsInner,
-                                showRing: $appState.showRingInner
-                            )
-                        }
-
-                        TumblerSettingSlider(
-                            value: $appState.radius, iconName: "circle", label: "Radius",
-                            range: AppState.unitRange, showTextLabel: AppState.showTextLabels
-                        )
-
-                        TumblerSettingSlider(
-                            value: $appState.pen, iconName: "pencil", label: "Pen",
-                            range: AppState.unitRange, showTextLabel: AppState.showTextLabels
-                        )
-
-                        TumblerSettingSlider(
-                            value: $appState.density, iconName: "circle.dotted", label: "Density",
-                            range: AppState.dotDensityRange, showTextLabel: AppState.showTextLabels
-                        )
-
-                        TumblerSettingSlider(
-                            value: $appState.colorSpeed, iconName: "paintbrush", label: "Color",
-                            range: AppState.colorSpeedRange, showTextLabel: AppState.showTextLabels
-                        )
-
-                        TumblerSettingSlider(
-                            value: $appState.trailDecay, iconName: "timer", label: "Decay",
-                            range: AppState.trailDecayRange, showTextLabel: AppState.showTextLabels
-                        )
-                    }
-
-                    Spacer()
-                }
-                .navigationTitle("Settings")
-                .padding([.leading, .trailing])
-            }
-            #if os(iOS)
-            .navigationViewStyle(StackNavigationViewStyle())
-            #endif
-
+            MainNavigationView()
             PixoniaView(appState: appState, scene: pixoniaScene)
         }
     }
