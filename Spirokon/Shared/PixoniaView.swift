@@ -13,6 +13,6 @@ struct PixoniaView: View {
             options: SpriteView.Options(),
             debugOptions: [.showsFPS, .showsNodeCount, .showsDrawCount, .showsQuadCount]
         )
-        .aspectRatio(1.0, contentMode: .fill)
+        .aspectRatio(1.0, contentMode: .fit)
     }
 }

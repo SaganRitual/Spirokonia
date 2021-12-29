@@ -8,9 +8,31 @@ class SpritePool {
     static let spokeRingsMedium = SpritePool("Markers", "spoke-ring-512-8")
     static let spokeRingsSmall = SpritePool("Markers", "spoke-ring-512-16")
 
-    let atlas: SKTextureAtlas
+    let atlas: SKTextureAtlas!
     var parkedDrones: [SKSpriteNode]
     let texture: SKTexture
+
+    init(_ rect: CGRect, lineWidth: Double, scene: SKScene, cPreallocate: Int = 0) {
+        var transform = CGAffineTransform(scaleX: scene.size.width, y: scene.size.height)
+
+        let path = CGMutablePath(ellipseIn: rect, transform: &transform)
+
+//        for t in 0..<3 {
+//            path.move(to: CGPoint(radius: 0.25, theta: Double(t) * .tau / 3.0) + CGPoint(x: 1, y: 1), transform: transform)
+//            path.addLine(to: CGPoint(radius: 0.75, theta: Double(t) * .tau / 3.0) + CGPoint(x: 1, y: 1), transform: transform)
+//        }
+
+        let shape = SKShapeNode(path: path)
+        shape.lineWidth = lineWidth
+
+        self.texture = scene.view!.texture(from: shape)!
+        self.atlas = nil
+        self.parkedDrones = []
+
+        for _ in 0..<cPreallocate {
+            parkedDrones.append(SKSpriteNode(texture: self.texture))
+        }
+    }
 
     init(_ atlasName: String, _ textureName: String, cPreallocate: Int = 0) {
         self.atlas = SKTextureAtlas(named: atlasName)
@@ -45,7 +67,7 @@ private extension SpritePool {
     }
 
     func makeSprite(with drone: SKSpriteNode) -> SKSpriteNode {
-        drone.position = CGPoint(x: 0.5, y: 0.5)
+        drone.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         drone.color = .white
         drone.colorBlendFactor = 1
         drone.zPosition = 1

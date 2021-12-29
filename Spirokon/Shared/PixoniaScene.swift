@@ -33,7 +33,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         super.init(size: ucWorld.size.cgSize)
 
         self.anchorPoint = .anchorAtCenter
-        self.scaleMode = .aspectFill
+        self.scaleMode = .aspectFit
         self.backgroundColor = .black
     }
 
@@ -125,28 +125,33 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         }
     }
 
+    var accumulatedTime = 0.0
+
     override func update(_ currentTime: TimeInterval) {
         defer { previousTime = currentTime }
-        guard let previousTime = previousTime, isReady else { return }
-        let deltaTime_ = currentTime - previousTime
-        let deltaTime = min(deltaTime_, 1.0 / 60.0)
+        guard isReady else { return }
+        let deltaTime: Double = 1.0 / 60.0
 
-        var direction = -1.0
-        var totalScale = 1.0
+        let density = 5
+        let dt = deltaTime / Double(density)
 
-        for pixie in pixies {
-            pixie.applyUIStateToPixieStateIf(appState)
-            pixie.applyPixieStateToSprite(ucWorld: ucWorld)
+        for _ in 0..<density {
+            var direction = -1.0
+            var totalScale = 1.0
 
-            direction *= -1
+            for pixie in pixies {
+                pixie.applyUIStateToPixieStateIf(appState)
+                pixie.applyPixieStateToSprite(ucWorld: ucWorld)
 
-            // Don't scale the rotation for the outer ring's radius; the rotation rate
-            // is always the same no matter its size
-            if case AppState.Ring.innerRing = pixie.ring { totalScale *= pixie.radius }
+                direction *= -1
 
-            pixie.roll(2.0 * direction * appState.cycleSpeed * deltaTime * .tau / totalScale)
+                // Don't scale the rotation for the outer ring's radius; the rotation rate
+                // is always the same no matter its size
+                if case AppState.Ring.innerRing = pixie.ring { totalScale *= pixie.space.radius }
 
-            pixie.dropDot(onto: self, ucWorld: ucWorld, deltaTime: deltaTime)
+                pixie.roll(2.0 * direction * appState.cycleSpeed * dt * .tau / totalScale)
+                pixie.dropDot(onto: self, ucWorld: ucWorld, deltaTime: dt)
+            }
         }
     }
 

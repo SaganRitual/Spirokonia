@@ -50,7 +50,14 @@ class Pixie {
         }
     }
 
+    let sp: SpritePool
+
     init(_ ring: AppState.Ring, skParent: PixoniaScene, ucParent: UCSpace) {
+        sp = SpritePool(
+            CGRect(origin: CGPoint(x: 1.0, y: 1.0), size: CGSize(width: 2.0, height: 2.0)),
+            lineWidth: 8, scene: skParent
+        )
+
         self.ring = ring
 
         switch ring {
@@ -61,15 +68,16 @@ class Pixie {
             sprite = SpritePool.spokeRingsLarge.makeSprite()
 
         case .innerRing(2), .innerRing(3):
-            sprite = SpritePool.spokeRingsMedium.makeSprite()
+            sprite = SpritePool.spokeRingsLarge.makeSprite()
 
         case .innerRing(4):
-            sprite = SpritePool.spokeRingsSmall.makeSprite()
+            sprite = SpritePool.spokeRingsMedium.makeSprite()
 
         default: fatalError()
         }
 
         sprite.anchorPoint = .anchorAtCenter
+
         skParent.addChild(sprite)
         ucParent.addChild(space)
 
@@ -81,9 +89,10 @@ class Pixie {
 
         sprite.size = ucWorld.ensize(space).cgSize
         sprite.position = ucWorld.emplace(space).cgPoint
-        sprite.zRotation = ucWorld.emroll(space)
+        sprite.zRotation = -ucWorld.emroll(space) * 1.1 / 10.0
 
         pen.sprite.position = ucWorld.emplace(pen.space).cgPoint
+        pen.sprite.color = showRing ? .red : .clear
     }
 
     func applyUIStateToPixieStateIf(_ appState: AppState) {
@@ -93,8 +102,13 @@ class Pixie {
             self.rollMode = appState.outerRingRollMode
             self.showRing = appState.showRingOuter
 
-        case .innerRing:
+        case .innerRing(1):
             space.radius = appState.radius
+            space.position.r = 1.0 - space.radius
+            pen.space.position.r = appState.pen
+
+        default:
+            space.radius = 0.5
             space.position.r = 1.0 - space.radius
             pen.space.position.r = appState.pen
         }
@@ -114,7 +128,7 @@ class Pixie {
 
         scene.addChild(dot)
 
-        dot.run(SKAction.fadeOut(withDuration: 5.0)) {
+        dot.run(SKAction.fadeOut(withDuration: trailDecay)) {
             SpritePool.dots.releaseSprite(dot)
         }
     }

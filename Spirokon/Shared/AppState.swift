@@ -9,6 +9,13 @@ class AppState: ObservableObject {
 
     enum Ring {
         case innerRing(Int), outerRing
+
+        func isInnerRing(_ ix: Int? = nil) -> Bool {
+            switch self {
+            case .outerRing: return false
+            case .innerRing(let irix): return ix == nil ? true : irix == ix!
+            }
+        }
     }
 
     enum ToggleType {
@@ -22,14 +29,14 @@ class AppState: ObservableObject {
     @Published var innerRingRollMode = RollMode.normal
     @Published var outerRingRollMode = RollMode.normal
 
-    @Published var cycleSpeed = 0.25
-    @Published var outerRingRadius = 1.0
+    @Published var cycleSpeed: Double = 0.5
+    @Published var outerRingRadius: Double = 1.0
 
-    @Published var colorSpeed = 0.1
-    @Published var density = 1.0
-    @Published var pen = 1.0
-    @Published var radius = 0.5
-    @Published var trailDecay = 5.0
+    @Published var colorSpeed: Double = 0.05
+    @Published var density: Double = 5
+    @Published var pen: Double = 1.0
+    @Published var radius: Double = 1.0 - (1.0 / 10.0)
+    @Published var trailDecay: Double = 10
 
     enum TumblerSelectorSwitchState {
         case trueDefinite, trueIndefinite, falseDefinite, falseIndefinite
@@ -50,7 +57,7 @@ class AppState: ObservableObject {
     @Published var tumblerSelectorSwitches = [TumblerSelectorSwitchState](repeating: .trueDefinite, count: 4)
 
     static let colorSpeedRange = 0.0...1.0
-    static let cycleSpeedRange = 0.0...1.0
+    static let cycleSpeedRange = 0.0...2.0
     static let dotDensityRange = 0.0...20.0
     static let trailDecayRange = 0.0...20.0
     static let unitRange = 0.0...1.0
