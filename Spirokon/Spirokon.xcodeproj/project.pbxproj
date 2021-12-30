@@ -25,10 +25,6 @@
 		D44BF4002777D90400E2FCE1 /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */; };
 		D44BF4012777D90400E2FCE1 /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */; };
 		D44BF4022777D90400E2FCE1 /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */; };
-		D44BF44B2777D95000E2FCE1 /* Easer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4432777D95000E2FCE1 /* Easer.swift */; };
-		D44BF44C2777D95000E2FCE1 /* Easer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4432777D95000E2FCE1 /* Easer.swift */; };
-		D44BF44F2777D95000E2FCE1 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4452777D95000E2FCE1 /* Overload2D.swift */; };
-		D44BF4502777D95000E2FCE1 /* Overload2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4452777D95000E2FCE1 /* Overload2D.swift */; };
 		D44BF4532777D95000E2FCE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4472777D95000E2FCE1 /* Extensions.swift */; };
 		D44BF4542777D95000E2FCE1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4472777D95000E2FCE1 /* Extensions.swift */; };
 		D44BF45A2777D97000E2FCE1 /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF4582777D97000E2FCE1 /* SpritePool.swift */; };
@@ -47,6 +43,8 @@
 		D44BF5A52777E65F00E2FCE1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D44BF59F2777E65F00E2FCE1 /* LICENSE */; };
 		D44BF5AA2777E8FF00E2FCE1 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */; };
 		D44BF5AB2777E8FF00E2FCE1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */; };
+		D45A93E9277E64E00007401E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45A93E8277E64E00007401E /* Animator.swift */; };
+		D45A93EA277E64E00007401E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45A93E8277E64E00007401E /* Animator.swift */; };
 		D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
 		D4F4BB77277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
 		D4F4BBAF277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */; };
@@ -76,8 +74,6 @@
 		D44BF3FA2777D8E100E2FCE1 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixoniaScene.swift; sourceTree = "<group>"; };
 		D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixoniaView.swift; sourceTree = "<group>"; };
-		D44BF4432777D95000E2FCE1 /* Easer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easer.swift; sourceTree = "<group>"; };
-		D44BF4452777D95000E2FCE1 /* Overload2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overload2D.swift; sourceTree = "<group>"; };
 		D44BF4472777D95000E2FCE1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D44BF4582777D97000E2FCE1 /* SpritePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpritePool.swift; sourceTree = "<group>"; };
 		D44BF4592777D97000E2FCE1 /* SpritePool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpritePool.xcassets; sourceTree = "<group>"; };
@@ -90,6 +86,7 @@
 		D44BF59F2777E65F00E2FCE1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
+		D45A93E8277E64E00007401E /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		D4F4BB75277C8B270049035F /* UnitCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCircle.swift; sourceTree = "<group>"; };
 		D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewInner.swift; sourceTree = "<group>"; };
 		D4F4BBB1277CFCEE0049035F /* TumblerSettingsViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewMain.swift; sourceTree = "<group>"; };
@@ -178,9 +175,8 @@
 		D44BF4412777D94000E2FCE1 /* Primitives */ = {
 			isa = PBXGroup;
 			children = (
-				D44BF4432777D95000E2FCE1 /* Easer.swift */,
+				D45A93E8277E64E00007401E /* Animator.swift */,
 				D44BF4472777D95000E2FCE1 /* Extensions.swift */,
-				D44BF4452777D95000E2FCE1 /* Overload2D.swift */,
 				D4F4BB75277C8B270049035F /* UnitCircle.swift */,
 				D408C3FB277A573A0053B5F4 /* YAColor.swift */,
 			);
@@ -349,8 +345,6 @@
 				D408C33C277818CB0053B5F4 /* Pixie.swift in Sources */,
 				D44BF3EC2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
 				D44BF3FF2777D90400E2FCE1 /* PixoniaScene.swift in Sources */,
-				D44BF44B2777D95000E2FCE1 /* Easer.swift in Sources */,
-				D44BF44F2777D95000E2FCE1 /* Overload2D.swift in Sources */,
 				D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */,
 				D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D44BF4532777D95000E2FCE1 /* Extensions.swift in Sources */,
@@ -362,6 +356,7 @@
 				D44BF45A2777D97000E2FCE1 /* SpritePool.swift in Sources */,
 				D408C3FC277A573A0053B5F4 /* YAColor.swift in Sources */,
 				D4F4BBD6277D1DAA0049035F /* TumblerSettings.swift in Sources */,
+				D45A93E9277E64E00007401E /* Animator.swift in Sources */,
 				D44BF4FF2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,8 +373,6 @@
 				D408C33D277818CB0053B5F4 /* Pixie.swift in Sources */,
 				D44BF3ED2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */,
 				D44BF4002777D90400E2FCE1 /* PixoniaScene.swift in Sources */,
-				D44BF44C2777D95000E2FCE1 /* Easer.swift in Sources */,
-				D44BF4502777D95000E2FCE1 /* Overload2D.swift in Sources */,
 				D4F4BB77277C8B270049035F /* UnitCircle.swift in Sources */,
 				D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D44BF4542777D95000E2FCE1 /* Extensions.swift in Sources */,
@@ -391,6 +384,7 @@
 				D44BF45B2777D97000E2FCE1 /* SpritePool.swift in Sources */,
 				D408C3FD277A573A0053B5F4 /* YAColor.swift in Sources */,
 				D4F4BBD7277D1DAA0049035F /* TumblerSettings.swift in Sources */,
+				D45A93EA277E64E00007401E /* Animator.swift in Sources */,
 				D44BF5002777DE5A00E2FCE1 /* TumblerSettingsSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

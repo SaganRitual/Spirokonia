@@ -91,9 +91,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         }
 
         selectionObserver = tumblerSelectorStateMachine.$indexOfDrivingTumbler.sink {
-            [weak self] in
-            guard let pscene = self else { return }
-            guard let newDriverIx = $0 else { return }
+            [weak self] in  guard let pscene = self, let newDriverIx = $0 else { return }
 
             // Charge the UI with the newly promoted tumbler
             pscene.appState.pen = pscene.pixies[newDriverIx + 1].pen!.space.position.r

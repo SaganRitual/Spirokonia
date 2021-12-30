@@ -30,12 +30,14 @@ class Pixie {
     var currentDotColor = YAColor(hue: 0.0, saturation: 1.0, brightness: 1.0, alpha: 1.0)
     var drawDots = false
     var firstPass = true
-    var radius = 0.0
     var rollMode = AppState.RollMode.normal
     var showRing = false
     var trailDecay = 0.0
 
     var applyStateNeeded = true
+
+    let penAnimator: Animator?
+    let radiusAnimator: Animator
 
     init(_ ring: AppState.Ring, skParent: PixoniaScene, ucParent: UCSpace) {
         self.ring = ring
@@ -59,7 +61,15 @@ class Pixie {
         skParent.addChild(sprite)
         ucParent.addChild(space)
 
-        pen = ring.isInnerRing() ? Pen(skParent: skParent, ucParent: self.space) : nil
+        if ring.isInnerRing() {
+            pen = Pen(skParent: skParent, ucParent: self.space)
+            penAnimator = Animator(pen!.space.position.r, for: sprite)
+        } else {
+            pen = nil
+            penAnimator = nil
+        }
+
+        radiusAnimator = Animator(self.space.radius, for: sprite)
     }
 
     func advance(_ rotation: Double) {
@@ -76,7 +86,7 @@ class Pixie {
 
         switch ring {
         case .outerRing:
-            self.space.radius = appState.outerRingRadius
+            self.space.radius = radiusAnimator.currentValue
             self.rollMode = appState.outerRingRollMode
             self.showRing = appState.outerRingShow
 
@@ -84,9 +94,10 @@ class Pixie {
             guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite &&
                   applyStateNeeded else { return }
 
-            space.radius = appState.radius
+            space.radius = radiusAnimator.currentValue
             space.position.r = 1.0 - space.radius
-            pen!.space.position.r = appState.pen
+
+            pen!.space.position.r = penAnimator!.currentValue
 
             colorSpeed = appState.colorSpeed
             drawDots = appState.drawDots
@@ -125,13 +136,13 @@ class Pixie {
     func postInit(appState: ObservedObject<AppState>) {
         switch ring {
         case .outerRing:
-            self.radius = appState.wrappedValue.outerRingRadius
+            self.radiusAnimator.currentValue = appState.wrappedValue.outerRingRadius
             self.rollMode = appState.wrappedValue.outerRingRollMode
             self.showRing = appState.wrappedValue.outerRingShow
 
         default:
-            self.radius = appState.wrappedValue.radius
-            self.pen!.space.position.r = appState.wrappedValue.pen
+            self.penAnimator!.currentValue = appState.wrappedValue.pen
+            self.radiusAnimator.currentValue = appState.wrappedValue.radius
         }
     }
 

@@ -6,20 +6,19 @@ import SwiftUI
 
 class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     @ObservedObject var appState: AppState
-    @ObservedObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
-    var pixieProxies = [HasTumblerSettings]()
+    var pixie: Pixie!
+    var previousTime: Double?
+    var radiusObserver: AnyCancellable!
+    let ucWorld: UCWorld
 
-    var selectionObserver: AnyCancellable!
+    let side: Double = 1024
 
-    init(
-        appState: ObservedObject<AppState>,
-        tumblerSelectorStateMachine: ObservedObject<TumblerSelectorStateMachine>
-    ) {
+    init(appState: ObservedObject<AppState>) {
         self._appState = appState
-        self._tumblerSelectorStateMachine = tumblerSelectorStateMachine
 
-        super.init(size: CGSize(width: 1024, height: 1024))
+        ucWorld = UCWorld(width: side, height: side)
+        super.init(size: ucWorld.size.cgSize)
 
         self.anchorPoint = .anchorAtCenter
         self.scaleMode = .aspectFit
@@ -27,18 +26,20 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     }
 
     override func didMove(to view: SKView) {
-        selectionObserver = tumblerSelectorStateMachine.$indexOfDrivingTumbler.sink {
-            [weak self] in
-            guard let _ = self else { return }
-            guard let newDriverIx = $0 else {
-                print("clear ui")
-                return
-            }
+        pixie = Pixie(.outerRing, skParent: self, ucParent: ucWorld.theWorldSpace)
 
-            print("charge ui with \(newDriverIx)")
-        }
+        // Capture the value of startScale at the time of the notification, not the
+        // value it had when the user started dragging
+        radiusObserver = appState.$radius.sink { [weak self] newRadius in
+            self?.pixie.radiusAnimator.animate(to: newRadius)
+       }
     }
-    
+
+    override func update(_ currentTime: TimeInterval) {
+        pixie.applyUIStateToPixieStateIf(appState)
+        pixie.reify(ucWorld: ucWorld)
+    }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
