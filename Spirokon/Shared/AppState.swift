@@ -34,10 +34,10 @@ class AppState: ObservableObject {
     @Published var cycleSpeed: Double = 0.5
     @Published var outerRingRadius: Double = 1.0
 
-    @Published var colorSpeed: Double = 0.05
+    @Published var colorSpeed: Double = 0.01
     @Published var density: Double = 5
     @Published var pen: Double = 1.0
-    @Published var radius: Double = 1.0 - (1.0 / 3.0)
+    @Published var radius: Double = .pi / 4
     @Published var trailDecay: Double = 10
 
     enum TumblerSelectorSwitchState {
@@ -56,7 +56,9 @@ class AppState: ObservableObject {
         }
     }
 
-    @Published var tumblerSelectorSwitches = [TumblerSelectorSwitchState](repeating: .trueDefinite, count: 4)
+    @Published var tumblerSelectorSwitches: [TumblerSelectorSwitchState] = [
+        .trueDefinite, .falseDefinite, .falseDefinite, .falseDefinite
+    ]
 
     static let colorSpeedRange = 0.0...1.0
     static let cycleSpeedRange = 0.0...2.0

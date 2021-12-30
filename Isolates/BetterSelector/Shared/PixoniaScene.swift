@@ -28,8 +28,6 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     override func didMove(to view: SKView) {
         pixie = Pixie(.outerRing, skParent: self, ucParent: ucWorld.theWorldSpace)
 
-        // Capture the value of startScale at the time of the notification, not the
-        // value it had when the user started dragging
         radiusObserver = appState.$radius.sink { [weak self] newRadius in
             self?.pixie.radiusAnimator.animate(to: newRadius)
        }

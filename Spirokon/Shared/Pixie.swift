@@ -45,15 +45,19 @@ class Pixie {
         switch ring {
         case .outerRing:
             sprite = SpritePool.plainRings.makeSprite()
+            radiusAnimator = Animator(0.75, for: sprite)
 
         case .innerRing(1):
             sprite = SpritePool.spokeRingsLarge.makeSprite()
+            radiusAnimator = Animator(sqrt(2) / 2, for: sprite)
 
         case .innerRing(2), .innerRing(3):
             sprite = SpritePool.spokeRingsLarge.makeSprite()
+            radiusAnimator = Animator(exp(1) / 3, for: sprite)
 
         case .innerRing(4):
             sprite = SpritePool.spokeRingsMedium.makeSprite()
+            radiusAnimator = Animator(.pi / 6, for: sprite)
 
         default: fatalError()
         }
@@ -68,8 +72,6 @@ class Pixie {
             pen = nil
             penAnimator = nil
         }
-
-        radiusAnimator = Animator(self.space.radius, for: sprite)
     }
 
     func advance(_ rotation: Double) {
@@ -91,13 +93,13 @@ class Pixie {
             self.showRing = appState.outerRingShow
 
         case .innerRing(let ix):
-            guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite &&
-                  applyStateNeeded else { return }
-
             space.radius = radiusAnimator.currentValue
             space.position.r = 1.0 - space.radius
 
             pen!.space.position.r = penAnimator!.currentValue
+
+            guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite &&
+                  applyStateNeeded else { return }
 
             colorSpeed = appState.colorSpeed
             drawDots = appState.drawDots
