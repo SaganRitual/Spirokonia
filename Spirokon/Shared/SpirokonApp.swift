@@ -9,10 +9,14 @@ struct SpirokonApp: App {
     @ObservedObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
     init() {
-        _pixoniaScene = ObservedObject(initialValue: PixoniaScene(appState: _appState))
-
         _tumblerSelectorStateMachine = ObservedObject(
             wrappedValue: TumblerSelectorStateMachine(appState: _appState)
+        )
+
+        _pixoniaScene = ObservedObject(
+            wrappedValue: PixoniaScene(
+                appState: _appState, tumblerSelectorStateMachine: _tumblerSelectorStateMachine
+            )
         )
     }
 

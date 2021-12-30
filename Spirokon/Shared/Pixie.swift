@@ -28,7 +28,6 @@ class Pixie {
     var color = SKColor.green
     var colorSpeed = 0.0
     var currentDotColor = YAColor(hue: 0.0, saturation: 1.0, brightness: 1.0, alpha: 1.0)
-    var density = 0.0
     var drawDots = false
     var firstPass = true
     var radius = 0.0
@@ -62,7 +61,7 @@ class Pixie {
 
         switch ring {
         case .outerRing:
-            sprite = SpritePool.spokeRingsLarge.makeSprite()
+            sprite = SpritePool.plainRings.makeSprite()
 
         case .innerRing(1):
             sprite = SpritePool.spokeRingsLarge.makeSprite()
@@ -96,17 +95,20 @@ class Pixie {
         case .outerRing:
             self.space.radius = appState.outerRingRadius
             self.rollMode = appState.outerRingRollMode
-            self.showRing = appState.showRingOuter
+            self.showRing = appState.outerRingShow
 
-        case .innerRing(1):
+        case .innerRing(let ix):
+            guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite else { return }
+
             space.radius = appState.radius
             space.position.r = 1.0 - space.radius
             pen!.space.position.r = appState.pen
 
-        default:
-            space.radius = 0.5
-            space.position.r = 1.0 - space.radius
-            pen!.space.position.r = appState.pen
+            colorSpeed = appState.colorSpeed
+            drawDots = appState.drawDots
+            rollMode = appState.innerRingRollMode
+            showRing = appState.innerRingShow
+            trailDecay = appState.trailDecay
         }
     }
 
@@ -134,7 +136,7 @@ class Pixie {
         case .outerRing:
             self.radius = appState.wrappedValue.outerRingRadius
             self.rollMode = appState.wrappedValue.outerRingRollMode
-            self.showRing = appState.wrappedValue.showRingOuter
+            self.showRing = appState.wrappedValue.outerRingShow
 
         default:
             self.radius = appState.wrappedValue.radius

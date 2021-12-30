@@ -35,7 +35,7 @@ struct TumblerSettingsViewInner: View {
                 value: $appState.trailDecay, iconName: "timer", label: "Decay",
                 range: AppState.trailDecayRange, showTextLabel: AppState.showTextLabels
             )
-        }.disabled(tumblerSelectorStateMachine.indexOfDrivingTumbler == nil)
+        }
     }
 }
 

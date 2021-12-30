@@ -6,6 +6,7 @@ import SwiftUI
 
 class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     @ObservedObject var appState: AppState
+    @ObservedObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
     var isReady = false
 
@@ -16,7 +17,6 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     let ucWorld: UCWorld
 
     var colorSpeedObserver: AnyCancellable!
-    var densityObserver: AnyCancellable!
     var drawDotsObserver: AnyCancellable!
     var penObserver: AnyCancellable!
     var radiusObserver: AnyCancellable!
@@ -24,10 +24,16 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     var showRingObserver: AnyCancellable!
     var trailDecayObserver: AnyCancellable!
 
+    var selectionObserver: AnyCancellable!
+
     let side: Double = 1024
 
-    init(appState: ObservedObject<AppState>) {
+    init(
+        appState: ObservedObject<AppState>,
+        tumblerSelectorStateMachine: ObservedObject<TumblerSelectorStateMachine>
+    ) {
         self._appState = appState
+        self._tumblerSelectorStateMachine = tumblerSelectorStateMachine
 
         ucWorld = UCWorld(width: side, height: side)
         super.init(size: ucWorld.size.cgSize)
@@ -66,15 +72,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             }
         }
 
-        densityObserver = appState.$density.sink { [weak self] density in
-            guard let myself = self else { return }
-
-            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
-                myself.pixies[ix + 1].density = density
-            }
-        }
-
-        drawDotsObserver = appState.$drawDotsInner.sink { [weak self] drawDots in
+        drawDotsObserver = appState.$drawDots.sink { [weak self] drawDots in
             guard let myself = self else { return }
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
@@ -106,7 +104,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             }
         }
 
-        showRingObserver = appState.$showRingInner.sink { [weak self] showRing in
+        showRingObserver = appState.$innerRingShow.sink { [weak self] showRing in
             guard let myself = self else { return }
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
@@ -120,8 +118,24 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].trailDecay = trailDecay
             }
+        }
 
-            myself.isReady = true
+        selectionObserver = tumblerSelectorStateMachine.$indexOfDrivingTumbler.sink {
+            [weak self] in
+            guard let pscene = self else { return }
+            guard let newDriverIx = $0 else { return }
+
+            // Charge the UI with the newly promoted tumbler
+            pscene.appState.pen = pscene.pixies[newDriverIx + 1].pen!.space.position.r
+            pscene.appState.colorSpeed = pscene.pixies[newDriverIx + 1].colorSpeed
+            pscene.appState.drawDots = pscene.pixies[newDriverIx + 1].drawDots
+            pscene.appState.radius = pscene.pixies[newDriverIx + 1].radius
+            pscene.appState.innerRingRollMode = pscene.pixies[newDriverIx + 1].rollMode
+            pscene.appState.innerRingShow = pscene.pixies[newDriverIx + 1].showRing
+            pscene.appState.trailDecay = pscene.pixies[newDriverIx + 1].trailDecay
+
+            // After the preliminary notification, the scene is finally ready to run
+            pscene.isReady = true
         }
     }
 

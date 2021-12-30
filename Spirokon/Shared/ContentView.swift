@@ -13,11 +13,3 @@ struct ContentView: View {
         }
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    @ObservedObject static var appState = AppState()
-    static var previews: some View {
-        ContentView(appState: AppState(), pixoniaScene: PixoniaScene(appState: _appState))
-            .previewInterfaceOrientation(.landscapeRight)
-    }
-}

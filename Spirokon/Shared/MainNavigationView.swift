@@ -4,7 +4,7 @@ import SwiftUI
 
 struct MainNavigationView: View {
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var pixoniaScene: PixoniaScene
+    @EnvironmentObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
     var body: some View {
         NavigationView {
@@ -32,6 +32,8 @@ struct MainNavigationView: View {
 
                 Section {
                     TumblerSettingsViewInner()
+                        .opacity(tumblerSelectorStateMachine.indexOfDrivingTumbler == nil ? 0.25 : 1.0)
+                        .disabled(tumblerSelectorStateMachine.indexOfDrivingTumbler == nil)
                 }
 
                 Spacer()

@@ -16,6 +16,8 @@ class AppState: ObservableObject {
             case .innerRing(let irix): return ix == nil ? true : irix == ix!
             }
         }
+
+        func isOuterRing() -> Bool { !isInnerRing() }
     }
 
     enum ToggleType {
@@ -35,7 +37,7 @@ class AppState: ObservableObject {
     @Published var colorSpeed: Double = 0.05
     @Published var density: Double = 5
     @Published var pen: Double = 1.0
-    @Published var radius: Double = 1.0 - (1.0 / 10.0)
+    @Published var radius: Double = 1.0 - (1.0 / 3.0)
     @Published var trailDecay: Double = 10
 
     enum TumblerSelectorSwitchState {
