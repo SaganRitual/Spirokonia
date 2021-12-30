@@ -12,7 +12,7 @@ Which was inspired by YouTuber 3Blue1Brown's #SoME1 [challenge](https://youtu.be
 # Instructions
 
 * Clone
-* Build the Spirokonia target. The other targets are for developing new components
+* Build one of the Spirokonia targets. The other targets are for developing new components
 * Prefer iPad in landscape orientation. It runs on iPhone and macOS too, but I haven't spent any time making it look non-weird on them yet.
 * Play with the buttons, I think they're mostly intuitive, except:
   * Long-press on a not-already-selected ring selector to solo-select that ring
