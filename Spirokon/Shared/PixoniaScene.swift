@@ -146,7 +146,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         guard isReady else { return }
         let deltaTime: Double = 1.0 / 60.0
 
-        let density = 1
+        let density = Int(appState.density)
         let dt = deltaTime / Double(density)
 
         for _ in 0..<density {
