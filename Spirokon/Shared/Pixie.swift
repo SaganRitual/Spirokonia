@@ -35,28 +35,9 @@ class Pixie {
     var showRing = false
     var trailDecay = 0.0
 
-    var isOuterRing: Bool {
-        switch ring {
-        case .outerRing: return true
-        case .innerRing: return false
-        }
-    }
-
-    var isInnerRing: Bool {
-        switch ring {
-        case .outerRing: return false
-        case .innerRing: return true
-        }
-    }
-
-    let sp: SpritePool
+    var applyStateNeeded = true
 
     init(_ ring: AppState.Ring, skParent: PixoniaScene, ucParent: UCSpace) {
-        sp = SpritePool(
-            CGRect(origin: CGPoint(x: 1.0, y: 1.0), size: CGSize(width: 2.0, height: 2.0)),
-            lineWidth: 8, scene: skParent
-        )
-
         self.ring = ring
 
         switch ring {
@@ -78,7 +59,7 @@ class Pixie {
         skParent.addChild(sprite)
         ucParent.addChild(space)
 
-        pen = isInnerRing ? Pen(skParent: skParent, ucParent: self.space) : nil
+        pen = ring.isInnerRing() ? Pen(skParent: skParent, ucParent: self.space) : nil
     }
 
     func advance(_ rotation: Double) {
@@ -91,6 +72,8 @@ class Pixie {
     }
 
     func applyUIStateToPixieStateIf(_ appState: AppState) {
+        defer { applyStateNeeded = false }
+
         switch ring {
         case .outerRing:
             self.space.radius = appState.outerRingRadius
@@ -98,7 +81,8 @@ class Pixie {
             self.showRing = appState.outerRingShow
 
         case .innerRing(let ix):
-            guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite else { return }
+            guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite &&
+                  applyStateNeeded else { return }
 
             space.radius = appState.radius
             space.position.r = 1.0 - space.radius
@@ -113,7 +97,7 @@ class Pixie {
     }
 
     func dropDot(onto scene: SKScene, ucWorld: UCWorld, deltaTime: Double) {
-        guard drawDots, isInnerRing else { return }
+        guard drawDots, ring.isInnerRing() else { return }
 
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 5, height: 5)
@@ -126,9 +110,16 @@ class Pixie {
 
         scene.addChild(dot)
 
-        dot.run(SKAction.fadeOut(withDuration: trailDecay)) {
-            SpritePool.dots.releaseSprite(dot)
-        }
+        // If the trail decay is really small, just don't put down a dot
+        let fadeTime = 0.5
+        let oneFrameTime = 1.0 / 60.0
+        if trailDecay < fadeTime + oneFrameTime { return }
+
+        let delay = SKAction.wait(forDuration: trailDecay - fadeTime)
+        let fade = SKAction.fadeOut(withDuration: fadeTime)
+        let sequence = SKAction.sequence([delay, fade])
+
+        dot.run(sequence) { SpritePool.dots.releaseSprite(dot) }
     }
 
     func postInit(appState: ObservedObject<AppState>) {

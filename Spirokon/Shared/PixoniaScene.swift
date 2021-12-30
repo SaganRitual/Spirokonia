@@ -63,12 +63,14 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         setupObservers()
     }
 
+    // swiftlint:disable function_body_length
     func setupObservers() {
         colorSpeedObserver = appState.$colorSpeed.sink { [weak self] colorSpeed in
             guard let myself = self else { return }
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].colorSpeed = colorSpeed
+                myself.pixies[ix + 1].applyStateNeeded = true
             }
         }
 
@@ -77,6 +79,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].drawDots = drawDots
+                myself.pixies[ix + 1].applyStateNeeded = true
             }
         }
 
@@ -85,6 +88,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].pen!.space.position.r = pen
+                myself.pixies[ix + 1].applyStateNeeded = true
             }
         }
 
@@ -93,6 +97,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].radius = radius
+                myself.pixies[ix + 1].applyStateNeeded = true
             }
         }
 
@@ -101,6 +106,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].rollMode = rollMode
+                myself.pixies[ix + 1].applyStateNeeded = true
             }
         }
 
@@ -109,6 +115,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].showRing = showRing
+                myself.pixies[ix + 1].applyStateNeeded = true
             }
         }
 
@@ -117,6 +124,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].trailDecay = trailDecay
+                myself.pixies[ix + 1].applyStateNeeded = true
             }
         }
 
@@ -138,8 +146,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             pscene.isReady = true
         }
     }
-
-    var accumulatedTime = 0.0
+    // swiftlint:enable function_body_length
 
     override func update(_ currentTime: TimeInterval) {
         defer { previousTime = currentTime }
@@ -160,7 +167,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
                 // Don't scale the rotation for the outer ring's radius; the rotation rate
                 // is always the same no matter its size
-                if !pixie.isOuterRing { totalScale *= pixie.space.radius }
+                if !pixie.ring.isOuterRing() { totalScale *= pixie.space.radius }
 
                 let rotation = 2.0 * direction * appState.cycleSpeed * dt * .tau / totalScale
 
