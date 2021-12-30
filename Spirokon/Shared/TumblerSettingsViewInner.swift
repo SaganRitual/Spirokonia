@@ -4,6 +4,7 @@ import SwiftUI
 
 struct TumblerSettingsViewInner: View {
     @EnvironmentObject var appState: AppState
+    @EnvironmentObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
     var body: some View {
         VStack {
@@ -34,7 +35,7 @@ struct TumblerSettingsViewInner: View {
                 value: $appState.trailDecay, iconName: "timer", label: "Decay",
                 range: AppState.trailDecayRange, showTextLabel: AppState.showTextLabels
             )
-        }
+        }.disabled(tumblerSelectorStateMachine.indexOfDrivingTumbler == nil)
     }
 }
 

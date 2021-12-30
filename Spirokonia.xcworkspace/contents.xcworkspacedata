@@ -5,6 +5,9 @@
       location = "group:Spirokon/Spirokon.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Isolates/BetterSelector/BetterSelector.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Isolates/Pixonia/Pixonia.xcodeproj">
    </FileRef>
    <FileRef

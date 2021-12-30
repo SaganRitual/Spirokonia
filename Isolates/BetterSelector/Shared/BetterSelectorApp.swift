@@ -3,7 +3,7 @@
 import SwiftUI
 
 @main
-struct TumblerSelectorViewApp: App {
+struct BetterSelectorApp: App {
     @ObservedObject var appState = AppState()
     @ObservedObject var pixoniaScene: PixoniaScene
     @ObservedObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine

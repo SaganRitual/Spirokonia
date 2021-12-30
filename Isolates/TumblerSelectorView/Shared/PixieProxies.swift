@@ -1,28 +1,30 @@
 // We are a way for the cosmos to know itself. -- C. Sagan
 
 import SpriteKit
+import SwiftUI
 
-class HotLabel {
+class HotLabel: HotLabelProtocol {
     let labelNode = SKLabelNode()
-    let text: String
+    let labelText: String
 
-    init(_ text: String) {
+    init(_ labelText: String) {
         self.labelNode.fontName = "Courier New"
         self.labelNode.fontSize *= 0.75
-        self.text = text
-        update("")
+        self.labelText = labelText
     }
 
-    func update(_ value: String) {
-        labelNode.text = self.text + " " + value
+    func update(_ valueString: String) {
+        labelNode.text = labelText + " " + valueString
     }
 }
 
-class PixieProxy {
+class PixieProxy: HasTumblerSettings {
     let skNode = SKNode()
     var labels = [HotLabel]()
 
     var verticalOffset = 0.0
+
+    var tumblerSettings = TumblerSettings()
 
     init(_ labels: [HotLabel]) {
         labels.forEach { [weak self] in self?.addLabel($0) }
@@ -36,16 +38,23 @@ class PixieProxy {
     }
 }
 
-class MainControl {
-    let pixieProxy: PixieProxy
+protocol HasUpdateFunction {
+    func update()
+}
+
+class MainControl: HasUpdateFunction {
+    let skNode = SKNode()
+    let labels = [
+        HotLabel("Speed"), HotLabel("Density")
+    ]
 
     init() {
-        pixieProxy = PixieProxy([
-            HotLabel("Speed"), HotLabel("Density")
-        ])
+        skNode.position.x -= 200.0
+        skNode.position.y += 400.0
+    }
 
-        pixieProxy.skNode.position.x -= 200.0
-        pixieProxy.skNode.position.y += 400.0
+    update() {
+        labels[0].update(pixieProxy.tumblerSettings.)
     }
 }
 

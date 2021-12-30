@@ -45,6 +45,8 @@
 		D4F4BBD1277D00300049035F /* RollModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBCF277D00300049035F /* RollModePicker.swift */; };
 		D4F4BBD3277D005A0049035F /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBD2277D005A0049035F /* TogglesView.swift */; };
 		D4F4BBD4277D005A0049035F /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBD2277D005A0049035F /* TogglesView.swift */; };
+		D4F4BBD9277D1E600049035F /* TumblerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBD8277D1E600049035F /* TumblerSettings.swift */; };
+		D4F4BBDA277D1E610049035F /* TumblerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBD8277D1E600049035F /* TumblerSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,7 @@
 		D4F4BBC6277CFF020049035F /* MainNavigationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainNavigationView.swift; path = ../../../Spirokon/Shared/MainNavigationView.swift; sourceTree = "<group>"; };
 		D4F4BBCF277D00300049035F /* RollModePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RollModePicker.swift; path = ../../../Spirokon/Shared/RollModePicker.swift; sourceTree = "<group>"; };
 		D4F4BBD2277D005A0049035F /* TogglesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TogglesView.swift; path = ../../../Spirokon/Shared/TogglesView.swift; sourceTree = "<group>"; };
+		D4F4BBD8277D1E600049035F /* TumblerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TumblerSettings.swift; path = ../../../Spirokon/Shared/TumblerSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,7 @@
 				D4F4BBD2277D005A0049035F /* TogglesView.swift */,
 				D408C3E3277A0CA30053B5F4 /* TumblerSelectorStateMachine.swift */,
 				D44BF5582777E05000E2FCE1 /* TumblerSelectorView.swift */,
+				D4F4BBD8277D1E600049035F /* TumblerSettings.swift */,
 				D4F4BBBD277CFEEE0049035F /* TumblerSettingsSlider.swift */,
 				D4F4BBBB277CFEEE0049035F /* TumblerSettingsViewInner.swift */,
 				D4F4BBBC277CFEEE0049035F /* TumblerSettingsViewMain.swift */,
@@ -253,6 +257,7 @@
 				D4F4BBBE277CFEEE0049035F /* TumblerSettingsViewOuter.swift in Sources */,
 				D4F4BB82277CDFE60049035F /* PixieProxies.swift in Sources */,
 				D44BF55C2777E09A00E2FCE1 /* AppState.swift in Sources */,
+				D4F4BBD9277D1E600049035F /* TumblerSettings.swift in Sources */,
 				D408C402277A576E0053B5F4 /* Extensions.swift in Sources */,
 				D4F4BBC2277CFEEE0049035F /* TumblerSettingsViewMain.swift in Sources */,
 				D4F4BB7F277CDF580049035F /* PixoniaView.swift in Sources */,
@@ -278,6 +283,7 @@
 				D4F4BBBF277CFEEE0049035F /* TumblerSettingsViewOuter.swift in Sources */,
 				D4F4BB83277CDFE60049035F /* PixieProxies.swift in Sources */,
 				D44BF55D2777E09A00E2FCE1 /* AppState.swift in Sources */,
+				D4F4BBDA277D1E610049035F /* TumblerSettings.swift in Sources */,
 				D408C403277A576E0053B5F4 /* Extensions.swift in Sources */,
 				D4F4BBC3277CFEEE0049035F /* TumblerSettingsViewMain.swift in Sources */,
 				D4F4BB80277CDF580049035F /* PixoniaView.swift in Sources */,

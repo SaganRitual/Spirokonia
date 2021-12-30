@@ -34,6 +34,28 @@ class TumblerSelectorStateBeginPress: TumblerSelectorState {
 
 class TumblerSelectorStateLongPressDetected: TumblerSelectorState {
     override func didEnter(from previousState: GKState?) {
+        // This means the user is long-pressing a button that was already the
+        // only one selected. Treat it as a "select all", keeping that one as the driver.
+        let longPressOnSoloedButton: Bool = {
+            if appState.tumblerSelectorSwitches[indexBeingTouched] == .trueIndefinite {
+                if let currentDriver = indexOfDrivingTumbler,
+                   currentDriver == indexBeingTouched,
+                   appState.tumblerSelectorSwitches.filter({ $0.isTracking }).isEmpty {
+                    return true
+                }
+            }
+
+            return false
+        }()
+
+        if longPressOnSoloedButton {
+            appState.tumblerSelectorSwitches.indices.forEach {
+                appState.tumblerSelectorSwitches[$0] = .trueDefinite
+            }
+
+            return
+        }
+
         for ix in appState.tumblerSelectorSwitches.indices where ix != indexBeingTouched {
             appState.tumblerSelectorSwitches[ix] = .falseDefinite
         }
@@ -53,6 +75,11 @@ class TumblerSelectorStateEndPress: TumblerSelectorState {
             switch appState.tumblerSelectorSwitches[indexBeingTouched] {
             case .falseIndefinite:
                 appState.tumblerSelectorSwitches[indexBeingTouched] = .trueDefinite
+
+                // If no one was selected, set the one being touched as the new driver
+                if indexOfDrivingTumbler == nil {
+                    indexOfDrivingTumbler = indexBeingTouched
+                }
             case .trueIndefinite:
                 appState.tumblerSelectorSwitches[indexBeingTouched] = .falseDefinite
 
@@ -86,21 +113,11 @@ class TumblerSelectorStateQuiet: TumblerSelectorState {
     }
 }
 
-struct UIChargeState {
-    let driver: Int?
-    let states: [AppState.TumblerSelectorSwitchState]
-
-    init(_ stateMachine: TumblerSelectorStateMachine) {
-        self.driver = stateMachine.indexOfDrivingTumbler
-        self.states = stateMachine.appState.tumblerSelectorSwitches
-    }
-}
-
 class TumblerSelectorStateMachine: GKStateMachine, ObservableObject {
     @ObservedObject var appState: AppState
 
     var indexBeingTouched = 0
-    var indexOfDrivingTumbler: Int?
+    @Published var indexOfDrivingTumbler: Int?
 
     init(appState: ObservedObject<AppState>) {
         self._appState = appState
