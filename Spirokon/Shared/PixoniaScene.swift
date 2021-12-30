@@ -63,67 +63,29 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         setupObservers()
     }
 
-    // swiftlint:disable function_body_length
+    func setupObserver<T>(
+        pixoniaField: ReferenceWritableKeyPath<PixoniaScene, AnyCancellable?>,
+        appStateField: ReferenceWritableKeyPath<AppState, Published<T>.Publisher>,
+        pixieField: ReferenceWritableKeyPath<Pixie, T>
+    ) {
+        self[keyPath: pixoniaField] = appState[keyPath: appStateField].sink {
+            [weak self] in self?.store($0, in: pixieField)
+        }
+    }
+
     func setupObservers() {
-        colorSpeedObserver = appState.$colorSpeed.sink { [weak self] colorSpeed in
-            guard let myself = self else { return }
-
-            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
-                myself.pixies[ix + 1].colorSpeed = colorSpeed
-                myself.pixies[ix + 1].applyStateNeeded = true
-            }
-        }
-
-        drawDotsObserver = appState.$drawDots.sink { [weak self] drawDots in
-            guard let myself = self else { return }
-
-            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
-                myself.pixies[ix + 1].drawDots = drawDots
-                myself.pixies[ix + 1].applyStateNeeded = true
-            }
-        }
+        setupObserver(pixoniaField: \.colorSpeedObserver, appStateField: \.$colorSpeed, pixieField: \.colorSpeed)
+        setupObserver(pixoniaField: \.drawDotsObserver, appStateField: \.$drawDots, pixieField: \.drawDots)
+        setupObserver(pixoniaField: \.radiusObserver, appStateField: \.$radius, pixieField: \.radius)
+        setupObserver(pixoniaField: \.rollModeObserver, appStateField: \.$innerRingRollMode, pixieField: \.rollMode)
+        setupObserver(pixoniaField: \.showRingObserver, appStateField: \.$innerRingShow, pixieField: \.showRing)
+        setupObserver(pixoniaField: \.trailDecayObserver, appStateField: \.$trailDecay, pixieField: \.trailDecay)
 
         penObserver = appState.$pen.sink { [weak self] pen in
             guard let myself = self else { return }
 
             for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
                 myself.pixies[ix + 1].pen!.space.position.r = pen
-                myself.pixies[ix + 1].applyStateNeeded = true
-            }
-        }
-
-        radiusObserver = appState.$radius.sink { [weak self] radius in
-            guard let myself = self else { return }
-
-            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
-                myself.pixies[ix + 1].radius = radius
-                myself.pixies[ix + 1].applyStateNeeded = true
-            }
-        }
-
-        rollModeObserver = appState.$innerRingRollMode.sink { [weak self] rollMode in
-            guard let myself = self else { return }
-
-            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
-                myself.pixies[ix + 1].rollMode = rollMode
-                myself.pixies[ix + 1].applyStateNeeded = true
-            }
-        }
-
-        showRingObserver = appState.$innerRingShow.sink { [weak self] showRing in
-            guard let myself = self else { return }
-
-            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
-                myself.pixies[ix + 1].showRing = showRing
-                myself.pixies[ix + 1].applyStateNeeded = true
-            }
-        }
-
-        trailDecayObserver = appState.$trailDecay.sink { [weak self] trailDecay in
-            guard let myself = self else { return }
-
-            for (ix, `switch`) in myself.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
-                myself.pixies[ix + 1].trailDecay = trailDecay
                 myself.pixies[ix + 1].applyStateNeeded = true
             }
         }
@@ -146,7 +108,13 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             pscene.isReady = true
         }
     }
-    // swiftlint:enable function_body_length
+
+    func store<T>(_ value: T, in pixieField: ReferenceWritableKeyPath<Pixie, T>) {
+        for (ix, `switch`) in appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
+            pixies[ix + 1][keyPath: pixieField] = value
+            pixies[ix + 1].applyStateNeeded = true
+        }
+    }
 
     override func update(_ currentTime: TimeInterval) {
         defer { previousTime = currentTime }
