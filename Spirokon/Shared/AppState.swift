@@ -34,7 +34,7 @@ class AppState: ObservableObject {
     @Published var cycleSpeed: Double = 0.1
     @Published var outerRingRadius: Double = 1.0
 
-    @Published var colorSpeed: Double = 0.01
+    @Published var colorSpeed: Double = 0.1
     @Published var density: Double = 5
     @Published var pen: Double = 1.0
     @Published var radius: Double = 0.5

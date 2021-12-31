@@ -55,7 +55,7 @@ class Pixie {
             radiusAnimator = Animator(0.5, for: sprite)
             penAnimator = Animator(1.0, for: sprite)
 
-            colorSpeed = 0.01
+            colorSpeed = 0.1
             trailDecay = 10
 
         case .innerRing(2), .innerRing(3):
@@ -63,7 +63,7 @@ class Pixie {
             radiusAnimator = Animator(0.5, for: sprite)
             penAnimator = Animator(1.0, for: sprite)
 
-            colorSpeed = 0.01
+            colorSpeed = 0.1
             trailDecay = 1
 
         case .innerRing(4):
@@ -71,7 +71,7 @@ class Pixie {
             radiusAnimator = Animator(0.5, for: sprite)
             penAnimator = Animator(1.0, for: sprite)
 
-            colorSpeed = 0.01
+            colorSpeed = 0.1
             trailDecay = 1
 
         default: fatalError()
@@ -131,7 +131,7 @@ class Pixie {
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 3, height: 3)
 
-        let colorRotation = 2.0 * colorSpeed * deltaTime * .tau
+        let colorRotation = colorSpeed * deltaTime * .tau
         currentDotColor = currentDotColor.rotateHue(byAngle: colorRotation)
 
         dot.color = currentDotColor
