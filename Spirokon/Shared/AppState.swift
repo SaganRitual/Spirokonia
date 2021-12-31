@@ -31,14 +31,14 @@ class AppState: ObservableObject {
     @Published var innerRingRollMode = RollMode.normal
     @Published var outerRingRollMode = RollMode.normal
 
-    @Published var cycleSpeed: Double = 0.5
+    @Published var cycleSpeed: Double = 0.1
     @Published var outerRingRadius: Double = 1.0
 
     @Published var colorSpeed: Double = 0.01
     @Published var density: Double = 5
     @Published var pen: Double = 1.0
-    @Published var radius: Double = .pi / 4
-    @Published var trailDecay: Double = 10
+    @Published var radius: Double = 0.5
+    @Published var trailDecay: Double = 3
 
     enum TumblerSelectorSwitchState {
         case trueDefinite, trueIndefinite, falseDefinite, falseIndefinite

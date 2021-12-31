@@ -45,19 +45,34 @@ class Pixie {
         switch ring {
         case .outerRing:
             sprite = SpritePool.plainRings.makeSprite()
-            radiusAnimator = Animator(0.75, for: sprite)
+            radiusAnimator = Animator(1.0, for: sprite)
+
+            pen = nil
+            penAnimator = nil
 
         case .innerRing(1):
-            sprite = SpritePool.spokeRingsLarge.makeSprite()
-            radiusAnimator = Animator(sqrt(2) / 2, for: sprite)
+            sprite = SpritePool.plainRings.makeSprite()
+            radiusAnimator = Animator(0.5, for: sprite)
+            penAnimator = Animator(1.0, for: sprite)
+
+            colorSpeed = 0.01
+            trailDecay = 10
 
         case .innerRing(2), .innerRing(3):
-            sprite = SpritePool.spokeRingsLarge.makeSprite()
-            radiusAnimator = Animator(exp(1) / 3, for: sprite)
+            sprite = SpritePool.plainRings.makeSprite()
+            radiusAnimator = Animator(0.5, for: sprite)
+            penAnimator = Animator(1.0, for: sprite)
+
+            colorSpeed = 0.01
+            trailDecay = 1
 
         case .innerRing(4):
-            sprite = SpritePool.spokeRingsMedium.makeSprite()
-            radiusAnimator = Animator(.pi / 6, for: sprite)
+            sprite = SpritePool.plainRings.makeSprite()
+            radiusAnimator = Animator(0.5, for: sprite)
+            penAnimator = Animator(1.0, for: sprite)
+
+            colorSpeed = 0.01
+            trailDecay = 1
 
         default: fatalError()
         }
@@ -67,10 +82,6 @@ class Pixie {
 
         if ring.isInnerRing() {
             pen = Pen(skParent: skParent, ucParent: self.space)
-            penAnimator = Animator(pen!.space.position.r, for: sprite)
-        } else {
-            pen = nil
-            penAnimator = nil
         }
     }
 
@@ -112,6 +123,11 @@ class Pixie {
     func dropDot(onto scene: SKScene, ucWorld: UCWorld, deltaTime: Double) {
         guard drawDots, ring.isInnerRing() else { return }
 
+        // If the trail decay is really small, just don't put down a dot
+        let fadeTime = 0.5
+        let oneFrameTime = 1.0 / 60.0
+        if trailDecay < fadeTime + oneFrameTime { return }
+
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 5, height: 5)
 
@@ -122,11 +138,6 @@ class Pixie {
         dot.position = ucWorld.emplace(pen!.space).cgPoint
 
         scene.addChild(dot)
-
-        // If the trail decay is really small, just don't put down a dot
-        let fadeTime = 0.5
-        let oneFrameTime = 1.0 / 60.0
-        if trailDecay < fadeTime + oneFrameTime { return }
 
         let delay = SKAction.wait(forDuration: trailDecay - fadeTime)
         let fade = SKAction.fadeOut(withDuration: fadeTime)

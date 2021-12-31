@@ -143,8 +143,6 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
                 direction *= -1
 
-                // Don't scale the rotation for the outer ring's radius; the rotation rate
-                // is always the same no matter its size
                 if !pixie.ring.isOuterRing() { totalScale *= pixie.space.radius }
 
                 let rotation = 2.0 * direction * appState.cycleSpeed * dt * .tau / totalScale
