@@ -51,9 +51,12 @@ class SpritePool {
         return makeSprite(with: drone)
     }
 
-    func releaseSprite(_ sprite: SKSpriteNode) {
-        sprite.removeAllActions()
-        sprite.removeFromParent()
+    func releaseSprite(_ sprite: SKSpriteNode, fullSKRemove: Bool = true) {
+        if fullSKRemove {
+            sprite.removeAllActions()
+            sprite.removeFromParent()
+        }
+
         parkedDrones.append(sprite)
     }
 }

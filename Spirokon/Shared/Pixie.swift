@@ -137,13 +137,15 @@ class Pixie {
         dot.color = currentDotColor
         dot.position = ucWorld.emplace(pen!.space).cgPoint
 
-        scene.addChild(dot)
+        if dot.parent == nil {
+            scene.addChild(dot)
+        }
 
         let delay = SKAction.wait(forDuration: trailDecay - fadeTime)
         let fade = SKAction.fadeOut(withDuration: fadeTime)
         let sequence = SKAction.sequence([delay, fade])
 
-        dot.run(sequence) { SpritePool.dots.releaseSprite(dot) }
+        dot.run(sequence) { SpritePool.dots.releaseSprite(dot, fullSKRemove: false) }
     }
 
     func postInit(appState: ObservedObject<AppState>) {
