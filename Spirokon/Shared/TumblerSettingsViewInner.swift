@@ -6,6 +6,8 @@ struct TumblerSettingsViewInner: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
+    @State private var step: Int = 0
+
     var body: some View {
         VStack {
             HStack {
@@ -16,14 +18,27 @@ struct TumblerSettingsViewInner: View {
                 )
             }
 
+            Picker("Step", selection: $step) {
+                ForEach(TumblerSettingSlider.steps.stepsKeys, id: \.self) {
+                    if $0 == 0 {
+                        Image(systemName: "nosign").tag($0)
+                    } else {
+                        Text("\($0)").tag($0)
+                    }
+                }
+            }
+            .pickerStyle(.segmented)
+
             TumblerSettingSlider(
                 value: $appState.radius, iconName: "circle", label: "Radius",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
+                range: AppState.unitRange, showTextLabel: AppState.showTextLabels,
+                stepFactor: step
             )
 
             TumblerSettingSlider(
                 value: $appState.pen, iconName: "pencil", label: "Pen",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
+                range: AppState.unitRange, showTextLabel: AppState.showTextLabels,
+                stepFactor: step
             )
 
             TumblerSettingSlider(

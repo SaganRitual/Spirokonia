@@ -29,7 +29,7 @@ struct RollModePicker: View {
     func makeRollModePicker() -> some View {
         let rollModes = getRollModes()
 
-        return Picker("", selection: $rollMode) {
+        return Picker("Roll", selection: $rollMode) {
             ForEach(rollModes.indices) { makePickerSegment(for: rollModes[$0]) }
         }
         .pickerStyle(.segmented)

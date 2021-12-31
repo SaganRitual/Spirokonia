@@ -38,8 +38,8 @@ struct MainNavigationView: View {
 
                 Spacer()
             }
-            .navigationTitle("Settings")
-            .padding([.leading, .trailing])
+            .navigationTitle("Dashboard")
+            .padding(.horizontal)
         }
         #if os(iOS)
         .navigationViewStyle(StackNavigationViewStyle())

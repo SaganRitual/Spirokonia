@@ -14,7 +14,8 @@ struct TumblerSettingsViewMain: View {
 
             TumblerSettingSlider(
                 value: $appState.density, iconName: "circle.dotted", label: "Density",
-                range: AppState.dotDensityRange, showTextLabel: AppState.showTextLabels
+                range: AppState.dotDensityRange, showTextLabel: AppState.showTextLabels,
+                step: 1.0
             )
         }
     }

@@ -8,7 +8,14 @@ struct ContentView: View {
 
     var body: some View {
         HStack {
-            MainNavigationView()
+            TabView {
+                MainNavigationView()
+                    .tabItem { Label("Dashboard", systemImage: "speedometer") }
+
+                PensView()
+                    .tabItem { Label("Pens", systemImage: "rectangle.and.pencil.and.ellipsis") }
+            }
+
             PixoniaView(appState: appState, scene: pixoniaScene)
         }
     }
