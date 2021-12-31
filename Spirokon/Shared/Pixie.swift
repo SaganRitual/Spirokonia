@@ -44,14 +44,14 @@ class Pixie {
 
         switch ring {
         case .outerRing:
-            sprite = SpritePool.plainRings.makeSprite()
+            sprite = SpritePool.crosshairRingsLarge.makeSprite()
             radiusAnimator = Animator(1.0, for: sprite)
 
             pen = nil
             penAnimator = nil
 
         case .innerRing(1):
-            sprite = SpritePool.plainRings.makeSprite()
+            sprite = SpritePool.crosshairRingsLarge.makeSprite()
             radiusAnimator = Animator(0.5, for: sprite)
             penAnimator = Animator(1.0, for: sprite)
 
@@ -59,7 +59,7 @@ class Pixie {
             trailDecay = 10
 
         case .innerRing(2), .innerRing(3):
-            sprite = SpritePool.plainRings.makeSprite()
+            sprite = SpritePool.crosshairRingsLarge.makeSprite()
             radiusAnimator = Animator(0.5, for: sprite)
             penAnimator = Animator(1.0, for: sprite)
 
@@ -67,7 +67,7 @@ class Pixie {
             trailDecay = 1
 
         case .innerRing(4):
-            sprite = SpritePool.plainRings.makeSprite()
+            sprite = SpritePool.crosshairRingsLarge.makeSprite()
             radiusAnimator = Animator(0.5, for: sprite)
             penAnimator = Animator(1.0, for: sprite)
 
