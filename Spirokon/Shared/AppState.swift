@@ -66,5 +66,5 @@ class AppState: ObservableObject {
     static let trailDecayRange = 0.0...20.0
     static let unitRange = 0.0...1.0
 
-    static let showTextLabels = true
+    static let showTextLabels = false
 }

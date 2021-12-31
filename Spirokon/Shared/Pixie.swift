@@ -87,8 +87,8 @@ class Pixie {
 
     func advance(_ rotation: Double) {
         switch rollMode {
-        case .normal:      space.rotation += rotation * 0.5
-        case .compensate:  space.rotation += rotation
+        case .normal:      space.rotation += rotation
+        case .compensate:  space.rotation += rotation * 0.5
         case .fullStop:    break
         case .doesNotRoll: break
         }
@@ -129,7 +129,7 @@ class Pixie {
         if trailDecay < fadeTime + oneFrameTime { return }
 
         let dot = SpritePool.dots.makeSprite()
-        dot.size = CGSize(width: 5, height: 5)
+        dot.size = CGSize(width: 3, height: 3)
 
         let colorRotation = 2.0 * colorSpeed * deltaTime * .tau
         currentDotColor = currentDotColor.rotateHue(byAngle: colorRotation)

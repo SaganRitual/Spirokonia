@@ -17,9 +17,6 @@
       location = "group:Isolates/Smoother/Smoother.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Isolates/TickableSlider/TickableSlider.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Isolates/TogglesView/TogglesView.xcodeproj">
    </FileRef>
    <FileRef

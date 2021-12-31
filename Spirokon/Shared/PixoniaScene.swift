@@ -135,7 +135,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         let dt = deltaTime / Double(density)
 
         for _ in 0..<density {
-            var direction = 1.0
+            var direction = -1.0
             var totalScale = 1.0
 
             for pixie in pixies {
@@ -143,9 +143,11 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
                 direction *= -1
 
+                // Rotation speed of the system is independent of the radius of the
+                // outermost ring
                 if !pixie.ring.isOuterRing() { totalScale *= pixie.space.radius }
 
-                let rotation = 2.0 * direction * appState.cycleSpeed * dt * .tau / totalScale
+                let rotation = direction * appState.cycleSpeed * dt * .tau / totalScale
 
                 pixie.advance(rotation)
                 pixie.reify(ucWorld: ucWorld)
