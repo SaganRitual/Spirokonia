@@ -71,7 +71,7 @@ class AppState: ObservableObject {
     static let cycleSpeedRange = 0.0...2.0
     static let dotDensityRange = 0.0...20.0
     static let trailDecayRange = 0.0...20.0
-    static let unitRange = 0.0...1.0
+    static let unitRange = 0.0...2.0
 
     static let showTextLabels = false
 }

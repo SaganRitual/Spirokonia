@@ -25,7 +25,7 @@ struct ContentView: View {
                 Spacer()
             }
             .navigationTitle("Spirokon v0.2")
-            .padding(.trailing)
+            .padding(.horizontal)
 
             PixoniaView(scene: pixoniaScene)
         }
