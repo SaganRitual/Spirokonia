@@ -36,8 +36,6 @@ class Pixie {
     var showRing = false
     var trailDecay = 0.0
 
-    var applyStateNeeded = true
-
     let penAnimator: Animator?
     let radiusAnimator: Animator
 
@@ -99,8 +97,6 @@ class Pixie {
     }
 
     func applyUIStateToPixieStateIf(_ appState: AppState) {
-        defer { applyStateNeeded = false }
-
         switch ring {
         case .outerRing:
             self.space.radius = radiusAnimator.currentValue
@@ -113,14 +109,7 @@ class Pixie {
 
             pen!.space.position.r = penAnimator!.currentValue
 
-            guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite &&
-                  applyStateNeeded else { return }
-
-            colorSpeed = appState.colorSpeed
-            drawDots = appState.drawDots
-            rollMode = appState.innerRingRollMode
-            showRing = appState.innerRingShow
-            trailDecay = appState.trailDecay
+            guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite else { return }
         }
     }
 

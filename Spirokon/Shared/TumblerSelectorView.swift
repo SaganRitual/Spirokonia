@@ -6,8 +6,6 @@ struct TumblerSelectorView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
-    let fonts: [SwiftUI.Font] = [.largeTitle, .title, .body, .caption]
-
     struct ButtonDescriptor {
         let zStack: Bool
         let nameFont: [(String, Font)]

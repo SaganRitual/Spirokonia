@@ -119,7 +119,6 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     func store<T>(_ value: T, in pixieField: ReferenceWritableKeyPath<Pixie, T>) {
         for (ix, `switch`) in appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
             pixies[ix + 1][keyPath: pixieField] = value
-            pixies[ix + 1].applyStateNeeded = true
         }
     }
 
