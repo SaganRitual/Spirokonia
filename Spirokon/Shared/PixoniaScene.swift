@@ -29,12 +29,9 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
     let side: Double = 1024
 
-    init(
-        appState: ObservedObject<AppState>,
-        tumblerSelectorStateMachine: ObservedObject<TumblerSelectorStateMachine>
-    ) {
-        self._appState = appState
-        self._tumblerSelectorStateMachine = tumblerSelectorStateMachine
+    init(appState: AppState, tumblerSelectorStateMachine: TumblerSelectorStateMachine) {
+        _appState = ObservedObject(initialValue: appState)
+        _tumblerSelectorStateMachine = ObservedObject(initialValue: tumblerSelectorStateMachine)
 
         ucWorld = UCWorld(width: side, height: side)
         super.init(size: ucWorld.size.cgSize)

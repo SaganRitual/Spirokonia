@@ -19,25 +19,25 @@ struct TumblerSelectorView: View {
         case .innerRing(1):
             bd = ButtonDescriptor(
                 zStack: false,
-                nameFont: [("circle", .largeTitle)]
+                nameFont: [("circle", .title)]
             )
         case .innerRing(2):
             bd = ButtonDescriptor(
                 zStack: true,
-                nameFont: [("circle", .largeTitle), ("circle", .title2)]
+                nameFont: [("circle", .title), ("circle", .title3)]
             )
         case .innerRing(3):
             bd = ButtonDescriptor(
                 zStack: true,
-                nameFont: [("circle", .largeTitle), ("circle", .title2), ("circle", .caption)]
+                nameFont: [("circle", .title), ("circle", .title3), ("circle", .caption2)]
             )
         case .innerRing(4):
             bd = ButtonDescriptor(
                 zStack: true,
                 nameFont: [
-                    ("circle", .largeTitle),
-                    ("circle", .title2),
-                    ("smallcircle.filled.circle", .caption)
+                    ("circle", .title),
+                    ("circle", .title3),
+                    ("smallcircle.filled.circle", .caption2)
                 ]
             )
 
@@ -48,6 +48,7 @@ struct TumblerSelectorView: View {
             ForEach(bd.nameFont.indices) { index in
                 Image(systemName: bd.nameFont[index].0)
                     .font(bd.nameFont[index].1)
+                    .scaleEffect(1.75)
             }
         }
     }
@@ -62,7 +63,7 @@ struct TumblerSelectorView: View {
             case .falseDefinite: return Color.gray
 
             case .trueIndefinite:  fallthrough
-            case .falseIndefinite: return Color.indefiniteButtonPress
+            case .falseIndefinite: return Color.secondary
             }
         }
 
@@ -72,15 +73,16 @@ struct TumblerSelectorView: View {
                 .padding()
                 .background(getBackgroundColor())
                 .foregroundColor(.white)
-                .controlSize(.regular)
+                .controlSize(.mini)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
+                .scaleEffect(0.75)
         }
     }
 
     var body: some View {
         HStack(alignment: .bottom) {
+            Spacer()
             ForEach(appState.tumblerSelectorSwitches.indices) { ix in
-                Spacer()
                 Button(
                     action: { tumblerSelectorStateMachine.endPress() },
                     label: { makeButton(.innerRing(ix + 1)) }

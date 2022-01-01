@@ -21,7 +21,7 @@ struct TumblerSettingsViewInner: View {
             Picker("Step", selection: $step) {
                 ForEach(TumblerSettingSlider.steps.stepsKeys, id: \.self) {
                     if $0 == 0 {
-                        Image(systemName: "nosign").tag($0)
+                        Image(systemName: "infinity").tag($0)
                     } else {
                         Text("\($0)").tag($0)
                     }
@@ -29,27 +29,7 @@ struct TumblerSettingsViewInner: View {
             }
             .pickerStyle(.segmented)
 
-            TumblerSettingSlider(
-                value: $appState.radius, iconName: "circle", label: "Radius",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels,
-                stepFactor: step
-            )
-
-            TumblerSettingSlider(
-                value: $appState.pen, iconName: "pencil", label: "Pen",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels,
-                stepFactor: step
-            )
-
-            TumblerSettingSlider(
-                value: $appState.colorSpeed, iconName: "paintbrush", label: "Color",
-                range: AppState.colorSpeedRange, showTextLabel: AppState.showTextLabels
-            )
-
-            TumblerSettingSlider(
-                value: $appState.trailDecay, iconName: "timer", label: "Decay",
-                range: AppState.trailDecayRange, showTextLabel: AppState.showTextLabels
-            )
+            TumblerSettingsSliders(step: step)
         }
     }
 }

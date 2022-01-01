@@ -119,8 +119,8 @@ class TumblerSelectorStateMachine: GKStateMachine, ObservableObject {
     var indexBeingTouched = 0
     @Published var indexOfDrivingTumbler: Int?
 
-    init(appState: ObservedObject<AppState>) {
-        self._appState = appState
+    init(appState: AppState) {
+        self._appState = ObservedObject(initialValue: appState)
 
         super.init(states: [
             TumblerSelectorStateBeginPress(),

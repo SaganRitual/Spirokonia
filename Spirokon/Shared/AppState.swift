@@ -18,6 +18,13 @@ class AppState: ObservableObject {
         }
 
         func isOuterRing() -> Bool { !isInnerRing() }
+
+        var ix: Int {
+            switch self {
+            case .outerRing: return 0
+            case .innerRing(let r): return r
+            }
+        }
     }
 
     enum ToggleType {

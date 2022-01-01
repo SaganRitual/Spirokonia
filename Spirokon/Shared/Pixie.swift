@@ -12,6 +12,7 @@ class Pen {
         sprite = SpritePool.dots.makeSprite()
         sprite.size = CGSize(width: 10, height: 10)
         sprite.color = .red
+        sprite.zPosition = 1.0
 
         skParent.addChild(sprite)
         ucParent.addChild(space)
@@ -24,6 +25,7 @@ class Pixie {
 
     var pen: Pen?
     var space = UCSpace()
+    var dotZ = 0.0
 
     var color = SKColor.green
     var colorSpeed = 0.0
@@ -76,6 +78,8 @@ class Pixie {
 
         default: fatalError()
         }
+
+        sprite.zPosition = Double(-ring.ix)
 
         skParent.addChild(sprite)
         ucParent.addChild(space)
@@ -134,8 +138,12 @@ class Pixie {
         let colorRotation = colorSpeed * deltaTime * .tau
         currentDotColor = currentDotColor.rotateHue(byAngle: colorRotation)
 
-        dot.color = currentDotColor
+        dotZ += 1e-4
+        if dotZ > 1.0 { dotZ = 0.0 }
+
+        dot.zPosition = Double(-ring.ix) + dotZ
         dot.position = ucWorld.emplace(pen!.space).cgPoint
+        dot.color = currentDotColor
 
         if dot.parent == nil {
             scene.addChild(dot)

@@ -2,8 +2,7 @@
 
 import SwiftUI
 
-@main
-struct SpirokonApp: App {
+struct AppModelForPreviews {
     @StateObject var appState: AppState
     @StateObject var pixoniaScene: PixoniaScene
     @StateObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
@@ -17,14 +16,5 @@ struct SpirokonApp: App {
 
         let scene = PixoniaScene(appState: state, tumblerSelectorStateMachine: sm)
         _pixoniaScene = StateObject(wrappedValue: scene)
-    }
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environmentObject(appState)
-                .environmentObject(pixoniaScene)
-                .environmentObject(tumblerSelectorStateMachine)
-        }
     }
 }

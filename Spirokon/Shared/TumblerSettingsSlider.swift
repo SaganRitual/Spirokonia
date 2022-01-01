@@ -62,14 +62,14 @@ struct TumblerSettingSlider: View {
                 HStack {
                     Text(label)
                     Spacer()
-                    Text("\(value.as3())")
+                    Text(String(format: "%.03f", value))
                 }
                 .frame(width: 150)
             } else {
-                Image(systemName: iconName).font(.largeTitle)
-                    .frame(width: 50)
+                Image(systemName: iconName).font(.headline)
+                    .frame(width: 35)
                 Spacer()
-                Text("\(value.as3())")
+                Text(String(format: "%.03f", value))
             }
 
             if let stepSize = stepSize {

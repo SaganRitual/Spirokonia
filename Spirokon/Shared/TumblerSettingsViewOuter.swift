@@ -16,8 +16,19 @@ struct TumblerSettingsViewOuter: View {
             }
 
             TumblerSettingSlider(
+                value: $appState.cycleSpeed, iconName: "speedometer", label: "Speed",
+                range: AppState.cycleSpeedRange, showTextLabel: AppState.showTextLabels
+            )
+
+            TumblerSettingSlider(
                 value: $appState.outerRingRadius, iconName: "circle", label: "Scale",
                 range: AppState.unitRange, showTextLabel: AppState.showTextLabels
+            )
+
+            TumblerSettingSlider(
+                value: $appState.density, iconName: "circle.dotted", label: "Density",
+                range: AppState.dotDensityRange, showTextLabel: AppState.showTextLabels,
+                step: 1.0
             )
         }
     }

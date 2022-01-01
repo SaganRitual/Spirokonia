@@ -7,16 +7,27 @@ struct ContentView: View {
     @EnvironmentObject var pixoniaScene: PixoniaScene
 
     var body: some View {
-        HStack {
-            TabView {
-                MainNavigationView()
-                    .tabItem { Label("Dashboard", systemImage: "speedometer") }
+        NavigationView {
+            VStack {
+                Spacer()
 
-                PensView()
-                    .tabItem { Label("Pens", systemImage: "rectangle.and.pencil.and.ellipsis") }
+                Section("Main") {
+                    TumblerSettingsViewOuter()
+                }
+
+                Spacer()
+
+                Section("Tumblers") {
+                    TumblerSelectorView()
+                    TumblerSettingsViewInner()
+                }
+
+                Spacer()
             }
+            .navigationTitle("Spirokon v0.2")
+            .padding(.trailing)
 
-            PixoniaView(appState: appState, scene: pixoniaScene)
+            PixoniaView(scene: pixoniaScene)
         }
     }
 }
