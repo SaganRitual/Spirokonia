@@ -36,40 +36,47 @@ class Pixie {
     var showRing = false
     var trailDecay = 0.0
 
-    let penAnimator: Animator?
-    let radiusAnimator: Animator
+    let penAnimator: Animator<UCSpace>?
+    let radiusAnimator: Animator<UCSpace>
 
     init(_ ring: AppState.Ring, skParent: PixoniaScene, ucParent: UCSpace) {
         self.ring = ring
 
+        if ring.isInnerRing() {
+            pen = Pen(skParent: skParent, ucParent: self.space)
+
+            space.radius = 0.5
+            pen!.space.position.r = 1.0
+        }
+
         switch ring {
         case .outerRing:
             sprite = SpritePool.crosshairRingsLarge.makeSprite()
-            radiusAnimator = Animator(1.0, for: sprite)
+            radiusAnimator = Animator(\.radius, for: self.space)
 
             pen = nil
             penAnimator = nil
 
         case .innerRing(1):
             sprite = SpritePool.crosshairRingsLarge.makeSprite()
-            radiusAnimator = Animator(0.5, for: sprite)
-            penAnimator = Animator(1.0, for: sprite)
+            radiusAnimator = Animator(\.radius, for: self.space)
+            penAnimator = Animator(\.position.r, for: self.pen!.space)
 
             colorSpeed = 0.1
             trailDecay = 10
 
         case .innerRing(2), .innerRing(3):
             sprite = SpritePool.crosshairRingsLarge.makeSprite()
-            radiusAnimator = Animator(0.5, for: sprite)
-            penAnimator = Animator(1.0, for: sprite)
+            radiusAnimator = Animator(\.radius, for: self.space)
+            penAnimator = Animator(\.position.r, for: self.pen!.space)
 
             colorSpeed = 0.1
             trailDecay = 1
 
         case .innerRing(4):
             sprite = SpritePool.crosshairRingsLarge.makeSprite()
-            radiusAnimator = Animator(0.5, for: sprite)
-            penAnimator = Animator(1.0, for: sprite)
+            radiusAnimator = Animator(\.radius, for: self.space)
+            penAnimator = Animator(\.position.r, for: self.pen!.space)
 
             colorSpeed = 0.1
             trailDecay = 1
@@ -81,10 +88,6 @@ class Pixie {
 
         skParent.addChild(sprite)
         ucParent.addChild(space)
-
-        if ring.isInnerRing() {
-            pen = Pen(skParent: skParent, ucParent: self.space)
-        }
     }
 
     func advance(_ rotation: Double) {
@@ -99,15 +102,11 @@ class Pixie {
     func applyUIStateToPixieStateIf(_ appState: AppState) {
         switch ring {
         case .outerRing:
-            self.space.radius = radiusAnimator.currentValue
             self.rollMode = appState.outerRingRollMode
             self.showRing = appState.outerRingShow
 
         case .innerRing(let ix):
-            space.radius = radiusAnimator.currentValue
             space.position.r = 1.0 - space.radius
-
-            pen!.space.position.r = penAnimator!.currentValue
 
             guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite else { return }
         }
@@ -148,13 +147,11 @@ class Pixie {
     func postInit(appState: ObservedObject<AppState>) {
         switch ring {
         case .outerRing:
-            self.radiusAnimator.currentValue = appState.wrappedValue.outerRingRadius
             self.rollMode = appState.wrappedValue.outerRingRollMode
             self.showRing = appState.wrappedValue.outerRingShow
 
         default:
-            self.penAnimator!.currentValue = appState.wrappedValue.pen
-            self.radiusAnimator.currentValue = appState.wrappedValue.radius
+            break
         }
     }
 

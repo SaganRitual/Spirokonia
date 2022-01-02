@@ -1,54 +1,40 @@
 // We are a way for the cosmos to know itself. -- C. Sagan
 
-import SpriteKit
+import Easing
+import Foundation
 
-class Animator {
-    private let id = UUID()
-    private let duration = 2.0
-    private weak var sprite: SKSpriteNode!
+class Animator<Owner: AnyObject> {
+    private var animatingValue: ReferenceWritableKeyPath<Owner, Double>
+    private weak var owner: Owner?
 
-    private var animatingValue: Double?
-    private var endValue = 0.0
-    private var startValue = 0.0
+    private var duration: Double = 1.0
+    private var elapsedTime: Double = 0.0
+    private var startValue: Double = 0.0
+    private var targetValue: Double = 0.0
 
-    var currentValue: Double {
-        get { animatingValue ?? startValue }
-        set { endValue = newValue; startValue = newValue; animatingValue = nil }
+    init(_ keyPath: ReferenceWritableKeyPath<Owner, Double>, for owner: Owner) {
+        self.animatingValue = keyPath
+        self.owner = owner
+        self.startValue = owner[keyPath: keyPath]
+        self.targetValue = self.startValue
     }
 
-    init(_ initialValue: Double, for sprite: SKSpriteNode) {
-        startValue = initialValue
-        endValue = initialValue
-        self.sprite = sprite
+    func animate(to newValue: Double, duration: Double? = nil) {
+        self.duration = duration ?? 1.0
+        self.elapsedTime = 0.0
+        self.startValue = owner![keyPath: animatingValue]
+        self.targetValue = newValue
     }
 
-    func animate(to newValue: Double) {
-        endValue = newValue
-
-        if let aa = animatingValue {
-            startValue = aa
-            animatingValue = nil
+    func update(deltaTime: Double) {
+        if startValue == targetValue || elapsedTime >= duration {
+            startValue = targetValue
+            return
         }
 
-        let mainAction = SKAction.customAction(withDuration: duration) { [weak self] _, completion in
-            guard let myself = self else { return }
+        elapsedTime += deltaTime
 
-            let c = myself.startValue +
-                (completion / myself.duration) * (myself.endValue - myself.startValue)
-
-            myself.animatingValue = c
-        }
-
-        mainAction.timingMode = SKActionTimingMode.easeInEaseOut
-
-        let completionAction = SKAction.run { [weak self] in
-            guard let myself = self else { return }
-            myself.animatingValue = nil
-            myself.startValue = myself.endValue
-        }
-
-        let sequence = SKAction.sequence([mainAction, completionAction])
-
-        sprite.run(sequence, withKey: id.uuidString)
+        owner![keyPath: animatingValue] =
+            startValue + Curve.quadratic.easeInOut(elapsedTime) / duration * (targetValue - startValue)
     }
 }

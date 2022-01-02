@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Easing",
+        "repositoryURL": "https://github.com/manuelCarlos/Easing",
+        "state": {
+          "branch": "main",
+          "revision": "d079829724f8a6b0d2c1c78aa1c06fb45fabfd40",
+          "version": null
+        }
+      },
+      {
+        "package": "swift-numerics",
+        "repositoryURL": "https://github.com/apple/swift-numerics",
+        "state": {
+          "branch": null,
+          "revision": "0a5bc04095a675662cf24757cc0640aa2204253b",
+          "version": "1.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

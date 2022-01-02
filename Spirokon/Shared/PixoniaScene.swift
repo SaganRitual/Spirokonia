@@ -103,10 +103,10 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             [weak self] in  guard let pscene = self, let newDriverIx = $0 else { return }
 
             // Charge the UI with the newly promoted tumbler
-            pscene.appState.pen = pscene.pixies[newDriverIx + 1].penAnimator!.currentValue
+            pscene.appState.pen = pscene.pixies[newDriverIx + 1].pen!.space.position.r
             pscene.appState.colorSpeed = pscene.pixies[newDriverIx + 1].colorSpeed
             pscene.appState.drawDots = pscene.pixies[newDriverIx + 1].drawDots
-            pscene.appState.radius = pscene.pixies[newDriverIx + 1].radiusAnimator.currentValue
+            pscene.appState.radius = pscene.pixies[newDriverIx + 1].space.radius
             pscene.appState.innerRingRollMode = pscene.pixies[newDriverIx + 1].rollMode
             pscene.appState.innerRingShow = pscene.pixies[newDriverIx + 1].showRing
             pscene.appState.trailDecay = pscene.pixies[newDriverIx + 1].trailDecay
@@ -135,6 +135,9 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             var totalScale = 1.0
 
             for pixie in pixies {
+                pixie.radiusAnimator.update(deltaTime: dt / 5.0)
+                pixie.penAnimator?.update(deltaTime: dt / 5.0)
+
                 pixie.applyUIStateToPixieStateIf(appState)
 
                 direction *= -1

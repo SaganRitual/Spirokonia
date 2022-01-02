@@ -47,6 +47,7 @@
 		D44BF5AB2777E8FF00E2FCE1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */; };
 		D45A93E9277E64E00007401E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45A93E8277E64E00007401E /* Animator.swift */; };
 		D45A93EA277E64E00007401E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45A93E8277E64E00007401E /* Animator.swift */; };
+		D48A90A22781DFF400884540 /* Easing in Frameworks */ = {isa = PBXBuildFile; productRef = D48A90A12781DFF400884540 /* Easing */; };
 		D4C19ECE277FDE73000E7A4B /* TumblerSettingsSliders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C19ECD277FDE73000E7A4B /* TumblerSettingsSliders.swift */; };
 		D4C19ECF277FDE73000E7A4B /* TumblerSettingsSliders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C19ECD277FDE73000E7A4B /* TumblerSettingsSliders.swift */; };
 		D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
@@ -104,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D48A90A22781DFF400884540 /* Easing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +215,9 @@
 			dependencies = (
 			);
 			name = "Spirokon (iOS)";
+			packageProductDependencies = (
+				D48A90A12781DFF400884540 /* Easing */,
+			);
 			productName = "Spirokon (iOS)";
 			productReference = D44BF3E32777D8D900E2FCE1 /* Spirokon.app */;
 			productType = "com.apple.product-type.application";
@@ -262,6 +267,9 @@
 				Base,
 			);
 			mainGroup = D44BF3D62777D8D800E2FCE1;
+			packageReferences = (
+				D48A90A02781DFF400884540 /* XCRemoteSwiftPackageReference "Easing" */,
+			);
 			productRefGroup = D44BF3E42777D8D900E2FCE1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -663,6 +671,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D48A90A02781DFF400884540 /* XCRemoteSwiftPackageReference "Easing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/manuelCarlos/Easing";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D48A90A12781DFF400884540 /* Easing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D48A90A02781DFF400884540 /* XCRemoteSwiftPackageReference "Easing" */;
+			productName = Easing;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D44BF3D72777D8D800E2FCE1 /* Project object */;
 }
