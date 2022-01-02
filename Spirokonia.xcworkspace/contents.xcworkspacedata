@@ -14,9 +14,6 @@
       location = "group:Isolates/RollModeView/RollModeView.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../SliderWeirdness/SliderWeirdness.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Isolates/Smoother/Smoother.xcodeproj">
    </FileRef>
    <FileRef
