@@ -9,7 +9,7 @@ A toy, a virtual "spirograph", inspired by YouTuber Sort of School's #SoME1 [vid
 
 * Clone
 * Build one of the Spirokonia targets. The other targets are for developing new components.
-* Prefer iPad in landscape orientation. It runs on iPhone and macOS too, but I haven't spent any time making it look non-weird on them yet.
+* Prefer the iPad target in landscape orientation or the macOS target. It does run on iPhone, but I haven't yet figured out a user-friendly way to present the views.
 
 # How to use the controls -- coming soon
 
