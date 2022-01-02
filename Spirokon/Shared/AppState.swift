@@ -41,6 +41,7 @@ class AppState: ObservableObject {
     @Published var cycleSpeed: Double = 0.1
     @Published var outerRingRadius: Double = 1.0
 
+    @Published var animationsDuration: Double = 5
     @Published var colorSpeed: Double = 0.1
     @Published var density: Double = 5
     @Published var pen: Double = 1.0
@@ -69,7 +70,7 @@ class AppState: ObservableObject {
 
     static let colorSpeedRange = 0.0...1.0
     static let cycleSpeedRange = 0.0...2.0
-    static let dotDensityRange = 0.0...20.0
+    static let dotDensityRange = 0.0...50.0
     static let trailDecayRange = 0.0...20.0
     static let unitRange = 0.0...2.0
 

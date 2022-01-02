@@ -99,62 +99,6 @@ class Pixie {
         }
     }
 
-    func applyUIStateToPixieStateIf(_ appState: AppState) {
-        switch ring {
-        case .outerRing:
-            self.rollMode = appState.outerRingRollMode
-            self.showRing = appState.outerRingShow
-
-        case .innerRing(let ix):
-            space.position.r = 1.0 - space.radius
-
-            guard appState.tumblerSelectorSwitches[ix - 1] == .trueDefinite else { return }
-        }
-    }
-
-    func dropDot(onto scene: SKScene, ucWorld: UCWorld, deltaTime: Double) {
-        guard drawDots, ring.isInnerRing() else { return }
-
-        // If the trail decay is really small, just don't put down a dot
-        let fadeTime = 0.5
-        let oneFrameTime = 1.0 / 60.0
-        if trailDecay < fadeTime + oneFrameTime { return }
-
-        let dot = SpritePool.dots.makeSprite()
-        dot.size = CGSize(width: 3, height: 3)
-
-        let colorRotation = colorSpeed * deltaTime * .tau
-        currentDotColor = currentDotColor.rotateHue(byAngle: colorRotation)
-
-        dotZ += 1e-4
-        if dotZ > 1.0 { dotZ = 0.0 }
-
-        dot.zPosition = Double(-ring.ix) + dotZ
-        dot.position = ucWorld.emplace(pen!.space).cgPoint
-        dot.color = currentDotColor
-
-        if dot.parent == nil {
-            scene.addChild(dot)
-        }
-
-        let delay = SKAction.wait(forDuration: trailDecay - fadeTime)
-        let fade = SKAction.fadeOut(withDuration: fadeTime)
-        let sequence = SKAction.sequence([delay, fade])
-
-        dot.run(sequence) { SpritePool.dots.releaseSprite(dot, fullSKRemove: false) }
-    }
-
-    func postInit(appState: ObservedObject<AppState>) {
-        switch ring {
-        case .outerRing:
-            self.rollMode = appState.wrappedValue.outerRingRollMode
-            self.showRing = appState.wrappedValue.outerRingShow
-
-        default:
-            break
-        }
-    }
-
     func reify(ucWorld: UCWorld) {
         sprite.color = showRing ? self.color : .clear
 
