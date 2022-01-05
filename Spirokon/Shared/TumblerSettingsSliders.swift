@@ -5,20 +5,16 @@ import SwiftUI
 struct TumblerSettingsSliders: View {
     @EnvironmentObject var appState: AppState
 
-    let step: Int
-
     var body: some View {
         VStack {
             TumblerSettingSlider(
                 value: $appState.radius, iconName: "circle", label: "Radius",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels,
-                stepFactor: step
+                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
             )
 
             TumblerSettingSlider(
                 value: $appState.pen, iconName: "pencil", label: "Pen",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels,
-                stepFactor: step
+                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
             )
 
             TumblerSettingSlider(
@@ -38,7 +34,7 @@ struct TumblerSettingsSliders_Previews: PreviewProvider {
     static let appState = AppState()
 
     static var previews: some View {
-        TumblerSettingsSliders(step: 1)
+        TumblerSettingsSliders()
             .environmentObject(appState)
     }
 }
