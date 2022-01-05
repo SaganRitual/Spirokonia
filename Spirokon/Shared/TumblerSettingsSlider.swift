@@ -46,11 +46,8 @@ struct TumblerSettingSlider: View {
             } else {
                 Image(systemName: iconName)
                     .font(.headline)
-                    .frame(width: 35)
                     .onTapGesture { showingStepPicker.toggle() }
             }
-
-            Spacer()
 
             ZStack {
                 if showingStepPicker {
@@ -65,7 +62,7 @@ struct TumblerSettingSlider: View {
                         }
                 } else {
                     HStack {
-                        Text(String(format: "% 5.03f", value))
+                        Text(String(format: "% 7.3f", value))
 
                         if let stepSize = stepSize {
                             Slider(value: $value, in: range, step: stepSize, label: {})
