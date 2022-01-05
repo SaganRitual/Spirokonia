@@ -54,6 +54,8 @@
 		D4C19ECF277FDE73000E7A4B /* TumblerSettingsSliders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C19ECD277FDE73000E7A4B /* TumblerSettingsSliders.swift */; };
 		D4D33BF32785FE7C0027A66E /* SliderStepPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D33BF22785FE7C0027A66E /* SliderStepPicker.swift */; };
 		D4D33BF42785FE7C0027A66E /* SliderStepPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D33BF22785FE7C0027A66E /* SliderStepPicker.swift */; };
+		D4D33BF6278610DF0027A66E /* RollRelationshipPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D33BF5278610DF0027A66E /* RollRelationshipPicker.swift */; };
+		D4D33BF7278610DF0027A66E /* RollRelationshipPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D33BF5278610DF0027A66E /* RollRelationshipPicker.swift */; };
 		D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
 		D4F4BB77277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
 		D4F4BBAF277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */; };
@@ -98,6 +100,7 @@
 		D48A90A3278203F400884540 /* ShadowPixie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPixie.swift; sourceTree = "<group>"; };
 		D4C19ECD277FDE73000E7A4B /* TumblerSettingsSliders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsSliders.swift; sourceTree = "<group>"; };
 		D4D33BF22785FE7C0027A66E /* SliderStepPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepPicker.swift; sourceTree = "<group>"; };
+		D4D33BF5278610DF0027A66E /* RollRelationshipPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollRelationshipPicker.swift; sourceTree = "<group>"; };
 		D4F4BB75277C8B270049035F /* UnitCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCircle.swift; sourceTree = "<group>"; };
 		D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewInner.swift; sourceTree = "<group>"; };
 		D4F4BBB1277CFCEE0049035F /* TumblerSettingsViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewMain.swift; sourceTree = "<group>"; };
@@ -150,6 +153,7 @@
 				D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */,
 				D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */,
 				D4F4BBCC277D001E0049035F /* RollModePicker.swift */,
+				D4D33BF5278610DF0027A66E /* RollRelationshipPicker.swift */,
 				D48A90A3278203F400884540 /* ShadowPixie.swift */,
 				D4D33BF22785FE7C0027A66E /* SliderStepPicker.swift */,
 				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
@@ -362,6 +366,7 @@
 				D4C19ECE277FDE73000E7A4B /* TumblerSettingsSliders.swift in Sources */,
 				D4F4BBB5277CFD5A0049035F /* TumblerSettingsViewOuter.swift in Sources */,
 				D4F4BBCD277D001E0049035F /* RollModePicker.swift in Sources */,
+				D4D33BF6278610DF0027A66E /* RollRelationshipPicker.swift in Sources */,
 				D44BF3EE2777D8D900E2FCE1 /* ContentView.swift in Sources */,
 				D48A90A4278203F400884540 /* ShadowPixie.swift in Sources */,
 				D408C33C277818CB0053B5F4 /* Pixie.swift in Sources */,
@@ -393,6 +398,7 @@
 				D4C19ECF277FDE73000E7A4B /* TumblerSettingsSliders.swift in Sources */,
 				D4F4BBB6277CFD5A0049035F /* TumblerSettingsViewOuter.swift in Sources */,
 				D4F4BBCE277D001E0049035F /* RollModePicker.swift in Sources */,
+				D4D33BF7278610DF0027A66E /* RollRelationshipPicker.swift in Sources */,
 				D44BF3EF2777D8D900E2FCE1 /* ContentView.swift in Sources */,
 				D48A90A5278203F400884540 /* ShadowPixie.swift in Sources */,
 				D408C33D277818CB0053B5F4 /* Pixie.swift in Sources */,

@@ -22,20 +22,18 @@ struct TumblerSelectorView: View {
         case .innerRing(2):
             bd = ButtonDescriptor(
                 zStack: true,
-                nameFont: [("circle", .title), ("circle", .title3)]
+                nameFont: [("circle", .title)]
             )
         case .innerRing(3):
             bd = ButtonDescriptor(
                 zStack: true,
-                nameFont: [("circle", .title), ("circle", .title3), ("circle", .caption2)]
+                nameFont: [("circle", .title)]
             )
         case .innerRing(4):
             bd = ButtonDescriptor(
                 zStack: true,
                 nameFont: [
-                    ("circle", .title),
-                    ("circle", .title3),
-                    ("smallcircle.filled.circle", .caption2)
+                    ("circle", .title)
                 ]
             )
 
@@ -43,12 +41,12 @@ struct TumblerSelectorView: View {
         }
 
         return ZStack {
-            ForEach(bd.nameFont.indices) { index in
-                Image(systemName: bd.nameFont[index].0)
-                    .font(bd.nameFont[index].1)
-                    .scaleEffect(1.75)
-            }
+            Image(systemName: bd.nameFont[0].0)
+                .font(bd.nameFont[0].1)
+                .foregroundColor(AppState.ringColors[ring.ix])
+                .scaleEffect(1.75)
         }
+
     }
 
     struct TumblerSelectorButton: ButtonStyle {
@@ -91,6 +89,7 @@ struct TumblerSelectorView: View {
                         .onChanged { _ in tumblerSelectorStateMachine.beginPress(ix) }
                 )
                 .buttonStyle(TumblerSelectorButton(appState: appState, ix: ix))
+
                 Spacer()
             }
         }

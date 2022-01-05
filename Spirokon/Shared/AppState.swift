@@ -7,6 +7,10 @@ class AppState: ObservableObject {
         case compensate, doesNotRoll, fullStop, normal
     }
 
+    enum RollRelationship {
+        case innerToInner, outerToOuter
+    }
+
     enum Ring {
         case innerRing(Int), outerRing
 
@@ -37,6 +41,7 @@ class AppState: ObservableObject {
 
     @Published var innerRingRollMode = RollMode.normal
     @Published var outerRingRollMode = RollMode.normal
+    @Published var rollRelationship = RollRelationship.innerToInner
 
     @Published var cycleSpeed: Double = 0.1
     @Published var outerRingRadius: Double = 1.0
@@ -67,6 +72,8 @@ class AppState: ObservableObject {
     @Published var tumblerSelectorSwitches: [TumblerSelectorSwitchState] = [
         .trueDefinite, .falseDefinite, .falseDefinite, .falseDefinite
     ]
+
+    static let ringColors: [Color] = [.blue, .green, .yellow, .purple, .red]
 
     static let colorSpeedRange = 0.0...1.0
     static let cycleSpeedRange = 0.0...2.0

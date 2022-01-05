@@ -16,6 +16,8 @@ struct TumblerSettingsViewInner: View {
                 )
             }
 
+            RollRelationshipPicker(rollRelationship: $appState.rollRelationship)
+
             TumblerSettingsSliders()
         }
     }

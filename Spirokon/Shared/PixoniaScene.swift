@@ -30,6 +30,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     var penObserver: AnyCancellable!
     var radiusObserver: AnyCancellable!
     var rollModeObserver: AnyCancellable!
+    var rollRelationshipObserver: AnyCancellable!
     var selectionObserver: AnyCancellable!
     var showRingObserver: AnyCancellable!
     var trailDecayObserver: AnyCancellable!
@@ -56,7 +57,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             let pixie = Pixie(ring, skParent: self, ucParent: ucParent)
 
             pixie.sprite.size = ucWorld.ensize(pixie.space).cgSize
-            pixie.color = SKColor([Color.orange, Color.green, Color.blue, Color.yellow, Color.red][p])
+            pixie.color = SKColor(AppState.ringColors[p])
 
             pixies.append(pixie)
 
@@ -98,24 +99,33 @@ private extension PixoniaScene {
                 pixie.radiusAnimator.update(deltaTime: dt / appState.animationsDuration)
                 pixie.penAnimator?.update(deltaTime: dt / appState.animationsDuration)
 
+                // Inner rings rotation speed and position are dependent on their radii, while
+                // the outer ring's rotation speed is strictly a function of the main cycle speed
+                // slider, and its position is always zero
                 if !pixie.ring.isOuterRing() {
-                    // Rotation speed of the system is independent of the radius of the
-                    // outermost ring
                     totalScale *= pixie.space.radius
 
-                    // Outermost ring stays centered, regardless of its radius
-                    pixie.space.position.r = 1.0 - pixie.space.radius
+                    if pixie.rollRelationship == .innerToInner {
+                        pixie.space.position.r = 1.0 - pixie.space.radius
+                    } else {
+                        pixie.space.position.r = 1.0 + pixie.space.radius
+                    }
                 }
 
                 if pixie.showRing {
                     pixie.sprite.color = pixie.color
-                    pixie.pen?.sprite.color = .red
                 } else {
                     pixie.sprite.color = .clear
+                }
+
+                if pixie.drawDots || pixie.showRing {
+                    pixie.pen?.sprite.color = pixie.color
+                } else {
                     pixie.pen?.sprite.color = .clear
                 }
 
                 direction *= -1
+                if pixie.rollRelationship == .outerToOuter { direction *= -1 }
 
                 let rotation = direction * appState.cycleSpeed * dt * .tau / totalScale
 
@@ -150,6 +160,7 @@ private extension PixoniaScene {
         setupObserver(pixoniaField: \.colorSpeedObserver, appStateField: \.$colorSpeed, pixieField: \.colorSpeed)
         setupObserver(pixoniaField: \.drawDotsObserver, appStateField: \.$drawDots, pixieField: \.drawDots)
         setupObserver(pixoniaField: \.rollModeObserver, appStateField: \.$innerRingRollMode, pixieField: \.rollMode)
+        setupObserver(pixoniaField: \.rollRelationshipObserver, appStateField: \.$rollRelationship, pixieField: \.rollRelationship)
         setupObserver(pixoniaField: \.showRingObserver, appStateField: \.$innerRingShow, pixieField: \.showRing)
         setupObserver(pixoniaField: \.trailDecayObserver, appStateField: \.$trailDecay, pixieField: \.trailDecay)
         setupObserver(pixoniaField: \.outerRingRollModeObserver, appStateField: \.$outerRingRollMode, pixieField: \.rollMode)
@@ -196,6 +207,7 @@ private extension PixoniaScene {
             pscene.appState.radius = pscene.pixies[newDriverIx + 1].space.radius
             pscene.appState.innerRingRollMode = pscene.pixies[newDriverIx + 1].rollMode
             pscene.appState.innerRingShow = pscene.pixies[newDriverIx + 1].showRing
+            pscene.appState.rollRelationship = pscene.pixies[newDriverIx + 1].rollRelationship
             pscene.appState.trailDecay = pscene.pixies[newDriverIx + 1].trailDecay
 
             // After the preliminary notification, the scene is finally ready to run

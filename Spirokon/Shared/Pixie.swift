@@ -33,6 +33,7 @@ class Pixie {
     var drawDots = false
     var firstPass = true
     var rollMode = AppState.RollMode.normal
+    var rollRelationship = AppState.RollRelationship.innerToInner
     var showRing = false
     var trailDecay = 0.0
 
@@ -109,6 +110,5 @@ class Pixie {
         guard let pen = pen else { return }
 
         pen.sprite.position = ucWorld.emplace(pen.space).cgPoint
-        pen.sprite.color = showRing ? .red : .clear
     }
 }
