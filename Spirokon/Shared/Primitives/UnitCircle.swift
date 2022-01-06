@@ -20,6 +20,12 @@ struct UCPoint {
     init(x: Double, y: Double) { self.r = sqrt(x * x + y * y); self.t = atan2(y, x) }
     init(_ cgPoint: CGPoint)   { self.init(x: cgPoint.x, y: cgPoint.y) }
 
+    public func distance(to otherPoint: UCPoint) -> Double {
+        let dx = x - otherPoint.x
+        let dy = y - otherPoint.y
+        return sqrt(dx * dx + dy * dy)
+    }
+
     func rotated(by radians: Double) -> UCPoint {
         UCPoint(self.cgPoint.applying(CGAffineTransform(rotationAngle: radians)))
     }
@@ -35,13 +41,17 @@ struct UCPoint {
     static func * (_ lhs: UCPoint, _ rhs: UCPoint) -> UCPoint {
         UCPoint(x: lhs.x * rhs.x, y: lhs.y * rhs.y)
     }
-
+/*
     static func * (_ lhs: UCPoint, _ rhs: UCSize) -> UCPoint {
         UCPoint(x: lhs.x * rhs.width, y: lhs.y * rhs.height)
     }
-
+*/
     static func * (_ lhs: UCPoint, _ rhs: Double) -> UCPoint {
         UCPoint(x: lhs.x * rhs, y: lhs.y * rhs)
+    }
+
+    static func - (_ lhs: UCPoint, _ rhs: UCPoint) -> UCPoint {
+        UCPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
     }
 
     static func *= (_ lhs: inout UCPoint, _ rhs: UCPoint) { lhs = lhs * rhs }
@@ -69,19 +79,21 @@ extension UCPoint: Hashable {
 }
 
 struct UCSize {
-    var width: Double
-    var height: Double
+    var radius: Double
+
+    var width: Double  { radius * 2.0 }
+    var height: Double { radius * 2.0 }
 
     var cgSize: CGSize { CGSize(width: width, height: height) }
 
-    static let unit: UCSize = UCSize(width: 2.0, height: 2.0)
+    static var unit: UCSize { UCSize(radius: 1.0) }
 
     static func * (_ lhs: UCSize, _ rhs: UCSize) -> UCSize {
-        UCSize(width: lhs.width * rhs.width, height: lhs.height * rhs.height)
+        UCSize(radius: lhs.radius * rhs.radius)
     }
 
     static func * (_ lhs: UCSize, _ rhs: Double) -> UCSize {
-        UCSize(width: lhs.width * rhs, height: lhs.height * rhs)
+        UCSize(radius: lhs.radius * rhs)
     }
 
     static func *= (_ lhs: inout UCSize, _ rhs: UCSize) { lhs = lhs * rhs }
@@ -89,14 +101,33 @@ struct UCSize {
     static func *= (_ lhs: inout UCSize, _ rhs: Double) { lhs = lhs * rhs }
 }
 
-class UCWorld {
-    var theWorldSpace = UCSpace()
-    let size: UCSize
+class UCSpace {
+    let id = UUID() // Mostly for debugging
+    var anchorPoint = UCPoint.zero
+    var position = UCPoint.zero
+    var radius = 1.0
+    var rotation = 0.0
 
-    init(width: Double, height: Double) {
-        self.size = UCSize(width: width, height: height)
+    var children = [UCSpace]()
+    weak var parent: UCSpace?
+
+    static var unit: UCSpace { UCSpace(radius: 1.0, rotation: 0.0) }
+
+    var cgSize: CGSize { CGSize(width: diameter, height: diameter) }
+    var diameter: Double { 2 * radius }
+
+    init(anchorPoint: UCPoint = .zero, position: UCPoint = .zero, radius: Double = 1.0, rotation: Double = 0.0) {
+        self.anchorPoint = anchorPoint
+        self.position = position
+        self.radius = radius
+        self.rotation = rotation
     }
+}
 
+extension UCSpace {
+    /// Get position of my descendant `space` in my terms
+    /// - Parameter space: the descendant whose position we want
+    /// - Returns: position of `space` scaled to me
     func emplace(_ space: UCSpace) -> UCPoint {
         var pp = space.position
         var sp = space
@@ -113,23 +144,18 @@ class UCWorld {
             sp = parent
         }
 
-        return pp * (self.size.width / 2.0)
+        return pp * self.radius
     }
 
-    func emroll(_ space: UCSpace) -> Double {
-        var sp = space
-        var zr = 0.0
-
-        while let parent = sp.parent {
-            zr += sp.rotation
-            sp = parent
-        }
-
-        return zr
-    }
-
+    /// Get size of my descendant `space` in my terms
+    /// - Parameter space: the descendant whose size we want
+    /// - Returns: size of `space` scaled to me
     func ensize(_ space: UCSpace) -> UCSize {
-        var sz = self.size * space.radius
+        // As far as any UCSpace knows, its own radius is always 1.0. For ensizing,
+        // your radius is only ever applied by your parent
+        if space === self { return UCSize.unit }
+
+        var sz = space.radius
         var sp = space
 
         while let parent = sp.parent {
@@ -137,47 +163,38 @@ class UCWorld {
             sp = parent
         }
 
-        return sz
+        return UCSize(radius: sz)
     }
 }
 
-class UCSpace {
-    var anchorPoint = UCPoint.zero
-    var position = UCPoint.zero
-    var radius = 1.0
-    var rotation = 0.0
-
-    var children = [UCSpace]()
-    weak var parent: UCSpace?
-
-    static var unit: UCSpace { UCSpace(radius: 1.0, rotation: 0.0) }
-
-    var diameter: Double { 2 * radius }
-
-    init(anchorPoint: UCPoint = .zero, position: UCPoint = .zero, radius: Double = 1.0, rotation: Double = 0.0) {
-        self.anchorPoint = anchorPoint
-        self.position = position
-        self.radius = radius
-        self.rotation = rotation
-    }
-
+extension UCSpace {
     func addChild(_ space: UCSpace) {
         precondition(space.parent == nil, "Can't add this child; it already has a parent")
         space.parent = self
         children.append(space)
     }
 
+    @discardableResult
     func removeChild(_ space: UCSpace) -> UCSpace? {
         guard let ix = children.firstIndex(where: { $0 === space }) else { return nil }
         let child = children.remove(at: ix)
         child.parent = nil
         return child
     }
+
+    func removeFromParent() {
+        parent?.removeChild(self)
+    }
 }
 
 extension UCSpace: CustomDebugStringConvertible {
     var debugDescription: String {
-        "UCSpace(radius: \(zeroish(radius)), rotation: \(zeroish(rotation))) position \(position) anchor \(anchorPoint)"
+        "UCSpace("
+        + "id: \(id.uuidString.substr(0..<5)), "
+        + "radius: \(zeroish(radius)), "
+        + "rotation: \(zeroish(rotation))), "
+        + "position \(position), "
+        + "anchor \(anchorPoint)"
     }
 }
 

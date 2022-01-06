@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D472FB7F2786AB1C0058E0AF /* SelectablePenAxisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FB6F2786AB1A0058E0AF /* SelectablePenAxisApp.swift */; };
+		D472FB802786AB1C0058E0AF /* SelectablePenAxisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FB6F2786AB1A0058E0AF /* SelectablePenAxisApp.swift */; };
+		D472FB812786AB1C0058E0AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FB702786AB1A0058E0AF /* ContentView.swift */; };
+		D472FB822786AB1C0058E0AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FB702786AB1A0058E0AF /* ContentView.swift */; };
+		D472FB832786AB1C0058E0AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D472FB712786AB1B0058E0AF /* Assets.xcassets */; };
+		D472FB842786AB1C0058E0AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D472FB712786AB1B0058E0AF /* Assets.xcassets */; };
+		D472FB8F2786AB450058E0AF /* SpritePool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D472FB8D2786AB450058E0AF /* SpritePool.xcassets */; };
+		D472FB902786AB450058E0AF /* SpritePool.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D472FB8D2786AB450058E0AF /* SpritePool.xcassets */; };
+		D472FB912786AB450058E0AF /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FB8E2786AB450058E0AF /* SpritePool.swift */; };
+		D472FB922786AB450058E0AF /* SpritePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FB8E2786AB450058E0AF /* SpritePool.swift */; };
+		D472FB942786AB5B0058E0AF /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FB932786AB5B0058E0AF /* UnitCircle.swift */; };
+		D472FB952786AB5B0058E0AF /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FB932786AB5B0058E0AF /* UnitCircle.swift */; };
+		D472FBA92786B2CB0058E0AF /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBA82786B2CB0058E0AF /* PixoniaScene.swift */; };
+		D472FBAA2786B2CB0058E0AF /* PixoniaScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBA82786B2CB0058E0AF /* PixoniaScene.swift */; };
+		D472FBAF2786B2EF0058E0AF /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBAE2786B2EF0058E0AF /* PixoniaView.swift */; };
+		D472FBB02786B2EF0058E0AF /* PixoniaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBAE2786B2EF0058E0AF /* PixoniaView.swift */; };
+		D472FBB22786B3A00058E0AF /* PreviewsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBB12786B3A00058E0AF /* PreviewsObject.swift */; };
+		D472FBB32786B3A00058E0AF /* PreviewsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBB12786B3A00058E0AF /* PreviewsObject.swift */; };
+		D472FBB52786B4410058E0AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBB42786B4410058E0AF /* Extensions.swift */; };
+		D472FBB62786B4410058E0AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBB42786B4410058E0AF /* Extensions.swift */; };
+		D472FBB8278718510058E0AF /* TumblerSettingsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBB7278718510058E0AF /* TumblerSettingsSlider.swift */; };
+		D472FBB9278718510058E0AF /* TumblerSettingsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBB7278718510058E0AF /* TumblerSettingsSlider.swift */; };
+		D472FBBB2787193D0058E0AF /* SliderStepPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBBA2787193D0058E0AF /* SliderStepPicker.swift */; };
+		D472FBBC2787193D0058E0AF /* SliderStepPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D472FBBA2787193D0058E0AF /* SliderStepPicker.swift */; };
+		D49B8DC92787941200CBD865 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B8DC82787941200CBD865 /* Pixie.swift */; };
+		D49B8DCA2787941200CBD865 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B8DC82787941200CBD865 /* Pixie.swift */; };
+		D49B8DCC2787944100CBD865 /* PixieConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B8DCB2787944100CBD865 /* PixieConnector.swift */; };
+		D49B8DCD2787944100CBD865 /* PixieConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B8DCB2787944100CBD865 /* PixieConnector.swift */; };
+		D49B8DCF2787AE5C00CBD865 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B8DCE2787AE5C00CBD865 /* Nib.swift */; };
+		D49B8DD02787AE5C00CBD865 /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49B8DCE2787AE5C00CBD865 /* Nib.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D472FB6F2786AB1A0058E0AF /* SelectablePenAxisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectablePenAxisApp.swift; sourceTree = "<group>"; };
+		D472FB702786AB1A0058E0AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D472FB712786AB1B0058E0AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D472FB762786AB1B0058E0AF /* SelectablePenAxis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectablePenAxis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D472FB7C2786AB1C0058E0AF /* SelectablePenAxis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelectablePenAxis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D472FB7E2786AB1C0058E0AF /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D472FB8D2786AB450058E0AF /* SpritePool.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SpritePool.xcassets; sourceTree = "<group>"; };
+		D472FB8E2786AB450058E0AF /* SpritePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpritePool.swift; path = ../../../Spirokon/Shared/SpriteKit/SpritePool.swift; sourceTree = "<group>"; };
+		D472FB932786AB5B0058E0AF /* UnitCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnitCircle.swift; path = ../../../Spirokon/Shared/Primitives/UnitCircle.swift; sourceTree = "<group>"; };
+		D472FBA82786B2CB0058E0AF /* PixoniaScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixoniaScene.swift; sourceTree = "<group>"; };
+		D472FBAE2786B2EF0058E0AF /* PixoniaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixoniaView.swift; sourceTree = "<group>"; };
+		D472FBB12786B3A00058E0AF /* PreviewsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewsObject.swift; sourceTree = "<group>"; };
+		D472FBB42786B4410058E0AF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../Spirokon/Shared/Primitives/Extensions.swift; sourceTree = "<group>"; };
+		D472FBB7278718510058E0AF /* TumblerSettingsSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsSlider.swift; sourceTree = "<group>"; };
+		D472FBBA2787193D0058E0AF /* SliderStepPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepPicker.swift; sourceTree = "<group>"; };
+		D49B8DC82787941200CBD865 /* Pixie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixie.swift; sourceTree = "<group>"; };
+		D49B8DCB2787944100CBD865 /* PixieConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixieConnector.swift; sourceTree = "<group>"; };
+		D49B8DCE2787AE5C00CBD865 /* Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D472FB732786AB1B0058E0AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D472FB792786AB1C0058E0AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D472FB692786AB1A0058E0AF = {
+			isa = PBXGroup;
+			children = (
+				D472FB6E2786AB1A0058E0AF /* Shared */,
+				D472FB7D2786AB1C0058E0AF /* macOS */,
+				D472FB772786AB1B0058E0AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D472FB6E2786AB1A0058E0AF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D472FB6F2786AB1A0058E0AF /* SelectablePenAxisApp.swift */,
+				D472FB702786AB1A0058E0AF /* ContentView.swift */,
+				D472FBB42786B4410058E0AF /* Extensions.swift */,
+				D49B8DCE2787AE5C00CBD865 /* Nib.swift */,
+				D49B8DC82787941200CBD865 /* Pixie.swift */,
+				D49B8DCB2787944100CBD865 /* PixieConnector.swift */,
+				D472FBA82786B2CB0058E0AF /* PixoniaScene.swift */,
+				D472FBAE2786B2EF0058E0AF /* PixoniaView.swift */,
+				D472FBB12786B3A00058E0AF /* PreviewsObject.swift */,
+				D472FBBA2787193D0058E0AF /* SliderStepPicker.swift */,
+				D472FB8E2786AB450058E0AF /* SpritePool.swift */,
+				D472FBB7278718510058E0AF /* TumblerSettingsSlider.swift */,
+				D472FB932786AB5B0058E0AF /* UnitCircle.swift */,
+				D472FB712786AB1B0058E0AF /* Assets.xcassets */,
+				D472FB8D2786AB450058E0AF /* SpritePool.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D472FB772786AB1B0058E0AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D472FB762786AB1B0058E0AF /* SelectablePenAxis.app */,
+				D472FB7C2786AB1C0058E0AF /* SelectablePenAxis.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D472FB7D2786AB1C0058E0AF /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				D472FB7E2786AB1C0058E0AF /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D472FB752786AB1B0058E0AF /* SelectablePenAxis (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D472FB872786AB1C0058E0AF /* Build configuration list for PBXNativeTarget "SelectablePenAxis (iOS)" */;
+			buildPhases = (
+				D472FB722786AB1B0058E0AF /* Sources */,
+				D472FB732786AB1B0058E0AF /* Frameworks */,
+				D472FB742786AB1B0058E0AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SelectablePenAxis (iOS)";
+			productName = "SelectablePenAxis (iOS)";
+			productReference = D472FB762786AB1B0058E0AF /* SelectablePenAxis.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D472FB7B2786AB1C0058E0AF /* SelectablePenAxis (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D472FB8A2786AB1C0058E0AF /* Build configuration list for PBXNativeTarget "SelectablePenAxis (macOS)" */;
+			buildPhases = (
+				D472FB782786AB1C0058E0AF /* Sources */,
+				D472FB792786AB1C0058E0AF /* Frameworks */,
+				D472FB7A2786AB1C0058E0AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SelectablePenAxis (macOS)";
+			productName = "SelectablePenAxis (macOS)";
+			productReference = D472FB7C2786AB1C0058E0AF /* SelectablePenAxis.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D472FB6A2786AB1A0058E0AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					D472FB752786AB1B0058E0AF = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D472FB7B2786AB1C0058E0AF = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = D472FB6D2786AB1A0058E0AF /* Build configuration list for PBXProject "SelectablePenAxis" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D472FB692786AB1A0058E0AF;
+			productRefGroup = D472FB772786AB1B0058E0AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D472FB752786AB1B0058E0AF /* SelectablePenAxis (iOS) */,
+				D472FB7B2786AB1C0058E0AF /* SelectablePenAxis (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D472FB742786AB1B0058E0AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D472FB8F2786AB450058E0AF /* SpritePool.xcassets in Resources */,
+				D472FB832786AB1C0058E0AF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D472FB7A2786AB1C0058E0AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D472FB902786AB450058E0AF /* SpritePool.xcassets in Resources */,
+				D472FB842786AB1C0058E0AF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D472FB722786AB1B0058E0AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D49B8DC92787941200CBD865 /* Pixie.swift in Sources */,
+				D472FBB22786B3A00058E0AF /* PreviewsObject.swift in Sources */,
+				D472FB812786AB1C0058E0AF /* ContentView.swift in Sources */,
+				D472FB942786AB5B0058E0AF /* UnitCircle.swift in Sources */,
+				D472FBB52786B4410058E0AF /* Extensions.swift in Sources */,
+				D49B8DCC2787944100CBD865 /* PixieConnector.swift in Sources */,
+				D472FB7F2786AB1C0058E0AF /* SelectablePenAxisApp.swift in Sources */,
+				D472FBAF2786B2EF0058E0AF /* PixoniaView.swift in Sources */,
+				D472FBA92786B2CB0058E0AF /* PixoniaScene.swift in Sources */,
+				D472FB912786AB450058E0AF /* SpritePool.swift in Sources */,
+				D472FBBB2787193D0058E0AF /* SliderStepPicker.swift in Sources */,
+				D49B8DCF2787AE5C00CBD865 /* Nib.swift in Sources */,
+				D472FBB8278718510058E0AF /* TumblerSettingsSlider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D472FB782786AB1C0058E0AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D49B8DCA2787941200CBD865 /* Pixie.swift in Sources */,
+				D472FBB32786B3A00058E0AF /* PreviewsObject.swift in Sources */,
+				D472FB822786AB1C0058E0AF /* ContentView.swift in Sources */,
+				D472FB952786AB5B0058E0AF /* UnitCircle.swift in Sources */,
+				D472FBB62786B4410058E0AF /* Extensions.swift in Sources */,
+				D49B8DCD2787944100CBD865 /* PixieConnector.swift in Sources */,
+				D472FB802786AB1C0058E0AF /* SelectablePenAxisApp.swift in Sources */,
+				D472FBB02786B2EF0058E0AF /* PixoniaView.swift in Sources */,
+				D472FBAA2786B2CB0058E0AF /* PixoniaScene.swift in Sources */,
+				D472FB922786AB450058E0AF /* SpritePool.swift in Sources */,
+				D472FBBC2787193D0058E0AF /* SliderStepPicker.swift in Sources */,
+				D49B8DD02787AE5C00CBD865 /* Nib.swift in Sources */,
+				D472FBB9278718510058E0AF /* TumblerSettingsSlider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D472FB852786AB1C0058E0AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D472FB862786AB1C0058E0AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		D472FB882786AB1C0058E0AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.SelectablePenAxis;
+				PRODUCT_NAME = SelectablePenAxis;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D472FB892786AB1C0058E0AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.SelectablePenAxis;
+				PRODUCT_NAME = SelectablePenAxis;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D472FB8B2786AB1C0058E0AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.SelectablePenAxis;
+				PRODUCT_NAME = SelectablePenAxis;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D472FB8C2786AB1C0058E0AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DD983V4X84;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.SelectablePenAxis;
+				PRODUCT_NAME = SelectablePenAxis;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D472FB6D2786AB1A0058E0AF /* Build configuration list for PBXProject "SelectablePenAxis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D472FB852786AB1C0058E0AF /* Debug */,
+				D472FB862786AB1C0058E0AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D472FB872786AB1C0058E0AF /* Build configuration list for PBXNativeTarget "SelectablePenAxis (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D472FB882786AB1C0058E0AF /* Debug */,
+				D472FB892786AB1C0058E0AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D472FB8A2786AB1C0058E0AF /* Build configuration list for PBXNativeTarget "SelectablePenAxis (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D472FB8B2786AB1C0058E0AF /* Debug */,
+				D472FB8C2786AB1C0058E0AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D472FB6A2786AB1A0058E0AF /* Project object */;
+}
