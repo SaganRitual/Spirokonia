@@ -20,6 +20,7 @@ class AppState: ObservableObject {
     @Published var texture4Rotation: Double = 0.0
 
     @Published var nibPositionR: Double = 1.0
+    @Published var penAxis: Int = 0
 }
 
 @main

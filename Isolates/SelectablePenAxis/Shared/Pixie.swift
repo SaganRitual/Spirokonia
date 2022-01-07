@@ -11,6 +11,8 @@ class Pixie {
     var skParent: SKNode { sprite.parent! }
     var ucParent: UCSpace { textureSpace.parent! }
 
+    var penAxis = 0
+
     init(textureRadius: Double, skParent: SKNode, ucParent: UCSpace) {
         textureSpace = UCSpace(radius: textureRadius)
         ucParent.addChild(textureSpace)
@@ -25,8 +27,10 @@ class Pixie {
         sprite.position = ancestorSpace.emplace(textureSpace).cgPoint
         sprite.size = ancestorSpace.ensize(textureSpace).cgSize
         sprite.zRotation = textureSpace.rotation
-        
-        connectors.forEach { $0.reify(to: ancestorSpace) }
+
+        if !connectors.isEmpty {
+            connectors[penAxis].reify(to: ancestorSpace)
+        }
     }
 
     func connect(to pixies: [Pixie]) {

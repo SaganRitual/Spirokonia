@@ -144,7 +144,8 @@ extension UCSpace {
             sp = parent
         }
 
-        return pp * self.radius
+        let result = pp * self.radius
+        return result
     }
 
     /// Get size of my descendant `space` in my terms

@@ -81,6 +81,14 @@ struct ContentView: View {
                 range: -1.0...1.0, showTextLabel: false
             )
 
+            Picker("Pen Axis", selection: $appState.penAxis) {
+                ForEach(0..<4) {
+                    Image(systemName: "\($0).circle").tag($0)
+                }
+            }
+            .pickerStyle(.segmented)
+
+
             PixoniaView(scene: pixoniaScene)
         }
     }

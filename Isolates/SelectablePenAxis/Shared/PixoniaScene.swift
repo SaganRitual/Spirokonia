@@ -12,6 +12,8 @@ class Connection {
 class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     @ObservedObject var appState: AppState
 
+    var isReady = false
+
     let radius: Double = 2048
     let sceneSpace: UCSpace
 
@@ -36,6 +38,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     var pixie4RotationObserver: AnyCancellable!
 
     var nibPositionRObserver: AnyCancellable!
+    var penAxisObserver: AnyCancellable!
 
     init(appState: AppState) {
         _appState = ObservedObject(initialValue: appState)
@@ -124,16 +127,32 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         }
 
         pixie1.connect(to: [pixie2, pixie3, pixie4])
+        pixie2.connect(to: [pixie3, pixie4, pixie1])
+        pixie3.connect(to: [pixie4, pixie1, pixie2])
+        pixie4.connect(to: [pixie1, pixie2, pixie3])
 
         nibPositionRObserver = appState.$nibPositionR.sink { [weak self] newR in
             guard let myself = self else { return }
-            myself.pixie1.connectors.forEach { connector in
-                connector.nib.space.position.r = newR
+            [myself.pixie1, myself.pixie2, myself.pixie3, myself.pixie4].forEach { pixie in
+                pixie.connectors.forEach { connector in
+                    connector.nib.space.position.r = newR
+                }
             }
+        }
+
+        penAxisObserver = appState.$penAxis.sink { [weak self] newAxis in
+            guard let myself = self else { return }
+
+            [myself.pixie1, myself.pixie2, myself.pixie3, myself.pixie4].forEach { pixie in
+                pixie.penAxis = newAxis
+            }
+
+            myself.isReady = true
         }
     }
 
     override func update(_ currentTime: TimeInterval) {
+        guard isReady else { return }
         [pixie1, pixie2, pixie3, pixie4].forEach { $0.reify(to: sceneSpace) }
     }
 
