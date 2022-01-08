@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-class AppState: ObservableObject {
+class AppModel: ObservableObject {
     @Published var texture1PositionR: Double = 0.0
     @Published var texture1Radius: Double = 0.5
     @Published var texture1Rotation: Double = 0.0
@@ -25,21 +25,21 @@ class AppState: ObservableObject {
 
 @main
 struct SelectablePenAxisApp: App {
-    @StateObject var appState: AppState
+    @StateObject var appModel: AppModel
     @StateObject var pixoniaScene: PixoniaScene
 
     init() {
-        let state = AppState()
+        let state = AppModel()
         _appState = StateObject(wrappedValue: state)
 
-        let scene = PixoniaScene(appState: state)
+        let scene = PixoniaScene(appModel: state)
         _pixoniaScene = StateObject(wrappedValue: scene)
     }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(appState)
+                .environmentObject(appModel)
                 .environmentObject(pixoniaScene)
         }
     }

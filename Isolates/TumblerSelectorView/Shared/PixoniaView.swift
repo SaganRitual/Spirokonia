@@ -4,7 +4,7 @@ import SpriteKit
 import SwiftUI
 
 struct PixoniaView: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appModel: AppModel
     @EnvironmentObject var pixoniaScene: PixoniaScene
 
     var body: some View {

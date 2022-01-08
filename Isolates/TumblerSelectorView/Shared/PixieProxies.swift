@@ -59,7 +59,7 @@ class MainControl: HasUpdateFunction {
 }
 
 class OuterRing {
-    let ring: AppState.Ring
+    let ring: AppDefinitions.Ring
     let pixieProxy: PixieProxy
 
     init() {
@@ -75,10 +75,10 @@ class OuterRing {
 }
 
 class InnerRing {
-    let ring: AppState.Ring
+    let ring: AppDefinitions.Ring
     let pixieProxy: PixieProxy
 
-    init(_ ring: AppState.Ring) {
+    init(_ ring: AppDefinitions.Ring) {
         self.ring = ring
 
         pixieProxy = PixieProxy([

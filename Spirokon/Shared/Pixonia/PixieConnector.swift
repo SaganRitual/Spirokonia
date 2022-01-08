@@ -11,7 +11,7 @@ class PixieConnector {
     weak var mePixie: Pixie?
     weak var toPixie: Pixie?
 
-    init(from fromPixie: Pixie, to toPixie: Pixie, skParent: SKNode, ucParent: UCSpace) {
+    init(color: SKColor, from fromPixie: Pixie, to toPixie: Pixie, skParent: SKNode, ucParent: UCSpace) {
         self.mePixie = fromPixie
         self.toPixie = toPixie
 
@@ -21,23 +21,23 @@ class PixieConnector {
         self.sprite = SpritePool.lines.makeSprite()
         skParent.addChild(self.sprite)
 
-        self.nib = Nib(skParent: self.sprite, ucParent: self.space)
+        self.nib = Nib(color: color, skParent: self.sprite, ucParent: self.space)
 
         sprite.anchorPoint = .anchorDueWest
-        sprite.color = .green
-        sprite.size.height = 3
+        sprite.color = color
+        sprite.size.height = 5
     }
 
     func reify(to ancestorSpace: UCSpace) {
-        var toPosition = ancestorSpace.emplace(toPixie!.textureSpace)
+        var toPosition = ancestorSpace.emplace(toPixie!.space)
 
         // Connector to myself is a line from my center to my (1.0, 0.0).
         // The rest of the connectors are from my center to each descendants' center
         if mePixie === toPixie {
-            toPosition.r += ancestorSpace.ensize(mePixie!.textureSpace).radius
+            toPosition.r += ancestorSpace.ensize(mePixie!.space).radius
         }
 
-        let fromPosition = ancestorSpace.emplace(mePixie!.textureSpace)
+        let fromPosition = ancestorSpace.emplace(mePixie!.space)
         let distance = fromPosition.distance(to: toPosition)
         let difference = toPosition - fromPosition
 
@@ -46,7 +46,7 @@ class PixieConnector {
 
         if toPixie === mePixie {
             space.rotation = 0  // Special connector always acts unrotated
-            sprite.zRotation = mePixie!.textureSpace.rotation
+            sprite.zRotation = mePixie!.space.rotation
         } else {
             space.rotation = atan2(difference.y, difference.x)
             sprite.zRotation = space.rotation

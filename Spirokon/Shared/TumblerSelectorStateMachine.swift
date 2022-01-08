@@ -6,7 +6,7 @@ import SwiftUI
 class TumblerSelectorState: GKState {
     var sm: TumblerSelectorStateMachine { (stateMachine as? TumblerSelectorStateMachine)! }
 
-    var appState: AppState { sm.appState }
+    var appModel: AppModel { sm.appModel }
     var indexBeingTouched: Int { sm.indexBeingTouched }
 
     var indexOfDrivingTumbler: Int? {
@@ -16,11 +16,11 @@ class TumblerSelectorState: GKState {
 
 class TumblerSelectorStateBeginPress: TumblerSelectorState {
     override func didEnter(from previousState: GKState?) {
-        switch appState.tumblerSelectorSwitches[indexBeingTouched] {
+        switch appModel.tumblerSelectorSwitches[indexBeingTouched] {
         case .trueDefinite:
-            appState.tumblerSelectorSwitches[indexBeingTouched] = .trueIndefinite
+            appModel.tumblerSelectorSwitches[indexBeingTouched] = .trueIndefinite
         case .falseDefinite:
-            appState.tumblerSelectorSwitches[indexBeingTouched] = .falseIndefinite
+            appModel.tumblerSelectorSwitches[indexBeingTouched] = .falseIndefinite
         default:
             fatalError()
         }
@@ -37,10 +37,10 @@ class TumblerSelectorStateLongPressDetected: TumblerSelectorState {
         // This means the user is long-pressing a button that was already the
         // only one selected. Treat it as a "select all", keeping that one as the driver.
         let longPressOnSoloedButton: Bool = {
-            if appState.tumblerSelectorSwitches[indexBeingTouched] == .trueIndefinite {
+            if appModel.tumblerSelectorSwitches[indexBeingTouched] == .trueIndefinite {
                 if let currentDriver = indexOfDrivingTumbler,
                    currentDriver == indexBeingTouched,
-                   appState.tumblerSelectorSwitches.filter({ $0.isTracking }).isEmpty {
+                   appModel.tumblerSelectorSwitches.filter({ $0.isEngaged }).isEmpty {
                     return true
                 }
             }
@@ -49,18 +49,18 @@ class TumblerSelectorStateLongPressDetected: TumblerSelectorState {
         }()
 
         if longPressOnSoloedButton {
-            appState.tumblerSelectorSwitches.indices.forEach {
-                appState.tumblerSelectorSwitches[$0] = .trueDefinite
+            appModel.tumblerSelectorSwitches.indices.forEach {
+                appModel.tumblerSelectorSwitches[$0] = .trueDefinite
             }
 
             return
         }
 
-        for ix in appState.tumblerSelectorSwitches.indices where ix != indexBeingTouched {
-            appState.tumblerSelectorSwitches[ix] = .falseDefinite
+        for ix in appModel.tumblerSelectorSwitches.indices where ix != indexBeingTouched {
+            appModel.tumblerSelectorSwitches[ix] = .falseDefinite
         }
 
-        appState.tumblerSelectorSwitches[indexBeingTouched] = .trueDefinite
+        appModel.tumblerSelectorSwitches[indexBeingTouched] = .trueDefinite
         indexOfDrivingTumbler = indexBeingTouched
     }
 
@@ -72,21 +72,21 @@ class TumblerSelectorStateLongPressDetected: TumblerSelectorState {
 class TumblerSelectorStateEndPress: TumblerSelectorState {
     override func didEnter(from previousState: GKState?) {
         if previousState is TumblerSelectorStateBeginPress {
-            switch appState.tumblerSelectorSwitches[indexBeingTouched] {
+            switch appModel.tumblerSelectorSwitches[indexBeingTouched] {
             case .falseIndefinite:
-                appState.tumblerSelectorSwitches[indexBeingTouched] = .trueDefinite
+                appModel.tumblerSelectorSwitches[indexBeingTouched] = .trueDefinite
 
                 // If no one was selected, set the one being touched as the new driver
                 if indexOfDrivingTumbler == nil {
                     indexOfDrivingTumbler = indexBeingTouched
                 }
             case .trueIndefinite:
-                appState.tumblerSelectorSwitches[indexBeingTouched] = .falseDefinite
+                appModel.tumblerSelectorSwitches[indexBeingTouched] = .falseDefinite
 
                 // If we just now deselected the one that was driving the UI, get
                 // a new driver
                 if let driver = indexOfDrivingTumbler, driver == indexBeingTouched {
-                    indexOfDrivingTumbler = appState.tumblerSelectorSwitches.firstIndex { $0.isTracking }
+                    indexOfDrivingTumbler = appModel.tumblerSelectorSwitches.firstIndex { $0.isEngaged }
                 }
             default:
                 fatalError()
@@ -104,7 +104,7 @@ class TumblerSelectorStateEndPress: TumblerSelectorState {
 class TumblerSelectorStateQuiet: TumblerSelectorState {
     override func didEnter(from previousState: GKState?) {
         if previousState == nil {
-            indexOfDrivingTumbler = appState.tumblerSelectorSwitches.firstIndex { $0.isTracking }
+            indexOfDrivingTumbler = appModel.tumblerSelectorSwitches.firstIndex { $0.isEngaged }
         }
     }
 
@@ -114,13 +114,13 @@ class TumblerSelectorStateQuiet: TumblerSelectorState {
 }
 
 class TumblerSelectorStateMachine: GKStateMachine, ObservableObject {
-    @ObservedObject var appState: AppState
+    @ObservedObject var appModel: AppModel
 
     var indexBeingTouched = 0
     @Published var indexOfDrivingTumbler: Int?
 
-    init(appState: AppState) {
-        self._appState = ObservedObject(initialValue: appState)
+    init(appModel: AppModel) {
+        self._appModel = ObservedObject(initialValue: appModel)
 
         super.init(states: [
             TumblerSelectorStateBeginPress(),

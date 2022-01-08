@@ -5,7 +5,7 @@ import SpriteKit
 import SwiftUI
 
 class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
-    @ObservedObject var appState: AppState
+    @ObservedObject var appModel: AppModel
 
     var pixie: Pixie!
     var previousTime: Double?
@@ -14,8 +14,8 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
 
     let side: Double = 1024
 
-    init(appState: ObservedObject<AppState>) {
-        self._appState = appState
+    init(appModel: ObservedObject<AppModel>) {
+        self._appState = appModel
 
         ucWorld = UCWorld(width: side, height: side)
         super.init(size: ucWorld.size.cgSize)
@@ -28,13 +28,13 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     override func didMove(to view: SKView) {
         pixie = Pixie(.outerRing, skParent: self, ucParent: ucWorld.theWorldSpace)
 
-        radiusObserver = appState.$radius.sink { [weak self] newRadius in
+        radiusObserver = appModel.$radius.sink { [weak self] newRadius in
             self?.pixie.radiusAnimator.animate(to: newRadius)
        }
     }
 
     override func update(_ currentTime: TimeInterval) {
-        pixie.applyUIStateToPixieStateIf(appState)
+        pixie.applyUIStateToPixieStateIf(appModel)
         pixie.reify(ucWorld: ucWorld)
     }
 

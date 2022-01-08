@@ -85,7 +85,7 @@ class TumblerSettingsObservers {
         // FIXME: of a design flaw in our internal init.
         if appModel.drawingTumblerSettingsModels.tumblerSettingsModels.isEmpty { return }
 
-        for (ix, `switch`) in appModel.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
+        for (ix, theSwitch) in appModel.tumblerSelectorSwitches.enumerated() where theSwitch.isEngaged {
             let m = appModel.drawingTumblerSettingsModels.tumblerSettingsModels[ix]
             m[keyPath: tumblerSettingsModelField] = value
         }

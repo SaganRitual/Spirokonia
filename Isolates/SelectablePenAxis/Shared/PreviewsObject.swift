@@ -3,14 +3,14 @@
 import SwiftUI
 
 struct PreviewsObject {
-    @StateObject var appState: AppState
+    @StateObject var appModel: AppModel
     @StateObject var pixoniaScene: PixoniaScene
 
     init() {
-        let state = AppState()
+        let state = AppModel()
         _appState = StateObject(wrappedValue: state)
 
-        let scene = PixoniaScene(appState: state)
+        let scene = PixoniaScene(appModel: state)
         _pixoniaScene = StateObject(wrappedValue: scene)
     }
 }

@@ -3,32 +3,32 @@
 import SwiftUI
 
 struct TumblerSettingsViewOuter: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appModel: AppModel
 
     var body: some View {
         VStack {
             HStack {
-                RollModePicker(ring: .outerRing, rollMode: $appState.outerRingRollMode)
+                RollModePicker(forMainRing: true, rollMode: $appModel.outerRingRollMode)
                 TogglesView(
-                    ring: .outerRing, drawDots: Binding(get: { false }, set: { _ in }),
-                    showRing: $appState.outerRingShow
+                    forMainRing: true, drawDots: Binding(get: { false }, set: { _ in }),
+                    showRing: $appModel.outerRingShow
                 )
             }
 
             TumblerSettingSlider(
-                value: $appState.cycleSpeed, iconName: "speedometer", label: "Speed",
-                range: AppState.cycleSpeedRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.cycleSpeed, iconName: "speedometer", label: "Speed",
+                range: AppDefinitions.cycleSpeedRange, stepKey: $appModel.cycleSpeedStepKey
             )
 
             TumblerSettingSlider(
-                value: $appState.outerRingRadius, iconName: "circle", label: "Scale",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.outerRingRadius, iconName: "circle", label: "Scale",
+                range: AppDefinitions.unitRange, stepKey: $appModel.outerRingRadiusStepKey
+
             )
 
             TumblerSettingSlider(
-                value: $appState.density, iconName: "circle.dotted", label: "Density",
-                range: AppState.dotDensityRange, showTextLabel: AppState.showTextLabels,
-                step: 1.0
+                value: $appModel.density, iconName: "circle.dotted", label: "Density",
+                range: AppDefinitions.dotDensityRange, stepSizeOverride: 1.0
             )
         }
     }

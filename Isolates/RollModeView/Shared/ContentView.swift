@@ -3,12 +3,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var appState = AppState()
+    @ObservedObject var appModel = AppModel()
 
     var body: some View {
         VStack {
-            RollModePicker(ring: .outerRing, rollMode: $appState.outerRingRollMode)
-            RollModePicker(ring: .innerRing, rollMode: $appState.innerRingRollMode)
+            RollModePicker(ring: .outerRing, rollMode: $appModel.outerRingRollMode)
+            RollModePicker(ring: .innerRing, rollMode: $appModel.innerRingRollMode)
         }
         .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
     }

@@ -3,43 +3,43 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var appState = AppState()
+    @ObservedObject var appModel = AppModel()
 
     var body: some View {
         VStack {
             TumblerSettingSlider(
-                value: $appState.cycleSpeed, iconName: "speedometer", label: "Speed",
-                range: AppState.cycleSpeedRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.cycleSpeed, iconName: "speedometer", label: "Speed",
+                range: AppModel.cycleSpeedRange, showTextLabel: AppModel.showTextLabels
             )
 
             TumblerSettingSlider(
-                value: $appState.outerRingRadius, iconName: "circle", label: "Scale",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.outerRingRadius, iconName: "circle", label: "Scale",
+                range: AppModel.unitRange, showTextLabel: AppModel.showTextLabels
             )
 
             TumblerSettingSlider(
-                value: $appState.radius, iconName: "circle", label: "Radius",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.radius, iconName: "circle", label: "Radius",
+                range: AppModel.unitRange, showTextLabel: AppModel.showTextLabels
             )
 
             TumblerSettingSlider(
-                value: $appState.pen, iconName: "pencil", label: "Pen",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.pen, iconName: "pencil", label: "Pen",
+                range: AppModel.unitRange, showTextLabel: AppModel.showTextLabels
             )
 
             TumblerSettingSlider(
-                value: $appState.density, iconName: "circle.dotted", label: "Density",
-                range: AppState.dotDensityRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.density, iconName: "circle.dotted", label: "Density",
+                range: AppModel.dotDensityRange, showTextLabel: AppModel.showTextLabels
             )
 
             TumblerSettingSlider(
-                value: $appState.colorSpeed, iconName: "paintbrush", label: "Color",
-                range: AppState.colorSpeedRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.colorSpeed, iconName: "paintbrush", label: "Color",
+                range: AppModel.colorSpeedRange, showTextLabel: AppModel.showTextLabels
             )
 
             TumblerSettingSlider(
-                value: $appState.trailDecay, iconName: "timer", label: "Decay",
-                range: AppState.trailDecayRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.trailDecay, iconName: "timer", label: "Decay",
+                range: AppModel.trailDecayRange, showTextLabel: AppModel.showTextLabels
             )
         }
     }

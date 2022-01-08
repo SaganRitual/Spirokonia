@@ -4,7 +4,7 @@ import SwiftUI
 
 struct SliderStepPicker: View {
     struct Steps {
-        let stepsKeys = [0, 2, 3, 5, 4, 6, 10]
+        let stepsKeys: [Int] = [0, 2, 3, 5, 4, 6, 10]
         let stepsValues: [Double?] = [nil, 16.0, 12.0, 20.0, 32.0, 24.0, 40.0]
 
         func getStepFactor(prime: Int) -> Double? {

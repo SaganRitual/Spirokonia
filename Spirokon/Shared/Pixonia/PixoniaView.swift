@@ -16,15 +16,3 @@ struct PixoniaView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
-
-struct PixoniaView_Previews: PreviewProvider {
-    static let appModel = AppModelForPreviews()
-
-    static var previews: some View {
-        PixoniaView(scene: appModel.pixoniaScene)
-            .environmentObject(appModel.appState)
-            .environmentObject(appModel.pixoniaScene)
-            .environmentObject(appModel.tumblerSelectorStateMachine)
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}

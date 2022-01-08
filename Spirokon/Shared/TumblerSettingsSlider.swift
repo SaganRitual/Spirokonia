@@ -3,57 +3,55 @@
 import SwiftUI
 
 struct TumblerSettingSlider: View {
+    @Binding var stepKey: Int
     @Binding var value: Double
+
     @State private var showingStepPicker = false
-    @State var step = 0
     @State private var stepSize: Double?
 
     let iconName: String
     let label: String
     let range: ClosedRange<Double>
-    let showTextLabel: Bool
+    let stepSizeOverride: Double?
 
     init(
-        value: Binding<Double>, iconName: String, label: String, range: ClosedRange<Double>,
-        showTextLabel: Bool
+        value: Binding<Double>, iconName: String, label: String,
+        range: ClosedRange<Double>, stepKey: Binding<Int>
     ) {
         self._value = value
+        self._stepKey = stepKey
         self.iconName = iconName
         self.label = label
         self.range = range
-        self.showTextLabel = showTextLabel
+        self.stepSizeOverride = nil
     }
 
     init(
-        value: Binding<Double>, iconName: String, label: String, range: ClosedRange<Double>,
-        showTextLabel: Bool, step: Double? = nil
+        value: Binding<Double>, iconName: String, label: String,
+        range: ClosedRange<Double>, stepSizeOverride: Double
     ) {
         self._value = value
+        self._stepKey = Binding(get: { 0 }, set: { _ in })
         self.iconName = iconName
         self.label = label
         self.range = range
-        self.showTextLabel = showTextLabel
-        self.stepSize = step
+        self.stepSizeOverride = stepSizeOverride
     }
 
     var body: some View {
         HStack {
-            if showTextLabel {
-                HStack {
-                    Text(label)
+            Image(systemName: iconName)
+                .font(.headline)
+                .onTapGesture {
+                    // The override allows us to prevent the slider step size being changed
+                    if stepSizeOverride == nil { showingStepPicker.toggle() }
                 }
-                .frame(width: 150)
-            } else {
-                Image(systemName: iconName)
-                    .font(.headline)
-                    .onTapGesture { showingStepPicker.toggle() }
-            }
 
             ZStack {
                 if showingStepPicker {
-                    SliderStepPicker(step: $step)
+                    SliderStepPicker(step: $stepKey)
                         .onDisappear {
-                            if let s = SliderStepPicker.steps.getStepFactor(prime: step) {
+                            if let s = SliderStepPicker.steps.getStepFactor(prime: stepKey) {
                                 let fullSize = range.upperBound - range.lowerBound
                                 self.stepSize = fullSize * s
                             } else {
@@ -62,11 +60,14 @@ struct TumblerSettingSlider: View {
                         }
                 } else {
                     HStack {
-                        Text(String(format: "% 7.3f", value))
-
-                        if let stepSize = stepSize {
+                        if let stepSizeOverride = stepSizeOverride {
+                            Text(String(format: "% 7.0f", value))
+                            Slider(value: $value, in: range, step: stepSizeOverride, label: {})
+                        } else if let stepSize = stepSize {
+                            Text(String(format: "% 7.3f", value))
                             Slider(value: $value, in: range, step: stepSize, label: {})
                         } else {
+                            Text(String(format: "% 7.3f", value))
                             Slider(value: $value, in: range, label: {})
                         }
                     }

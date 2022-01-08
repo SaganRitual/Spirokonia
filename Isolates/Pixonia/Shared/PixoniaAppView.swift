@@ -3,19 +3,19 @@
 import SwiftUI
 
 struct PixoniaAppView: View {
-    @ObservedObject var appState: AppState
+    @ObservedObject var appModel: AppModel
     @ObservedObject var pixoniaScene: PixoniaScene
 
     var body: some View {
-        PixoniaView(appState: appState, scene: pixoniaScene)
+        PixoniaView(appModel: appModel, scene: pixoniaScene)
     }
 }
 
 struct PixoniaAppView_Previews: PreviewProvider {
-    static var appState = AppState()
-    static var pixoniaScene = PixoniaScene(appState: ObservedObject(initialValue: appState))
+    static var appModel = AppModel()
+    static var pixoniaScene = PixoniaScene(appModel: ObservedObject(initialValue: appModel))
 
     static var previews: some View {
-        PixoniaAppView(appState: appState, pixoniaScene: pixoniaScene)
+        PixoniaAppView(appModel: appModel, pixoniaScene: pixoniaScene)
     }
 }

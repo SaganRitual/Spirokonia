@@ -3,38 +3,40 @@
 import SwiftUI
 
 struct TumblerSettingsSliders: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appModel: AppModel
 
     var body: some View {
         VStack {
             TumblerSettingSlider(
-                value: $appState.radius, iconName: "circle", label: "Radius",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.masterSettingsModel.radius, iconName: "circle", label: "Radius",
+                range: AppDefinitions.unitRange, stepKey: $appModel.masterSettingsModel.radiusStepKey
             )
 
             TumblerSettingSlider(
-                value: $appState.pen, iconName: "pencil", label: "Pen",
-                range: AppState.unitRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.masterSettingsModel.pen, iconName: "pencil", label: "Pen",
+                range: AppDefinitions.unitRange, stepKey: $appModel.masterSettingsModel.penStepKey
             )
 
             TumblerSettingSlider(
-                value: $appState.colorSpeed, iconName: "paintbrush", label: "Color",
-                range: AppState.colorSpeedRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.masterSettingsModel.colorSpeed,
+                iconName: "paintbrush", label: "Color", range: AppDefinitions.colorSpeedRange,
+                stepKey: $appModel.masterSettingsModel.colorSpeedStepKey
             )
 
             TumblerSettingSlider(
-                value: $appState.trailDecay, iconName: "timer", label: "Decay",
-                range: AppState.trailDecayRange, showTextLabel: AppState.showTextLabels
+                value: $appModel.masterSettingsModel.trailDecay, iconName: "timer", label: "Decay",
+                range: AppDefinitions.trailDecayRange,
+                stepKey: $appModel.masterSettingsModel.trailDecayStepKey
             )
         }
     }
 }
 
 struct TumblerSettingsSliders_Previews: PreviewProvider {
-    static let appState = AppState()
+    static let appModel = AppModel()
 
     static var previews: some View {
         TumblerSettingsSliders()
-            .environmentObject(appState)
+            .environmentObject(appModel)
     }
 }

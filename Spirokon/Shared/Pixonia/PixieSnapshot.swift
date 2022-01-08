@@ -3,47 +3,43 @@
 import SpriteKit
 import SwiftUI
 
-struct ShadowPixie {
+struct PixieSnapshot {
     let dotColor: YAColor
+    let dotPosition: CGPoint
     let dotZ: Double
     let drawDots: Bool
-    let penPosition: CGPoint
+    let pixie: Pixie
     let position: CGPoint
     let size: CGSize
     let trailDecay: Double
     let zRotation: Double
 
-    init(ucWorld: UCWorld, pixie: Pixie, appState: AppState) {
-        let deltaTime = 1.0 / 60.0
+    init(space: UCSpace, pixie: Pixie) {
+        self.pixie = pixie
 
-        size = ucWorld.ensize(pixie.space).cgSize
-        position = ucWorld.emplace(pixie.space).cgPoint
-        zRotation = ucWorld.emroll(pixie.space)
         drawDots = pixie.drawDots
+        dotColor = pixie.currentDotColor
 
-        let colorRotation = pixie.colorSpeed * deltaTime * .tau / appState.density
-        dotColor = pixie.currentDotColor.rotateHue(byAngle: colorRotation)
+        dotPosition = pixie.connectors.isEmpty ?
+            .zero : pixie.connectors[pixie.penAxis].nib.sprite.position
 
         let dotZ = pixie.dotZ + 1e-4
         self.dotZ = dotZ > 1.0 ? 0.0 : dotZ
 
         trailDecay = pixie.trailDecay
-
-        if let pen = pixie.pen {
-            penPosition = ucWorld.emplace(pen.space).cgPoint
-        } else {
-            penPosition = .zero
-        }
+        position = pixie.sprite.position
+        zRotation = pixie.sprite.zRotation
+        size = pixie.sprite.size
     }
 
     func dropDot(onto scene: SKScene) {
         guard drawDots else { return }
 
         let dot = SpritePool.dots.makeSprite()
-        dot.size = CGSize(width: 3, height: 3)
+        dot.size = CGSize(width: 10, height: 10)
 
         dot.zPosition = dotZ
-        dot.position = penPosition
+        dot.position = pixie.connectors[pixie.penAxis].sprite.convert(dotPosition, to: scene)
         dot.color = dotColor
 
         if dot.parent == nil { scene.addChild(dot) }
@@ -55,15 +51,5 @@ struct ShadowPixie {
         let sequence = SKAction.sequence([delay, fade])
 
         dot.run(sequence) { SpritePool.dots.releaseSprite(dot, fullSKRemove: false) }
-    }
-
-    func updatePixie(_ pixie: Pixie) {
-        pixie.sprite.position = self.position
-        pixie.sprite.size = self.size
-        pixie.sprite.zRotation = self.zRotation
-        pixie.currentDotColor = self.dotColor
-        pixie.dotZ = self.dotZ
-
-        pixie.pen?.sprite.position = self.penPosition
     }
 }

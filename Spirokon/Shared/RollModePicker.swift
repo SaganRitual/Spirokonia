@@ -3,15 +3,15 @@
 import SwiftUI
 
 struct RollModePicker: View {
-    let ring: AppState.Ring
-    @Binding var rollMode: AppState.RollMode
+    let forMainRing: Bool
+    @Binding var rollMode: AppDefinitions.RollMode
 
-    func getRollModes() -> [AppState.RollMode] {
-        if case AppState.Ring.outerRing = ring { return [.fullStop, .normal] }
-        else                                   { return [.fullStop, .compensate, .normal] }
+    func getRollModes() -> [AppDefinitions.RollMode] {
+        if forMainRing { return [.fullStop, .normal] }
+        else           { return [.fullStop, .compensate, .normal] }
     }
 
-    func makePickerSegment(for mode: AppState.RollMode) -> some View {
+    func makePickerSegment(for mode: AppDefinitions.RollMode) -> some View {
         let image: Image
 
         switch mode {

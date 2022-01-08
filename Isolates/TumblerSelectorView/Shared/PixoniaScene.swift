@@ -5,7 +5,7 @@ import SpriteKit
 import SwiftUI
 
 class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
-    @ObservedObject var appState: AppState
+    @ObservedObject var appModel: AppModel
     @ObservedObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
     let mainControl = MainControl()
@@ -24,10 +24,10 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     var isReady = false
 
     init(
-        appState: ObservedObject<AppState>,
+        appModel: ObservedObject<AppModel>,
         tumblerSelectorStateMachine: ObservedObject<TumblerSelectorStateMachine>
     ) {
-        self._appState = appState
+        self._appState = appModel
         self._tumblerSelectorStateMachine = tumblerSelectorStateMachine
 
         self.innerRings = (1...4).map { InnerRing(.innerRing($0)) }
@@ -56,75 +56,75 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             pixoniaScene.isReady = true
 
             guard let driver = $0 else { return }
-            pixoniaScene.innerRings[driver].pixieProxy.tumblerSettings.copy(to: pixoniaScene.appState)
+            pixoniaScene.innerRings[driver].pixieProxy.tumblerSettings.copy(to: pixoniaScene.appModel)
         }
     }
 
     func setupSettingsObservers() {
-        colorSpeedObserver = appState.$colorSpeed.sink { [weak self] colorSpeed in
+        colorSpeedObserver = appModel.$colorSpeed.sink { [weak self] colorSpeed in
             guard let pixoniaScene = self else { return }
 
-            for (ix, `switch`) in pixoniaScene.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
+            for (ix, theSwitch) in pixoniaScene.appModel.tumblerSelectorSwitches.enumerated() where theSwitch.isTracking {
                 pixoniaScene.innerRings[ix].pixieProxy.tumblerSettings.colorSpeed = colorSpeed
             }
         }
 
-        drawDotsObserver = appState.$drawDots.sink { [weak self] drawDots in
+        drawDotsObserver = appModel.$drawDots.sink { [weak self] drawDots in
             guard let pixoniaScene = self else { return }
 
-            for (ix, `switch`) in pixoniaScene.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
+            for (ix, theSwitch) in pixoniaScene.appModel.tumblerSelectorSwitches.enumerated() where theSwitch.isTracking {
                 pixoniaScene.innerRings[ix].pixieProxy.tumblerSettings.drawDots = drawDots
             }
         }
 
-        penObserver = appState.$pen.sink { [weak self] pen in
+        penObserver = appModel.$pen.sink { [weak self] pen in
             guard let pixoniaScene = self else { return }
 
-            for (ix, `switch`) in pixoniaScene.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
+            for (ix, theSwitch) in pixoniaScene.appModel.tumblerSelectorSwitches.enumerated() where theSwitch.isTracking {
                 pixoniaScene.innerRings[ix].pixieProxy.tumblerSettings.pen = pen
             }
         }
 
-        radiusObserver = appState.$radius.sink { [weak self] radius in
+        radiusObserver = appModel.$radius.sink { [weak self] radius in
             guard let pixoniaScene = self else { return }
 
-            for (ix, `switch`) in pixoniaScene.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
+            for (ix, theSwitch) in pixoniaScene.appModel.tumblerSelectorSwitches.enumerated() where theSwitch.isTracking {
                 pixoniaScene.innerRings[ix].pixieProxy.tumblerSettings.radius = radius
             }
         }
 
-        rollModeObserver = appState.$innerRingRollMode.sink { [weak self] rollMode in
+        rollModeObserver = appModel.$innerRingRollMode.sink { [weak self] rollMode in
             guard let pixoniaScene = self else { return }
 
-            for (ix, `switch`) in pixoniaScene.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
+            for (ix, theSwitch) in pixoniaScene.appModel.tumblerSelectorSwitches.enumerated() where theSwitch.isTracking {
                 pixoniaScene.innerRings[ix].pixieProxy.tumblerSettings.rollMode = rollMode
             }
         }
 
-        showRingObserver = appState.$innerRingShow.sink { [weak self] showRing in
+        showRingObserver = appModel.$innerRingShow.sink { [weak self] showRing in
             guard let pixoniaScene = self else { return }
 
-            for (ix, `switch`) in pixoniaScene.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
+            for (ix, theSwitch) in pixoniaScene.appModel.tumblerSelectorSwitches.enumerated() where theSwitch.isTracking {
                 pixoniaScene.innerRings[ix].pixieProxy.tumblerSettings.showRing = showRing
             }
         }
 
-        trailDecayObserver = appState.$trailDecay.sink { [weak self] trailDecay in
+        trailDecayObserver = appModel.$trailDecay.sink { [weak self] trailDecay in
             guard let pixoniaScene = self else { return }
 
-            for (ix, `switch`) in pixoniaScene.appState.tumblerSelectorSwitches.enumerated() where `switch`.isTracking {
+            for (ix, theSwitch) in pixoniaScene.appModel.tumblerSelectorSwitches.enumerated() where theSwitch.isTracking {
                 pixoniaScene.innerRings[ix].pixieProxy.tumblerSettings.trailDecay = trailDecay
             }
         }
     }
 
     override func update(_ currentTime: TimeInterval) {
-        mainControl.pixieProxy.labels[0].update("\(appState.cycleSpeed.as3())")
-        mainControl.pixieProxy.labels[1].update("\(appState.density.asString(decimals: 0))")
+        mainControl.pixieProxy.labels[0].update("\(appModel.cycleSpeed.as3())")
+        mainControl.pixieProxy.labels[1].update("\(appModel.density.asString(decimals: 0))")
 
-        outerRing.pixieProxy.labels[0].update("\(appState.outerRingRollMode)")
-        outerRing.pixieProxy.labels[1].update("\(appState.outerRingShow)")
-        outerRing.pixieProxy.labels[2].update("\(appState.outerRingRadius.as3())")
+        outerRing.pixieProxy.labels[0].update("\(appModel.outerRingRollMode)")
+        outerRing.pixieProxy.labels[1].update("\(appModel.outerRingShow)")
+        outerRing.pixieProxy.labels[2].update("\(appModel.outerRingRadius.as3())")
 
         innerRings.forEach { $0.pixieProxy.update() }
     }

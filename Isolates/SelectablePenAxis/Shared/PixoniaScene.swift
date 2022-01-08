@@ -10,7 +10,7 @@ class Connection {
 }
 
 class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
-    @ObservedObject var appState: AppState
+    @ObservedObject var appModel: AppModel
 
     var isReady = false
 
@@ -40,8 +40,8 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     var nibPositionRObserver: AnyCancellable!
     var penAxisObserver: AnyCancellable!
 
-    init(appState: AppState) {
-        _appState = ObservedObject(initialValue: appState)
+    init(appModel: AppModel) {
+        _appState = ObservedObject(initialValue: appModel)
 
         sceneSpace = UCSpace(radius: self.radius)
         super.init(size: sceneSpace.cgSize)
@@ -52,76 +52,76 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     }
 
     override func didMove(to view: SKView) {
-        pixie1 = Pixie(textureRadius: appState.texture1Radius, skParent: self, ucParent: sceneSpace)
+        pixie1 = Pixie(textureRadius: appModel.texture1Radius, skParent: self, ucParent: sceneSpace)
 
-        pixie1PositionRObserver = appState.$texture1PositionR.sink { [weak self] in
+        pixie1PositionRObserver = appModel.$texture1PositionR.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie1.textureSpace.position.r = $0
         }
 
-        pixie1RadiusObserver = appState.$texture1Radius.sink { [weak self] in
+        pixie1RadiusObserver = appModel.$texture1Radius.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie1.textureSpace.radius = $0
         }
 
-        pixie1RotationObserver = appState.$texture1Rotation.sink { [weak self] in
+        pixie1RotationObserver = appModel.$texture1Rotation.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie1.textureSpace.rotation = $0
         }
 
         pixie2 = Pixie(
-            textureRadius: appState.texture2Radius, skParent: self, ucParent: pixie1.textureSpace
+            textureRadius: appModel.texture2Radius, skParent: self, ucParent: pixie1.textureSpace
         )
 
-        pixie2PositionRObserver = appState.$texture2PositionR.sink { [weak self] in
+        pixie2PositionRObserver = appModel.$texture2PositionR.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie2.textureSpace.position.r = $0
         }
 
-        pixie2RadiusObserver = appState.$texture2Radius.sink { [weak self] in
+        pixie2RadiusObserver = appModel.$texture2Radius.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie2.textureSpace.radius = $0
         }
 
-        pixie2RotationObserver = appState.$texture2Rotation.sink { [weak self] in
+        pixie2RotationObserver = appModel.$texture2Rotation.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie2.textureSpace.rotation = $0
         }
 
         pixie3 = Pixie(
-            textureRadius: appState.texture3Radius, skParent: self, ucParent: pixie2.textureSpace
+            textureRadius: appModel.texture3Radius, skParent: self, ucParent: pixie2.textureSpace
         )
 
-        pixie3PositionRObserver = appState.$texture3PositionR.sink { [weak self] in
+        pixie3PositionRObserver = appModel.$texture3PositionR.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie3.textureSpace.position.r = $0
         }
 
-        pixie3RadiusObserver = appState.$texture3Radius.sink { [weak self] in
+        pixie3RadiusObserver = appModel.$texture3Radius.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie3.textureSpace.radius = $0
         }
 
-        pixie3RotationObserver = appState.$texture3Rotation.sink { [weak self] in
+        pixie3RotationObserver = appModel.$texture3Rotation.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie3.textureSpace.rotation = $0
         }
 
         pixie4 = Pixie(
-            textureRadius: appState.texture4Radius, skParent: self, ucParent: pixie3.textureSpace
+            textureRadius: appModel.texture4Radius, skParent: self, ucParent: pixie3.textureSpace
         )
 
-        pixie4PositionRObserver = appState.$texture4PositionR.sink { [weak self] in
+        pixie4PositionRObserver = appModel.$texture4PositionR.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie4.textureSpace.position.r = $0
         }
 
-        pixie4RadiusObserver = appState.$texture4Radius.sink { [weak self] in
+        pixie4RadiusObserver = appModel.$texture4Radius.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie4.textureSpace.radius = $0
         }
 
-        pixie4RotationObserver = appState.$texture4Rotation.sink { [weak self] in
+        pixie4RotationObserver = appModel.$texture4Rotation.sink { [weak self] in
             guard let myself = self else { return }
             myself.pixie4.textureSpace.rotation = $0
         }
@@ -131,7 +131,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         pixie3.connect(to: [pixie4, pixie1, pixie2])
         pixie4.connect(to: [pixie1, pixie2, pixie3])
 
-        nibPositionRObserver = appState.$nibPositionR.sink { [weak self] newR in
+        nibPositionRObserver = appModel.$nibPositionR.sink { [weak self] newR in
             guard let myself = self else { return }
             [myself.pixie1, myself.pixie2, myself.pixie3, myself.pixie4].forEach { pixie in
                 pixie.connectors.forEach { connector in
@@ -140,7 +140,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
             }
         }
 
-        penAxisObserver = appState.$penAxis.sink { [weak self] newAxis in
+        penAxisObserver = appModel.$penAxis.sink { [weak self] newAxis in
             guard let myself = self else { return }
 
             [myself.pixie1, myself.pixie2, myself.pixie3, myself.pixie4].forEach { pixie in

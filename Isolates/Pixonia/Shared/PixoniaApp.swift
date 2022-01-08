@@ -4,16 +4,16 @@ import SwiftUI
 
 @main
 struct PixoniaApp: App {
-    @ObservedObject var appState = AppState()
+    @ObservedObject var appModel = AppModel()
     @ObservedObject var pixoniaScene: PixoniaScene
 
     init() {
-        _pixoniaScene = ObservedObject(initialValue: PixoniaScene(appState: _appState))
+        _pixoniaScene = ObservedObject(initialValue: PixoniaScene(appModel: _appState))
     }
 
     var body: some Scene {
         WindowGroup {
-            PixoniaAppView(appState: appState, pixoniaScene: pixoniaScene)
+            PixoniaAppView(appModel: appModel, pixoniaScene: pixoniaScene)
         }
     }
 }

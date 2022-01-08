@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appModel: AppModel
     @EnvironmentObject var pixoniaScene: PixoniaScene
 
     var body: some View {
@@ -23,8 +23,12 @@ struct ContentView: View {
                 }
 
                 Spacer()
+
+                SaveLoad()
+
+                Spacer()
             }
-            .navigationTitle("Spirokon v0.2")
+            .navigationTitle("SpiroZen")
             .padding(.horizontal)
 
             PixoniaView(scene: pixoniaScene)

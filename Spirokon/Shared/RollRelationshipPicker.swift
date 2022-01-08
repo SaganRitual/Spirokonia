@@ -3,12 +3,12 @@
 import SwiftUI
 
 struct RollRelationshipPicker: View {
-    @Binding var rollRelationship: AppState.RollRelationship
+    @Binding var rollRelationship: AppDefinitions.RollRelationship
 
     var body: some View {
         Picker("Roll Relationship", selection: $rollRelationship) {
-            Image(systemName: "circle.circle").tag(AppState.RollRelationship.innerToInner)
-            Image(systemName: "circle.grid.2x1").tag(AppState.RollRelationship.outerToOuter)
+            Image(systemName: "circle.circle").tag(AppDefinitions.RollRelationship.innerToInner)
+            Image(systemName: "circle.grid.2x1").tag(AppDefinitions.RollRelationship.outerToOuter)
         }
         .pickerStyle(.segmented)
     }

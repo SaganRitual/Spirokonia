@@ -38,7 +38,7 @@ enum AppDefinitions {
     enum TumblerSelectorSwitchState: Codable {
         case trueDefinite, trueIndefinite, falseDefinite, falseIndefinite
 
-        var isTracking: Bool { if case .trueDefinite = self { return true } else { return false } }
+        var isEngaged: Bool { if case .trueDefinite = self { return true } else { return false } }
 
         var isDefinite: Bool {
             switch self {
@@ -51,7 +51,7 @@ enum AppDefinitions {
         }
     }
 
-    static let ringColors: [Color] = [.blue, .green, .yellow, .purple, .red]
+    static let ringColors: [Color] = [.blue, .velvetpresley, .shizzabrick, .yellow, .green]
 
     static let colorSpeedRange = 0.0...1.0
     static let cycleSpeedRange = 0.0...2.0

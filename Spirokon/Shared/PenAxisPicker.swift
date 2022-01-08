@@ -23,7 +23,7 @@ struct PenAxisPicker: View {
     var body: some View {
         return Picker("Roll", selection: $penAxis) {
             ForEach(1..<5) {
-                Image(systemName: "0\($0).circle").tag($0)
+                Image(systemName: "0\($0).circle").tag($0 - 1)
             }
         }
         .pickerStyle(.segmented)

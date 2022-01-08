@@ -3,12 +3,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var appState = AppState()
+    @ObservedObject var appModel = AppModel()
 
     var body: some View {
         VStack {
-            TogglesView(ring: .outerRing, drawDots: $appState.drawDotsOuter, showRing: $appState.showRingOuter)
-            TogglesView(ring: .innerRing, drawDots: $appState.drawDotsInner, showRing: $appState.showRingInner)
+            TogglesView(ring: .outerRing, drawDots: $appModel.drawDotsOuter, showRing: $appModel.showRingOuter)
+            TogglesView(ring: .innerRing, drawDots: $appModel.drawDotsInner, showRing: $appModel.showRingInner)
         }
     }
 }

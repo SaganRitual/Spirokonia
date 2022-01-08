@@ -4,25 +4,26 @@ import SwiftUI
 
 @main
 struct SpirokonApp: App {
-    @StateObject var appState: AppState
+    @StateObject var appModel: AppModel
     @StateObject var pixoniaScene: PixoniaScene
     @StateObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
     init() {
-        let state = AppState()
-        _appState = StateObject(wrappedValue: state)
+        let appModel = AppModel()
+        let sm = TumblerSelectorStateMachine(appModel: appModel)
+        let scene = PixoniaScene(appModel: appModel, tumblerSelectorStateMachine: sm)
 
-        let sm = TumblerSelectorStateMachine(appState: state)
+        appModel.postInit(sm)
+
+        _appModel = StateObject(wrappedValue: appModel)
         _tumblerSelectorStateMachine = StateObject(wrappedValue: sm)
-
-        let scene = PixoniaScene(appState: state, tumblerSelectorStateMachine: sm)
         _pixoniaScene = StateObject(wrappedValue: scene)
     }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(appState)
+                .environmentObject(appModel)
                 .environmentObject(pixoniaScene)
                 .environmentObject(tumblerSelectorStateMachine)
         }

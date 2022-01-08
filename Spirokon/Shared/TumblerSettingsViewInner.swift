@@ -3,20 +3,23 @@
 import SwiftUI
 
 struct TumblerSettingsViewInner: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appModel: AppModel
     @EnvironmentObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
     var body: some View {
         VStack {
             HStack {
-                RollModePicker(ring: .innerRing(1), rollMode: $appState.innerRingRollMode)
+                RollModePicker(forMainRing: false, rollMode: $appModel.masterSettingsModel.rollMode)
                 TogglesView(
-                    ring: .innerRing(1), drawDots: $appState.drawDots,
-                    showRing: $appState.innerRingShow
+                    forMainRing: false, drawDots: $appModel.masterSettingsModel.drawDots,
+                    showRing: $appModel.masterSettingsModel.showRing
                 )
             }
 
-            RollRelationshipPicker(rollRelationship: $appState.rollRelationship)
+            HStack {
+                PenAxisPicker(penAxis: $appModel.masterSettingsModel.penAxis)
+                RollRelationshipPicker(rollRelationship: $appModel.masterSettingsModel.rollRelationship)
+            }
 
             TumblerSettingsSliders()
         }
@@ -25,6 +28,6 @@ struct TumblerSettingsViewInner: View {
 
 struct TumblerSettingsViewInner_Previews: PreviewProvider {
     static var previews: some View {
-        TumblerSettingsViewInner().environmentObject(AppState())
+        TumblerSettingsViewInner().environmentObject(AppModel())
     }
 }

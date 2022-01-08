@@ -3,19 +3,19 @@
 import SwiftUI
 
 struct TogglesView: View {
-    let ring: AppState.Ring
+    let forMainRing: Bool
 
     @Binding var drawDots: Bool
     @Binding var showRing: Bool
 
-    func getToggles() -> [AppState.ToggleType] {
-        if case AppState.Ring.outerRing = ring { return [.showRing] }
-        else                                   { return [.showRing, .drawDots] }
+    func getToggles() -> [AppDefinitions.ToggleType] {
+        if forMainRing { return [.showRing] }
+        else           { return [.showRing, .drawDots] }
     }
 
-    func makeToggle(_ toggleType: AppState.ToggleType) -> some View {
-        switch (ring, toggleType) {
-        case (.innerRing, .drawDots):
+    func makeToggle(_ toggleType: AppDefinitions.ToggleType) -> some View {
+        switch (forMainRing, toggleType) {
+        case (false, .drawDots):
             return Toggle(isOn: $drawDots, label: { Image(systemName: "rectangle.and.pencil.and.ellipsis") })
                 .toggleStyle(.button)
                 .controlSize(SwiftUI.ControlSize.small)

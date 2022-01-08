@@ -4,18 +4,18 @@ import SwiftUI
 
 @main
 struct TumblerSelectorViewApp: App {
-    @ObservedObject var appState = AppState()
+    @ObservedObject var appModel = AppModel()
     @ObservedObject var pixoniaScene: PixoniaScene
     @ObservedObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
     init() {
         _tumblerSelectorStateMachine = ObservedObject(
-            wrappedValue: TumblerSelectorStateMachine(appState: _appState)
+            wrappedValue: TumblerSelectorStateMachine(appModel: _appState)
         )
 
         _pixoniaScene = ObservedObject(
             wrappedValue: PixoniaScene(
-                appState: _appState, tumblerSelectorStateMachine: _tumblerSelectorStateMachine
+                appModel: _appState, tumblerSelectorStateMachine: _tumblerSelectorStateMachine
             )
         )
     }
@@ -23,7 +23,7 @@ struct TumblerSelectorViewApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(appState)
+                .environmentObject(appModel)
                 .environmentObject(pixoniaScene)
                 .environmentObject(tumblerSelectorStateMachine)
         }

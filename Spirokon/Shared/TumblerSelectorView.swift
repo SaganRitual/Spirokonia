@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct TumblerSelectorView: View {
-    @EnvironmentObject var appState: AppState
+    @EnvironmentObject var appModel: AppModel
     @EnvironmentObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
     struct ButtonDescriptor {
@@ -11,7 +11,7 @@ struct TumblerSelectorView: View {
         let nameFont: [(String, Font)]
     }
 
-    func makeButton(_ ring: AppState.Ring) -> some View {
+    func makeButton(_ ring: AppDefinitions.Ring) -> some View {
         let bd: ButtonDescriptor
         switch ring {
         case .innerRing(1):
@@ -43,18 +43,18 @@ struct TumblerSelectorView: View {
         return ZStack {
             Image(systemName: bd.nameFont[0].0)
                 .font(bd.nameFont[0].1)
-                .foregroundColor(AppState.ringColors[ring.ix])
+                .foregroundColor(AppDefinitions.ringColors[ring.ix])
                 .scaleEffect(1.75)
         }
 
     }
 
     struct TumblerSelectorButton: ButtonStyle {
-        @ObservedObject var appState: AppState
+        @ObservedObject var appModel: AppModel
         let ix: Int
 
         func getBackgroundColor() -> Color {
-            switch appState.tumblerSelectorSwitches[ix] {
+            switch appModel.tumblerSelectorSwitches[ix] {
             case .trueDefinite:  return Color.accentColor
             case .falseDefinite: return Color.gray
 
@@ -78,7 +78,7 @@ struct TumblerSelectorView: View {
     var body: some View {
         HStack(alignment: .bottom) {
             Spacer()
-            ForEach(appState.tumblerSelectorSwitches.indices) { ix in
+            ForEach(appModel.tumblerSelectorSwitches.indices) { ix in
                 Button(
                     action: { tumblerSelectorStateMachine.endPress() },
                     label: { makeButton(.innerRing(ix + 1)) }
@@ -88,7 +88,7 @@ struct TumblerSelectorView: View {
                         .onEnded   { _ in tumblerSelectorStateMachine.longPressDetected() }
                         .onChanged { _ in tumblerSelectorStateMachine.beginPress(ix) }
                 )
-                .buttonStyle(TumblerSelectorButton(appState: appState, ix: ix))
+                .buttonStyle(TumblerSelectorButton(appModel: appModel, ix: ix))
 
                 Spacer()
             }
