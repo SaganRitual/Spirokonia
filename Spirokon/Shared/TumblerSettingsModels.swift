@@ -21,12 +21,14 @@ class TumblerSettingsModels: ObservableObject, Codable {
             try container.decode([TumblerSettingsModel].self, forKey: .tumblerSettingsModels)
     }
 
-    func postInit(_ appModel: AppModel, _ tumblerSelectorStateMachine: TumblerSelectorStateMachine) {
-        tumblerSettingsModels = (0..<4).map { _ in
-            let m = TumblerSettingsModel()
-            m.postInit(appModel, tumblerSelectorStateMachine)
-            return m
-        }
+    func postInit1(_ appModel: AppModel, _ tumblerSelectorStateMachine: TumblerSelectorStateMachine) {
+        if appModel.decoded { return }
+        tumblerSettingsModels = (0..<4).map { _ in TumblerSettingsModel() }
+    }
+
+    func postInit2(_ appModel: AppModel, _ tumblerSelectorStateMachine: TumblerSelectorStateMachine) {
+        if appModel.decoded { return }
+        tumblerSettingsModels.forEach { $0.postInit(appModel, tumblerSelectorStateMachine)}
     }
 
     func encode(to encoder: Encoder) throws {
@@ -35,14 +37,6 @@ class TumblerSettingsModels: ObservableObject, Codable {
     }
 
     func copy(from loaded: TumblerSettingsModels) {
-        for (dest, source) in zip(tumblerSettingsModels, loaded.tumblerSettingsModels) {
-            dest.copy(from: source)
-        }
-    }
-
-    func copy(to toBeSaved: TumblerSettingsModels) {
-        for (dest, source) in zip(toBeSaved.tumblerSettingsModels, tumblerSettingsModels) {
-            source.copy(to: dest)
-        }
+        tumblerSettingsModels = loaded.tumblerSettingsModels
     }
 }

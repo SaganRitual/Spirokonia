@@ -148,6 +148,32 @@ extension UCSpace {
         return result
     }
 
+    // For accumulating all the absolute rotations in the lineage
+    func emroll(_ space: UCSpace) -> Double {
+        var sp = space
+        var zr = 0.0
+
+        while let parent = sp.parent {
+            zr += sp.rotation
+            sp = parent
+        }
+
+        return zr
+    }
+
+    // For calculating a rotation delta
+    func emroll(_ rotation: Double, space: UCSpace) -> Double {
+        var sp = space
+        var zr = rotation / space.radius
+
+        while let parent = sp.parent, parent !== self {
+            zr /= parent.radius
+            sp = parent
+        }
+
+        return zr
+    }
+
     /// Get size of my descendant `space` in my terms
     /// - Parameter space: the descendant whose size we want
     /// - Returns: size of `space` scaled to me

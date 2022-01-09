@@ -17,6 +17,7 @@ struct SaveLoad: View {
                                 let json = try encoder.encode(appModel)
                                 print("Encoded:\n", String(data: json, encoding: .utf8)!)
                                 UserDefaults.standard.set(json, forKey: "Model\(loadSlot)")
+                                UserDefaults.standard.set(json, forKey: "LastSave")
                             } catch {
                                 print("Encode failed \(error)")
                             }

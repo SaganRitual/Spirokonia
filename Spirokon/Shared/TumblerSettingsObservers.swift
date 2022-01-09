@@ -67,9 +67,7 @@ class TumblerSettingsObservers {
         selectionObserver = tumblerSelectorStateMachine.$indexOfDrivingTumbler.sink {
             [weak self] in guard let myself = self, let newDriverIx = $0 else { return }
 
-            // FIXME: We get notifications before our internal init is complete. Probably an
-            // FIXME: indication of a design flaw in our internal init.
-            if myself.appModel.drawingTumblerSettingsModels.tumblerSettingsModels.isEmpty { return }
+            assert(!myself.appModel.drawingTumblerSettingsModels.tumblerSettingsModels.isEmpty)
 
             myself.appModel.masterSettingsModel.copy(
                 from: myself.appModel.drawingTumblerSettingsModels.tumblerSettingsModels[newDriverIx]
@@ -81,9 +79,7 @@ class TumblerSettingsObservers {
         _ value: T,
         in tumblerSettingsModelField: ReferenceWritableKeyPath<TumblerSettingsModel, T>
     ) {
-        // FIXME: We get notifications before our internal init is complete. Probably an indication
-        // FIXME: of a design flaw in our internal init.
-        if appModel.drawingTumblerSettingsModels.tumblerSettingsModels.isEmpty { return }
+        assert(!appModel.drawingTumblerSettingsModels.tumblerSettingsModels.isEmpty)
 
         for (ix, theSwitch) in appModel.tumblerSelectorSwitches.enumerated() where theSwitch.isEngaged {
             let m = appModel.drawingTumblerSettingsModels.tumblerSettingsModels[ix]

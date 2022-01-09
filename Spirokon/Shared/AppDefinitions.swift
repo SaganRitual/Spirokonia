@@ -51,7 +51,9 @@ enum AppDefinitions {
         }
     }
 
-    static let ringColors: [Color] = [.blue, .velvetpresley, .shizzabrick, .yellow, .green]
+    static let animationsDuration = 5.0
+    static let platterPixieColor = Color.blue
+    static let drawingPixieColors: [Color] = [.velvetpresley, .shizzabrick, .yellow, .green]
 
     static let colorSpeedRange = 0.0...1.0
     static let cycleSpeedRange = 0.0...2.0

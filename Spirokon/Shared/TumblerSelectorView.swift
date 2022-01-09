@@ -6,49 +6,6 @@ struct TumblerSelectorView: View {
     @EnvironmentObject var appModel: AppModel
     @EnvironmentObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
-    struct ButtonDescriptor {
-        let zStack: Bool
-        let nameFont: [(String, Font)]
-    }
-
-    func makeButton(_ ring: AppDefinitions.Ring) -> some View {
-        let bd: ButtonDescriptor
-        switch ring {
-        case .innerRing(1):
-            bd = ButtonDescriptor(
-                zStack: false,
-                nameFont: [("circle", .title)]
-            )
-        case .innerRing(2):
-            bd = ButtonDescriptor(
-                zStack: true,
-                nameFont: [("circle", .title)]
-            )
-        case .innerRing(3):
-            bd = ButtonDescriptor(
-                zStack: true,
-                nameFont: [("circle", .title)]
-            )
-        case .innerRing(4):
-            bd = ButtonDescriptor(
-                zStack: true,
-                nameFont: [
-                    ("circle", .title)
-                ]
-            )
-
-        default: fatalError()
-        }
-
-        return ZStack {
-            Image(systemName: bd.nameFont[0].0)
-                .font(bd.nameFont[0].1)
-                .foregroundColor(AppDefinitions.ringColors[ring.ix])
-                .scaleEffect(1.75)
-        }
-
-    }
-
     struct TumblerSelectorButton: ButtonStyle {
         @ObservedObject var appModel: AppModel
         let ix: Int
@@ -81,7 +38,12 @@ struct TumblerSelectorView: View {
             ForEach(appModel.tumblerSelectorSwitches.indices) { ix in
                 Button(
                     action: { tumblerSelectorStateMachine.endPress() },
-                    label: { makeButton(.innerRing(ix + 1)) }
+                    label: {
+                        Image(systemName: "circle")
+                            .font(.title)
+                            .foregroundColor(AppDefinitions.drawingPixieColors[ix])
+                            .scaleEffect(1.75)
+                    }
                 )
                 .simultaneousGesture(
                     LongPressGesture()
@@ -93,11 +55,5 @@ struct TumblerSelectorView: View {
                 Spacer()
             }
         }
-    }
-}
-
-struct Previews_TumblerSelector_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

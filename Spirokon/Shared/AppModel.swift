@@ -3,7 +3,8 @@
 import SwiftUI
 
 class AppModel: ObservableObject, Codable {
-    @Published var animationsDuration: Double = 5
+    let decoded: Bool
+
     @Published var cycleSpeed: Double = 0.1
     @Published var density: Double = 5
     @Published var outerRingRadius: Double = 1.0
@@ -29,17 +30,17 @@ class AppModel: ObservableObject, Codable {
         case masterSettingsModel, drawingTumblerSettingsModels
     }
 
-    init() {}
+    init() { self.decoded = false }
 
     func postInit(_ tumblerSelectorStateMachine: TumblerSelectorStateMachine) {
+        drawingTumblerSettingsModels.postInit1(self, tumblerSelectorStateMachine)
+        drawingTumblerSettingsModels.postInit2(self, tumblerSelectorStateMachine)
         masterSettingsModel.postInit(self, tumblerSelectorStateMachine)
-        drawingTumblerSettingsModels.postInit(self, tumblerSelectorStateMachine)
     }
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        animationsDuration = try container.decode(Double.self, forKey: .animationsDuration)
         cycleSpeed = try container.decode(Double.self, forKey: .cycleSpeed)
         density = try container.decode(Double.self, forKey: .density)
         outerRingRadius = try container.decode(Double.self, forKey: .outerRingRadius)
@@ -51,11 +52,15 @@ class AppModel: ObservableObject, Codable {
         cycleSpeedStepKey = try container.decode(Int.self, forKey: .cycleSpeedStepKey)
         outerRingRadiusStepKey = try container.decode(Int.self, forKey: .outerRingRadiusStepKey)
         densityStepKey = try container.decode(Int.self, forKey: .densityStepKey)
+
+        masterSettingsModel = try container.decode(TumblerSettingsModel.self, forKey: .masterSettingsModel)
+        drawingTumblerSettingsModels = try container.decode(TumblerSettingsModels.self, forKey: .drawingTumblerSettingsModels)
+
+        self.decoded = true
     }
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(animationsDuration, forKey: .animationsDuration)
         try container.encode(cycleSpeed, forKey: .cycleSpeed)
         try container.encode(density, forKey: .density)
         try container.encode(outerRingRadius, forKey: .outerRingRadius)
@@ -73,7 +78,6 @@ class AppModel: ObservableObject, Codable {
     }
 
     func copy(from loaded: AppModel) {
-        self.animationsDuration = loaded.animationsDuration
         self.cycleSpeed = loaded.cycleSpeed
         self.density = loaded.density
         self.outerRingRadius = loaded.outerRingRadius
@@ -88,23 +92,5 @@ class AppModel: ObservableObject, Codable {
 
         self.masterSettingsModel.copy(from: loaded.masterSettingsModel)
         self.drawingTumblerSettingsModels.copy(from: loaded.drawingTumblerSettingsModels)
-    }
-
-    func copy(to toBeSaved: AppModel) {
-        toBeSaved.animationsDuration = self.animationsDuration
-        toBeSaved.cycleSpeed = self.cycleSpeed
-        toBeSaved.density = self.density
-        toBeSaved.outerRingRadius = self.outerRingRadius
-        toBeSaved.outerRingRollMode = self.outerRingRollMode
-        toBeSaved.outerRingShow = self.outerRingShow
-
-        toBeSaved.tumblerSelectorSwitches = self.tumblerSelectorSwitches
-
-        toBeSaved.cycleSpeedStepKey = self.cycleSpeedStepKey
-        toBeSaved.outerRingRadiusStepKey = self.outerRingRadiusStepKey
-        toBeSaved.densityStepKey = self.densityStepKey
-
-        toBeSaved.masterSettingsModel.copy(from: self.masterSettingsModel)
-        toBeSaved.drawingTumblerSettingsModels.copy(from: self.drawingTumblerSettingsModels)
     }
 }

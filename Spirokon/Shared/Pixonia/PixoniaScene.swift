@@ -13,35 +13,20 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     )
 
     let radius: Double = 2048
-    var isReady = false
 
+    var pixieHarness: PixieHarness!
     var previousTime: TimeInterval?
-    var pixies = [Pixie]()
-    var sprites = [SKSpriteNode]()
-    let space: UCSpace
 
-    var colorSpeedObserver: AnyCancellable!
-    var drawDotsObserver: AnyCancellable!
-    var outerRingRadiusObserver: AnyCancellable!
-    var outerRingRollModeObserver: AnyCancellable!
-    var outerRingShowRingObserver: AnyCancellable!
-    var penObserver: AnyCancellable!
-    var radiusObserver: AnyCancellable!
-    var rollModeObserver: AnyCancellable!
-    var rollRelationshipObserver: AnyCancellable!
-    var selectionObserver: AnyCancellable!
-    var showRingObserver: AnyCancellable!
-    var trailDecayObserver: AnyCancellable!
-
-    var accumulatingSnapshots = [PixieSnapshot]()
-    var readySnapshots = [PixieSnapshot]()
+    var accumulatingSnapshots = [PixieHarnessSnapshot]()
+    var readySnapshots = [PixieHarnessSnapshot]()
 
     init(appModel: AppModel, tumblerSelectorStateMachine: TumblerSelectorStateMachine) {
         _appModel = ObservedObject(initialValue: appModel)
         _tumblerSelectorStateMachine = ObservedObject(initialValue: tumblerSelectorStateMachine)
 
-        space = UCSpace(radius: radius)
-        super.init(size: space.cgSize)
+        super.init(size: CGSize(width: radius * 2, height: radius * 2))
+
+        pixieHarness = PixieHarness(pixoniaScene: self, appModel: appModel)
 
         self.anchorPoint = .anchorAtCenter
         self.scaleMode = .aspectFit
@@ -49,43 +34,48 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     }
 
     override func didMove(to view: SKView) {
-        var ucParent = self.space
-
-        for p in 0..<5 {
-            let ring: AppDefinitions.Ring = p == 0 ? .outerRing : .innerRing(p)
-            let pixie = Pixie(ring, skParent: self, ucParent: ucParent, appModel: appModel)
-
-//            pixie.sprite.size = ucWorld.ensize(pixie.space).cgSize
-            pixie.color = SKColor(AppDefinitions.ringColors[p])
-
-            pixies.append(pixie)
-
-            ucParent = pixie.space
-        }
-
-        pixies[1].postInit(connectTo: [pixies[2], pixies[3], pixies[4]])
-        pixies[2].postInit(connectTo: [pixies[3], pixies[4], pixies[1]])
-        pixies[3].postInit(connectTo: [pixies[4], pixies[1], pixies[2]])
-        pixies[4].postInit(connectTo: [pixies[1], pixies[2], pixies[3]])
-
-        dotsQueue.async(execute: startDenseUpdate)
+        startDenseUpdate()
     }
 
     func startDenseUpdate() {
-        dotsQueue.asyncAfter(deadline: .now() + 1.0 / 60.0, execute: denseUpdate)
+        dotsQueue.async(execute: denseUpdate)
     }
 
     override func update(_ currentTime: TimeInterval) {
-        guard isReady else { return }
+        defer { previousTime = currentTime }
+        guard let previousTime = previousTime else { return }
+        let deltaTime = currentTime - previousTime
+
+        pixieHarness.platterPixie.core.radiusAnimator.update(deltaTime: deltaTime)
+        pixieHarness.platterPixie.core.showRing(appModel.outerRingShow)
+
+        pixieHarness.drawingPixies.forEach {
+            $0.core.radiusAnimator.update(deltaTime: deltaTime / AppDefinitions.animationsDuration)
+            $0.penPositionRAnimator.update(deltaTime: deltaTime / AppDefinitions.animationsDuration)
+
+            $0.showHidePen()
+            $0.core.showRing($0.settingsModel.showRing)
+        }
 
         for snapshot in readySnapshots {
-            snapshot.dropDot(onto: self)
+            for (pixie, pixieSnapshot) in
+                    zip(pixieHarness.drawingPixies, snapshot.drawingSnapshots) where
+                    pixie.settingsModel.drawDots == true {
+                pixie.dropDot(pixieSnapshot)
+            }
         }
+
+        startDenseUpdate()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+struct RSnapshot {
+    let rsDrawingPixies: [DrawingPixie.RSnapshot]
+    let rsPlatter: Supersprite.RSnapshot
 }
 
 private extension PixoniaScene {
@@ -96,48 +86,13 @@ private extension PixoniaScene {
         let dt = deltaTime / Double(density)
 
         for _ in 0..<density {
-            var direction = -1.0
-            var totalScale = 1.0
-
-            for pixie in pixies {
-                pixie.radiusAnimator.update(deltaTime: dt / appModel.animationsDuration)
-                pixie.penAnimator?.update(deltaTime: dt / appModel.animationsDuration)
-
-                // Inner rings rotation speed and position are dependent on their radii, while
-                // the outer ring's rotation speed is strictly a function of the main cycle speed
-                // slider, and its position is always zero
-                if !pixie.ring.isOuterRing() {
-                    totalScale *= pixie.space.radius
-                    pixie.space.position.r = 1.0 - pixie.space.radius
-
-                    pixie.connectors.forEach {
-                        $0.nib.space.position.r = pixie.penR
-                    }
-                }
-
-                pixie.showHideRing()
-                pixie.showHidePen()
-                pixie.calculateColor(dt)
-
-                direction *= -1
-//                if pixie.settingsModel.rollRelationship == .outerToOuter { direction *= -1 }
-
-                let rotation = direction * appModel.cycleSpeed * dt * .tau / totalScale
-
-                pixie.advance(rotation)
-                pixie.reify(to: space)
-
-                accumulatingSnapshots.append(PixieSnapshot(space: space, pixie: pixie))
-            }
+            pixieHarness.advance(by: dt)
+            accumulatingSnapshots.append(pixieHarness.makeSnapshot())
         }
 
         DispatchQueue.main.async { [weak self] in guard let myself = self else { return }
-            // FIXME: initialization order issues
-            myself.isReady = true
-
             myself.readySnapshots = myself.accumulatingSnapshots
             myself.accumulatingSnapshots.removeAll(keepingCapacity: true)
-            myself.startDenseUpdate()
         }
     }
 }
