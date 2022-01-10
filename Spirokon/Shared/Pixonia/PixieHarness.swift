@@ -1,86 +1,60 @@
 // We are a way for the cosmos to know itself. -- C. Sagan
 
-import Foundation
-
-struct PixieHarnessSnapshot {
-    let platterSnapshot: Supersprite.RSnapshot
-    let drawingSnapshots: [DrawingPixie.RSnapshot]
-}
+import Combine
+import SpriteKit
 
 class PixieHarness {
     let appModel: AppModel
     let drawingPixies: [DrawingPixie]
+    let pixoniaScene: PixoniaScene
     let platterPixie: PlatterPixie
-    let space: UCSpace
 
     init(pixoniaScene: PixoniaScene, appModel: AppModel) {
         self.appModel = appModel
+        self.pixoniaScene = pixoniaScene
 
-        space = UCSpace(radius: pixoniaScene.size.width / 2.0)
+        platterPixie = PlatterPixie(
+            radius: appModel.outerRingRadius, color: SKColor(AppDefinitions.platterPixieColor),
+            skParent: pixoniaScene, pixoniaScene: pixoniaScene
+        )
 
-        drawingPixies = (0..<4).map {
-            DrawingPixie(ix: $0, spritePool: .crosshairRingsLarge)
-        }
+        platterPixie.postInit(appModel)
 
-        platterPixie = PlatterPixie(spritePool: .crosshairRingsLarge, appModel: appModel)
+        var parent = platterPixie.sprite
 
-        var ucParent: UCSpace = platterPixie.core.sprite.space
-
-        drawingPixies.forEach { pixie in
-            let connect = (1..<4).map { ss in drawingPixies[(pixie.ix + ss) % 4] }
-
-            pixie.postInit(
-                connectTo: connect, skParent: pixoniaScene, ucParent: ucParent, appModel: appModel
+        drawingPixies = (0..<4).map { ix in
+            let newPixie = DrawingPixie(
+                ix: ix,
+                radius: appModel.drawingTumblerSettingsModels.tumblerSettingsModels[ix].radius,
+                color: SKColor(AppDefinitions.drawingPixieColors[ix]), skParent: parent,
+                pixoniaScene: pixoniaScene
             )
 
-            ucParent = pixie.core.sprite.space
-        }
+            newPixie.postInit(appModel)
 
-        platterPixie.postInit(skParent: pixoniaScene, ucParent: space, appModel: appModel)
+            parent = newPixie.sprite
+            return newPixie
+        }
     }
 }
 
 extension PixieHarness {
     func advance(by deltaTime: Double) {
-        var direction = -1.0
-        var rotation = appModel.cycleSpeed * deltaTime * .tau
+        var direction = 1.0
+        var rotation = deltaTime * appModel.cycleSpeed * .tau
 
-        spin(
-            space: platterPixie.core.sprite.space, by: rotation,
-            rollMode: appModel.outerRingRollMode
-        )
+        platterPixie.advance(by: direction * rotation)
 
-        platterPixie.core.sprite.reify(to: space)
-
-        drawingPixies.forEach { pixie in
-            pixie.calculateDotColor(deltaTime)
-            pixie.core.sprite.space.position.r = 1.0 - pixie.core.sprite.space.radius
-
-            spin(space: pixie.core.sprite.space, by: rotation, rollMode: pixie.settingsModel.rollMode)
-
-            pixie.core.sprite.reify(to: space)
-            pixie.connectors.forEach { $0.reify(to: space) }
-
-            rotation /= pixie.core.sprite.space.radius
+        for pixie in drawingPixies {
             direction *= -1.0
+            rotation /= pixie.hotRadius
+
+            pixie.advance(by: direction * rotation, deltaTime: deltaTime)
         }
     }
 
-    func makeSnapshot() -> PixieHarnessSnapshot {
-        PixieHarnessSnapshot(
-            platterSnapshot: platterPixie.core.sprite.makeSnapshot(),
-            drawingSnapshots: drawingPixies.map { $0.makeSnapshot() }
-        )
-    }
-}
-
-private extension PixieHarness {
-    func spin(space: UCSpace, by rotation: Double, rollMode: AppDefinitions.RollMode) {
-        switch rollMode {
-        case .normal:      space.rotation += rotation
-        case .compensate:  space.rotation += rotation * 0.5
-        case .fullStop:    break
-        case .doesNotRoll: break
-        }
+    func update(_ deltaTime: Double) {
+        platterPixie.update(deltaTime: deltaTime)
+        drawingPixies.forEach { $0.update(deltaTime: deltaTime) }
     }
 }

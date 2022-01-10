@@ -15,7 +15,7 @@ struct SaveLoad: View {
                                 let encoder = JSONEncoder()
                                 encoder.outputFormatting = .prettyPrinted
                                 let json = try encoder.encode(appModel)
-                                print("Encoded:\n", String(data: json, encoding: .utf8)!)
+//                                print("Encoded:\n", String(data: json, encoding: .utf8)!)
                                 UserDefaults.standard.set(json, forKey: "Model\(loadSlot)")
                                 UserDefaults.standard.set(json, forKey: "LastSave")
                             } catch {
@@ -36,7 +36,7 @@ struct SaveLoad: View {
                                 return
                             }
 
-                            print("Loaded (\(saveSlot))", String(data: loaded, encoding: .utf8)!)
+//                            print("Loaded (\(saveSlot))", String(data: loaded, encoding: .utf8)!)
 
                             do {
                                 let decoded = try JSONDecoder().decode(AppModel.self, from: loaded)

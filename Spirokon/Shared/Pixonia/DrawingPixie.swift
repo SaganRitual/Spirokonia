@@ -4,7 +4,73 @@ import Combine
 import SpriteKit
 import SwiftUI
 
-extension DrawingPixie {
+final class DrawingPixie: Pixie {
+    let ix: Int
+    var penPositionRAnimator: Animator<DrawingPixie>!
+    var penPositionRObserver: AnyCancellable!
+    let settingsModel: TumblerSettingsModel
+
+    var currentDotColor = YAColor(hue: 0.0, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+
+    var hotPenPositionR = 1.0
+
+    init(
+        ix: Int, radius: Double, color: SKColor, skParent: SKNode, pixoniaScene: PixoniaScene
+    ) {
+        self.ix = ix
+
+        settingsModel = pixoniaScene.appModel.drawingTumblerSettingsModels.tumblerSettingsModels[ix]
+        super.init(radius: radius, color: color, skParent: skParent, pixoniaScene: pixoniaScene)
+    }
+
+    func advance(by rotation: Double, deltaTime: Double) {
+        super.advance(by: rotation)
+
+        if settingsModel.drawDots {
+            dropDot(deltaTime: deltaTime, pixoniaScene: pixoniaScene)
+        }
+    }
+
+    func calculateDotColor(_ deltaTime: Double) -> SKColor {
+        let colorRotation = settingsModel.colorSpeed * deltaTime * .tau
+        currentDotColor = currentDotColor.rotateHue(byAngle: colorRotation)
+        return currentDotColor
+    }
+
+    func dropDot(deltaTime: Double, pixoniaScene: PixoniaScene) {
+        let dot = SpritePool.dots.makeSprite()
+        dot.size = CGSize(width: 10, height: 10)
+
+        let p = CGPoint(x: hotPenPositionR * pixoniaScene.size.width / 2.0, y: 0.0)
+        dot.position = sprite.convert(p, to: pixoniaScene)
+
+        dot.color = calculateDotColor(deltaTime)
+
+        pixoniaScene.addChild(dot)
+
+        dot.run(SKAction.fadeOut(withDuration: 10), completion: { dot.removeFromParent() })
+    }
+
+    override func postInit(_ appModel: AppModel) {
+        penPositionRAnimator = Animator(\.hotPenPositionR, for: self)
+
+        penPositionRObserver =
+            appModel.drawingTumblerSettingsModels.tumblerSettingsModels[ix].$pen.sink {
+                [weak self] newPenR in guard let myself = self else { return }
+                myself.penPositionRAnimator.animate(to: newPenR)
+            }
+
+        radiusPublisher = appModel.drawingTumblerSettingsModels.tumblerSettingsModels[ix].$radius
+        super.postInit(appModel)
+    }
+
+    override func update(deltaTime: Double) {
+        penPositionRAnimator.update(deltaTime: deltaTime / AppDefinitions.animationsDuration)
+        super.update(deltaTime: deltaTime)
+    }
+}
+
+extension DrawingPixieHold {
     struct RSnapshot {
         let coreSnapshot: Supersprite.RSnapshot
 
@@ -16,7 +82,7 @@ extension DrawingPixie {
     }
 }
 
-class DrawingPixie {
+class DrawingPixieHold {
     let core: PixieCore
 
     let ix: Int
@@ -24,10 +90,9 @@ class DrawingPixie {
 
     var connectors = [PixieConnector]()
     var currentDotColor = YAColor(hue: 0.0, saturation: 1.0, brightness: 1.0, alpha: 1.0)
-    var penAxis = 0
     var penPositionR = 0.0
 
-    var penPositionRAnimator: Animator<DrawingPixie>!
+    var penPositionRAnimator: Animator<DrawingPixieHold>!
     var penPositionRObserver: AnyCancellable!
     var settingsModel: TumblerSettingsModel!
 
@@ -35,7 +100,8 @@ class DrawingPixie {
         self.ix = ix
 
         self.core = .init(
-            spritePool: spritePool, color: SKColor(AppDefinitions.drawingPixieColors[ix]), zIndex: 4 - ix
+            spritePool: spritePool, color: SKColor(AppDefinitions.drawingPixieColors[ix]),
+            zIndex: 4 - ix, spaceName: "DrawingPixie(\(ix))"
         )
     }
 
@@ -46,7 +112,7 @@ class DrawingPixie {
     }
 
     func postInit(
-        connectTo pixies: [DrawingPixie], skParent: PixoniaScene, ucParent: UCSpace,
+        connectTo pixies: [DrawingPixieHold], skParent: PixoniaScene, ucParent: UCSpace,
         appModel: AppModel
     ) {
         let rp = appModel.drawingTumblerSettingsModels.tumblerSettingsModels[ix].$radius
@@ -74,8 +140,8 @@ class DrawingPixie {
     }
 }
 
-extension DrawingPixie {
-    func dropDot(_ snapshot: DrawingPixie.RSnapshot) {
+extension DrawingPixieHold {
+    func dropDot(_ snapshot: DrawingPixieHold.RSnapshot) {
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 10, height: 10)
 
@@ -95,20 +161,15 @@ extension DrawingPixie {
     }
 }
 
-extension DrawingPixie {
+extension DrawingPixieHold {
     func calculateDotColor(_ deltaTime: Double) {
         let colorRotation = settingsModel.colorSpeed * deltaTime * .tau
         currentDotColor = currentDotColor.rotateHue(byAngle: colorRotation)
     }
 
-    func reify(to ancestorSpace: UCSpace) {
-//        core.reify(to: ancestorSpace)
-        connectors[penAxis].reify(to: ancestorSpace)
-    }
-
     func showHidePen() {
         for (ix, connector) in connectors.enumerated() {
-            guard ix == penAxis else {
+            guard ix == settingsModel.penAxis else {
                 connector.nib.sprite.color = .clear
                 connector.sprite.color = .clear
                 continue
@@ -120,18 +181,19 @@ extension DrawingPixie {
             connector.sprite.color = .clear
 
             connector.nib.space.position.r = penPositionR
+            connector.nib.space.position.t = core.sprite.space.position.t
         }
     }
 }
 
-extension DrawingPixie {
+extension DrawingPixieHold {
     func makeSnapshot() -> RSnapshot {
-        let nibPosition = connectors[penAxis].nib.sprite.position
-        let dotPosition = connectors[penAxis].sprite.convert(nibPosition, to: core.skParent)
+        let nibPosition = connectors[settingsModel.penAxis].nib.sprite.position
+        let dotPosition = connectors[settingsModel.penAxis].sprite.convert(nibPosition, to: core.skParent)
 
         return RSnapshot(
             coreSnapshot: core.sprite.makeSnapshot(),
-            color: self.currentDotColor, connector: connectors[penAxis],
+            color: self.currentDotColor, connector: connectors[settingsModel.penAxis],
             dotPosition: dotPosition, dotZ: dotZ, trailDecay: settingsModel.trailDecay
         )
     }

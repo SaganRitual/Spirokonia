@@ -8,10 +8,10 @@ class PixieConnector {
 
     let nib: Nib
 
-    weak var mePixie: DrawingPixie?
-    weak var toPixie: DrawingPixie?
+    weak var mePixie: DrawingPixieHold?
+    weak var toPixie: DrawingPixieHold?
 
-    init(color: SKColor, from fromPixie: DrawingPixie, to toPixie: DrawingPixie, skParent: SKNode, ucParent: UCSpace) {
+    init(color: SKColor, from fromPixie: DrawingPixieHold, to toPixie: DrawingPixieHold, skParent: SKNode, ucParent: UCSpace) {
         self.mePixie = fromPixie
         self.toPixie = toPixie
 
@@ -45,8 +45,10 @@ class PixieConnector {
         sprite.size.width = distance
 
         if toPixie === mePixie {
-            space.rotation = 0  // Special connector always acts unrotated
-            sprite.zRotation = mePixie!.core.sprite.space.rotation
+//            space.rotation = 0  // Special connector always acts unrotated
+//            sprite.zRotation = mePixie!.core.sprite.space.rotation
+            space.rotation = atan2(difference.y, difference.x)
+            sprite.zRotation = -mePixie!.core.sprite.space.position.t
         } else {
             space.rotation = atan2(difference.y, difference.x)
             sprite.zRotation = space.rotation

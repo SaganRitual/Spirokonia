@@ -2,13 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Isolates/BetterPixies/BetterPixies.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Spirokon/Spirokon.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Isolates/BetterSelector/BetterSelector.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Isolates/Newroll/Newroll.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Isolates/Pixonia/Pixonia.xcodeproj">

@@ -5,7 +5,7 @@ import SpriteKit
 class Supersprite {
     private let sprite: SKSpriteNode
 
-    var space = UCSpace()
+    let space: UCSpace
 
     var color: SKColor {
         get { sprite.color } set { sprite.color = newValue }
@@ -18,7 +18,8 @@ class Supersprite {
     var ucParent: UCSpace { space.parent! }
     var skParent: SKNode { sprite.parent! }
 
-    init(_ pool: SpritePool, color: SKColor, zIndex: Int) {
+    init(_ pool: SpritePool, color: SKColor, zIndex: Int, spaceName: String) {
+        space = UCSpace(name: spaceName)
         sprite = pool.makeSprite()
         sprite.color = color
         sprite.zPosition = Double(zIndex)
@@ -43,9 +44,21 @@ extension Supersprite {
         RSnapshot(position: sprite.position, rotation: sprite.zRotation, size: sprite.size)
     }
 
-    func reify(to ancestorSpace: UCSpace) {
+    func reify(to ancestorSpace: UCSpace, debugShow: Bool) {
         sprite.position = ancestorSpace.emplace(space).cgPoint
         sprite.size = ancestorSpace.ensize(space).cgSize
-        sprite.zRotation = space.rotation
+        sprite.zRotation = -space.position.t
+
+        if debugShow {
+            print("reify ss \(space.position)", terminator: "")
+
+            var sp_: UCSpace? = space.parent
+            while let sp = sp_ {
+                print(" -> \(sp.emplace(space))".replacingOccurrences(of: "UCPoint", with: "UCP"), terminator: "")
+                sp_ = sp.parent
+            }
+
+            print()
+        }
     }
 }

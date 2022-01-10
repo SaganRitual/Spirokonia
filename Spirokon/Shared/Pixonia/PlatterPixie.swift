@@ -4,12 +4,20 @@ import Combine
 import SpriteKit
 import SwiftUI
 
-class PlatterPixie {
+final class PlatterPixie: Pixie {
+    override func postInit(_ appModel: AppModel) {
+        radiusPublisher = appModel.$outerRingRadius
+        super.postInit(appModel)
+    }
+}
+
+class PlatterPixieHold {
     let core: PixieCore
 
     init(spritePool: SpritePool, appModel: AppModel) {
         self.core = .init(
-            spritePool: spritePool, color: SKColor(AppDefinitions.platterPixieColor), zIndex: 0
+            spritePool: spritePool, color: SKColor(AppDefinitions.platterPixieColor), zIndex: 0,
+            spaceName: "PlatterPixie"
         )
     }
 
@@ -20,6 +28,6 @@ class PlatterPixie {
     }
 }
 
-extension PlatterPixie {
+extension PlatterPixieHold {
     func update(appModel: AppModel) { core.showRing(appModel.outerRingShow) }
 }

@@ -14,9 +14,9 @@ class PixieCore {
 
     var color: SKColor
 
-    init(spritePool: SpritePool, color: SKColor, zIndex: Int) {
+    init(spritePool: SpritePool, color: SKColor, zIndex: Int, spaceName: String) {
         self.color = color
-        self.sprite = .init(spritePool, color: color, zIndex: zIndex)
+        self.sprite = .init(spritePool, color: color, zIndex: zIndex, spaceName: spaceName)
         self.radiusAnimator = Animator(\.radius, for: self.sprite)
     }
 

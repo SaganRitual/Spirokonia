@@ -65,6 +65,8 @@
 		D44BF5AB2777E8FF00E2FCE1 /* swiftlint.sh in Resources */ = {isa = PBXBuildFile; fileRef = D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */; };
 		D45A93E9277E64E00007401E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45A93E8277E64E00007401E /* Animator.swift */; };
 		D45A93EA277E64E00007401E /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45A93E8277E64E00007401E /* Animator.swift */; };
+		D46A671E278E7404003581D4 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A671D278E7404003581D4 /* Pixie.swift */; };
+		D46A671F278E7404003581D4 /* Pixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46A671D278E7404003581D4 /* Pixie.swift */; };
 		D46BEC92278B4E570031DA90 /* AppDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BEC91278B4E570031DA90 /* AppDefinitions.swift */; };
 		D46BEC93278B4E570031DA90 /* AppDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BEC91278B4E570031DA90 /* AppDefinitions.swift */; };
 		D46BEC9E278BE1DD0031DA90 /* PixieHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */; };
@@ -122,6 +124,7 @@
 		D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 		D45A93E8277E64E00007401E /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		D46A671D278E7404003581D4 /* Pixie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixie.swift; sourceTree = "<group>"; };
 		D46BEC91278B4E570031DA90 /* AppDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDefinitions.swift; sourceTree = "<group>"; };
 		D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixieHarness.swift; sourceTree = "<group>"; };
 		D4C19ECD277FDE73000E7A4B /* TumblerSettingsSliders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsSliders.swift; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 			children = (
 				D43BF2EA278A7DB80035FDEA /* DrawingPixie.swift */,
 				D43BF2E12789459D0035FDEA /* Nib.swift */,
+				D46A671D278E7404003581D4 /* Pixie.swift */,
 				D43BF2E22789459D0035FDEA /* PixieConnector.swift */,
 				D43BF2F0278A8D560035FDEA /* PixieCore.swift */,
 				D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */,
@@ -416,6 +420,7 @@
 				D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */,
 				D46BEC92278B4E570031DA90 /* AppDefinitions.swift in Sources */,
 				D43BF2DE278943360035FDEA /* SaveLoad.swift in Sources */,
+				D46A671E278E7404003581D4 /* Pixie.swift in Sources */,
 				D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D43BF2F1278A8D560035FDEA /* PixieCore.swift in Sources */,
 				D43BF2EE278A7E0B0035FDEA /* PlatterPixie.swift in Sources */,
@@ -456,6 +461,7 @@
 				D4F4BB77277C8B270049035F /* UnitCircle.swift in Sources */,
 				D46BEC93278B4E570031DA90 /* AppDefinitions.swift in Sources */,
 				D43BF2DF278943360035FDEA /* SaveLoad.swift in Sources */,
+				D46A671F278E7404003581D4 /* Pixie.swift in Sources */,
 				D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D43BF2F2278A8D560035FDEA /* PixieCore.swift in Sources */,
 				D43BF2EF278A7E0B0035FDEA /* PlatterPixie.swift in Sources */,
