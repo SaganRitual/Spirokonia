@@ -193,26 +193,15 @@
 				D46BEC91278B4E570031DA90 /* AppDefinitions.swift */,
 				D43BF2CB2789410D0035FDEA /* AppModel.swift */,
 				D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */,
-				D43BF2D1278941DC0035FDEA /* PenAxisPicker.swift */,
-				D4F4BBCC277D001E0049035F /* RollModePicker.swift */,
-				D4D33BF5278610DF0027A66E /* RollRelationshipPicker.swift */,
 				D43BF2DD278943360035FDEA /* SaveLoad.swift */,
-				D4D33BF22785FE7C0027A66E /* SliderStepPicker.swift */,
 				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
 				D44BF5912777E32700E2FCE1 /* TogglesView.swift */,
-				D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */,
-				D43BF2D4278942CA0035FDEA /* TumblerSettingsModels.swift */,
-				D43BF2D5278942CA0035FDEA /* TumblerSettingsObservers.swift */,
-				D408C407277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift */,
-				D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */,
-				D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */,
-				D4C19ECD277FDE73000E7A4B /* TumblerSettingsSliders.swift */,
-				D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */,
-				D4F4BBB4277CFD5A0049035F /* TumblerSettingsViewOuter.swift */,
 				D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */,
+				D47421FE278FF0A600C6A2DB /* Pickers */,
 				D43BF2E0278945170035FDEA /* Pixonia */,
 				D44BF4412777D94000E2FCE1 /* Primitives */,
 				D44BF4572777D96200E2FCE1 /* SpriteKit */,
+				D47421FD278FEFFB00C6A2DB /* Tumblers */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -252,6 +241,33 @@
 				D44BF4592777D97000E2FCE1 /* SpritePool.xcassets */,
 			);
 			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		D47421FD278FEFFB00C6A2DB /* Tumblers */ = {
+			isa = PBXGroup;
+			children = (
+				D408C407277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift */,
+				D44BF5552777E04900E2FCE1 /* TumblerSelectorView.swift */,
+				D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */,
+				D43BF2D4278942CA0035FDEA /* TumblerSettingsModels.swift */,
+				D43BF2D5278942CA0035FDEA /* TumblerSettingsObservers.swift */,
+				D44BF4FE2777DE5A00E2FCE1 /* TumblerSettingsSlider.swift */,
+				D4C19ECD277FDE73000E7A4B /* TumblerSettingsSliders.swift */,
+				D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */,
+				D4F4BBB4277CFD5A0049035F /* TumblerSettingsViewOuter.swift */,
+			);
+			path = Tumblers;
+			sourceTree = "<group>";
+		};
+		D47421FE278FF0A600C6A2DB /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				D43BF2D1278941DC0035FDEA /* PenAxisPicker.swift */,
+				D4F4BBCC277D001E0049035F /* RollModePicker.swift */,
+				D4D33BF5278610DF0027A66E /* RollRelationshipPicker.swift */,
+				D4D33BF22785FE7C0027A66E /* SliderStepPicker.swift */,
+			);
+			path = Pickers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
