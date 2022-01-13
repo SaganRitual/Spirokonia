@@ -5,7 +5,7 @@ import SwiftUI
 class TumblerSettingsModel: ObservableObject, Codable {
     @Published var colorSpeed: Double = 0.1
     @Published var drawDots = true
-    @Published var penAxis: Int = 1
+    @Published var penAxis: Int = 0
     @Published var pen: Double = 1.0
     @Published var radius: Double = 0.5
     @Published var rollMode = AppDefinitions.RollMode.normal

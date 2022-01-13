@@ -22,11 +22,6 @@ struct ContentView: View {
                     TumblerSettingsViewInner()
                 }
 
-                Button(
-                    action: { appModel.reZero.send() },
-                    label: { Image(systemName: "scope") }
-                )
-
                 Spacer()
 
                 SaveLoad()

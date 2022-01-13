@@ -72,6 +72,8 @@ final class DrawingPixie: Pixie {
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 10, height: 10)
 
+        settingsModel.penAxis = 0   // Until I find something interesting to do with pen axis
+
         if settingsModel.penAxis == 0 {
             let p = CGPoint(x: hotPenPositionR * pixoniaScene.size.width / 2.0, y: 0.0)
             dot.position = sprite.convert(p, to: pixoniaScene)
@@ -100,7 +102,7 @@ final class DrawingPixie: Pixie {
 
         for _ in 0..<3 {
             let s = SpritePool.lines.makeSprite()
-            s.color = self.ix == 0 ? .green : .clear
+            s.color = self.ix == 0 ? .clear : .clear
             s.size.height = 10
             s.size.width = 1
             s.anchorPoint = .anchorDueWest

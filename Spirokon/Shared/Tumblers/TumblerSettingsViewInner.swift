@@ -16,11 +16,6 @@ struct TumblerSettingsViewInner: View {
                 )
             }
 
-            HStack {
-                PenAxisPicker(penAxis: $appModel.masterSettingsModel.penAxis)
-                RollRelationshipPicker(rollRelationship: $appModel.masterSettingsModel.rollRelationship)
-            }
-
             TumblerSettingsSliders()
         }
     }
