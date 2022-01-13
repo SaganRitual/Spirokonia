@@ -56,8 +56,7 @@ final class DrawingPixie: Pixie {
 
         let connectedPixie = pixoniaScene.pixieHarness.drawingPixies[(ix + connectorIx + 1) % 4]
         let endPosition = connectedPixie.sprite.convert(.zero, to: pixoniaScene)
-        let e = endPosition.distance(to: connectorSprite.position)
-        connectorSprite.xScale = 2.0 * e
+        connectorSprite.xScale = endPosition.distance(to: connectorSprite.position)
 
         let v = endPosition.vectorTo(otherPosition: connectorSprite.position)
         connectorSprite.zRotation = atan2(v.dy, v.dx)
@@ -114,6 +113,9 @@ final class DrawingPixie: Pixie {
 
     override func update(deltaTime: Double) {
         penPositionRAnimator.update(deltaTime: deltaTime / AppDefinitions.animationsDuration)
+
+        sprite.color = settingsModel.showRing ? color : .clear
+
         super.update(deltaTime: deltaTime)
     }
 }

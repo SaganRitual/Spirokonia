@@ -17,6 +17,11 @@ final class PlatterPixie: Pixie {
         radiusPublisher = appModel.$outerRingRadius
         super.postInit(appModel)
     }
+
+    override func update(deltaTime: Double) {
+        sprite.color = pixoniaScene.appModel.outerRingShow ? color : .clear
+        super.update(deltaTime: deltaTime)
+    }
 }
 
 class PlatterPixieHold {
