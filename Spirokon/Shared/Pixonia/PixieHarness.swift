@@ -74,12 +74,14 @@ extension PixieHarness {
             dot.size = CGSize(width: 10, height: 10)
             dot.zPosition = snapshot.dotZ
 
-            pixoniaScene.addChild(dot)
+            if dot.parent == nil {
+                pixoniaScene.addChild(dot)
+            }
 
             let delay = SKAction.wait(forDuration: snapshot.trailDecay - fadeDuration)
             let fade = SKAction.fadeOut(withDuration: fadeDuration)
             let action = SKAction.sequence([delay, fade])
-            dot.run(action) { dot.removeFromParent() }
+            dot.run(action) { SpritePool.dots.releaseSprite(dot, fullSKRemove: false) }
         }
 
         readyDotSnapshots.removeAll(keepingCapacity: true)
