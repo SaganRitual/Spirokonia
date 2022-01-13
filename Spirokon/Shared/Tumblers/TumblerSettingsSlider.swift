@@ -38,6 +38,15 @@ struct TumblerSettingSlider: View {
         self.stepSizeOverride = stepSizeOverride
     }
 
+    func setStepSize() {
+        if let s = SliderStepPicker.steps.getStepFactor(prime: stepKey) {
+            let fullSize = range.upperBound - range.lowerBound
+            self.stepSize = fullSize * s
+        } else {
+            self.stepSize = nil
+        }
+    }
+
     var body: some View {
         HStack {
             Image(systemName: iconName)
@@ -50,14 +59,7 @@ struct TumblerSettingSlider: View {
             ZStack {
                 if showingStepPicker {
                     SliderStepPicker(step: $stepKey)
-                        .onDisappear {
-                            if let s = SliderStepPicker.steps.getStepFactor(prime: stepKey) {
-                                let fullSize = range.upperBound - range.lowerBound
-                                self.stepSize = fullSize * s
-                            } else {
-                                self.stepSize = nil
-                            }
-                        }
+                        .onDisappear(perform: setStepSize)
                 } else {
                     HStack {
                         if let stepSizeOverride = stepSizeOverride {
@@ -71,6 +73,7 @@ struct TumblerSettingSlider: View {
                             Slider(value: $value, in: range, label: {})
                         }
                     }
+                    .onAppear(perform: setStepSize)
                 }
             }
         }
