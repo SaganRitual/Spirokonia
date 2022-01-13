@@ -27,10 +27,7 @@ class Pixie {
     }
 
     func advance(by rotation: Double) {
-        sprite.zRotation += rotation
-        sprite.setScale(hotRadius)
-
-        sprite.position = CGPoint(x: pixoniaScene.size.width / 2.0 * (1.0 - hotRadius), y: 0)
+        fatalError("Child should implement")
     }
 
     func postInit(_ appModel: AppModel) {

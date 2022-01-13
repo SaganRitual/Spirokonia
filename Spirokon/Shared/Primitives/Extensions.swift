@@ -93,6 +93,18 @@ extension CGPoint {
     static func <<= (lhs: inout CGPoint, rhs: CGAffineTransform) {
         lhs = lhs << rhs
     }
+
+    func distance(to otherPosition: CGPoint) -> Double {
+        let dx = x - otherPosition.x
+        let dy = y - otherPosition.y
+        return sqrt(dx * dx + dy * dy)
+    }
+
+    func vectorTo(otherPosition: CGPoint) -> CGVector {
+        let dx = x - otherPosition.x
+        let dy = y - otherPosition.y
+        return CGVector(dx: dx, dy: dy)
+    }
 }
 
 extension CGSize {

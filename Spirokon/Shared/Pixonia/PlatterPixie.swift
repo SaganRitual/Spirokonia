@@ -5,6 +5,14 @@ import SpriteKit
 import SwiftUI
 
 final class PlatterPixie: Pixie {
+    override func advance(by rotation: Double) {
+        if pixoniaScene.appModel.outerRingRollMode == .normal {
+            sprite.zRotation += rotation
+        }
+
+        sprite.setScale(hotRadius)
+    }
+
     override func postInit(_ appModel: AppModel) {
         radiusPublisher = appModel.$outerRingRadius
         super.postInit(appModel)

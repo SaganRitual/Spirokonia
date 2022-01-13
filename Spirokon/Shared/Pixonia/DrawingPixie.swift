@@ -14,6 +14,8 @@ final class DrawingPixie: Pixie {
 
     var hotPenPositionR = 1.0
 
+    var connectorSprites = [SKSpriteNode]()
+
     init(
         ix: Int, radius: Double, color: SKColor, skParent: SKNode, pixoniaScene: PixoniaScene
     ) {
@@ -23,12 +25,42 @@ final class DrawingPixie: Pixie {
         super.init(radius: radius, color: color, skParent: skParent, pixoniaScene: pixoniaScene)
     }
 
-    func advance(by rotation: Double, deltaTime: Double) {
-        super.advance(by: rotation)
+    func accumulatedScale() -> Double {
+        var scale = pixoniaScene.pixieHarness.drawingPixies[self.ix].hotRadius
 
-        if settingsModel.drawDots {
-            dropDot(deltaTime: deltaTime, pixoniaScene: pixoniaScene)
+        for ix in (0..<self.ix).reversed() {
+            scale *= pixoniaScene.pixieHarness.drawingPixies[ix].hotRadius
+            if ix == self.ix { break }
         }
+
+        return scale
+    }
+
+    override func advance(by rotation: Double) {
+        sprite.position = CGPoint(x: pixoniaScene.size.width / 2.0 * (1.0 - hotRadius), y: 0)
+
+        switch settingsModel.rollMode {
+        case .normal:      sprite.zRotation += rotation
+        case .compensate:  sprite.zRotation += 0.5 * rotation
+        case .fullStop:    break
+        case .doesNotRoll: break
+        }
+
+        sprite.setScale(hotRadius)
+
+        guard settingsModel.drawDots && settingsModel.penAxis > 0 else { return }
+
+        let connectorIx = settingsModel.penAxis - 1
+        let connectorSprite = connectorSprites[connectorIx]
+        connectorSprite.position = sprite.convert(.zero, to: pixoniaScene)
+
+        let connectedPixie = pixoniaScene.pixieHarness.drawingPixies[(ix + connectorIx + 1) % 4]
+        let endPosition = connectedPixie.sprite.convert(.zero, to: pixoniaScene)
+        let e = endPosition.distance(to: connectorSprite.position)
+        connectorSprite.xScale = 2.0 * e
+
+        let v = endPosition.vectorTo(otherPosition: connectorSprite.position)
+        connectorSprite.zRotation = atan2(v.dy, v.dx)
     }
 
     func calculateDotColor(_ deltaTime: Double) -> SKColor {
@@ -41,8 +73,13 @@ final class DrawingPixie: Pixie {
         let dot = SpritePool.dots.makeSprite()
         dot.size = CGSize(width: 10, height: 10)
 
-        let p = CGPoint(x: hotPenPositionR * pixoniaScene.size.width / 2.0, y: 0.0)
-        dot.position = sprite.convert(p, to: pixoniaScene)
+        if settingsModel.penAxis == 0 {
+            let p = CGPoint(x: hotPenPositionR * pixoniaScene.size.width / 2.0, y: 0.0)
+            dot.position = sprite.convert(p, to: pixoniaScene)
+        } else {
+            let p = CGPoint(x: hotPenPositionR, y: 0.0)
+            dot.position = connectorSprites[settingsModel.penAxis - 1].convert(p, to: pixoniaScene)
+        }
 
         dot.color = calculateDotColor(deltaTime)
 
@@ -61,6 +98,17 @@ final class DrawingPixie: Pixie {
             }
 
         radiusPublisher = appModel.drawingTumblerSettingsModels.tumblerSettingsModels[ix].$radius
+
+        for _ in 0..<3 {
+            let s = SpritePool.lines.makeSprite()
+            s.color = self.ix == 0 ? .green : .clear
+            s.size.height = 10
+            s.size.width = 1
+            s.anchorPoint = .anchorDueWest
+            pixoniaScene.addChild(s)
+            connectorSprites.append(s)
+        }
+
         super.postInit(appModel)
     }
 

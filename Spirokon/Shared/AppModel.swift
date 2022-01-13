@@ -1,5 +1,6 @@
 // We are a way for the cosmos to know itself. -- C. Sagan
 
+import Combine
 import SwiftUI
 
 class AppModel: ObservableObject, Codable {
@@ -21,6 +22,8 @@ class AppModel: ObservableObject, Codable {
     @Published var cycleSpeedStepKey: Int = 2
     @Published var densityStepKey: Int = 2
     @Published var outerRingRadiusStepKey: Int = 2
+
+    var reZero = PassthroughSubject<Void, Never>()
 
     enum CodingKeys: CodingKey {
         case animationsDuration, cycleSpeed, density
