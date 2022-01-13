@@ -9,7 +9,13 @@ class PixieHarness {
     let pixoniaScene: PixoniaScene
     let platterPixie: PlatterPixie
 
-    var reZeroObserver: AnyCancellable!
+    let dotsQueue = DispatchQueue(
+        label: "dotsQueue", attributes: .concurrent, target: DispatchQueue.global()
+    )
+
+    private var dotSnapshotsInProgress = [DotSnapshot]()
+    var readyDotSnapshots = [DotSnapshot]()
+    var dotSnapshotsReady = false
 
     init(pixoniaScene: PixoniaScene, appModel: AppModel) {
         self.appModel = appModel
@@ -37,29 +43,52 @@ class PixieHarness {
             parent = newPixie.sprite
             return newPixie
         }
+    }
+}
 
-        reZeroObserver = appModel.reZero.sink {
-            [weak self] in guard let myself = self else { return }
+extension PixieHarness {
+    func startDenseUpdate() {
+        dotsQueue.async(execute: denseUpdate)
+    }
 
-            var direction = 1.0
-            var rotation = 0.5 / 60.0 * appModel.cycleSpeed * .tau
+    func denseUpdate() {
+        let density = Int(appModel.density)
 
-            myself.platterPixie.sprite.zRotation = direction * rotation
-            myself.drawingPixies.forEach {
-                direction *= -1.0
-                rotation /= $0.hotRadius
-                $0.sprite.zRotation = direction * rotation
-            }
+        (0..<density).forEach { _ in advance(by: 1.0 / 60.0 / Double(density)) }
+
+        DispatchQueue.main.sync { [weak self] in
+            guard let myself = self else { return }
+            myself.readyDotSnapshots.append(contentsOf: myself.dotSnapshotsInProgress)
+            myself.dotSnapshotsInProgress.removeAll(keepingCapacity: true)
         }
+    }
+
+    func dropDots() {
+        for snapshot in readyDotSnapshots {
+            let fadeDuration = 0.5
+            guard snapshot.trailDecay - fadeDuration > 0 else { continue }
+
+            let dot = SpritePool.dots.makeSprite()
+            dot.color = snapshot.color
+            dot.position = snapshot.dotPosition
+            dot.size = CGSize(width: 10, height: 10)
+            dot.zPosition = snapshot.dotZ
+
+            pixoniaScene.addChild(dot)
+
+            let delay = SKAction.wait(forDuration: snapshot.trailDecay - fadeDuration)
+            let fade = SKAction.fadeOut(withDuration: fadeDuration)
+            let action = SKAction.sequence([delay, fade])
+            dot.run(action) { dot.removeFromParent() }
+        }
+
+        readyDotSnapshots.removeAll(keepingCapacity: true)
+        startDenseUpdate()
     }
 }
 
 extension PixieHarness {
     func advance(by deltaTime: Double) {
-        for pixie in drawingPixies where pixie.settingsModel.drawDots {
-            pixie.dropDot(deltaTime: deltaTime, pixoniaScene: pixoniaScene)
-        }
-
         var direction = 1.0
         var rotation = deltaTime * appModel.cycleSpeed * .tau
 
@@ -70,11 +99,12 @@ extension PixieHarness {
             rotation /= pixie.hotRadius
 
             pixie.advance(by: direction * rotation)
-        }
-    }
 
-    func update(_ deltaTime: Double) {
-        drawingPixies.forEach { $0.update(deltaTime: deltaTime) }
-        platterPixie.update(deltaTime: deltaTime)
+            if pixie.settingsModel.drawDots {
+                dotSnapshotsInProgress.append(
+                    pixie.takeSnapshot(deltaTime: deltaTime, pixoniaScene: pixoniaScene)
+                )
+            }
+        }
     }
 }

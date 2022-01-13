@@ -28,15 +28,19 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         self.anchorPoint = .anchorAtCenter
         self.scaleMode = .aspectFit
         self.backgroundColor = .black
+
+        pixieHarness.startDenseUpdate()
     }
 
     override func update(_ currentTime: TimeInterval) {
+        if pixieHarness.readyDotSnapshots.isEmpty { return }
+
         let deltaTime = 1.0 / 60.0
 
-        pixieHarness.update(deltaTime)
+        pixieHarness.drawingPixies.forEach { $0.update(deltaTime: deltaTime) }
+        pixieHarness.platterPixie.update(deltaTime: deltaTime)
 
-        // We'll do this in the dense update, when the time comes
-        pixieHarness.advance(by: deltaTime)
+        pixieHarness.dropDots()
     }
 
     required init?(coder aDecoder: NSCoder) {

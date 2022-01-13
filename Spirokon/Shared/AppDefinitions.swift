@@ -57,7 +57,7 @@ enum AppDefinitions {
 
     static let colorSpeedRange = 0.0...1.0
     static let cycleSpeedRange = 0.0...2.0
-    static let dotDensityRange = 0.0...50.0
+    static let dotDensityRange = 1.0...50.0
     static let trailDecayRange = 0.0...20.0
     static let unitRange = 0.0...2.0
 

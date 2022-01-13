@@ -23,18 +23,10 @@
 		D43BF2DC278942CB0035FDEA /* TumblerSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */; };
 		D43BF2DE278943360035FDEA /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2DD278943360035FDEA /* SaveLoad.swift */; };
 		D43BF2DF278943360035FDEA /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2DD278943360035FDEA /* SaveLoad.swift */; };
-		D43BF2E32789459D0035FDEA /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2E12789459D0035FDEA /* Nib.swift */; };
-		D43BF2E42789459D0035FDEA /* Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2E12789459D0035FDEA /* Nib.swift */; };
-		D43BF2E8278A754D0035FDEA /* Supersprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2E7278A754D0035FDEA /* Supersprite.swift */; };
-		D43BF2E9278A754D0035FDEA /* Supersprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2E7278A754D0035FDEA /* Supersprite.swift */; };
 		D43BF2EE278A7E0B0035FDEA /* PlatterPixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2ED278A7E0B0035FDEA /* PlatterPixie.swift */; };
 		D43BF2EF278A7E0B0035FDEA /* PlatterPixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2ED278A7E0B0035FDEA /* PlatterPixie.swift */; };
-		D43BF2F1278A8D560035FDEA /* PixieCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2F0278A8D560035FDEA /* PixieCore.swift */; };
-		D43BF2F2278A8D560035FDEA /* PixieCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2F0278A8D560035FDEA /* PixieCore.swift */; };
 		D43BF2F3278B0FA50035FDEA /* DrawingPixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2EA278A7DB80035FDEA /* DrawingPixie.swift */; };
 		D43BF2F4278B0FA60035FDEA /* DrawingPixie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2EA278A7DB80035FDEA /* DrawingPixie.swift */; };
-		D43BF2F5278B0FAE0035FDEA /* PixieConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2E22789459D0035FDEA /* PixieConnector.swift */; };
-		D43BF2F6278B0FAE0035FDEA /* PixieConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2E22789459D0035FDEA /* PixieConnector.swift */; };
 		D44BF3EC2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */; };
 		D44BF3ED2777D8D900E2FCE1 /* SpirokonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */; };
 		D44BF3EE2777D8D900E2FCE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */; };
@@ -97,12 +89,8 @@
 		D43BF2D5278942CA0035FDEA /* TumblerSettingsObservers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSettingsObservers.swift; sourceTree = "<group>"; };
 		D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSettingsModel.swift; sourceTree = "<group>"; };
 		D43BF2DD278943360035FDEA /* SaveLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveLoad.swift; sourceTree = "<group>"; };
-		D43BF2E12789459D0035FDEA /* Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nib.swift; sourceTree = "<group>"; };
-		D43BF2E22789459D0035FDEA /* PixieConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixieConnector.swift; sourceTree = "<group>"; };
-		D43BF2E7278A754D0035FDEA /* Supersprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supersprite.swift; sourceTree = "<group>"; };
 		D43BF2EA278A7DB80035FDEA /* DrawingPixie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingPixie.swift; sourceTree = "<group>"; };
 		D43BF2ED278A7E0B0035FDEA /* PlatterPixie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatterPixie.swift; sourceTree = "<group>"; };
-		D43BF2F0278A8D560035FDEA /* PixieCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixieCore.swift; sourceTree = "<group>"; };
 		D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirokonApp.swift; sourceTree = "<group>"; };
 		D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -159,15 +147,11 @@
 			isa = PBXGroup;
 			children = (
 				D43BF2EA278A7DB80035FDEA /* DrawingPixie.swift */,
-				D43BF2E12789459D0035FDEA /* Nib.swift */,
 				D46A671D278E7404003581D4 /* Pixie.swift */,
-				D43BF2E22789459D0035FDEA /* PixieConnector.swift */,
-				D43BF2F0278A8D560035FDEA /* PixieCore.swift */,
 				D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */,
 				D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */,
 				D44BF3FE2777D90400E2FCE1 /* PixoniaView.swift */,
 				D43BF2ED278A7E0B0035FDEA /* PlatterPixie.swift */,
-				D43BF2E7278A754D0035FDEA /* Supersprite.swift */,
 			);
 			path = Pixonia;
 			sourceTree = "<group>";
@@ -438,18 +422,14 @@
 				D43BF2DE278943360035FDEA /* SaveLoad.swift in Sources */,
 				D46A671E278E7404003581D4 /* Pixie.swift in Sources */,
 				D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
-				D43BF2F1278A8D560035FDEA /* PixieCore.swift in Sources */,
 				D43BF2EE278A7E0B0035FDEA /* PlatterPixie.swift in Sources */,
 				D44BF4532777D95000E2FCE1 /* Extensions.swift in Sources */,
 				D4D33BF32785FE7C0027A66E /* SliderStepPicker.swift in Sources */,
 				D408C408277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
 				D44BF5922777E32700E2FCE1 /* TogglesView.swift in Sources */,
 				D44BF4012777D90400E2FCE1 /* PixoniaView.swift in Sources */,
-				D43BF2E8278A754D0035FDEA /* Supersprite.swift in Sources */,
 				D43BF2CD2789410D0035FDEA /* AppModel.swift in Sources */,
 				D44BF45A2777D97000E2FCE1 /* SpritePool.swift in Sources */,
-				D43BF2F5278B0FAE0035FDEA /* PixieConnector.swift in Sources */,
-				D43BF2E32789459D0035FDEA /* Nib.swift in Sources */,
 				D408C3FC277A573A0053B5F4 /* YAColor.swift in Sources */,
 				D43BF2D9278942CB0035FDEA /* TumblerSettingsObservers.swift in Sources */,
 				D43BF2DB278942CB0035FDEA /* TumblerSettingsModel.swift in Sources */,
@@ -479,18 +459,14 @@
 				D43BF2DF278943360035FDEA /* SaveLoad.swift in Sources */,
 				D46A671F278E7404003581D4 /* Pixie.swift in Sources */,
 				D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
-				D43BF2F2278A8D560035FDEA /* PixieCore.swift in Sources */,
 				D43BF2EF278A7E0B0035FDEA /* PlatterPixie.swift in Sources */,
 				D44BF4542777D95000E2FCE1 /* Extensions.swift in Sources */,
 				D4D33BF42785FE7C0027A66E /* SliderStepPicker.swift in Sources */,
 				D408C409277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
 				D44BF5932777E32700E2FCE1 /* TogglesView.swift in Sources */,
 				D44BF4022777D90400E2FCE1 /* PixoniaView.swift in Sources */,
-				D43BF2E9278A754D0035FDEA /* Supersprite.swift in Sources */,
 				D43BF2CE2789410D0035FDEA /* AppModel.swift in Sources */,
 				D44BF45B2777D97000E2FCE1 /* SpritePool.swift in Sources */,
-				D43BF2F6278B0FAE0035FDEA /* PixieConnector.swift in Sources */,
-				D43BF2E42789459D0035FDEA /* Nib.swift in Sources */,
 				D408C3FD277A573A0053B5F4 /* YAColor.swift in Sources */,
 				D43BF2DA278942CB0035FDEA /* TumblerSettingsObservers.swift in Sources */,
 				D43BF2DC278942CB0035FDEA /* TumblerSettingsModel.swift in Sources */,

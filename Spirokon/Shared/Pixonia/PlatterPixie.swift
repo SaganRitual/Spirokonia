@@ -23,24 +23,3 @@ final class PlatterPixie: Pixie {
         super.update(deltaTime: deltaTime)
     }
 }
-
-class PlatterPixieHold {
-    let core: PixieCore
-
-    init(spritePool: SpritePool, appModel: AppModel) {
-        self.core = .init(
-            spritePool: spritePool, color: SKColor(AppDefinitions.platterPixieColor), zIndex: 0,
-            spaceName: "PlatterPixie"
-        )
-    }
-
-    func postInit(skParent: PixoniaScene, ucParent: UCSpace, appModel: AppModel) {
-        core.postInit(
-            skParent: skParent, ucParent: ucParent, radiusPublisher: appModel.$outerRingRadius
-        )
-    }
-}
-
-extension PlatterPixieHold {
-    func update(appModel: AppModel) { core.showRing(appModel.outerRingShow) }
-}
