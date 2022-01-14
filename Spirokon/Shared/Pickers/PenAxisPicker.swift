@@ -9,7 +9,7 @@ struct PenAxisPicker: View {
         let image: Image
 
         switch mode {
-        case .fullStop:   image = Image(systemName: "xmark.circle.fill")
+        case .sticky:     image = Image(systemName: "xmark.circle.fill")
         case .compensate: image = Image(systemName: "gobackward")
         case .normal:     image = Image(systemName: "play.circle.fill")
 

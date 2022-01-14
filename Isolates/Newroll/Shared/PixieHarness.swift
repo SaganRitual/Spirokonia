@@ -8,9 +8,7 @@ class Pixie {
 
     init(radius: Double, color: SKColor, skParent: SKNode, pixoniaScene: PixoniaScene) {
         sprite = SpritePool.singleSpokeRingsLarge.makeSprite()
-        sprite.size = pixoniaScene.size
         sprite.color = color
-        sprite.setScale(radius)
 
         self.color = color
         skParent.addChild(sprite)
@@ -29,35 +27,48 @@ final class PlatterPixie: Pixie {
 }
 
 class PixieHarness {
-    let drawingPixies: [DrawingPixie]
     let pixoniaScene: PixoniaScene
-    let platterPixie: PlatterPixie
 
-    let pixieRadii: [Double] = [1.0 / 2.0, 1.0 / 2.0, 1.0 / 2.0, 1.0 / 2.0]
+    let pixieRadii: [Double] = [1.0 / 2.0, 1.0 / 3.0, 1.0 / 2.0, 1.0 / 3.0]
     let platterRadius = 1.0
 
     var colorSpeed = 0.1
     var currentDotColor = YAColor(hue: 0.0, saturation: 1.0, brightness: 1.0, alpha: 1.0)
     var cycleSpeed = 0.1
 
+    var platter: Belle!
+    var dotBelles = [Belle]()
+    var drawingBelles = [DrawingBelle]()
+
     init(_ pixoniaScene: PixoniaScene) {
         self.pixoniaScene = pixoniaScene
 
-        platterPixie = PlatterPixie(
-            radius: platterRadius, color: .blue, skParent: pixoniaScene, pixoniaScene: pixoniaScene
-        )
+        platter = Belle(pixoniaScene: pixoniaScene, spritePool: .singleSpokeRingsLarge)
+        platter.radius = platterRadius
+        platter.rollMode = .flattened
+        platter.color = .blue
 
-        var parent = platterPixie.sprite
+        var ucParent = platter!
 
-        drawingPixies = (0..<4).map { [pixieRadii] ix in
-            let newPixie = DrawingPixie(
-                radius: pixieRadii[ix],
-                color: SKColor(AppDefinitions.drawingPixieColors[ix]), skParent: parent,
-                pixoniaScene: pixoniaScene
-            )
+        for ix in 0..<4 {
+            let b = DrawingBelle(pixoniaScene: pixoniaScene, spritePool: .singleSpokeRingsLarge)
+            b.radius = pixieRadii[ix]
+            b.position.r = 1.0 - pixieRadii[ix]
+            b.color = SKColor(AppDefinitions.drawingPixieColors[ix])
 
-            parent = newPixie.sprite
-            return newPixie
+            let d = Belle(pixoniaScene: pixoniaScene, spritePool: .dots, suppressScaling: true)
+            d.radius = 5
+            d.position = UCPoint(r: 1.0, t: 0)
+            d.color = YAColor(AppDefinitions.drawingPixieColors[ix]).rotateHue(byAngle: .pi)
+            d.rollMode = .doesNotRoll
+
+            b.addChild(d)
+
+            ucParent.addChild(b)
+            ucParent = b
+
+            drawingBelles.append(b)
+            dotBelles.append(d)
         }
     }
 
@@ -68,7 +79,7 @@ class PixieHarness {
 
     func dropDot(at position: CGPoint) {
         let dot = SpritePool.dots.makeSprite()
-        dot.size = CGSize(width: 10, height: 10)
+        dot.size = CGSize(width: 5, height: 5)
         dot.position = position
         dot.color = currentDotColor
 
@@ -80,28 +91,9 @@ class PixieHarness {
     func update(_ deltaTime: Double) {
         calculateDotColor(deltaTime)
 
-        let rotation = deltaTime * cycleSpeed * .tau
+        platter.advance(by: deltaTime, masterCycleSpeed: cycleSpeed, scale: 1.0, direction: 1.0)
+        platter.reify(scale: pixoniaScene.radius * platter.radius)
 
-        platterPixie.sprite.zRotation += rotation
-        drawingPixies[0].sprite.zRotation += -1.0 * rotation / pixieRadii[0]
-        drawingPixies[1].sprite.zRotation += +1.0 * rotation / (pixieRadii[0] * pixieRadii[1])
-        drawingPixies[2].sprite.zRotation += -1.0 * rotation / (pixieRadii[0] * pixieRadii[1] * pixieRadii[2])
-        drawingPixies[3].sprite.zRotation += +1.0 * rotation / (pixieRadii[0] * pixieRadii[1] * pixieRadii[2] * pixieRadii[3])
-
-        let pp3 = CGPoint(x: pixoniaScene.size.width / 2.0, y: 0.0)
-        let ppp3 = drawingPixies[3].sprite.convert(pp3, to: pixoniaScene)
-        dropDot(at: ppp3)
-
-        let pp2 = CGPoint(x: pixoniaScene.size.width / 2.0, y: 0.0)
-        let ppp2 = drawingPixies[2].sprite.convert(pp2, to: pixoniaScene)
-        dropDot(at: ppp2)
-
-        let pp1 = CGPoint(x: pixoniaScene.size.width / 2.0, y: 0.0)
-        let ppp1 = drawingPixies[1].sprite.convert(pp1, to: pixoniaScene)
-        dropDot(at: ppp1)
-
-        let pp0 = CGPoint(x: pixoniaScene.size.width / 2.0, y: 0.0)
-        let ppp0 = drawingPixies[0].sprite.convert(pp0, to: pixoniaScene)
-        dropDot(at: ppp0)
+        dotBelles.enumerated().forEach { dropDot(at: $0.1.reifiedPosition) }
     }
 }

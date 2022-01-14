@@ -7,15 +7,15 @@ struct RollModePicker: View {
     @Binding var rollMode: AppDefinitions.RollMode
 
     func getRollModes() -> [AppDefinitions.RollMode] {
-        if forMainRing { return [.fullStop, .normal] }
-        else           { return [.fullStop, .compensate, .normal] }
+        if forMainRing { return [.sticky, .normal] }
+        else           { return [.sticky, .compensate, .normal] }
     }
 
     func makePickerSegment(for mode: AppDefinitions.RollMode) -> some View {
         let image: Image
 
         switch mode {
-        case .fullStop:   image = Image(systemName: "xmark.circle.fill")
+        case .sticky:     image = Image(systemName: "xmark.circle.fill")
         case .compensate: image = Image(systemName: "gobackward")
         case .normal:     image = Image(systemName: "play.circle.fill")
 

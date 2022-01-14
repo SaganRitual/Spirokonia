@@ -50,7 +50,7 @@ final class DrawingPixie: Pixie {
         switch settingsModel.rollMode {
         case .normal:      sprite.zRotation += rotation
         case .compensate:  sprite.zRotation += 0.5 * rotation
-        case .fullStop:    break
+        case .sticky:      break
         case .doesNotRoll: break
         }
 

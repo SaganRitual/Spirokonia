@@ -4,7 +4,7 @@ import SwiftUI
 
 enum AppDefinitions {
     enum RollMode: Codable {
-        case compensate, doesNotRoll, fullStop, normal
+        case compensate, cycloid, doesNotRoll, fullStop, sticky, flattened
     }
 
     enum RollRelationship: Codable {
