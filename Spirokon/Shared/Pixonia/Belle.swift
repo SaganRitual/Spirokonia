@@ -8,7 +8,6 @@ class Belle: UCSpace {
     private let textureScale: Double
 
     let pixoniaScene: PixoniaScene
-    let suppressScaling: Bool
 
     var radiusAnimator: Animator<UCSpace>!
     var radiusObserver: AnyCancellable!
@@ -18,17 +17,20 @@ class Belle: UCSpace {
 
     var reifiedPosition: CGPoint { sprite.position }
 
+    var reifiedHeightOverride: Double?
+    var reifiedWidthOverride: Double?
+
     var isReady = false
 
     init(
-        pixoniaScene: PixoniaScene, spritePool: SpritePool,
-        color: SKColor, suppressScaling: Bool = false
+        pixoniaScene: PixoniaScene, spritePool: SpritePool, color: SKColor,
+        reifiedAnchor: CGPoint = .anchorAtCenter
     ) {
         self.color = color
         self.pixoniaScene = pixoniaScene
-        self.suppressScaling = suppressScaling
 
         sprite = spritePool.makeSprite()
+        sprite.anchorPoint = reifiedAnchor
         pixoniaScene.addChild(sprite)
 
         let textureRadius = spritePool.texture.size().width / 2
@@ -102,15 +104,15 @@ class Belle: UCSpace {
     func reify(scale: Double) {
         sprite.zRotation = rotation
 
-        if suppressScaling {
-            sprite.size = CGSize(width: radius * 2.0, height: radius * 2.0)
-        } else {
-            let reifiedRadius = scale
-            sprite.size = CGSize(width: reifiedRadius * 2.0, height: reifiedRadius * 2.0)
-        }
+        let reifiedRadius = scale
+        let overrideScaling = reifiedWidthOverride != nil || reifiedHeightOverride != nil
+        sprite.size = CGSize(
+            width: (reifiedWidthOverride ?? reifiedRadius) * 2.0,
+            height: (reifiedHeightOverride ?? reifiedRadius) * 2.0
+        )
 
         for child in children.compactMap({ $0 as? Belle }) {
-            let childRadius = child.suppressScaling ? child.radius / scale : child.radius
+            let childRadius = overrideScaling ? child.radius / scale : child.radius
 
             var pp = CGPoint(x: child.position.r, y: 0)
             pp = pp.applying(CGAffineTransform(scaleX: scale, y: 0))

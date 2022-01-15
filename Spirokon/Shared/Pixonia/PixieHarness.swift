@@ -5,7 +5,6 @@ import SpriteKit
 
 class PixieHarness {
     let appModel: AppModel
-    var dotBelles = [Belle]()
     var drawingBelles = [DrawingBelle]()
     let pixoniaScene: PixoniaScene
     let platterBelle: Belle
