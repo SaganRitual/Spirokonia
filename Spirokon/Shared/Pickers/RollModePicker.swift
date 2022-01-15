@@ -17,7 +17,9 @@ struct RollModePicker: View {
         switch mode {
         case .compensate: image = Image(systemName: "gobackward")
         case .cycloid:    image = Image(systemName: "play.circle")
-        case .flattened:  image = Image(systemName: "goforward.plus")
+
+        case .flattened: image = forMainRing ?
+            Image(systemName: "play.circle") : Image(systemName: "goforward.plus")
 
         case .fullStop:   fallthrough
         case .sticky:     image = Image(systemName: "xmark.circle.fill")

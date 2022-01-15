@@ -14,11 +14,11 @@ class Belle: UCSpace {
     var radiusObserver: AnyCancellable!
     var radiusPublisher: Published<Double>.Publisher!
 
-    var rollMode = AppDefinitions.RollMode.cycloid
-
     let color: SKColor
 
     var reifiedPosition: CGPoint { sprite.position }
+
+    var isReady = false
 
     init(
         pixoniaScene: PixoniaScene, spritePool: SpritePool,
@@ -40,6 +40,17 @@ class Belle: UCSpace {
     func advance(
         by deltaTime: Double, masterCycleSpeed: Double, scale: Double, direction: Double,
         compensation: Double = 0.0
+    ) {
+        advance(
+            by: deltaTime, masterCycleSpeed: masterCycleSpeed, scale: scale,
+            direction: direction, rollMode: .doesNotRoll,
+            compensation: compensation
+        )
+    }
+
+    func advance(
+        by deltaTime: Double, masterCycleSpeed: Double, scale: Double, direction: Double,
+        rollMode: AppDefinitions.RollMode, compensation: Double = 0.0
     ) {
         let naturalRotation = deltaTime * masterCycleSpeed * direction * .tau
 
@@ -78,7 +89,13 @@ class Belle: UCSpace {
         radiusObserver =
             radiusPublisher.sink {
                 [weak self] newRadius in guard let myself = self else { return }
-                myself.radiusAnimator.animate(to: newRadius)
+                if myself.isReady {
+                    myself.radiusAnimator.animate(to: newRadius)
+                } else {
+                    // First time through, set the sizes before we start rolling
+                    myself.radius = newRadius
+                    myself.isReady = true
+                }
             }
     }
 

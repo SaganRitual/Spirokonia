@@ -34,11 +34,20 @@ final class DrawingBelle: Belle {
         )
 
         dotBelle.radius = 7
-        dotBelle.rollMode = .doesNotRoll
 
         super.init(pixoniaScene: pixoniaScene, spritePool: .spokeRingsLarge, color: color)
 
         self.addChild(dotBelle)
+    }
+
+    override func advance(
+        by deltaTime: Double, masterCycleSpeed: Double, scale: Double, direction: Double,
+        compensation: Double = 0.0
+    ) {
+        super.advance(
+            by: deltaTime, masterCycleSpeed: masterCycleSpeed, scale: scale,
+            direction: direction, rollMode: settingsModel.rollMode, compensation: compensation
+        )
     }
 
     func calculateDotColor(_ deltaTime: Double) {

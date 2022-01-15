@@ -83,7 +83,6 @@ extension PixieHarness {
                 pixoniaScene.addChild(dot)
             }
 
-            dot.color = .red
             let delay = SKAction.wait(forDuration: snapshot.trailDecay - fadeDuration)
             let fade = SKAction.fadeOut(withDuration: fadeDuration)
             let action = SKAction.sequence([delay, fade])
