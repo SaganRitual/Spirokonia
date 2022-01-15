@@ -112,8 +112,6 @@ class Belle: UCSpace {
         for child in children.compactMap({ $0 as? Belle }) {
             let childRadius = child.suppressScaling ? child.radius / scale : child.radius
 
-            child.position.r = 1.0 - childRadius
-
             var pp = CGPoint(x: child.position.r, y: 0)
             pp = pp.applying(CGAffineTransform(scaleX: scale, y: 0))
             pp = pp.applying(CGAffineTransform(rotationAngle: rotation))

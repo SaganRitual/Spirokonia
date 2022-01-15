@@ -44,6 +44,8 @@ final class DrawingBelle: Belle {
         by deltaTime: Double, masterCycleSpeed: Double, scale: Double, direction: Double,
         compensation: Double = 0.0
     ) {
+        position.r = 1.0 - radius
+
         super.advance(
             by: deltaTime, masterCycleSpeed: masterCycleSpeed, scale: scale,
             direction: direction, rollMode: settingsModel.rollMode, compensation: compensation
