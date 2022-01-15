@@ -32,19 +32,7 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
         pixieHarness.startDenseUpdate()
     }
 
-    override func update(_ currentTime: TimeInterval) {
-        if pixieHarness.readyDotSnapshots.isEmpty {
-            if !pixieHarness.inDenseUpdate { pixieHarness.startDenseUpdate() }
-            return
-        }
-
-        let deltaTime = 1.0 / 60.0
-
-        pixieHarness.drawingBelles.forEach { $0.update(deltaTime: deltaTime) }
-        pixieHarness.platterBelle.update(deltaTime: deltaTime)
-
-        pixieHarness.dropDots()
-    }
+    override func update(_ currentTime: TimeInterval) { pixieHarness.update() }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

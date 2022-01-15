@@ -18,7 +18,21 @@ class PixieHarness {
     var readyDotSnapshots = [DotSnapshot]()
 
     var dotSnapshotsReady = false
-    var inDenseUpdate = false
+
+    private var inDenseUpdate_ = false
+    var inDenseUpdate: Bool {
+        get {
+            // This has to be totally synchronous with the SpriteKit update
+            dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
+            return inDenseUpdate_
+        }
+
+        set {
+            // This has to be totally synchronous with the SpriteKit update
+            dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
+            inDenseUpdate_ = newValue
+        }
+    }
 
     init(pixoniaScene: PixoniaScene, appModel: AppModel) {
         self.appModel = appModel
@@ -51,8 +65,10 @@ class PixieHarness {
 
 extension PixieHarness {
     func startDenseUpdate() {
-        inDenseUpdate = true
-        dotsQueue.async(execute: denseUpdate)
+        if !inDenseUpdate {
+            inDenseUpdate = true
+            dotsQueue.async(execute: denseUpdate)
+        }
     }
 
     func denseUpdate() {
@@ -90,6 +106,15 @@ extension PixieHarness {
         }
 
         readyDotSnapshots.removeAll(keepingCapacity: true)
+    }
+
+    func update() {
+        let deltaTime = 1.0 / 60.0
+
+        drawingBelles.forEach { $0.update(deltaTime: deltaTime) }
+        platterBelle.update(deltaTime: deltaTime)
+
+        dropDots()
         startDenseUpdate()
     }
 }

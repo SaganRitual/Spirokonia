@@ -35,7 +35,7 @@ final class DrawingBelle: Belle {
 
         dotBelle.radius = 7
 
-        super.init(pixoniaScene: pixoniaScene, spritePool: .spokeRingsLarge, color: color)
+        super.init(pixoniaScene: pixoniaScene, spritePool: .singleSpokeRingsLarge, color: color)
 
         self.addChild(dotBelle)
     }
