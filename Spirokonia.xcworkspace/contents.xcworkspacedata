@@ -5,33 +5,6 @@
       location = "group:Spirokon/Spirokon.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Isolates/BetterSelector/BetterSelector.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Isolates/Newroll/Newroll.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Isolates/Pixonia/Pixonia.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Isolates/RollModeView/RollModeView.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Isolates/Savable/Savable.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Isolates/SelectablePenAxis/SelectablePenAxis.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Isolates/Smoother/Smoother.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Isolates/TogglesView/TogglesView.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Isolates/TumblerSelectorView/TumblerSelectorView.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Isolates/TumblerSettingsSlider/TumblerSettingsSlider.xcodeproj">
    </FileRef>
 </Workspace>
