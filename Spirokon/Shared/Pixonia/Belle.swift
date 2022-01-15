@@ -1,29 +1,31 @@
 // We are a way for the cosmos to know itself. -- C. Sagan
 
+import Combine
 import SpriteKit
-
-class DrawingBelle: Belle {
-}
-
-class PlatterBelle: Belle {
-    override func jacobsthal() -> Double { radius }
-}
 
 class Belle: UCSpace {
     private let sprite: SKSpriteNode
     private let textureScale: Double
 
+    let pixoniaScene: PixoniaScene
     let suppressScaling: Bool
+
+    var radiusAnimator: Animator<UCSpace>!
+    var radiusObserver: AnyCancellable!
+    var radiusPublisher: Published<Double>.Publisher!
 
     var rollMode = AppDefinitions.RollMode.cycloid
 
-    var color: SKColor {
-        get { sprite.color } set { sprite.color = newValue }
-    }
+    let color: SKColor
 
     var reifiedPosition: CGPoint { sprite.position }
 
-    init(pixoniaScene: PixoniaScene, spritePool: SpritePool, suppressScaling: Bool = false) {
+    init(
+        pixoniaScene: PixoniaScene, spritePool: SpritePool,
+        color: SKColor, suppressScaling: Bool = false
+    ) {
+        self.color = color
+        self.pixoniaScene = pixoniaScene
         self.suppressScaling = suppressScaling
 
         sprite = spritePool.makeSprite()
@@ -33,26 +35,6 @@ class Belle: UCSpace {
         textureScale = textureRadius / pixoniaScene.radius
 
         super.init(name: "Belle space")
-    }
-
-    func getAncestors() -> [Double] {
-        var space: UCSpace? = self
-        var theArray = [0.0]
-
-        repeat {
-            theArray.insert(space!.radius, at: 1)
-            space = space?.parent
-        } while space != nil
-
-        for ix in 2..<theArray.count {
-            theArray[ix] *= 2.0 * (2.0 * theArray[ix - 2] + theArray[ix - 1])
-        }
-
-        return theArray
-    }
-
-    func jacobsthal() -> Double {
-        getAncestors().last!
     }
 
     func advance(
@@ -85,6 +67,21 @@ class Belle: UCSpace {
         }
     }
 
+    func postInit(_ appModel: AppModel) {
+        assert(
+            radiusPublisher != nil,
+            "Child classes must instantiate the publisher before coming here"
+        )
+
+        radiusAnimator = Animator(\.radius, for: self)
+
+        radiusObserver =
+            radiusPublisher.sink {
+                [weak self] newRadius in guard let myself = self else { return }
+                myself.radiusAnimator.animate(to: newRadius)
+            }
+    }
+
     func reify(scale: Double) {
         sprite.zRotation = rotation
 
@@ -96,13 +93,24 @@ class Belle: UCSpace {
         }
 
         for child in children.compactMap({ $0 as? Belle }) {
+            let childRadius = child.suppressScaling ? child.radius / scale : child.radius
+
+            child.position.r = 1.0 - childRadius
+
             var pp = CGPoint(x: child.position.r, y: 0)
             pp = pp.applying(CGAffineTransform(scaleX: scale, y: 0))
             pp = pp.applying(CGAffineTransform(rotationAngle: rotation))
             pp = pp.applying(CGAffineTransform(translationX: sprite.position.x, y: sprite.position.y))
 
             child.sprite.position = pp
-            child.reify(scale: scale * child.radius)
+            child.reify(scale: scale * childRadius)
         }
+    }
+
+    func showHide(_ show: Bool) { sprite.color = show ? color : .clear }
+
+    func update(deltaTime: Double) {
+        guard let radiusAnimator = radiusAnimator else { return }
+        radiusAnimator.update(deltaTime: deltaTime / AppDefinitions.animationsDuration)
     }
 }

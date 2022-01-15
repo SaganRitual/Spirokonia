@@ -33,12 +33,15 @@ class PixoniaScene: SKScene, SKSceneDelegate, ObservableObject {
     }
 
     override func update(_ currentTime: TimeInterval) {
-        if pixieHarness.readyDotSnapshots.isEmpty { return }
+        if pixieHarness.readyDotSnapshots.isEmpty {
+            if !pixieHarness.inDenseUpdate { pixieHarness.startDenseUpdate() }
+            return
+        }
 
         let deltaTime = 1.0 / 60.0
 
-        pixieHarness.drawingPixies.forEach { $0.update(deltaTime: deltaTime) }
-        pixieHarness.platterPixie.update(deltaTime: deltaTime)
+        pixieHarness.drawingBelles.forEach { $0.update(deltaTime: deltaTime) }
+        pixieHarness.platterBelle.update(deltaTime: deltaTime)
 
         pixieHarness.dropDots()
     }

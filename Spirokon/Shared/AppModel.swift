@@ -9,7 +9,7 @@ class AppModel: ObservableObject, Codable {
     @Published var cycleSpeed: Double = 0.1
     @Published var density: Double = 5
     @Published var outerRingRadius: Double = 1.0
-    @Published var outerRingRollMode = AppDefinitions.RollMode.normal
+    @Published var outerRingRollMode = AppDefinitions.RollMode.cycloid
     @Published var outerRingShow = true
 
     @Published var tumblerSelectorSwitches: [AppDefinitions.TumblerSelectorSwitchState] = [

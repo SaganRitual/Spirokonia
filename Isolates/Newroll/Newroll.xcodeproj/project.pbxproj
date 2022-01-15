@@ -31,8 +31,8 @@
 		D46BECD9278CE1720031DA90 /* AppDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BECD7278CE1710031DA90 /* AppDefinitions.swift */; };
 		D46BECDE278CE1AC0031DA90 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BECDD278CE1AC0031DA90 /* YAColor.swift */; };
 		D46BECDF278CE1AC0031DA90 /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BECDD278CE1AC0031DA90 /* YAColor.swift */; };
-		D4A7F91827911E3F006BE6F9 /* Belle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A7F91727911E3F006BE6F9 /* Belle.swift */; };
-		D4A7F91927911E3F006BE6F9 /* Belle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A7F91727911E3F006BE6F9 /* Belle.swift */; };
+		D4A7F92127925B4E006BE6F9 /* Belle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A7F92027925B4E006BE6F9 /* Belle.swift */; };
+		D4A7F92227925B4E006BE6F9 /* Belle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A7F92027925B4E006BE6F9 /* Belle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,7 @@
 		D46BECD4278CC5C70031DA90 /* UnitCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCircle.swift; sourceTree = "<group>"; };
 		D46BECD7278CE1710031DA90 /* AppDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDefinitions.swift; path = ../../../Spirokon/Shared/AppDefinitions.swift; sourceTree = "<group>"; };
 		D46BECDD278CE1AC0031DA90 /* YAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YAColor.swift; path = ../../../Spirokon/Shared/Primitives/YAColor.swift; sourceTree = "<group>"; };
-		D4A7F91727911E3F006BE6F9 /* Belle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Belle.swift; sourceTree = "<group>"; };
+		D4A7F92027925B4E006BE6F9 /* Belle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Belle.swift; path = ../../../Spirokon/Shared/Pixonia/Belle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				D46BECD7278CE1710031DA90 /* AppDefinitions.swift */,
-				D4A7F91727911E3F006BE6F9 /* Belle.swift */,
+				D4A7F92027925B4E006BE6F9 /* Belle.swift */,
 				D46BECA7278CB22A0031DA90 /* ContentView.swift */,
 				D46BECD1278CC5780031DA90 /* Extensions.swift */,
 				D46BECA6278CB22A0031DA90 /* NewrollApp.swift */,
@@ -230,11 +230,11 @@
 				D46A671B278E6C8A003581D4 /* PixieHarness.swift in Sources */,
 				D46BECD5278CC5C70031DA90 /* UnitCircle.swift in Sources */,
 				D46BECB8278CB22C0031DA90 /* ContentView.swift in Sources */,
-				D4A7F91827911E3F006BE6F9 /* Belle.swift in Sources */,
 				D46BECD2278CC5780031DA90 /* Extensions.swift in Sources */,
 				D46BECB6278CB22C0031DA90 /* NewrollApp.swift in Sources */,
 				D46BECDE278CE1AC0031DA90 /* YAColor.swift in Sources */,
 				D46BECD8278CE1720031DA90 /* AppDefinitions.swift in Sources */,
+				D4A7F92127925B4E006BE6F9 /* Belle.swift in Sources */,
 				D46BECC9278CB2700031DA90 /* SpritePool.swift in Sources */,
 				D46BECCF278CC3CE0031DA90 /* PixoniaScene.swift in Sources */,
 				D46BECCC278CC39D0031DA90 /* PixoniaView.swift in Sources */,
@@ -248,11 +248,11 @@
 				D46A671C278E6C8A003581D4 /* PixieHarness.swift in Sources */,
 				D46BECD6278CC5C70031DA90 /* UnitCircle.swift in Sources */,
 				D46BECB9278CB22C0031DA90 /* ContentView.swift in Sources */,
-				D4A7F91927911E3F006BE6F9 /* Belle.swift in Sources */,
 				D46BECD3278CC5780031DA90 /* Extensions.swift in Sources */,
 				D46BECB7278CB22C0031DA90 /* NewrollApp.swift in Sources */,
 				D46BECDF278CE1AC0031DA90 /* YAColor.swift in Sources */,
 				D46BECD9278CE1720031DA90 /* AppDefinitions.swift in Sources */,
+				D4A7F92227925B4E006BE6F9 /* Belle.swift in Sources */,
 				D46BECCA278CB2700031DA90 /* SpritePool.swift in Sources */,
 				D46BECD0278CC3CE0031DA90 /* PixoniaScene.swift in Sources */,
 				D46BECCD278CC39D0031DA90 /* PixoniaView.swift in Sources */,

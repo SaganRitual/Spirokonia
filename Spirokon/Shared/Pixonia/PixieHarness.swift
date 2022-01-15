@@ -5,9 +5,10 @@ import SpriteKit
 
 class PixieHarness {
     let appModel: AppModel
-    let drawingPixies: [DrawingPixie]
+    var dotBelles = [Belle]()
+    var drawingBelles = [DrawingBelle]()
     let pixoniaScene: PixoniaScene
-    let platterPixie: PlatterPixie
+    let platterBelle: Belle
 
     let dotsQueue = DispatchQueue(
         label: "dotsQueue", attributes: .concurrent, target: DispatchQueue.global()
@@ -15,39 +16,42 @@ class PixieHarness {
 
     private var dotSnapshotsInProgress = [DotSnapshot]()
     var readyDotSnapshots = [DotSnapshot]()
+
     var dotSnapshotsReady = false
+    var inDenseUpdate = false
 
     init(pixoniaScene: PixoniaScene, appModel: AppModel) {
         self.appModel = appModel
         self.pixoniaScene = pixoniaScene
 
-        platterPixie = PlatterPixie(
-            radius: appModel.outerRingRadius, color: SKColor(AppDefinitions.platterPixieColor),
-            skParent: pixoniaScene, pixoniaScene: pixoniaScene
+        platterBelle = PlatterBelle(
+            pixoniaScene: pixoniaScene, spritePool: .crosshairRingsLarge,
+            color: SKColor(AppDefinitions.platterPixieColor)
         )
 
-        platterPixie.postInit(appModel)
+        platterBelle.postInit(appModel)
 
-        var parent = platterPixie.sprite
+        var parent = platterBelle
 
-        drawingPixies = (0..<4).map { ix in
-            let newPixie = DrawingPixie(
+        drawingBelles = (0..<4).map { ix in
+            let newBelle = DrawingBelle(
                 ix: ix,
                 radius: appModel.drawingTumblerSettingsModels.tumblerSettingsModels[ix].radius,
-                color: SKColor(AppDefinitions.drawingPixieColors[ix]), skParent: parent,
+                color: SKColor(AppDefinitions.drawingPixieColors[ix]), skParent: pixoniaScene,
                 pixoniaScene: pixoniaScene
             )
 
-            newPixie.postInit(appModel)
-
-            parent = newPixie.sprite
-            return newPixie
+            newBelle.postInit(appModel)
+            parent.addChild(newBelle)
+            parent = newBelle
+            return newBelle
         }
     }
 }
 
 extension PixieHarness {
     func startDenseUpdate() {
+        inDenseUpdate = true
         dotsQueue.async(execute: denseUpdate)
     }
 
@@ -60,6 +64,7 @@ extension PixieHarness {
             guard let myself = self else { return }
             myself.readyDotSnapshots.append(contentsOf: myself.dotSnapshotsInProgress)
             myself.dotSnapshotsInProgress.removeAll(keepingCapacity: true)
+            myself.inDenseUpdate = false
         }
     }
 
@@ -78,6 +83,7 @@ extension PixieHarness {
                 pixoniaScene.addChild(dot)
             }
 
+            dot.color = .red
             let delay = SKAction.wait(forDuration: snapshot.trailDecay - fadeDuration)
             let fade = SKAction.fadeOut(withDuration: fadeDuration)
             let action = SKAction.sequence([delay, fade])
@@ -91,22 +97,16 @@ extension PixieHarness {
 
 extension PixieHarness {
     func advance(by deltaTime: Double) {
-        var direction = 1.0
-        var rotation = deltaTime * appModel.cycleSpeed * .tau
+        platterBelle.advance(
+            by: deltaTime, masterCycleSpeed: appModel.cycleSpeed, scale: 1.0, direction: 1.0
+        )
 
-        platterPixie.advance(by: direction * rotation)
+        platterBelle.reify(scale: pixoniaScene.radius * platterBelle.radius)
 
-        for pixie in drawingPixies {
-            direction *= -1.0
-            rotation /= pixie.hotRadius
-
-            pixie.advance(by: direction * rotation)
-
-            if pixie.settingsModel.drawDots {
-                dotSnapshotsInProgress.append(
-                    pixie.takeSnapshot(deltaTime: deltaTime, pixoniaScene: pixoniaScene)
-                )
-            }
+        for belle in drawingBelles where belle.settingsModel.drawDots {
+            dotSnapshotsInProgress.append(
+                belle.takeSnapshot(deltaTime: deltaTime, pixoniaScene: pixoniaScene)
+            )
         }
     }
 }

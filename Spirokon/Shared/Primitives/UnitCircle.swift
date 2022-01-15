@@ -116,6 +116,8 @@ class UCSpace {
     var cgSize: CGSize { CGSize(width: diameter, height: diameter) }
     var diameter: Double { 2 * radius }
 
+    deinit { removeFromParent() }
+
     init(
         name: String, anchorPoint: UCPoint = .zero, position: UCPoint = .zero,
         radius: Double = 1.0, rotation: Double = 0.0

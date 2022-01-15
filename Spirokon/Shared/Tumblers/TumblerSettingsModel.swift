@@ -8,7 +8,7 @@ class TumblerSettingsModel: ObservableObject, Codable {
     @Published var penAxis: Int = 0
     @Published var pen: Double = 1.0
     @Published var radius: Double = 0.5
-    @Published var rollMode = AppDefinitions.RollMode.normal
+    @Published var rollMode = AppDefinitions.RollMode.cycloid
     @Published var rollRelationship = AppDefinitions.RollRelationship.innerToInner
     @Published var showRing = true
     @Published var trailDecay: Double = 3

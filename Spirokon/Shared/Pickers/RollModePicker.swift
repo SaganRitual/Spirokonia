@@ -7,17 +7,20 @@ struct RollModePicker: View {
     @Binding var rollMode: AppDefinitions.RollMode
 
     func getRollModes() -> [AppDefinitions.RollMode] {
-        if forMainRing { return [.sticky, .normal] }
-        else           { return [.sticky, .compensate, .normal] }
+        if forMainRing { return [.fullStop, .cycloid] }
+        else           { return [.sticky, .compensate, .cycloid, .flattened] }
     }
 
     func makePickerSegment(for mode: AppDefinitions.RollMode) -> some View {
         let image: Image
 
         switch mode {
-        case .sticky:     image = Image(systemName: "xmark.circle.fill")
         case .compensate: image = Image(systemName: "gobackward")
-        case .normal:     image = Image(systemName: "play.circle.fill")
+        case .cycloid:    image = Image(systemName: "play.circle")
+        case .flattened:  image = Image(systemName: "goforward.plus")
+
+        case .fullStop:   fallthrough
+        case .sticky:     image = Image(systemName: "xmark.circle.fill")
 
         case .doesNotRoll:
             fatalError("Shouldn't be in here for a non-roller (a pen)")
