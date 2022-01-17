@@ -23,7 +23,8 @@ A toy, a virtual "spirograph", inspired by YouTuber Sort of School's #SoME1
   * [SwiftLint](https://github.com/realm/SwiftLint) - you can disable this dependency by removing
   it from the Build Phases for your target.
   
-  ![Click on the x](./Spirokon/Shared/Doc/disable-swiftlint.jpg)
+  &nbsp;
+  <img src="./Spirokon/Shared/Doc/disable-swiftlint.jpg" width=600 />
   
   Or you can install it. See the instructions on their
   [github page](https://github.com/realm/SwiftLint). It's an incredibly useful tool.
