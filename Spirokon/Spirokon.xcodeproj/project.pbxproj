@@ -134,6 +134,7 @@
 		D46BEC91278B4E570031DA90 /* AppDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDefinitions.swift; sourceTree = "<group>"; };
 		D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixieHarness.swift; sourceTree = "<group>"; };
 		D47A83FA27961F8F00E6123C /* ContentView_Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView_Phone.swift; sourceTree = "<group>"; };
+		D47A8400279627F000E6123C /* disable-swiftlint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "disable-swiftlint.jpg"; sourceTree = "<group>"; };
 		D4A7F91D27925AD5006BE6F9 /* Belle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Belle.swift; sourceTree = "<group>"; };
 		D4C19ECD277FDE73000E7A4B /* TumblerSettingsSliders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsSliders.swift; sourceTree = "<group>"; };
 		D4D33BF22785FE7C0027A66E /* SliderStepPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepPicker.swift; sourceTree = "<group>"; };
@@ -211,6 +212,7 @@
 				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
 				D44BF5912777E32700E2FCE1 /* TogglesView.swift */,
 				D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */,
+				D47A83FD2796268100E6123C /* Doc */,
 				D47421FE278FF0A600C6A2DB /* Pickers */,
 				D43BF2E0278945170035FDEA /* Pixonia */,
 				D44BF4412777D94000E2FCE1 /* Primitives */,
@@ -285,6 +287,14 @@
 				D4D33BF22785FE7C0027A66E /* SliderStepPicker.swift */,
 			);
 			path = Pickers;
+			sourceTree = "<group>";
+		};
+		D47A83FD2796268100E6123C /* Doc */ = {
+			isa = PBXGroup;
+			children = (
+				D47A8400279627F000E6123C /* disable-swiftlint.jpg */,
+			);
+			path = Doc;
 			sourceTree = "<group>";
 		};
 		D4A7F92327926ADC006BE6F9 /* Frameworks */ = {
