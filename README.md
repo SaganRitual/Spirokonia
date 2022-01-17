@@ -5,12 +5,21 @@
 
 A toy, a virtual "spirograph", inspired by YouTuber Sort of School's #SoME1 [video](https://youtu.be/n-e9C8g5x68), which was inspired by YouTuber 3Blue1Brown's #SoME1 [challenge](https://youtu.be/ojjzXyQCzso)
 
+# Dependencies
+
+* Packages
+
+  These are already built into the project; you don't have to do anything special, except wait a minute after you load the workspace, for Xcode to find the packages online. If you get an error about Easing not being available, you probably just haven't waited long enough.
+
+  * [Easing](https://github.com/manuelCarlos/Easing)
+  * [swift-numerics](https://github.com/apple/swift-numerics)
+
+* Other
+
+  * [SwiftLint](https://github.com/realm/SwiftLint) - you can disable this dependency by removing it from the Build Phases for your target. Or you can install it. It's an incredibly useful tool.
+
 # Installation
 
-* Clone
-* Build one of the Spirokonia targets. The other targets are for developing new components.
-* Prefer the iPad target in landscape orientation or the macOS target. It does run on iPhone, but I haven't yet figured out a user-friendly way to present the views.
-
-# How to use the controls -- coming soon
-
-<img src="Screenshot.v0.2.gif" height=512 />
+* Clone.
+* Checkout the `spirozen` branch.
+* Build one of the Spirokon targets. The other targets are for developing new components.
