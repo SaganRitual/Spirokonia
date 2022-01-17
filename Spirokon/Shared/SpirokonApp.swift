@@ -8,6 +8,8 @@ struct SpirokonApp: App {
     @StateObject var pixoniaScene: PixoniaScene
     @StateObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
 
+    @StateObject private var deviceOrientation = DeviceOrientation()
+
     init() {
         let appModel = SpirokonApp.createAppModel()
         let sm = TumblerSelectorStateMachine(appModel: appModel)
@@ -35,10 +37,21 @@ struct SpirokonApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(appModel)
-                .environmentObject(pixoniaScene)
-                .environmentObject(tumblerSelectorStateMachine)
+            Group {
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    if deviceOrientation.orientation == .landscape {
+                        ContentView_HPhone()
+                    } else {
+                        ContentView_VPhone()
+                    }
+                } else {
+                    ContentView()
+                }
+            }
+
+            .environmentObject(appModel)
+            .environmentObject(pixoniaScene)
+            .environmentObject(tumblerSelectorStateMachine)
         }
     }
 }
