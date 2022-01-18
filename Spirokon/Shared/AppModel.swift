@@ -87,7 +87,9 @@ class AppModel: ObservableObject, Codable {
         self.outerRingRollMode = loaded.outerRingRollMode
         self.outerRingShow = loaded.outerRingShow
 
-        self.tumblerSelectorSwitches = loaded.tumblerSelectorSwitches
+        self.tumblerSelectorSwitches.indices.forEach {
+            self.tumblerSelectorSwitches[$0] = loaded.tumblerSelectorSwitches[$0]
+        }
 
         self.cycleSpeedStepKey = loaded.cycleSpeedStepKey
         self.outerRingRadiusStepKey = loaded.outerRingRadiusStepKey
