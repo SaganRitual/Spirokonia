@@ -10,11 +10,11 @@ typealias YAColor = UIColor
 #endif
 
 extension Color {
-    public static let crownpurple = Color(#colorLiteral(red: 0.2029999942, green: 0.1280000061, blue: 0.5730000138, alpha: 1))
+    public static let crownpurple = Color(#colorLiteral(red: 0.04527264824, green: 0.2167757381, blue: 0.6022949219, alpha: 1))
     public static let greenWithMayo = Color(#colorLiteral(red: 0, green: 1, blue: 0.6499999762, alpha: 1))
     public static let indefiniteButtonPress = Color(#colorLiteral(red: 0.40591746, green: 0.4063741724, blue: 0.4199178773, alpha: 1))
     public static let salmonzilla = Color(#colorLiteral(red: 1, green: 0.5799999833, blue: 0.7059999704, alpha: 1))
-    public static let shizzabrick = Color(#colorLiteral(red: 0.5989899137, green: 0.2336060577, blue: 0.1078181888, alpha: 1))
+    public static let shizzabrick = Color(#colorLiteral(red: 0.4346400136, green: 0.1679537967, blue: 0.0764051861, alpha: 1))
     public static let velvetpresley = Color(#colorLiteral(red: 0.349999994, green: 0.1280000061, blue: 0.5730000138, alpha: 1))
     public static let yellowShizzabrickRoad = Color(#colorLiteral(red: 1, green: 0.6688877694, blue: 0, alpha: 1))
 

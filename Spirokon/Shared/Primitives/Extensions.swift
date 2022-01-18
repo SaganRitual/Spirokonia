@@ -3,9 +3,27 @@
 import SpriteKit
 import SwiftUI
 
+extension CGSize {
+    static func / (_ lhs: CGSize, _ rhs: Double) -> CGSize {
+        return CGSize(width: lhs.width / rhs, height: lhs.height / rhs)
+    }
+}
+
 extension CGPoint {
     static func * (_ lhs: CGPoint, _ rhs: CGSize) -> CGPoint {
         return CGPoint(x: lhs.x * rhs.width, y: lhs.y * rhs.height)
+    }
+
+    static func * (_ lhs: CGPoint, _ rhs: CGFloat) -> CGPoint {
+        return CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
+    }
+
+    static func / (_ lhs: CGPoint, _ rhs: Double) -> CGPoint {
+        return CGPoint(x: lhs.x / rhs, y: lhs.y / rhs)
+    }
+
+    static func / (_ lhs: CGPoint, _ rhs: CGFloat) -> CGPoint {
+        return CGPoint(x: lhs.x / rhs, y: lhs.y / rhs)
     }
 }
 

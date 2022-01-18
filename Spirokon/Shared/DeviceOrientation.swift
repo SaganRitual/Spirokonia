@@ -3,6 +3,8 @@
 import Combine
 import UIKit
 
+// 🙏 https://developer.apple.com/forums/profile/xiedem
+// https://developer.apple.com/forums/thread/126878
 final class DeviceOrientation: ObservableObject {
       enum Orientation {
         case portrait
