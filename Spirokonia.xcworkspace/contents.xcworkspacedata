@@ -7,4 +7,7 @@
    <FileRef
       location = "group:Isolates/Newroll/Newroll.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Isolates/SaveLoad/SaveLoad.xcodeproj">
+   </FileRef>
 </Workspace>
