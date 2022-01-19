@@ -35,12 +35,6 @@ extension YAColor {
         let b = Double(Int(code.substr(5..<7), radix: 16)!) / 256.0
         return YAColor(red: r, green: g, blue: b, alpha: 1)
     }
-    
-    func desaturated() -> YAColor {
-        var h = CGFloat.zero, s = CGFloat.zero, b = CGFloat.zero, a = CGFloat.zero
-        self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
-        return YAColor(red: b, green: b, blue: b, alpha: 1)
-    }
 
     func desaturated() -> YAColor {
         var h = CGFloat.zero, s = CGFloat.zero, b = CGFloat.zero, a = CGFloat.zero

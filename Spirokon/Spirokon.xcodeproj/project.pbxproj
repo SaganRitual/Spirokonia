@@ -19,8 +19,6 @@
 		D43BF2DA278942CB0035FDEA /* TumblerSettingsObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2D5278942CA0035FDEA /* TumblerSettingsObservers.swift */; };
 		D43BF2DB278942CB0035FDEA /* TumblerSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */; };
 		D43BF2DC278942CB0035FDEA /* TumblerSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */; };
-		D43BF2DE278943360035FDEA /* SaveLoad_Old.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2DD278943360035FDEA /* SaveLoad_Old.swift */; };
-		D43BF2DF278943360035FDEA /* SaveLoad_Old.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2DD278943360035FDEA /* SaveLoad_Old.swift */; };
 		D43BF2EE278A7E0B0035FDEA /* PlatterBelle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2ED278A7E0B0035FDEA /* PlatterBelle.swift */; };
 		D43BF2EF278A7E0B0035FDEA /* PlatterBelle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2ED278A7E0B0035FDEA /* PlatterBelle.swift */; };
 		D43BF2F3278B0FA50035FDEA /* DrawingBelle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2EA278A7DB80035FDEA /* DrawingBelle.swift */; };
@@ -107,7 +105,6 @@
 		D43BF2D4278942CA0035FDEA /* TumblerSettingsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSettingsModels.swift; sourceTree = "<group>"; };
 		D43BF2D5278942CA0035FDEA /* TumblerSettingsObservers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSettingsObservers.swift; sourceTree = "<group>"; };
 		D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSettingsModel.swift; sourceTree = "<group>"; };
-		D43BF2DD278943360035FDEA /* SaveLoad_Old.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveLoad_Old.swift; sourceTree = "<group>"; };
 		D43BF2EA278A7DB80035FDEA /* DrawingBelle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBelle.swift; sourceTree = "<group>"; };
 		D43BF2ED278A7E0B0035FDEA /* PlatterBelle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatterBelle.swift; sourceTree = "<group>"; };
 		D44373D227952681003561E2 /* TumblerSettingsViewInner1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewInner1.swift; sourceTree = "<group>"; };
@@ -134,6 +131,8 @@
 		D44BF5A82777E8FF00E2FCE1 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		D44BF5A92777E8FF00E2FCE1 /* swiftlint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = swiftlint.sh; sourceTree = "<group>"; };
 		D45A93E8277E64E00007401E /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		D465BDFC2798C70F0028E19E /* dependencies-loaded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dependencies-loaded.png"; sourceTree = "<group>"; };
+		D465BDFD2798C70F0028E19E /* dependencies-not-loaded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dependencies-not-loaded.png"; sourceTree = "<group>"; };
 		D46A671D278E7404003581D4 /* Pixie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixie.swift; sourceTree = "<group>"; };
 		D46BEC91278B4E570031DA90 /* AppDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDefinitions.swift; sourceTree = "<group>"; };
 		D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixieHarness.swift; sourceTree = "<group>"; };
@@ -216,7 +215,6 @@
 				D4DBEF7C2795F69D0077E3BC /* ContentView_VPhone.swift */,
 				D4DBEF792795F5950077E3BC /* DeviceOrientation.swift */,
 				D47A855C27977A1500E6123C /* SaveLoad.swift */,
-				D43BF2DD278943360035FDEA /* SaveLoad_Old.swift */,
 				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
 				D44BF5912777E32700E2FCE1 /* TogglesView.swift */,
 				D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */,
@@ -300,6 +298,8 @@
 		D47A83FD2796268100E6123C /* Doc */ = {
 			isa = PBXGroup;
 			children = (
+				D465BDFC2798C70F0028E19E /* dependencies-loaded.png */,
+				D465BDFD2798C70F0028E19E /* dependencies-not-loaded.png */,
 				D47A8400279627F000E6123C /* disable-swiftlint.jpg */,
 			);
 			path = Doc;
@@ -485,7 +485,6 @@
 				D46BEC92278B4E570031DA90 /* AppDefinitions.swift in Sources */,
 				D44373D327952681003561E2 /* TumblerSettingsViewInner1.swift in Sources */,
 				D44373D6279526A9003561E2 /* TumblerSettingsViewInner2.swift in Sources */,
-				D43BF2DE278943360035FDEA /* SaveLoad_Old.swift in Sources */,
 				D46A671E278E7404003581D4 /* Pixie.swift in Sources */,
 				D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D43BF2EE278A7E0B0035FDEA /* PlatterBelle.swift in Sources */,
@@ -531,7 +530,6 @@
 				D46BEC93278B4E570031DA90 /* AppDefinitions.swift in Sources */,
 				D44373D427952681003561E2 /* TumblerSettingsViewInner1.swift in Sources */,
 				D44373D7279526A9003561E2 /* TumblerSettingsViewInner2.swift in Sources */,
-				D43BF2DF278943360035FDEA /* SaveLoad_Old.swift in Sources */,
 				D46A671F278E7404003581D4 /* Pixie.swift in Sources */,
 				D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D43BF2EF278A7E0B0035FDEA /* PlatterBelle.swift in Sources */,
