@@ -24,7 +24,9 @@ struct ContentView: View {
 
                 Spacer()
 
-                SaveLoad()
+                Section("Save / Load") {
+                    SaveLoad()
+                }
 
                 Spacer()
             }

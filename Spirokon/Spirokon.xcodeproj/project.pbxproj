@@ -19,8 +19,8 @@
 		D43BF2DA278942CB0035FDEA /* TumblerSettingsObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2D5278942CA0035FDEA /* TumblerSettingsObservers.swift */; };
 		D43BF2DB278942CB0035FDEA /* TumblerSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */; };
 		D43BF2DC278942CB0035FDEA /* TumblerSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */; };
-		D43BF2DE278943360035FDEA /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2DD278943360035FDEA /* SaveLoad.swift */; };
-		D43BF2DF278943360035FDEA /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2DD278943360035FDEA /* SaveLoad.swift */; };
+		D43BF2DE278943360035FDEA /* SaveLoad_Old.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2DD278943360035FDEA /* SaveLoad_Old.swift */; };
+		D43BF2DF278943360035FDEA /* SaveLoad_Old.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2DD278943360035FDEA /* SaveLoad_Old.swift */; };
 		D43BF2EE278A7E0B0035FDEA /* PlatterBelle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2ED278A7E0B0035FDEA /* PlatterBelle.swift */; };
 		D43BF2EF278A7E0B0035FDEA /* PlatterBelle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2ED278A7E0B0035FDEA /* PlatterBelle.swift */; };
 		D43BF2F3278B0FA50035FDEA /* DrawingBelle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF2EA278A7DB80035FDEA /* DrawingBelle.swift */; };
@@ -69,6 +69,10 @@
 		D46BEC9F278BE1DD0031DA90 /* PixieHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */; };
 		D47A83FB27961F8F00E6123C /* ContentView_Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A83FA27961F8F00E6123C /* ContentView_Phone.swift */; };
 		D47A83FC27961F8F00E6123C /* ContentView_Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A83FA27961F8F00E6123C /* ContentView_Phone.swift */; };
+		D47A855D27977A1500E6123C /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855C27977A1500E6123C /* SaveLoad.swift */; };
+		D47A855E27977A1500E6123C /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855C27977A1500E6123C /* SaveLoad.swift */; };
+		D47A856027977CAA00E6123C /* ArenaDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855F27977CAA00E6123C /* ArenaDiagram.swift */; };
+		D47A856127977CAA00E6123C /* ArenaDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855F27977CAA00E6123C /* ArenaDiagram.swift */; };
 		D48A90A22781DFF400884540 /* Easing in Frameworks */ = {isa = PBXBuildFile; productRef = D48A90A12781DFF400884540 /* Easing */; };
 		D4A7F91E27925AD5006BE6F9 /* Belle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A7F91D27925AD5006BE6F9 /* Belle.swift */; };
 		D4A7F91F27925AD5006BE6F9 /* Belle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A7F91D27925AD5006BE6F9 /* Belle.swift */; };
@@ -103,7 +107,7 @@
 		D43BF2D4278942CA0035FDEA /* TumblerSettingsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSettingsModels.swift; sourceTree = "<group>"; };
 		D43BF2D5278942CA0035FDEA /* TumblerSettingsObservers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSettingsObservers.swift; sourceTree = "<group>"; };
 		D43BF2D6278942CB0035FDEA /* TumblerSettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TumblerSettingsModel.swift; sourceTree = "<group>"; };
-		D43BF2DD278943360035FDEA /* SaveLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveLoad.swift; sourceTree = "<group>"; };
+		D43BF2DD278943360035FDEA /* SaveLoad_Old.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveLoad_Old.swift; sourceTree = "<group>"; };
 		D43BF2EA278A7DB80035FDEA /* DrawingBelle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBelle.swift; sourceTree = "<group>"; };
 		D43BF2ED278A7E0B0035FDEA /* PlatterBelle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatterBelle.swift; sourceTree = "<group>"; };
 		D44373D227952681003561E2 /* TumblerSettingsViewInner1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewInner1.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 		D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixieHarness.swift; sourceTree = "<group>"; };
 		D47A83FA27961F8F00E6123C /* ContentView_Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView_Phone.swift; sourceTree = "<group>"; };
 		D47A8400279627F000E6123C /* disable-swiftlint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "disable-swiftlint.jpg"; sourceTree = "<group>"; };
+		D47A855C27977A1500E6123C /* SaveLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveLoad.swift; sourceTree = "<group>"; };
+		D47A855F27977CAA00E6123C /* ArenaDiagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArenaDiagram.swift; sourceTree = "<group>"; };
 		D4A7F91D27925AD5006BE6F9 /* Belle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Belle.swift; sourceTree = "<group>"; };
 		D4C19ECD277FDE73000E7A4B /* TumblerSettingsSliders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsSliders.swift; sourceTree = "<group>"; };
 		D4D33BF22785FE7C0027A66E /* SliderStepPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepPicker.swift; sourceTree = "<group>"; };
@@ -203,12 +209,14 @@
 			children = (
 				D46BEC91278B4E570031DA90 /* AppDefinitions.swift */,
 				D43BF2CB2789410D0035FDEA /* AppModel.swift */,
+				D47A855F27977CAA00E6123C /* ArenaDiagram.swift */,
 				D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */,
 				D4DBEF762795F17D0077E3BC /* ContentView_HPhone.swift */,
 				D47A83FA27961F8F00E6123C /* ContentView_Phone.swift */,
 				D4DBEF7C2795F69D0077E3BC /* ContentView_VPhone.swift */,
 				D4DBEF792795F5950077E3BC /* DeviceOrientation.swift */,
-				D43BF2DD278943360035FDEA /* SaveLoad.swift */,
+				D47A855C27977A1500E6123C /* SaveLoad.swift */,
+				D43BF2DD278943360035FDEA /* SaveLoad_Old.swift */,
 				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
 				D44BF5912777E32700E2FCE1 /* TogglesView.swift */,
 				D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */,
@@ -462,6 +470,7 @@
 				D44373D927952704003561E2 /* TumblerSettingsViewInner3.swift in Sources */,
 				D46BEC9E278BE1DD0031DA90 /* PixieHarness.swift in Sources */,
 				D4F4BBAF277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */,
+				D47A856027977CAA00E6123C /* ArenaDiagram.swift in Sources */,
 				D4C19ECE277FDE73000E7A4B /* TumblerSettingsSliders.swift in Sources */,
 				D4F4BBB5277CFD5A0049035F /* TumblerSettingsViewOuter.swift in Sources */,
 				D43BF2F3278B0FA50035FDEA /* DrawingBelle.swift in Sources */,
@@ -476,7 +485,7 @@
 				D46BEC92278B4E570031DA90 /* AppDefinitions.swift in Sources */,
 				D44373D327952681003561E2 /* TumblerSettingsViewInner1.swift in Sources */,
 				D44373D6279526A9003561E2 /* TumblerSettingsViewInner2.swift in Sources */,
-				D43BF2DE278943360035FDEA /* SaveLoad.swift in Sources */,
+				D43BF2DE278943360035FDEA /* SaveLoad_Old.swift in Sources */,
 				D46A671E278E7404003581D4 /* Pixie.swift in Sources */,
 				D44BF5562777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D43BF2EE278A7E0B0035FDEA /* PlatterBelle.swift in Sources */,
@@ -484,6 +493,7 @@
 				D4DBEF772795F17D0077E3BC /* ContentView_HPhone.swift in Sources */,
 				D47A83FB27961F8F00E6123C /* ContentView_Phone.swift in Sources */,
 				D4DBEF7D2795F69D0077E3BC /* ContentView_VPhone.swift in Sources */,
+				D47A855E27977A1500E6123C /* SaveLoad.swift in Sources */,
 				D4D33BF32785FE7C0027A66E /* SliderStepPicker.swift in Sources */,
 				D408C408277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
 				D44BF5922777E32700E2FCE1 /* TogglesView.swift in Sources */,
@@ -506,6 +516,7 @@
 				D44373DA27952704003561E2 /* TumblerSettingsViewInner3.swift in Sources */,
 				D46BEC9F278BE1DD0031DA90 /* PixieHarness.swift in Sources */,
 				D4F4BBB0277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */,
+				D47A856127977CAA00E6123C /* ArenaDiagram.swift in Sources */,
 				D4C19ECF277FDE73000E7A4B /* TumblerSettingsSliders.swift in Sources */,
 				D4F4BBB6277CFD5A0049035F /* TumblerSettingsViewOuter.swift in Sources */,
 				D43BF2F4278B0FA60035FDEA /* DrawingBelle.swift in Sources */,
@@ -520,7 +531,7 @@
 				D46BEC93278B4E570031DA90 /* AppDefinitions.swift in Sources */,
 				D44373D427952681003561E2 /* TumblerSettingsViewInner1.swift in Sources */,
 				D44373D7279526A9003561E2 /* TumblerSettingsViewInner2.swift in Sources */,
-				D43BF2DF278943360035FDEA /* SaveLoad.swift in Sources */,
+				D43BF2DF278943360035FDEA /* SaveLoad_Old.swift in Sources */,
 				D46A671F278E7404003581D4 /* Pixie.swift in Sources */,
 				D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D43BF2EF278A7E0B0035FDEA /* PlatterBelle.swift in Sources */,
@@ -528,6 +539,7 @@
 				D4DBEF782795F17D0077E3BC /* ContentView_HPhone.swift in Sources */,
 				D47A83FC27961F8F00E6123C /* ContentView_Phone.swift in Sources */,
 				D4DBEF7E2795F69D0077E3BC /* ContentView_VPhone.swift in Sources */,
+				D47A855D27977A1500E6123C /* SaveLoad.swift in Sources */,
 				D4D33BF42785FE7C0027A66E /* SliderStepPicker.swift in Sources */,
 				D408C409277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
 				D44BF5932777E32700E2FCE1 /* TogglesView.swift in Sources */,

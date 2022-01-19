@@ -12,7 +12,9 @@ class TumblerSettingsModels: ObservableObject, Codable {
     var appModel: AppModel!
     var tumblerSelectorStateMachine: TumblerSelectorStateMachine!
 
-    init() { }
+    init() {
+        tumblerSettingsModels = (0..<4).map { _ in TumblerSettingsModel() }
+    }
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -37,6 +39,8 @@ class TumblerSettingsModels: ObservableObject, Codable {
     }
 
     func copy(from loaded: TumblerSettingsModels) {
-        tumblerSettingsModels = loaded.tumblerSettingsModels
+        tumblerSettingsModels.indices.forEach {
+            tumblerSettingsModels[$0].copy(from: loaded.tumblerSettingsModels[$0])
+        }
     }
 }

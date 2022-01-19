@@ -21,6 +21,8 @@
 		D47A855227971E2600E6123C /* YAColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855027971E2600E6123C /* YAColor.swift */; };
 		D47A855427971ED700E6123C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855327971ED700E6123C /* Extensions.swift */; };
 		D47A855527971ED700E6123C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855327971ED700E6123C /* Extensions.swift */; };
+		D47A855A27977A0400E6123C /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855927977A0400E6123C /* SaveLoad.swift */; };
+		D47A855B27977A0400E6123C /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855927977A0400E6123C /* SaveLoad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,7 @@
 		D47A854D27971E0F00E6123C /* AppDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDefinitions.swift; path = ../../../Spirokon/Shared/AppDefinitions.swift; sourceTree = "<group>"; };
 		D47A855027971E2600E6123C /* YAColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YAColor.swift; path = ../../../Spirokon/Shared/Primitives/YAColor.swift; sourceTree = "<group>"; };
 		D47A855327971ED700E6123C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../Spirokon/Shared/Primitives/Extensions.swift; sourceTree = "<group>"; };
+		D47A855927977A0400E6123C /* SaveLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveLoad.swift; path = ../../../Spirokon/Shared/SaveLoad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,7 @@
 				D47A854D27971E0F00E6123C /* AppDefinitions.swift */,
 				D47A854A27971DA500E6123C /* ArenaDiagram.swift */,
 				D47A852A27971BF000E6123C /* ContentView.swift */,
+				D47A855927977A0400E6123C /* SaveLoad.swift */,
 				D47A855327971ED700E6123C /* Extensions.swift */,
 				D47A855027971E2600E6123C /* YAColor.swift */,
 				D47A852B27971BF100E6123C /* Assets.xcassets */,
@@ -198,6 +202,7 @@
 				D47A854B27971DA500E6123C /* ArenaDiagram.swift in Sources */,
 				D47A855127971E2600E6123C /* YAColor.swift in Sources */,
 				D47A853927971BF200E6123C /* SaveLoadApp.swift in Sources */,
+				D47A855A27977A0400E6123C /* SaveLoad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +216,7 @@
 				D47A854C27971DA500E6123C /* ArenaDiagram.swift in Sources */,
 				D47A855227971E2600E6123C /* YAColor.swift in Sources */,
 				D47A853A27971BF200E6123C /* SaveLoadApp.swift in Sources */,
+				D47A855B27977A0400E6123C /* SaveLoad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -42,6 +42,12 @@ extension YAColor {
         return YAColor(red: b, green: b, blue: b, alpha: 1)
     }
 
+    func desaturated() -> YAColor {
+        var h = CGFloat.zero, s = CGFloat.zero, b = CGFloat.zero, a = CGFloat.zero
+        self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+        return YAColor(red: b, green: b, blue: b, alpha: 1)
+    }
+
     func rotateHue(byAngle radians: Double) -> YAColor {
         var h = CGFloat.zero, s = CGFloat.zero, b = CGFloat.zero, a = CGFloat.zero
         self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
