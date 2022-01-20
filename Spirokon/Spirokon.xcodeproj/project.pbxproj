@@ -113,7 +113,7 @@
 		D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirokonApp.swift; sourceTree = "<group>"; };
 		D44BF3DD2777D8D800E2FCE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D44BF3DE2777D8D900E2FCE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D44BF3E32777D8D900E2FCE1 /* Spirokon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spirokon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44BF3E32777D8D900E2FCE1 /* SpiroZen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpiroZen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44BF3E92777D8D900E2FCE1 /* Spirokon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spirokon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44BF3EB2777D8D900E2FCE1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		D44BF3FD2777D90400E2FCE1 /* PixoniaScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PixoniaScene.swift; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		D44BF3E42777D8D900E2FCE1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D44BF3E32777D8D900E2FCE1 /* Spirokon.app */,
+				D44BF3E32777D8D900E2FCE1 /* SpiroZen.app */,
 				D44BF3E92777D8D900E2FCE1 /* Spirokon.app */,
 			);
 			name = Products;
@@ -315,9 +315,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D44BF3E22777D8D900E2FCE1 /* Spirokon (iOS) */ = {
+		D44BF3E22777D8D900E2FCE1 /* SpiroZen (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D44BF3F42777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "Spirokon (iOS)" */;
+			buildConfigurationList = D44BF3F42777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "SpiroZen (iOS)" */;
 			buildPhases = (
 				D44BF5A62777E73700E2FCE1 /* ShellScript */,
 				D44BF3DF2777D8D900E2FCE1 /* Sources */,
@@ -328,17 +328,17 @@
 			);
 			dependencies = (
 			);
-			name = "Spirokon (iOS)";
+			name = "SpiroZen (iOS)";
 			packageProductDependencies = (
 				D48A90A12781DFF400884540 /* Easing */,
 			);
 			productName = "Spirokon (iOS)";
-			productReference = D44BF3E32777D8D900E2FCE1 /* Spirokon.app */;
+			productReference = D44BF3E32777D8D900E2FCE1 /* SpiroZen.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D44BF3E82777D8D900E2FCE1 /* Spirokon (macOS) */ = {
+		D44BF3E82777D8D900E2FCE1 /* SpiroZen (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D44BF3F72777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "Spirokon (macOS)" */;
+			buildConfigurationList = D44BF3F72777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "SpiroZen (macOS)" */;
 			buildPhases = (
 				D44BF3E52777D8D900E2FCE1 /* Sources */,
 				D44BF3E62777D8D900E2FCE1 /* Frameworks */,
@@ -349,7 +349,7 @@
 			);
 			dependencies = (
 			);
-			name = "Spirokon (macOS)";
+			name = "SpiroZen (macOS)";
 			packageProductDependencies = (
 				D4A7F92427926ADC006BE6F9 /* Easing */,
 			);
@@ -391,8 +391,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D44BF3E22777D8D900E2FCE1 /* Spirokon (iOS) */,
-				D44BF3E82777D8D900E2FCE1 /* Spirokon (macOS) */,
+				D44BF3E22777D8D900E2FCE1 /* SpiroZen (iOS) */,
+				D44BF3E82777D8D900E2FCE1 /* SpiroZen (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -693,8 +693,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Spirokon;
-				PRODUCT_NAME = Spirokon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saganritual.SpiroZen;
+				PRODUCT_NAME = SpiroZen;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -723,8 +723,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.boringsoftware.Spirokon;
-				PRODUCT_NAME = Spirokon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.saganritual.SpiroZen;
+				PRODUCT_NAME = SpiroZen;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -801,7 +801,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D44BF3F42777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "Spirokon (iOS)" */ = {
+		D44BF3F42777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "SpiroZen (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D44BF3F52777D8D900E2FCE1 /* Debug */,
@@ -810,7 +810,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D44BF3F72777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "Spirokon (macOS)" */ = {
+		D44BF3F72777D8D900E2FCE1 /* Build configuration list for PBXNativeTarget "SpiroZen (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D44BF3F82777D8D900E2FCE1 /* Debug */,

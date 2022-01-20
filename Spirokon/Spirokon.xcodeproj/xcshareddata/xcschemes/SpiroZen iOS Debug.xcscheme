@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D44BF3E22777D8D900E2FCE1"
-               BuildableName = "Spirokon.app"
-               BlueprintName = "Spirokon (iOS)"
+               BuildableName = "SpiroZen.app"
+               BlueprintName = "SpiroZen (iOS)"
                ReferencedContainer = "container:Spirokon.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D44BF3E22777D8D900E2FCE1"
-            BuildableName = "Spirokon.app"
-            BlueprintName = "Spirokon (iOS)"
+            BuildableName = "SpiroZen.app"
+            BlueprintName = "SpiroZen (iOS)"
             ReferencedContainer = "container:Spirokon.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D44BF3E22777D8D900E2FCE1"
-            BuildableName = "Spirokon.app"
-            BlueprintName = "Spirokon (iOS)"
+            BuildableName = "SpiroZen.app"
+            BlueprintName = "SpiroZen (iOS)"
             ReferencedContainer = "container:Spirokon.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

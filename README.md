@@ -33,4 +33,4 @@ A toy, a virtual "spirograph", inspired by YouTuber Sort of School's #SoME1
 
 * Clone.
 * Checkout the `spirozen` branch.
-* Build one of the Spirokon targets. The other targets are for developing new components.
+* Build one of the SpiroZen targets. The other targets are for developing new components.
