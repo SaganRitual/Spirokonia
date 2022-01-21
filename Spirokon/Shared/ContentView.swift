@@ -6,34 +6,60 @@ struct ContentView: View {
     @EnvironmentObject var appModel: AppModel
     @EnvironmentObject var pixoniaScene: PixoniaScene
 
+    var landscape = false
+
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
-
+            Form {
                 Section("Main") {
                     TumblerSettingsViewOuter()
                 }
-
-                Spacer()
 
                 Section("Tumblers") {
                     TumblerSelectorView()
                     TumblerSettingsViewInner()
                 }
 
-                Spacer()
-
                 Section("Save / Load") {
                     SaveLoad()
                 }
 
-                Spacer()
+                NavigationLink("Quick Help") {
+                    HelpView()
+                }
             }
-            .navigationTitle("SpiroZen")
-            .padding(.horizontal)
+            .navigationTitle("Dashboard")
 
             PixoniaView(scene: pixoniaScene)
         }
+    }
+}
+
+struct Previews_ContentView_Previews: PreviewProvider {
+    struct Objects {
+        @StateObject var appModel: AppModel
+        @StateObject var pixoniaScene: PixoniaScene
+        @StateObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
+
+        init() {
+            let appModel = SpirokonApp.createAppModel()
+            let sm = TumblerSelectorStateMachine(appModel: appModel)
+
+            appModel.postInit(sm)
+
+            let scene = PixoniaScene(appModel: appModel, tumblerSelectorStateMachine: sm)
+
+            _appModel = StateObject(wrappedValue: appModel)
+            _tumblerSelectorStateMachine = StateObject(wrappedValue: sm)
+            _pixoniaScene = StateObject(wrappedValue: scene)
+        }
+    }
+
+    static let objects = Objects()
+
+    static var previews: some View {
+        ContentView()
+            .environmentObject(objects.appModel)
+            .environmentObject(objects.pixoniaScene)
     }
 }

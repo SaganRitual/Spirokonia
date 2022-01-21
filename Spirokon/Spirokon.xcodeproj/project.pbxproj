@@ -66,7 +66,6 @@
 		D46BEC9E278BE1DD0031DA90 /* PixieHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */; };
 		D46BEC9F278BE1DD0031DA90 /* PixieHarness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46BEC9D278BE1DD0031DA90 /* PixieHarness.swift */; };
 		D47A83FB27961F8F00E6123C /* ContentView_Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A83FA27961F8F00E6123C /* ContentView_Phone.swift */; };
-		D47A83FC27961F8F00E6123C /* ContentView_Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A83FA27961F8F00E6123C /* ContentView_Phone.swift */; };
 		D47A855D27977A1500E6123C /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855C27977A1500E6123C /* SaveLoad.swift */; };
 		D47A855E27977A1500E6123C /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855C27977A1500E6123C /* SaveLoad.swift */; };
 		D47A856027977CAA00E6123C /* ArenaDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47A855F27977CAA00E6123C /* ArenaDiagram.swift */; };
@@ -82,11 +81,10 @@
 		D4D33BF6278610DF0027A66E /* RollRelationshipPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D33BF5278610DF0027A66E /* RollRelationshipPicker.swift */; };
 		D4D33BF7278610DF0027A66E /* RollRelationshipPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D33BF5278610DF0027A66E /* RollRelationshipPicker.swift */; };
 		D4DBEF772795F17D0077E3BC /* ContentView_HPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DBEF762795F17D0077E3BC /* ContentView_HPhone.swift */; };
-		D4DBEF782795F17D0077E3BC /* ContentView_HPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DBEF762795F17D0077E3BC /* ContentView_HPhone.swift */; };
 		D4DBEF7A2795F5950077E3BC /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DBEF792795F5950077E3BC /* DeviceOrientation.swift */; };
-		D4DBEF7B2795F5950077E3BC /* DeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DBEF792795F5950077E3BC /* DeviceOrientation.swift */; };
 		D4DBEF7D2795F69D0077E3BC /* ContentView_VPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DBEF7C2795F69D0077E3BC /* ContentView_VPhone.swift */; };
-		D4DBEF7E2795F69D0077E3BC /* ContentView_VPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DBEF7C2795F69D0077E3BC /* ContentView_VPhone.swift */; };
+		D4DDBF0A279A339600786079 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DDBF09279A339600786079 /* HelpView.swift */; };
+		D4DDBF0B279A339600786079 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DDBF09279A339600786079 /* HelpView.swift */; };
 		D4F4BB76277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
 		D4F4BB77277C8B270049035F /* UnitCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BB75277C8B270049035F /* UnitCircle.swift */; };
 		D4F4BBAF277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */; };
@@ -147,6 +145,7 @@
 		D4DBEF762795F17D0077E3BC /* ContentView_HPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView_HPhone.swift; sourceTree = "<group>"; };
 		D4DBEF792795F5950077E3BC /* DeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOrientation.swift; sourceTree = "<group>"; };
 		D4DBEF7C2795F69D0077E3BC /* ContentView_VPhone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView_VPhone.swift; sourceTree = "<group>"; };
+		D4DDBF09279A339600786079 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		D4F4BB75277C8B270049035F /* UnitCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCircle.swift; sourceTree = "<group>"; };
 		D4F4BBAE277CF7B00049035F /* TumblerSettingsViewInner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewInner.swift; sourceTree = "<group>"; };
 		D4F4BBB4277CFD5A0049035F /* TumblerSettingsViewOuter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblerSettingsViewOuter.swift; sourceTree = "<group>"; };
@@ -214,6 +213,7 @@
 				D47A83FA27961F8F00E6123C /* ContentView_Phone.swift */,
 				D4DBEF7C2795F69D0077E3BC /* ContentView_VPhone.swift */,
 				D4DBEF792795F5950077E3BC /* DeviceOrientation.swift */,
+				D4DDBF09279A339600786079 /* HelpView.swift */,
 				D47A855C27977A1500E6123C /* SaveLoad.swift */,
 				D44BF3DC2777D8D800E2FCE1 /* SpirokonApp.swift */,
 				D44BF5912777E32700E2FCE1 /* TogglesView.swift */,
@@ -467,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4DBEF7A2795F5950077E3BC /* DeviceOrientation.swift in Sources */,
+				D4DDBF0A279A339600786079 /* HelpView.swift in Sources */,
 				D44373D927952704003561E2 /* TumblerSettingsViewInner3.swift in Sources */,
 				D46BEC9E278BE1DD0031DA90 /* PixieHarness.swift in Sources */,
 				D4F4BBAF277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */,
@@ -511,10 +512,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4DBEF7B2795F5950077E3BC /* DeviceOrientation.swift in Sources */,
 				D44373DA27952704003561E2 /* TumblerSettingsViewInner3.swift in Sources */,
 				D46BEC9F278BE1DD0031DA90 /* PixieHarness.swift in Sources */,
 				D4F4BBB0277CF7B00049035F /* TumblerSettingsViewInner.swift in Sources */,
+				D4DDBF0B279A339600786079 /* HelpView.swift in Sources */,
 				D47A856127977CAA00E6123C /* ArenaDiagram.swift in Sources */,
 				D4C19ECF277FDE73000E7A4B /* TumblerSettingsSliders.swift in Sources */,
 				D4F4BBB6277CFD5A0049035F /* TumblerSettingsViewOuter.swift in Sources */,
@@ -534,9 +535,6 @@
 				D44BF5572777E04900E2FCE1 /* TumblerSelectorView.swift in Sources */,
 				D43BF2EF278A7E0B0035FDEA /* PlatterBelle.swift in Sources */,
 				D44BF4542777D95000E2FCE1 /* Extensions.swift in Sources */,
-				D4DBEF782795F17D0077E3BC /* ContentView_HPhone.swift in Sources */,
-				D47A83FC27961F8F00E6123C /* ContentView_Phone.swift in Sources */,
-				D4DBEF7E2795F69D0077E3BC /* ContentView_VPhone.swift in Sources */,
 				D47A855D27977A1500E6123C /* SaveLoad.swift in Sources */,
 				D4D33BF42785FE7C0027A66E /* SliderStepPicker.swift in Sources */,
 				D408C409277A6FEF0053B5F4 /* TumblerSelectorStateMachine.swift in Sources */,
@@ -677,6 +675,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DD983V4X84;
@@ -695,6 +694,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.saganritual.SpiroZen;
 				PRODUCT_NAME = SpiroZen;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -707,6 +707,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DD983V4X84;
@@ -725,6 +726,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.saganritual.SpiroZen;
 				PRODUCT_NAME = SpiroZen;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

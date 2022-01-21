@@ -34,7 +34,6 @@ struct TumblerSelectorView: View {
 
     var body: some View {
         HStack(alignment: .bottom) {
-            Spacer()
             ForEach(appModel.tumblerSelectorSwitches.indices) { ix in
                 Button(
                     action: { tumblerSelectorStateMachine.endPress() },
@@ -51,8 +50,7 @@ struct TumblerSelectorView: View {
                         .onChanged { _ in tumblerSelectorStateMachine.beginPress(ix) }
                 )
                 .buttonStyle(TumblerSelectorButton(appModel: appModel, ix: ix))
-
-                Spacer()
+                .offset(x: -12.5)
             }
         }
     }
