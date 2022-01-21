@@ -48,7 +48,11 @@ struct SpirokonApp: App {
                         ContentView_VPhone()
                     }
                 } else {
-                    ContentView(landscape: deviceOrientation.orientation == .landscape)
+                    if deviceOrientation.orientation == .landscape {
+                        ContentView()
+                    } else {
+                        ContentView_VPhone()
+                    }
                 }
                 #else
                 ContentView()

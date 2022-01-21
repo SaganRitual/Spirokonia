@@ -9,18 +9,8 @@ struct ContentView_Phone: View {
 
             VStack {
                 TumblerSelectorView()
-                TumblerSettingsViewInner1()
-            }.tabItem { Image(systemName: "goforward.plus") }
-
-            VStack {
-                TumblerSelectorView()
-                TumblerSettingsViewInner2()
+                TumblerSettingsViewInner()
             }.tabItem { Image(systemName: "pencil") }
-
-            VStack {
-                TumblerSelectorView()
-                TumblerSettingsViewInner3()
-            }.tabItem { Image(systemName: "rectangle.and.pencil.and.ellipsis") }
 
             SaveLoad().tabItem { Image(systemName: "square.and.arrow.down") }
         }

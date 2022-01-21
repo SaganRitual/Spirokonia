@@ -4,11 +4,7 @@ import SwiftUI
 
 struct HelpView: View {
     var body: some View {
-        VStack {
-            Image("main-controls").resizable()
-            Image("tumbler-controls").resizable()
-            Image("save-load").resizable()
-        }
+        Image("help-view").resizable().background(Color.black)
     }
 }
 

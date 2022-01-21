@@ -6,7 +6,7 @@ struct ContentView: View {
     @EnvironmentObject var appModel: AppModel
     @EnvironmentObject var pixoniaScene: PixoniaScene
 
-    var landscape = false
+    @State private var showQuickHelp = false
 
     var body: some View {
         NavigationView {
@@ -24,13 +24,20 @@ struct ContentView: View {
                     SaveLoad()
                 }
 
-                NavigationLink("Quick Help") {
-                    HelpView()
+                Section {
+                    Button(
+                        action: { withAnimation { showQuickHelp.toggle() } },
+                        label: { Text(showQuickHelp ? "Return to SpiroZen" : "Quick Help") }
+                    )
                 }
             }
             .navigationTitle("Dashboard")
 
-            PixoniaView(scene: pixoniaScene)
+            if showQuickHelp {
+                HelpView().transition(.move(edge: .trailing))
+            } else {
+                PixoniaView(scene: pixoniaScene)
+            }
         }
     }
 }
