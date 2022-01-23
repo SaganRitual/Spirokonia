@@ -2,6 +2,7 @@ import SpriteKit
 
 class SpritePool {
     static let crosshairRingsLarge = SpritePool("Markers", "crosshair-ring-1024-4")
+    static let crosshairRings2048x2048x24 = SpritePool("Markers", "crosshair-ring-2048x2048x24")
     static let dots = SpritePool("Markers", "circle-solid", cPreallocate: 100000)
     static let lines = SpritePool("Markers", "line-1024-10")
     static let plainRings = SpritePool("Markers", "ring-1024-4")

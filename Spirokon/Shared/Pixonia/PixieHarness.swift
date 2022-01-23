@@ -38,7 +38,7 @@ class PixieHarness {
         self.pixoniaScene = pixoniaScene
 
         platterBelle = PlatterBelle(
-            pixoniaScene: pixoniaScene, spritePool: .crosshairRingsLarge,
+            pixoniaScene: pixoniaScene, spritePool: .crosshairRings2048x2048x24,
             color: SKColor(AppDefinitions.platterPixieColor)
         )
 

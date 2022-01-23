@@ -39,9 +39,9 @@ final class DrawingBelle: Belle {
             reifiedAnchor: .anchorDueWest
         )
 
-        mainPenArm.reifiedHeightOverride = 3
+        mainPenArm.reifiedHeightOverride = 12
 
-        super.init(pixoniaScene: pixoniaScene, spritePool: .crosshairRingsLarge, color: color)
+        super.init(pixoniaScene: pixoniaScene, spritePool: .crosshairRings2048x2048x24, color: color)
 
         self.addChild(dotBelle)
         self.addChild(mainPenArm)
