@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct ContentView_Phone: View {
+struct RunView_Phone: View {
     var body: some View {
         TabView {
             TumblerSettingsViewOuter().tabItem { Image(systemName: "speedometer") }

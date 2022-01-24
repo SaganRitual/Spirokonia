@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct ContentView_HPhone: View {
+struct RunView_VPhone: View {
     @EnvironmentObject var appModel: AppModel
     @EnvironmentObject var pixoniaScene: PixoniaScene
 
@@ -10,16 +10,26 @@ struct ContentView_HPhone: View {
     @State private var showUI = false
 
     var body: some View {
-        HStack {
-            VStack {
+        VStack {
+            if showQuickHelp {
+                HelpView().transition(.move(edge: .bottom))
+            } else {
+                PixoniaView(scene: pixoniaScene)
+            }
+
+            if showUI {
+                RunView_Phone().transition(.move(edge: .bottom))
+            }
+
+            HStack {
                 Button(
                     action: { withAnimation {
                         showUI.toggle()
                         if !showUI { showQuickHelp = false }
                     } },
-                    label: { Image(systemName: showUI ? "chevron.left" : "chevron.right") }
+                    label: { Image(systemName: showUI ? "chevron.down" : "chevron.up").padding(.bottom) }
                 )
-                .padding(.bottom)
+                .padding(.trailing)
 
                 Button(
                     action: { withAnimation {
@@ -28,16 +38,12 @@ struct ContentView_HPhone: View {
                     } },
                     label: { Image(systemName: "questionmark.circle") }
                 )
-            }
+                .padding(.trailing)
 
-            if showUI {
-                ContentView_Phone().transition(.move(edge: .leading))
-            }
-
-            if showQuickHelp {
-                HelpView().transition(.move(edge: .leading))
-            } else {
-                PixoniaView(scene: pixoniaScene)
+                Link(
+                    destination: URL(string: "https://saganritual.github.io/spirozen-classic-getting-started/")!,
+                    label: { Image(systemName: "play.rectangle.fill") }
+                )
             }
         }
     }

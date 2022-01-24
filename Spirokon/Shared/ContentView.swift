@@ -3,70 +3,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var appModel: AppModel
-    @EnvironmentObject var pixoniaScene: PixoniaScene
+    func showWelcomeScreen() -> Bool {
+        if let loaded = UserDefaults.standard.data(forKey: "showWelcomeScreen") {
+            if let showWelcomeScreen = try? JSONDecoder().decode(Bool.self, from: loaded) {
+                return showWelcomeScreen
+            }
+        }
 
-    @State private var showQuickHelp = false
+        return true
+    }
 
     var body: some View {
-        NavigationView {
-            Form {
-                Section("Main") {
-                    TumblerSettingsViewOuter()
-                }
-
-                Section("Tumblers") {
-                    TumblerSelectorView()
-                    TumblerSettingsViewInner()
-                }
-
-                Section("Save / Load") {
-                    SaveLoad()
-                }
-
-                Section {
-                    Button(
-                        action: { withAnimation { showQuickHelp.toggle() } },
-                        label: { Text(showQuickHelp ? "Return to SpiroZen" : "Quick Help") }
-                    )
-                }
-            }
-            .navigationTitle("Dashboard")
-
-            if showQuickHelp {
-                HelpView().transition(.move(edge: .trailing))
-            } else {
-                PixoniaView(scene: pixoniaScene)
-            }
+        if showWelcomeScreen() {
+            WelcomeView()
+        } else {
+            RunView()
         }
     }
 }
 
-struct Previews_ContentView_Previews: PreviewProvider {
-    struct Objects {
-        @StateObject var appModel: AppModel
-        @StateObject var pixoniaScene: PixoniaScene
-        @StateObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
-
-        init() {
-            let appModel = SpirokonApp.createAppModel()
-            let sm = TumblerSelectorStateMachine(appModel: appModel)
-
-            appModel.postInit(sm)
-
-            let scene = PixoniaScene(appModel: appModel, tumblerSelectorStateMachine: sm)
-
-            _appModel = StateObject(wrappedValue: appModel)
-            _tumblerSelectorStateMachine = StateObject(wrappedValue: sm)
-            _pixoniaScene = StateObject(wrappedValue: scene)
-        }
-    }
-
-    static let objects = Objects()
-
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(objects.appModel)
-            .environmentObject(objects.pixoniaScene)
     }
 }

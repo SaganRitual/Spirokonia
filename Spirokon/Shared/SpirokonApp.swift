@@ -39,29 +39,10 @@ struct SpirokonApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Group {
-                #if os(iOS)
-                if UIDevice.current.userInterfaceIdiom == .phone {
-                    if deviceOrientation.orientation == .landscape {
-                        ContentView_HPhone()
-                    } else {
-                        ContentView_VPhone()
-                    }
-                } else {
-                    if deviceOrientation.orientation == .landscape {
-                        ContentView()
-                    } else {
-                        ContentView_VPhone()
-                    }
-                }
-                #else
-                ContentView()
-                #endif
-            }
-
-            .environmentObject(appModel)
-            .environmentObject(pixoniaScene)
-            .environmentObject(tumblerSelectorStateMachine)
+            ContentView()
+                .environmentObject(appModel)
+                .environmentObject(pixoniaScene)
+                .environmentObject(tumblerSelectorStateMachine)
         }
     }
 }

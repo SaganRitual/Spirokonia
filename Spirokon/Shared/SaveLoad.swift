@@ -93,7 +93,7 @@ struct SaveLoad: View {
 
 struct SaveLoad_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RunView()
             .environmentObject(AppModel())
     }
 }
