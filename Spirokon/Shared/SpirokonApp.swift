@@ -4,6 +4,7 @@ import SwiftUI
 
 @main
 struct SpirokonApp: App {
+    @State private var showWelcomeScreen = true
     @StateObject var appModel: AppModel
     @StateObject var pixoniaScene: PixoniaScene
     @StateObject var tumblerSelectorStateMachine: TumblerSelectorStateMachine
@@ -23,6 +24,12 @@ struct SpirokonApp: App {
         _appModel = StateObject(wrappedValue: appModel)
         _tumblerSelectorStateMachine = StateObject(wrappedValue: sm)
         _pixoniaScene = StateObject(wrappedValue: scene)
+
+        if let loaded = UserDefaults.standard.data(forKey: "showWelcomeScreenAtStartup") {
+            if let showWelcomeScreen = try? JSONDecoder().decode(Bool.self, from: loaded) {
+                _showWelcomeScreen = State(initialValue: showWelcomeScreen)
+            }
+        }
     }
 
     static func createAppModel() -> AppModel {
@@ -39,10 +46,11 @@ struct SpirokonApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(showWelcomeScreen: $showWelcomeScreen)
                 .environmentObject(appModel)
                 .environmentObject(pixoniaScene)
                 .environmentObject(tumblerSelectorStateMachine)
+                .environmentObject(deviceOrientation)
         }
     }
 }

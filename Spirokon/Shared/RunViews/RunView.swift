@@ -3,14 +3,13 @@
 import SwiftUI
 
 struct RunView: View {
-    #if os(iOS)
-    @StateObject private var deviceOrientation = DeviceOrientation()
-    #endif
+    @EnvironmentObject var deviceOrientation: DeviceOrientation
 
     var body: some View {
         #if os(iOS)
         if UIDevice.current.userInterfaceIdiom == .phone {
-            if deviceOrientation.orientation == .landscape {
+            if
+                deviceOrientation.orientation == .landscape {
                 RunView_HPhone()
             } else {
                 RunView_VPhone()

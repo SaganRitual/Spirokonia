@@ -3,8 +3,10 @@
 import SwiftUI
 
 struct WelcomeView_HPhone: View {
+    @Binding var showWelcomeScreen: Bool
+
     var body: some View {
-        WelcomeView_Phone()
+        WelcomeView_Phone(showWelcomeScreen: $showWelcomeScreen)
             .offset(x: 150)
             .foregroundColor(.white)
             .background(
@@ -17,7 +19,7 @@ struct WelcomeView_HPhone: View {
 
 struct WelcomeView_HPhone_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView_HPhone()
+        WelcomeView_HPhone(showWelcomeScreen: .constant(true))
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }

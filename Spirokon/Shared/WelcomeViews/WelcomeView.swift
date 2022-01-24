@@ -3,20 +3,20 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    #if os(iOS)
-    @StateObject private var deviceOrientation = DeviceOrientation()
-    #endif
+    @EnvironmentObject var deviceOrientation: DeviceOrientation
+
+    @Binding var showWelcomeScreen: Bool
 
     var body: some View {
         #if os(iOS)
         if UIDevice.current.userInterfaceIdiom == .phone {
             if deviceOrientation.orientation == .landscape {
-                WelcomeView_HPhone()
+                WelcomeView_HPhone(showWelcomeScreen: $showWelcomeScreen)
             } else {
-                WelcomeView_VPhone()
+                WelcomeView_VPhone(showWelcomeScreen: $showWelcomeScreen)
             }
         } else {
-            WelcomeView_VPhone()
+            WelcomeView_VPhone(showWelcomeScreen: $showWelcomeScreen)
         }
         #elseif os(macOS)
 
@@ -28,6 +28,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView(showWelcomeScreen: .constant(true))
     }
 }

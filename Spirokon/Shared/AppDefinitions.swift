@@ -65,4 +65,7 @@ enum AppDefinitions {
 
     static let showTextLabels = false
 
+    static var versionString: String {
+        (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String)!
+    }
 }

@@ -3,15 +3,15 @@
 import SwiftUI
 
 struct WelcomeView_Phone: View {
-    @State private var showWelcomeScreen = true
+    @Binding var showWelcomeScreen: Bool
+    @State var showWelcomeScreenAtStartup = true
 
     var body: some View {
         VStack {
-            Text("Welcome to SpiroZen 1.1")
+            Text("Welcome to SpiroZen \(AppDefinitions.versionString)")
                 .padding(.bottom)
 
-            Text("You'll feel a lot more Zen if we show you how to use the app.")
-            Text("To view a quick \"How To\" video, tap the video play icon below:")
+            Text("To watch a quick \"How To\" video, tap the video play icon below:")
                 .padding(.bottom)
 
             Link(
@@ -34,28 +34,37 @@ struct WelcomeView_Phone: View {
 
             Button(
                 action: {
-                    showWelcomeScreen.toggle()
+                    showWelcomeScreenAtStartup.toggle()
 
                     let encoder = JSONEncoder()
                     do {
-                        let json = try encoder.encode(showWelcomeScreen)
-                        UserDefaults.standard.set(json, forKey: "showWelcomeScreen")
+                        let json = try encoder.encode(showWelcomeScreenAtStartup)
+                        UserDefaults.standard.set(json, forKey: "showWelcomeScreenAtStartup")
                     } catch {
 
                     }
                 }, label: {
                     HStack {
-                        Image(systemName: showWelcomeScreen ? "square" : "checkmark.square")
+                        Image(systemName: showWelcomeScreenAtStartup ? "square" : "checkmark.square")
                         Text("Don't show this welcome screen again")
                     }
                 }
             )
+
+            Button(
+                action: {
+                    showWelcomeScreen.toggle()
+                },
+                label: {
+                    Text("Take me to SpiroZen")
+                }
+            ).buttonStyle(.bordered)
         }
     }
 }
 
 struct WelcomeView_Phone_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView_Phone()
+        WelcomeView_Phone(showWelcomeScreen: .constant(true), showWelcomeScreenAtStartup: true)
     }
 }
