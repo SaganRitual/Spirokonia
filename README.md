@@ -34,3 +34,7 @@ A toy, a virtual "spirograph", inspired by YouTuber Sort of School's #SoME1
 * Clone.
 * Checkout the `spirozen` branch.
 * Build one of the SpiroZen targets. The other targets are for developing new components.
+
+# Usage
+
+See my "Getting Started" [video](https://saganritual.github.io/spirozen-classic-getting-started/) at Gram Samantha's Software Shop
